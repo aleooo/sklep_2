@@ -6,6 +6,8 @@ def get_path_upload_to(instance):
     return f'products/{instance.name}/{instance.id}'
 
 
+
+
 class Products(models.Model):
     name = models.CharField(max_length=250)
     slug = models.SlugField()
