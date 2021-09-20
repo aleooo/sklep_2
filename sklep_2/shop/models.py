@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.deletion import CASCADE
 from django.db.models.query_utils import select_related_descend
 
 
@@ -6,9 +7,16 @@ def get_path_upload_to(instance):
     return f'products/{instance.name}/{instance.id}'
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+    slug = models.SlugField()
 
-
+    def __str__(self):
+        return self.name
+    
+    
 class Products(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=250)
     slug = models.SlugField()
     image = models.ImageField(upload_to=get_path_upload_to, default='empty.png')
