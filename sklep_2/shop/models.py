@@ -11,7 +11,7 @@ def get_path_upload_to(instance):
 class Products(models.Model):
     name = models.CharField(max_length=250)
     slug = models.SlugField()
-    image = models.ImageField(upload_to=get_path_upload_to)
+    image = models.ImageField(upload_to=get_path_upload_to, default='empty.png')
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     available = models.BooleanField(default=True)
