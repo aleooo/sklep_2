@@ -1,10 +1,31 @@
+from django.contrib.auth.models import AbstractUser
+from django.core import validators
+from django.core.validators import MaxLengthValidator, MinLengthValidator
 from django.db import models
-from django.db.models.deletion import CASCADE
-from django.db.models.query_utils import select_related_descend
 
 
 def get_path_upload_to(instance):
     return f'products/{instance.name}/{instance.id}'
+
+
+class Address(models.Model):
+    street = models.CharField(max_length=100)
+    street_number = models.CharField(max_length=10)
+    ZIP_code = models.CharField(max_length=15)
+    town = models.CharField(max_length=50)
+    country = models.CharField(max_length=50)
+
+
+class UserModel(AbstractUser):
+    address = models.ForeignKey(Address, models.SET_NULL, blank=True, null=True)
+    number = models.IntegerField(validators=[MaxLengthValidator(9), MinLengthValidator(9)])
+
+    class Meta:
+        ordering = ('-last_name', '-first_name')
+    
+    def __str__(self):
+        return f'{self.last_name} {self.first_name} {self.id}'
+    
 
 
 class Category(models.Model):
