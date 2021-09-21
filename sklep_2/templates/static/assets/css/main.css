@@ -42,6 +42,7 @@
 .left_icon{
     margin-right: 50px;
 }
+
 .toggle_bar{
     max-height: calc(-139px + 100vh);
     height: 400px;
@@ -50,6 +51,8 @@
     position: relative;
     margin-left: auto; 
     overflow-y: auto;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
    
     
 }
