@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
 
-from shop.models import Products, Category
+from shop.models import Products, Category, UserModel, Address
 
 
 class ModelsTestCase(TestCase):
@@ -19,6 +19,8 @@ class ModelsTestCase(TestCase):
                                 price=49.99,
                                 available=True,
                                 quantity_available=4)
+        address = Address.objects.create(street='Krotka', street_number='3', ZIP_code='08-116', town='Seroczyn', country='Poland')
+        UserModel.objects.create(username='aleo', first_name='alek', last_name='wiedenski', email='dwdawdw@gmail.com', address=address, number=333333333)
                                 
     def test_model_Category(self):
         category = Category.objects.first()
@@ -27,4 +29,12 @@ class ModelsTestCase(TestCase):
     def test_model_Product(self):
         products = Products.objects.all()
         self.assertEqual(len(products), 2)
+    
+    def test_model_Address(self):
+        address = Address.objects.first()
+        self.assertEqual(address.street, 'Krotka')
+
+    def test_model_UserModel(self):
+        user = UserModel.objects.first()
+        self.assertEqual(user.number, 333333333)
     
