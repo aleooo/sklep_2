@@ -1,6 +1,10 @@
+
 #main{
-    max-width: 1500px;
-    margin: 15px auto 0;
+    position: fixed;
+    width: 1500px;
+    margin: 15px auto 0; 
+    left: 0;
+    right: 0;
 }
 .logo {
     color:  #ff5a00;
@@ -37,4 +41,15 @@
 }
 .left_icon{
     margin-right: 50px;
+}
+.toggle_bar{
+    max-height: calc(-139px + 100vh);
+    height: 400px;
+    width: 300px;
+    background: gray;
+    position: relative;
+    margin-left: auto; 
+    overflow-y: auto;
+   
+    
 }
