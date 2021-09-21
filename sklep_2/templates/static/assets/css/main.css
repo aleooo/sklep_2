@@ -1,0 +1,40 @@
+#main{
+    max-width: 1500px;
+    margin: 15px auto 0;
+}
+.logo {
+    color:  #ff5a00;
+    font-size: 35px;
+    font-weight: 900;
+    font-family: 'Roboto', sans-serif;
+}
+#search_button{
+    background-color: #ff5a00;
+    border: none;
+    padding: 5px;
+    text-align: center;
+}
+.button_margin{
+    margin: auto;
+    color: white;
+}
+#search_button:hover{
+    opacity: 0.9;
+}
+.main_flex{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.main_icon{
+   
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.left_icon{
+    margin-right: 50px;
+}
