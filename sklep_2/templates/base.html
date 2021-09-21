@@ -12,32 +12,42 @@
     <title>Sklep_2</title>
 </head>
 <body>
-    <div id="main">
-        <header class='main_flex'>
-            <div>
-                <h1 class="logo">SKLEP_2</h1>
+    {% if main_bar %}
+        <div id="main">
+            <header class='main_flex'>
+                <div>
+                    <h1 class="logo">SKLEP_2</h1>
+                </div>
+                
+                <div id='search'>
+                    <form action="."></form>
+                    <button class='button' ><p class='button_margin'>SEARCH</p></button>
+                </div>
+                <div class='main_icon'>
+                    <div class='left left_icon'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                        </svg>
+                    </div>
+                    <div class='right toggle' onclick="sidebar()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16">
+                            <path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
+                        </svg>
+                    </div>
+                </div>
+
+            </header>
+            <div class='base_toggle_bar'>
+                <div class='toggle_bar' >
+                    <div class="toggle_bar_button">
+                        <button class="button "><a href="{% url 'shop:login' %}">LOGIN</a></button>
+                    </div>
+                    
+                </div>
             </div>
             
-            <div id='search'>
-                <form action="."></form>
-                <button id='search_button' ><p class='button_margin'>SEARCH</p></button>
-            </div>
-            <div class='main_icon'>
-                <div class='left left_icon'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
-                        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
-                    </svg>
-                </div>
-                <div class='right toggle' onclick="sidebar()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16">
-                        <path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
-                    </svg>
-                </div>
-            </div>
-
-        </header>
-        <div class='toggle_bar' ></div>
-    </div>
+        </div>
+    {% endif %}
     {% block content %}
     {% endblock content %}
     <script type="text/javascript" src="{% static 'assets/js/main.js' %}"></script>

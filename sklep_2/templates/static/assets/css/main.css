@@ -1,8 +1,16 @@
-
+body {
+    background: #ECEFF1;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
 #main{
     position: fixed;
-    width: 1500px;
-    margin: 15px auto 0; 
+    background: white;
+    width: 100vw;
+    height: 80px;
+     
     left: 0;
     right: 0;
 }
@@ -12,26 +20,33 @@
     font-weight: 900;
     font-family: 'Roboto', sans-serif;
 }
-#search_button{
+
+.button{
     background-color: #ff5a00;
     border: none;
-    padding: 5px;
+    padding: 5px 15px;
     text-align: center;
 }
 .button_margin{
     margin: auto;
     color: white;
+    letter-spacing: 2px;
 }
 #search_button:hover{
     opacity: 0.9;
 }
 .main_flex{
+    background: white;
+    max-width: 1500px;
+    height: 100%;
+    position:relative;
+
+    margin: 0 auto;
+    align-items: center;
+    
     display: flex;
     justify-content: space-between;
     
-}
-.main_icon{
-   
 }
 .left{
     float: left;
@@ -42,17 +57,36 @@
 .left_icon{
     margin-right: 50px;
 }
-
+.base_toggle_bar {
+    max-width: 1500px;
+    height: 0;
+    margin: 0 auto;
+}
 .toggle_bar{
     max-height: calc(-139px + 100vh);
     height: 400px;
     width: 300px;
-    background: gray;
+    background: white;
     position: relative;
     margin-left: auto; 
     overflow-y: auto;
     opacity: 0;
     transition: all 0.5s ease-in-out;
    
-    
+}
+.toggle_bar_button{
+    text-align: center;
+}
+.login-form {
+    width: 40%;
+
+    background: white;
+    margin: 10% auto 0;
+    text-align: center;
+
+}
+@media (max-width: 900px) {
+    .logo{
+        font-size: 20px;
+    }
 }

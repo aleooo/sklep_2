@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+    {% if form.errors %}
+        <p>
+            The username or password is incorrect.
+            Try again. 
+        </p>
+    {% endif %}
+    <div class="login-form">
+        <form action="{% url 'shop:login' %}" method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}" />
+            <button type='submit' class="button">Login</button>
+        </form>
+    </div>
+{% endblock content %}
