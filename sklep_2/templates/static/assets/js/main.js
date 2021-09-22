@@ -1,6 +1,6 @@
 // let get_sidebar = $('.toggle_bar');
 let get_sidebar = document.querySelector('.toggle_bar')
-let toggle = $('.toggle')
+let toggle = $('#toggle_grid')
 let sidebar_status = true;
 
 function sidebar() {

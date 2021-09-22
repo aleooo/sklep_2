@@ -4,4 +4,4 @@ from django.test import client
 from django.urls import reverse
 
 def main(request):
-    return HttpResponse('<h1>SHOP</h1>')
+    return render(request, 'base.html', {'main_bar': True})

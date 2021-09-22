@@ -18,7 +18,7 @@ class Address(models.Model):
 
 class UserModel(AbstractUser):
     address = models.ForeignKey(Address, models.SET_NULL, blank=True, null=True)
-    number = models.IntegerField(validators=[MaxLengthValidator(9), MinLengthValidator(9)])
+    number = models.IntegerField(validators=[MaxLengthValidator(9), MinLengthValidator(9)], blank=True, null=True)
 
     class Meta:
         ordering = ('-last_name', '-first_name')
@@ -50,6 +50,8 @@ class Products(models.Model):
 
     def __str__(self):
         return f'{self.name} {self.price} {self.available}'
+
+                                                                  
 
     
 

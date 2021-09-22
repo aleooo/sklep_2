@@ -3,18 +3,35 @@
 
 
 {% block content %}
-    {% if form.errors %}
-        <p>
-            The username or password is incorrect.
-            Try again. 
-        </p>
-    {% endif %}
+    
     <div class="login-form">
+        {% if form.errors %}
+            <p>
+                The username or password is incorrect.
+                Try again. 
+            </p>
+        {% endif %}
+        <h1 class='registration' >Log in</h1>
         <form action="{% url 'shop:login' %}" method="post">
-            {{ form.as_p }}
+            <div>
+                <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username" class='login_input'>
+            </div>
+            <div>
+                <input type="password" name="password" autocomplete="current-password" required="" id="id_password" class='login_input' >
+            </div>
             {% csrf_token %}
             <input type="hidden" name="next" value="{{ next }}" />
-            <button type='submit' class="button">Login</button>
+            <div class='bar_login'>
+                <a class='registration' href="">Forgot password</a>
+                <button type='submit' class="button login_input button_registration" id='login_button'><p class='button_margin'>LOGIN</p></button>
+            </div>
+
+            
         </form>
+    </div >
+
+    <div class="login-form">
+        <p class='left'>Don't have an account?</p>
+        <a class="registration left marg_1l" href="">SIGN UP</a>
     </div>
 {% endblock content %}
