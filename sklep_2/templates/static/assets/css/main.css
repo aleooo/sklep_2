@@ -112,9 +112,12 @@ a {
     margin: 5% auto 0;
     
 }
-.login_input {
+.login_input, .register_input, #id_password2, #id_password1 {
     margin: 1rem 0;
     width: 100%;
+}
+#id_username, #id_password1, #id_password2 {
+    border: 2px solid black;
 }
 h1.registration {
     text-align: left;
