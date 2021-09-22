@@ -24,10 +24,20 @@
             <div class='bar_login'>
                 <a class='registration' href="">Forgot password</a>
                 <button type='submit' class="button login_input button_registration" id='login_button'><p class='button_margin'>LOGIN</p></button>
+             
+          
             </div>
 
             
         </form>
+          <div class="align_i display_f">
+                <hr class="width_100">
+                <p id='hr_or'>or</p>
+                <hr class="width_100">
+            </div>
+              <button class="btn btn-primary mb-2">
+            <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+        </button>
     </div >
 
     <div class="login-form">

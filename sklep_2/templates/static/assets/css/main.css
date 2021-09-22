@@ -132,7 +132,19 @@ h1.registration {
 a.registration{
     color: #54cab6;
 }
-
+#hr_or{
+    padding: 0 0.5rem;
+     margin: 0;
+}
+.display_f{
+    display: flex;
+}
+.align_i{
+    align-items: center;
+}
+.width_100{
+    width: 100%;
+}
 @media (max-width: 900px) {
     .logo{
         font-size: 20px;
