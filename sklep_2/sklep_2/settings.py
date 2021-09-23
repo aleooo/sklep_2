@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'shop',
     'bootstrap5',
     'social_django',
+    'phonenumber_field',
     
 ]
 

@@ -2,6 +2,8 @@ from django.contrib.auth.models import AbstractUser
 from django.core import validators
 from django.core.validators import MaxLengthValidator, MinLengthValidator
 from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
+
 
 
 def get_path_upload_to(instance):
@@ -24,8 +26,7 @@ class Address(models.Model):
 
 class UserModel(AbstractUser):
     address = models.ForeignKey(Address, models.SET_NULL, blank=True, null=True)
-    number = models.IntegerField(validators=[MaxLengthValidator(9), MinLengthValidator(9)], blank=True, null=True)
-
+    number = PhoneNumberField(blank=True, null=True)
     class Meta:
         ordering = ('-last_name', '-first_name')
         verbose_name = 'UserModel'
