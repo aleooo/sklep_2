@@ -9,7 +9,7 @@ from .models import Category
 def main(request):
     categories = Category.objects.all()
 
-    return render(request, 'base.html', {'main_bar': True,
+    return render(request, 'content/main.html', {'main_bar': True,
                                         'categories': categories})
 
 
