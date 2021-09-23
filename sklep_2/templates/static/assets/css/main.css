@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
 body {
     background: #ECEFF1;
+    font-family: 'Raleway', sans-serif;
 }
 a {
     text-decoration: none;
     color: white;
+}
+a:hover{
+    color: white;
+}
+a.orange:hover {
+    color:#ff5a00;
 }
 #main{
     position: fixed;
@@ -13,6 +21,9 @@ a {
      
     left: 0;
     right: 0;
+}
+#main_filling{
+    height: 80px;
 }
 #main_registration{
     background: white;
@@ -34,6 +45,9 @@ a {
     border: none;
     padding: 5px 15px;
     text-align: center;
+}
+.button:hover{
+    opacity: 80%;
 }
 .button_margin{
     margin: auto;
@@ -85,7 +99,7 @@ a {
  #toggle_grid{
      grid-row: 2;
  } */
-.base_toggle_bar {
+.main {
     max-width: 1500px;
     height: 0;
     margin: 0 auto;
@@ -142,8 +156,51 @@ a.registration{
 .align_i{
     align-items: center;
 }
+.text_a_c{
+    text-align: center;
+}
+.float_l{
+    float: left;
+}
+.float_r{
+    float: right;
+}
 .width_100{
     width: 100%;
+}
+.margin_top_1{
+    margin-top: 1rem;
+}
+
+.padding_4{
+    padding: 0 4rem;
+}
+.margin_l{
+    margin-left: 1rem;
+}
+.black{
+    color: black;
+}
+.grid_main{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 1rem;
+    grid-template-rows: repeat(3, 200px);
+}
+#grid_main_category{
+    background: white;
+    grid-column: 1;
+    grid-row: 1/4;
+}
+#grid_main_advertisement {
+    grid-column: 2;
+    grid-row: 1/3;
+    background: white;
+}
+.advertisement{
+  width: 100%;
+  height: 100%;
+    
 }
 @media (max-width: 900px) {
     .logo{
@@ -152,4 +209,8 @@ a.registration{
     .login-form{
         width: 100%;
     }
+    .grid_main{
+         display:table;   
+    }
+
 }

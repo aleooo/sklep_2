@@ -20,7 +20,7 @@ class ModelsTestCase(TestCase):
                                 available=True,
                                 quantity_available=4)
         address = Address.objects.create(street='Krotka', street_number='3', ZIP_code='08-116', town='Seroczyn', country='Poland')
-        UserModel.objects.create(username='aleo', first_name='alek', last_name='wiedenski', email='dwdawdw@gmail.com', password='aleoaleo', address=address, number=333333333)
+        UserModel.objects.create(username='aleo', first_name='alek', last_name='wiedenski', email='dwdawdw@gmail.com', password='aleoaleo', address=address, number='333333333')
                                 
     def test_model_Category(self):
         category = Category.objects.first()
@@ -36,5 +36,5 @@ class ModelsTestCase(TestCase):
 
     def test_model_UserModel(self):
         user = UserModel.objects.first()
-        self.assertEqual(user.number, 333333333)
+        self.assertEqual(user.number, '333333333')
     
