@@ -15,6 +15,12 @@ class Address(models.Model):
     town = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
 
+    class Meta:
+        db_table = ''
+        managed = True
+        verbose_name = 'Address'
+        verbose_name_plural = 'Addresses'
+
 
 class UserModel(AbstractUser):
     address = models.ForeignKey(Address, models.SET_NULL, blank=True, null=True)
@@ -22,6 +28,8 @@ class UserModel(AbstractUser):
 
     class Meta:
         ordering = ('-last_name', '-first_name')
+        verbose_name = 'UserModel'
+        verbose_name_plural = 'UserModels'
     
     def __str__(self):
         return f'{self.last_name} {self.first_name} {self.id}'
@@ -35,8 +43,12 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
     
-class Products(models.Model):
+    
+class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=250)
     slug = models.SlugField()
@@ -50,6 +62,12 @@ class Products(models.Model):
 
     def __str__(self):
         return f'{self.name} {self.price} {self.available}'
+
+    class Meta:
+        db_table = 'Product'
+        managed = True
+        verbose_name = 'Product'
+        verbose_name_plural = 'Products'
 
                                                                   
 
