@@ -82,31 +82,21 @@ a.orange:hover {
 .marg_1r{
     margin-right: 1rem;
 }
-.left_icon{
-    margin-right: 50px;
-}
-/* .username_up_toggle{
-    display: inline-block;
-    color: #ff5a00;
-}
-.toggle_wrapper {
-    display: grid;
-    grid-template-columns: auto;
- }
- #up_toggle_grid{
-     grid-row: 1;
- }
- #toggle_grid{
-     grid-row: 2;
- } */
 .main {
     max-width: 1500px;
     height: 0;
     margin: 0 auto;
 }
+.main_icon{
+    width: 100px;
+}
+#main_icons{
+    width: 80px;
+    float: right;
+}
 .toggle_bar{
-    max-height: calc(-139px + 100vh);
-    height: 400px;
+
+    height: 40vh;
     width: 300px;
     background: white;
     position: relative;
@@ -198,6 +188,7 @@ a.registration{
     background: white;
 }
 .advertisement{
+
   width: 100%;
   height: 100%;
     
@@ -210,7 +201,37 @@ a.registration{
         width: 100%;
     }
     .grid_main{
-         display:table;   
+         display:block;  
     }
+    #grid_main_advertisement{
+        height: 200px;
+        width: 100%;
+    }
+    .main{
+        height: 100px;
+    }
+    .main_flex{
+        height: 100px;
+        display: grid;
+        grid-template-columns: 2.5fr  1fr;
+        grid-template-rows: 50px 50px;
+    }
+    #dlogo{
+        grid-column: 1;
+        grid-row: 1;
+    }
+    #search{
+        grid-column: 1/3;
+        grid-row: 2;
+    }
+    .main_icon{
+        grid-column: 2;
+        grid-row: 1;
+    }
+    .toggle_bar{
+        width: 100%;
+    }
+
+
 
 }
