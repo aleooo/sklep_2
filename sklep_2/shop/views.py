@@ -4,9 +4,13 @@ from django.test import client
 from django.urls import reverse
 
 from .forms import UserModelForm
+from .models import Category
 
 def main(request):
-    return render(request, 'base.html', {'main_bar': True})
+    categories = Category.objects.all()
+
+    return render(request, 'base.html', {'main_bar': True,
+                                        'categories': categories})
 
 
 def register(request):
