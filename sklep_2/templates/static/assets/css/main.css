@@ -198,6 +198,14 @@ a.registration{
   height: 100%;
     
 }
+.image_grid{
+    height: 180px;
+    } 
+.imgf{
+    display: flex;
+
+    padding: 10px 0;
+}
 @media (max-width: 900px) {
     .logo{
         font-size: 20px;

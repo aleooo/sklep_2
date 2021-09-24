@@ -4,13 +4,17 @@ from django.test import client
 from django.urls import reverse
 
 from .forms import UserModelForm
-from .models import Category
+from .models import Category, Product
 
 def main(request):
     categories = Category.objects.all()
+    products = Product.objects.all()
+    if len(products) > 8 :
+        products = products[:8]
 
     return render(request, 'content/main.html', {'main_bar': True,
-                                        'categories': categories})
+                                                 'categories': categories,
+                                                 'products': products})
 
 
 def register(request):
