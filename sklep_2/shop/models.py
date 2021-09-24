@@ -1,3 +1,5 @@
+import os
+
 from django.contrib.auth.models import AbstractUser
 from django.core import validators
 from django.core.validators import MaxLengthValidator, MinLengthValidator
@@ -6,8 +8,10 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 
-def get_path_upload_to(instance):
-    return f'products/{instance.name}/{instance.id}'
+def get_path_upload_to(self, filename):
+    extension = filename.split('.')[-1]
+    filename = f'{self.id}.{extension}'
+    return os.path.join(f'products/', filename)
 
 
 class Address(models.Model):
