@@ -161,9 +161,14 @@ a.registration{
 .margin_top_1{
     margin-top: 1rem;
 }
-
+.margin_0{
+    margin: 0;
+}
 .padding_4{
     padding: 0 4rem;
+}
+.padding_1{
+    padding: 1rem;
 }
 .margin_l{
     margin-left: 1rem;
@@ -175,7 +180,7 @@ a.registration{
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     gap: 1rem;
-    grid-template-rows: repeat(3, 200px);
+    grid-template-rows: repeat(3, 200px) 150px;
 }
 #grid_main_category{
     background: white;
@@ -189,8 +194,13 @@ a.registration{
 }
 #grid_main_products{
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 3/5;
     background-color: white;
+}
+#grid_product_text{
+    width: 180px;
+    word-break: break-word;
+    padding-top: 1rem;
 }
 .advertisement{
 
@@ -200,13 +210,17 @@ a.registration{
 }
 .image_grid{
     height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    
     } 
 .imgf{
     display: flex;
-
+    justify-content: space-around;
     padding: 10px 0;
 }
 @media (max-width: 900px) {
+
     .logo{
         font-size: 20px;
     }
@@ -219,6 +233,9 @@ a.registration{
     #grid_main_advertisement{
         height: 200px;
         width: 100%;
+    }
+    #grid_main_products{
+        display: none;
     }
     .main{
         height: 100px;

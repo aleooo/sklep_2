@@ -41,13 +41,21 @@
                             </div>
                         </div>
 
-                        <div id="grid_main_products">            
+                        <div id="grid_main_products">    
+                            <strong><p class='padding_1'>Popular for sale</p></strong>
                             <div id="carouselExampleIndicators" class="carousel slide" data-type="carousel">                    
                                 <div class="carousel-inner">                          
                                     <div class="carousel-item active ">
                                         <div class="imgf width_100">
                                             {% for product in products|slice:":4" %}
-                                            <img src="{{ product.image.url }}" class=" image_grid  w-auto mx-auto" >
+                                            <div style=''>
+                                                <div>
+                                                    <img src="{{ product.image.url }}" class=" image_grid  mx-auto" >
+                                                </div>
+                                                <div id='grid_product_text'>
+                                                    <p class='text_a_c margin_0'>{{ product.name }}</p>
+                                                </div>
+                                            </div>
                                             {% endfor %}
                                         </div>     
                                     </div>
@@ -55,7 +63,7 @@
                                     <div class="carousel-item ">
                                         <div class="imgf width_100">
                                             {% for product in products|slice:"4:8" %}
-                                                <img src="{{ product.image.url }}" class=" image_grid  w-auto mx-auto" >
+                                                <img src="{{ product.image.url }}" class=" image_grid  mx-auto" >
                                             {% endfor %}
                                          </div>
                                     </div>  
