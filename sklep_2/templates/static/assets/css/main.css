@@ -38,6 +38,7 @@ a.orange:hover {
     font-size: 35px;
     font-weight: 900;
     font-family: 'Roboto', sans-serif;
+    padding: 1rem;
 }
 
 .button{
@@ -69,6 +70,12 @@ a.orange:hover {
     display: flex;
     justify-content: space-between;
     
+}
+#input_search{
+    max-width: 250px;
+}
+.width_max_400{
+    max-width: 400px;
 }
 .left{
     float: left;
@@ -164,6 +171,9 @@ a.registration{
 .margin_0{
     margin: 0;
 }
+.margin_0auto{
+    margin: 0 auto;
+}
 .padding_4{
     padding: 0 4rem;
 }
@@ -228,7 +238,8 @@ a.registration{
         width: 100%;
     }
     .grid_main{
-         display:block;  
+         display:block;
+         margin-top: 2rem;  
     }
     #grid_main_advertisement{
         height: 200px;
@@ -237,7 +248,7 @@ a.registration{
     #grid_main_products{
         display: none;
     }
-    .main{
+    #main{
         height: 100px;
     }
     .main_flex{

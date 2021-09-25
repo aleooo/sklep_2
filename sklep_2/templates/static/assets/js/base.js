@@ -2,8 +2,21 @@ let get_sidebar = document.querySelector('.toggle_bar')
 let toggle = $('#toggle_grid')
 let slid = document.querySelector('#carouselExampleSlidesOnly')
 let sidebar_status = true;
+let input_search = $('#input_search')
 
 
+function getCookie(c_name) {
+    if(document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(c_name + "=");
+        if(c_start != -1) {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if(c_end == -1) c_end = document.cookie.length;
+            return unescape(document.cookie.substring(c_start,c_end));
+        }
+    }
+    return "";
+} 
 function sidebar() {
     if (sidebar_status === true){
         get_sidebar.style.opacity = '1';
@@ -22,3 +35,29 @@ function sidebar() {
         sidebar_status = true;
     }
 }
+
+function sendtext(text){
+    $.ajax({
+        type: "POST",
+        url: "/search/",
+        data: {
+            'csrfmiddlewaretoken': getCookie("csrftoken"),
+            'text': text,
+        },
+        success: function (list) {
+            console.log(list)
+            
+        }
+    });
+}
+
+input_search.keyup(w => { 
+    let words = w.target.value
+    let len = parseInt(w.target.textLength)
+    if (len){
+        
+    }
+    sendtext(words)
+
+});
+

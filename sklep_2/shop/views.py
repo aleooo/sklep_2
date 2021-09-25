@@ -1,3 +1,4 @@
+from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.test import client
@@ -26,3 +27,23 @@ def register(request):
     else:
         user_form = UserModelForm()
     return render(request, 'registration/register.html', {'user_form': user_form})
+
+
+def search(request):
+    if request.is_ajax():
+        text = request.POST.get('text')
+        products = Product.objects.filter(name__icontains=text)[:8]
+        data = []
+        if len(products) > 0 and len(text) > 0:     
+            for product in products:
+                item =  {
+                    'id': product.id,
+                    'name': product.name,
+                    'image': str(product.image.url),
+                    'price': product.price,
+                    'description': product.description
+                }
+                data.append(item)
+        return JsonResponse({'data': data})
+
+        
