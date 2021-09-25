@@ -3,6 +3,8 @@ let toggle = $('#toggle_grid')
 let slid = document.querySelector('#carouselExampleSlidesOnly')
 let sidebar_status = true;
 let input_search = $('#input_search')
+var search_box = $('.search_box')
+var search_list = $('#list_search_box')
 
 
 function getCookie(c_name) {
@@ -45,7 +47,13 @@ function sendtext(text){
             'text': text,
         },
         success: function (list) {
-            console.log(list)
+            var array_products = ``
+            for (i=0;i < list.data.length;i++){
+                array_products += '<a href="#" class="list-group-item list-group-item-action " aria-current="true">' + list.data[i].name + '</a>'
+            }
+            search_list.html(array_products)
+            
+            
             
         }
     });
@@ -54,10 +62,21 @@ function sendtext(text){
 input_search.keyup(w => { 
     let words = w.target.value
     let len = parseInt(w.target.textLength)
-    if (len){
-        
+    if (len > 0){
+        search_box.addClass('active_search')
     }
     sendtext(words)
 
 });
 
+document.onclick = function (e) {
+    if (e.target.id != 'input_search'){
+        search_box.removeClass('active_search')
+    }
+    else{
+        if (e.target.value != ''){
+            search_box.addClass('active_search')
+        }
+        
+    }
+}
