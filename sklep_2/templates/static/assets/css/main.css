@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=B612+Mono:ital@1&display=swap');
 body {
     background: #ECEFF1;
     font-family: 'Raleway', sans-serif;
+}
+.font_numbers{
+    font-family: 'B612 Mono', monospace;
 }
 a {
     text-decoration: none;
@@ -110,7 +114,6 @@ a.orange:hover {
 }
 .main {
     max-width: 1500px;
-    height: 0;
     margin: 0 auto;
 }
 .main_icon{
@@ -119,6 +122,24 @@ a.orange:hover {
 #main_icons{
     width: 80px;
     float: right;
+}
+#detail{
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+}
+.detail_div{
+    width: 50%;
+}
+.detail_div_info{
+
+
+}
+.detail_image{
+    width: 70%;
+    height: 70%;
 }
 .toggle_bar{
 
@@ -175,6 +196,15 @@ a.registration{
 .text_a_c{
     text-align: center;
 }
+.font_size_1{
+    font-size: 1rem;
+}
+.font_size_15{
+    font-size: 1.5rem;
+}
+.font_size_2{
+    font-size: 2rem;
+}
 .float_l{
     float: left;
 }
@@ -183,6 +213,9 @@ a.registration{
 }
 .width_100{
     width: 100%;
+}
+.width_50{
+    width: 50%;
 }
 .height_100{
     height: 100%;
@@ -202,6 +235,9 @@ a.registration{
 .padding_4{
     padding: 0 4rem;
 }
+.padding_ud_4{
+    padding: 4rem 0;
+}
 .padding_1{
     padding: 1rem;
 }
@@ -211,11 +247,19 @@ a.registration{
 .black{
     color: black;
 }
+.white{
+    background: white;
+}
+
 .grid_main{
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     gap: 1rem;
     grid-template-rows: repeat(4, 200px);
+}
+#grid_under_main{
+    display: grid;
+    grid-template-columns: ;
 }
 #grid_main_category{
     background: white;
@@ -230,7 +274,7 @@ a.registration{
 #grid_main_products{
     grid-column: 2;
     grid-row: 3/5;
-    background-color: white;
+    
 }
 #grid_product_text{
     width: 180px;
@@ -246,6 +290,10 @@ a.registration{
 #grid_main_sale_promotion{
     grid-column: 1;
     grid-row: 4;
+}
+#grid_main_1{
+    grid-column: 3;
+    grid-row: 3/5;
 }
 
 .advertisement{
@@ -265,7 +313,13 @@ a.registration{
     justify-content: space-around;
     padding: 10px 0;
 }
-@media (max-width: 600px) {
+@media (max-width: 813px) {
+    #detail{
+        flex-direction: column;
+    }
+    .detail_div{
+        width: 100%;
+    }
     .search_box{
         top: 100px;
         width: 90%;

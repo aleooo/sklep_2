@@ -49,7 +49,7 @@ function sendtext(text){
         success: function (list) {
             var array_products = ``
             for (i=0;i < list.data.length;i++){
-                array_products += '<a href="#" class="list-group-item list-group-item-action " aria-current="true">' + list.data[i].name + '</a>'
+                array_products += '<a href="' + list.data[i].url + '" class="list-group-item list-group-item-action " aria-current="true">' + list.data[i].name + '</a>'
             }
             search_list.html(array_products)
             

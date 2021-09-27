@@ -41,9 +41,20 @@ def search(request):
                     'name': product.name,
                     'image': str(product.image.url),
                     'price': product.price,
-                    'description': product.description
+                    'description': product.description,
+                    'url': product.get_absolute_url()
                 }
                 data.append(item)
         return JsonResponse({'data': data})
+
+
+def detail(request, slug, **kwargs):
+    product = Product.objects.get(slug=slug)
+    price = str(product.price)
+    return render(request, 'content/detail.html', {'product': product,
+                                                   'main_bar': True,
+                                                   'price': price})
+
+
 
         

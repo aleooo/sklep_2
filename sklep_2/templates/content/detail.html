@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div id="detail" class="white">
+        <div class="detail_div  align_i display_f">
+            <img class='detail_image margin_0auto' src="{{ product.image.url }}">
+        </div>
+        <div class="detail_div  padding_ud_4">       
+                <strong><p class='font_size_15'>{{ product.name }}</p></strong>
+                <div style="display: inline-block;" >
+                   
+                    <span class='font_size_2 font_numbers'>{{ price|slice:':-3'}}</span><span class='font_size_15 font_numbers' >.{{ price|slice:'-2:' }}</span>
+                </div>
+                
+        </div>
+    </div>
+
+
+{% endblock content %}

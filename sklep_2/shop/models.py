@@ -1,5 +1,7 @@
 import os
 
+from django.urls import reverse
+
 from django.contrib.auth.models import AbstractUser
 from django.core import validators
 from django.core.validators import MaxLengthValidator, MinLengthValidator
@@ -65,14 +67,22 @@ class Product(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return f'{self.name} {self.price} {self.available}'
-
     class Meta:
         db_table = 'Product'
         managed = True
         verbose_name = 'Product'
         verbose_name_plural = 'Products'
+    
+    def __str__(self):
+        return f'{self.name} {self.price} {self.available}'
+
+    def get_absolute_url(self):
+        return reverse("shop:detail", args=[self.slug, 
+                                       self.created.strftime('%S'), 
+                                       self.created.strftime('%H')])
+    
+
+    
 
                                                                   
 
