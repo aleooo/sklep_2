@@ -1,28 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=B612+Mono:ital@1&display=swap');
+a.orange:hover {color:#ff5a00;}
 
-a.orange:hover {
-    color:#ff5a00;
-}
 #main{
     position: fixed;
     background: white;
     width: 100vw;
-    height: 80px;
-     
+    height: 80px; 
     left: 0;
     right: 0;
     z-index: 100;
 }
-#main_filling{
-    height: 80px;
-    
-}
+#main_filling{height: 80px;}
 #main_registration{
     background: white;
     width: 100vw;
     height: 80px;
-     
     left: 0;
     right: 0;
 }
@@ -39,10 +30,7 @@ a.orange:hover {
     z-index: 100;
 
 }
-.active_search{
-    display: block;
-}
-
+.active_search{display: block;}
 .logo {
     color:  #ff5a00;
     font-size: 35px;
@@ -65,39 +53,22 @@ a.orange:hover {
     color: white;
     letter-spacing: 2px;
 }
-#search_button:hover{
-    opacity: 0.9;
-}
+#search_button:hover{opacity: 0.9;}
 .main_flex{
     background: white;
     max-width: 1500px;
     height: 100%;
     position:relative;
-
     margin: 0 auto;
     align-items: center;
-    
     display: flex;
     justify-content: space-between;
-    
 }
-#input_search{
-    max-width: 250px;
-}
-
-.main {
-    max-width: 1500px;
-    margin: 0 auto;
-}
-.main_icon{
-    width: 100px;
-}
-#main_icons{
-    width: 80px;
-    float: right;
-}
-.toggle_bar{
-
+#input_search{max-width: 250px;}
+.main {max-width: 1500px;margin: 0 auto;}
+.main_icon{width: 100px;}
+#main_icons{width: 80px;float: right;}
+#toggle_bar{
     height: 40vh;
     width: 300px;
     background: white;
@@ -106,26 +77,16 @@ a.orange:hover {
     opacity: 0;
     transition: all 0.5s ease-in-out;
     z-index: 100;
-   
 }
 .toggle_bar_button{text-align: center;}
-
-#hr_or{
-    padding: 0 0.5rem;
-     margin: 0;
-}
-
-
+#hr_or{padding: 0 0.5rem;margin: 0;}
 .grid_main{
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     gap: 1rem;
     grid-template-rows: repeat(4, 200px);
 }
-#grid_under_main{
-    display: grid;
-    
-}
+#grid_under_main{display: grid;}
 #grid_main_category{
     background: white;
     grid-column: 1;
@@ -139,8 +100,7 @@ a.orange:hover {
 #grid_main_products{
     grid-column: 2;
     grid-row: 3/5;
-    
-}q
+}
 #grid_product_text{
     width: 180px;
     word-break: break-word;
@@ -148,10 +108,8 @@ a.orange:hover {
 }
 #grid_main_old_advertisement{
     grid-column: 3;
-    grid-row: 1/3;
-    
+    grid-row: 1/3;   
 }
-
 #grid_main_sale_promotion{
     grid-column: 1;
     grid-row: 4;
@@ -160,49 +118,30 @@ a.orange:hover {
     grid-column: 3;
     grid-row: 3/5;
 }
-
-.advertisement{
-
-  width: 100%;
-  height: 100%;
-    
-}
+.advertisement{width: 100%;height: 100%;}
 .image_grid{
     height: 180px;
     width: 180px;
     border-radius: 50%;
-    
     } 
 .imgf{
     display: flex;
     justify-content: space-around;
     padding: 10px 0;
 }
+
 @media (max-width: 813px) {
- 
+    #grid_main_advertisement{height: 200px; }
+    #grid_main_products{display: none;}
+    #main{height: 100px;}
     .search_box{
         top: 100px;
         width: 90%;
         height: 200px;
     }
-    .logo{
-        font-size: 20px;
-    }
+    .logo{font-size: 20px;}    
+    .grid_main{display:block;margin-top: 2rem;}
     
-    .grid_main{
-         display:block;
-         margin-top: 2rem;  
-    }
-    #grid_main_advertisement{
-        height: 200px;
-        width: 100%;
-    }
-    #grid_main_products{
-        display: none;
-    }
-    #main{
-        height: 100px;
-    }
     .main_flex{
         height: 100px;
         display: grid;
@@ -217,11 +156,11 @@ a.orange:hover {
         grid-column: 1/3;
         grid-row: 2;
     }
-    .main_icon{
+    #main_icon{
         grid-column: 2;
         grid-row: 1;
     }
-    .toggle_bar{
+    #toggle_bar{
         width: 100%;
     }
 }
