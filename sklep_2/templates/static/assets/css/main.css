@@ -65,7 +65,7 @@ a.orange:hover {color:#ff5a00;}
     justify-content: space-between;
 }
 #input_search{max-width: 250px;}
-.main {max-width: 1500px;margin: 0 auto;}
+.main {max-width: 1500px;margin: 0 auto; height: 0;}
 .main_icon{width: 100px;}
 #main_icons{width: 80px;float: right;}
 #toggle_bar{
@@ -74,6 +74,7 @@ a.orange:hover {color:#ff5a00;}
     background: white;
     position: relative;
     margin-left: auto; 
+    display: none;
     opacity: 0;
     transition: all 0.5s ease-in-out;
     z-index: 100;

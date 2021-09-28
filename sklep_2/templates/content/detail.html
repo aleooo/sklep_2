@@ -3,41 +3,46 @@
 {% load static %}
 
 {% block content %}
-    <div id="detail" class="white">
-        <div class="detail_div  align_i display_f">
+
+    <div id="detail" class="detail white margin_t">
+          
+        <div class="detail_div width_60 align_i display_f">
             <img class='detail_image margin_0auto' src="{{ product.image.url }}">
         </div>
-        <div class="detail_div  padding_ud_4">       
+        <div class="detail_div width_40 detail_right_div">       
                 <strong><p class='font_size_15'>{{ product.name }}</p></strong>
                 <div class='display_ib'>
                     <span class='font_size_2 font_numbers'>{{ price|slice:':-3'}}</span><span class='font_size_15 font_numbers' >.{{ price|slice:'-2:' }}</span>
                 </div>
-
-                
-                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-                 <div class="container mt-5">
-                     <div class="row">
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-4 col-sm-offset-4">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-light btn-sm border_1sg" id="minus-btn"><i class="fa fa-minus"></i></button>
-                                </div>
-                                <input type="number" id="qty_input" class="form-control form-control-sm border_1sg" value="1" min="1">
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-light btn-sm border_1sg" id="plus-btn"><i class="fa fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4"></div>
+                <hr class='margin'>
+                <form action="." method='post'>
+                <div class="input-group mb-3 margin_t">
+                    <div class="input-group-prepend">
+                        <button type='button' class="btn  btn-sm border_1sg border_r_0" id="minus"><i class="fa fa-minus"></i></button>
+                    </div>
+                    <input  id="input" class=" form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="1" min="1">
+                    <div class="input-group-prepend">
+                        <button type='button' class="btn  btn-sm border_1sg border_r_0" id="plus"><i class="fa fa-plus"></i></button>
                     </div>
                 </div>
-
-
-
-
-        </div>
+                
+                <button type='submit' class='button width_90 margin_b' ><p class='button_margin'>ADD TO CART</p></button>
+                <button class='button width_90 margin_b' ><p class='button_margin '>BUY NOW</p></button>
+                </form>
+        </div> 
+        
     </div>
+    <div class='detail margin_t white'>
+        <div class=' padding' >
+            <h3>Description</h3>
+            <p class='padding_l'>{{ product.description }}</p>
+        </div>
+    </div> 
+    <div class='detail margin_t white'>
+        <div class=' padding' >
+            <h3>Product reviews</h3>
+        </div>
+    </div> 
 
-    <script src='{% static 'assets/js/detail.js' %}'></script>
+    <script type='text/javascript' src="{% static 'assets/js/detail.js' %}"></script>
 {% endblock content %}
