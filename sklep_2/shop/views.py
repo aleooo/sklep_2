@@ -55,6 +55,16 @@ def detail(request, slug, **kwargs):
                                                    'main_bar': True,
                                                    'price': price})
 
+def list(request, category=None):
+    products = Product.objects.all()
+    if category:
+        cat = Category.objects.get(slug=category)
+        products = products.filter(category=cat)
+    
+    return render(request, 'content/list.html', {'main_bar': True,
+                                                 'products': products})
+    
+
 
 
         
