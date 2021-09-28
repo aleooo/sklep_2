@@ -7,11 +7,13 @@ a {text-decoration: none;color: white;}
 a:hover{color: white;}
 
 .align_i{align-items: center;}
+.basic{max-width: 1500px; margin: 0 auto;}
 .black{color: black;}
 .border_1sb{border: 1px solid black;}
 .border_1sg{border: 1px solid gray;}
 .border_r_0{border-radius: 0%;}
 .border_r_50{border-radius: 50%;}
+.color_gray{color:gray}
 .display_f{display: flex;}
 .display_ib{display: inline-block;}
 /* .font_numbers{font-family: 'B612 Mono', monospace;} */

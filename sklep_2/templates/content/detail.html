@@ -4,9 +4,9 @@
 
 {% block content %}
 
-    <div id="detail" class="detail white margin_t">
+    <div id="detail" class="basic white margin_t">
           
-        <div class="detail_div width_60 align_i display_f">
+        <div class="detail_div width_60 align_i display_f padding">
             <img class='detail_image margin_0auto' src="{{ product.image.url }}">
         </div>
         <div class="detail_div width_40 detail_right_div">       
@@ -16,6 +16,7 @@
                 </div>
                 <hr class='margin'>
                 <form action="." method='post'>
+                <p class='color_gray'>Number of items</p>
                 <div class="input-group mb-3 margin_t">
                     <div class="input-group-prepend">
                         <button type='button' class="btn  btn-sm border_1sg border_r_0" id="minus"><i class="fa fa-minus"></i></button>
@@ -32,13 +33,13 @@
         </div> 
         
     </div>
-    <div class='detail margin_t white'>
+    <div class='basic margin_t white'>
         <div class=' padding' >
             <h3>Description</h3>
             <p class='padding_l'>{{ product.description }}</p>
         </div>
     </div> 
-    <div class='detail margin_t white'>
+    <div class='basic margin_t white'>
         <div class=' padding' >
             <h3>Product reviews</h3>
         </div>
