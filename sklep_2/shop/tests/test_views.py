@@ -44,6 +44,11 @@ class ViewTestCase(TestCase):
         response = self.client.post(reverse('shop:register'), data=query)
         self.assertEqual(response.status_code, 302)
     
+    def test_detail(self):
+        product = Product.objects.first()
+        response = self.client.get(product.get_absolute_url()) 
+        self.assertEqual(response.status_code, 200)  
+        
     # def test_login(self):
     #     response = self.client.post(reverse('shop:login'), data={'username': 'aleo', 'password': 'aleoaleo'})
     #     self.assertEqual(response.status_code, 302)
