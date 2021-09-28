@@ -1,0 +1,26 @@
+
+.detail_div{
+    width: 50%;
+}
+.detail_div_info{
+
+}
+.detail_image{
+    width: 70%;
+    height: 70%;
+}
+#detail{
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+}
+@media (max-width: 813px) {
+    #detail{
+        flex-direction: column;
+    }
+    .detail_div{
+        width: 100%;
+    }
+}

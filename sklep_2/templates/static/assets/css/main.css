@@ -1,19 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=B612+Mono:ital@1&display=swap');
-body {
-    background: #ECEFF1;
-    font-family: 'Raleway', sans-serif;
-}
-.font_numbers{
-    font-family: 'B612 Mono', monospace;
-}
-a {
-    text-decoration: none;
-    color: white;
-}
-a:hover{
-    color: white;
-}
+
 a.orange:hover {
     color:#ff5a00;
 }
@@ -97,21 +84,7 @@ a.orange:hover {
 #input_search{
     max-width: 250px;
 }
-.width_max_400{
-    max-width: 400px;
-}
-.left{
-    float: left;
-}
-.right{
-    float: right;
-}
-.marg_1l{
-    margin-left: 1rem;
-}
-.marg_1r{
-    margin-right: 1rem;
-}
+
 .main {
     max-width: 1500px;
     margin: 0 auto;
@@ -122,24 +95,6 @@ a.orange:hover {
 #main_icons{
     width: 80px;
     float: right;
-}
-#detail{
-    max-width: 1500px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    margin-top: 1rem;
-}
-.detail_div{
-    width: 50%;
-}
-.detail_div_info{
-
-
-}
-.detail_image{
-    width: 70%;
-    height: 70%;
 }
 .toggle_bar{
 
@@ -153,103 +108,13 @@ a.orange:hover {
     z-index: 100;
    
 }
-.toggle_bar_button{
-    text-align: center;
-}
-.login-form {
-    width: 30%;
-    padding: 1rem 1rem 5rem 1rem;
-    background: white;
-    margin: 5% auto 0;
-    
-}
-.login_input, .register_input, #id_password2, #id_password1 {
-    margin: 1rem 0;
-    width: 100%;
-}
-#id_username, #id_password1, #id_password2 {
-    border: 1px solid black;
-}
-h1.registration {
-    text-align: left;
-}
-.button_registration {
-    width: 40%;
-}
-.bar_login{
-    display: flex;
-    justify-content: space-between;
-}
-a.registration{
-    color: #54cab6;
-}
+.toggle_bar_button{text-align: center;}
+
 #hr_or{
     padding: 0 0.5rem;
      margin: 0;
 }
-.display_f{
-    display: flex;
-}
-.align_i{
-    align-items: center;
-}
-.text_a_c{
-    text-align: center;
-}
-.font_size_1{
-    font-size: 1rem;
-}
-.font_size_15{
-    font-size: 1.5rem;
-}
-.font_size_2{
-    font-size: 2rem;
-}
-.float_l{
-    float: left;
-}
-.float_r{
-    float: right;
-}
-.width_100{
-    width: 100%;
-}
-.width_50{
-    width: 50%;
-}
-.height_100{
-    height: 100%;
-}
-.margin_top_1{
-    margin-top: 1rem;
-}
-.margin_top_2{
-    margin-top: 2rem;
-}
-.margin_0{
-    margin: 0;
-}
-.margin_0auto{
-    margin: 0 auto;
-}
-.padding_4{
-    padding: 0 4rem;
-}
-.padding_ud_4{
-    padding: 4rem 0;
-}
-.padding_1{
-    padding: 1rem;
-}
-.margin_l{
-    margin-left: 1rem;
-}
-.black{
-    color: black;
-}
-.white{
-    background: white;
-}
+
 
 .grid_main{
     display: grid;
@@ -259,7 +124,7 @@ a.registration{
 }
 #grid_under_main{
     display: grid;
-    grid-template-columns: ;
+    
 }
 #grid_main_category{
     background: white;
@@ -275,7 +140,7 @@ a.registration{
     grid-column: 2;
     grid-row: 3/5;
     
-}
+}q
 #grid_product_text{
     width: 180px;
     word-break: break-word;
@@ -314,12 +179,7 @@ a.registration{
     padding: 10px 0;
 }
 @media (max-width: 813px) {
-    #detail{
-        flex-direction: column;
-    }
-    .detail_div{
-        width: 100%;
-    }
+ 
     .search_box{
         top: 100px;
         width: 90%;
@@ -328,9 +188,7 @@ a.registration{
     .logo{
         font-size: 20px;
     }
-    .login-form{
-        width: 100%;
-    }
+    
     .grid_main{
          display:block;
          margin-top: 2rem;  
@@ -366,7 +224,4 @@ a.registration{
     .toggle_bar{
         width: 100%;
     }
-
-
-
 }

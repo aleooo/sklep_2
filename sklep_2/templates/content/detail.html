@@ -9,13 +9,35 @@
         </div>
         <div class="detail_div  padding_ud_4">       
                 <strong><p class='font_size_15'>{{ product.name }}</p></strong>
-                <div style="display: inline-block;" >
-                   
+                <div class='display_ib'>
                     <span class='font_size_2 font_numbers'>{{ price|slice:':-3'}}</span><span class='font_size_15 font_numbers' >.{{ price|slice:'-2:' }}</span>
                 </div>
+
                 
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+                 <div class="container mt-5">
+                     <div class="row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-light btn-sm" id="minus-btn"><i class="fa fa-minus"></i></button>
+                                </div>
+                                <input type="number" id="qty_input" class="form-control form-control-sm" value="1" min="1">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-light btn-sm" id="plus-btn"><i class="fa fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                </div>
+
+
+
+
         </div>
     </div>
 
-
+    <script src='{% static 'assets/js/detail.js' %}'></script>
 {% endblock content %}

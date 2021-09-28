@@ -1,0 +1,36 @@
+body {background: #ECEFF1;font-family: 'Raleway', sans-serif;}
+a {text-decoration: none;color: white;}
+a:hover{color: white;}
+
+
+.left{float: left;}
+.right{float: right;}
+
+.align_i{align-items: center;}
+.black{color: black;}
+
+.border_1sb{border: 1px solid black;}
+.display_f{display: flex;}
+.display_ib{display: inline-block;}
+.font_numbers{font-family: 'B612 Mono', monospace;}
+.font_size_1{font-size: 1rem;}
+.font_size_15{font-size: 1.5rem;}
+.font_size_2{font-size: 2rem;}
+.float_l{float: left;}
+.float_r{float: right;}
+.height_100{height: 100%;}
+.padding_4{padding: 0 4rem;}
+.padding_ud_4{padding: 4rem 0;}
+.padding_1{padding: 1rem;}
+.margin_l{margin-left: 1rem;}
+.margin_r{margin-right: 1rem;}
+.margin_top_1{margin-top: 1rem;}
+.margin_top_2{margin-top: 2rem;}
+.margin_0{margin: 0;}
+.margin_0auto{margin: 0 auto;}
+.text_a_c{text-align: center;}
+.white{background: white;}
+.width_50{width: 50%;}
+.width_100{width: 100%;}
+.width_max_400{max-width: 400px;}
+
