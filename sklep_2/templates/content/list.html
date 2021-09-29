@@ -1,18 +1,26 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load price_tags %}
 
 {% block content %}
-    <div class='basic margin_t'>
-        <div id='list_filter'>
+    <div class='basic margin_t' id='list'>
+        <div id='list_filter' class='white'>
             
         </div>
 
-        <div id='list_articles'>
+        <div id='list_articles' class='white'>
             {% for product in products %}
-                <article>
-                    {{ product.name }}
-                </article>
+                <a href="{{ product.get_absolute_url }}" class='list_object'>
+                    <article class='padding display_f height_250p list_object' >
+                        <img src="{{ product.image.url }}" class='list_image_size'>
+                        <div class='padding_lr_4'>
+                            <h4>{{ product.name }}</h4>
+                            <span class='font_size_2 font_numbers'>{{ product.price|price_front }}</span><span class='font_size_15 font_numbers' >{{ product.price|price_back }}</span>
+                        </div>
+                        
+                    </article>
+                </a>
             {% endfor %}
         </div>
     </div>

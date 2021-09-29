@@ -50,10 +50,9 @@ def search(request):
 
 def detail(request, slug, **kwargs):
     product = Product.objects.get(slug=slug)
-    price = str(product.price)
     return render(request, 'content/detail.html', {'product': product,
                                                    'main_bar': True,
-                                                   'price': price})
+                                                   })
 
 def list(request, category=None):
     if category:
