@@ -49,19 +49,27 @@ class ViewTestCase(TestCase):
     
     def test_detail(self):
         product = Product.objects.first()
-        response = self.client.get(product.get_absolute_url()) 
-        self.assertEqual(response.status_code, 200)  
-        self.assertIn('Django 3',response.content.decode('utf8'))
+        response = self.client.get(product.get_absolute_url())  
+        self.assertContains(response, 'Django 3')
     
     def test_list_search(self):
-        response = self.client.post(reverse('shop:list_search'), data={'search': 'P'})
-        self.assertEqual(response.status_code, 200)
-        self.assertIn('Peak', response.content.decode('utf8'))
+        response = self.client.get(reverse('shop:list_search', args=['p']))
+        self.assertContains(response, 'Peak')
     
+    def test_list_redirect_search(self):
+        response = self.client.get(reverse('shop:list'), data={'search': 'p'})
+        self.assertEqual(response.status_code, 302)
+        
     def test_list_category(self):
         response = self.client.get(reverse('shop:list_category', args=['books']))
-        self.assertEqual(response.status_code, 200)
-        self.assertIn('Django 3',response.content.decode('utf8'))
+        self.assertContains(response, 'Django 3')
+    
+    def test_list_filter_prices_products(self):
+        response = self.client.get(reverse('shop:list_category', args=['books']), data={'to': 50})
+        self.assertNotContains(response, 'Django 3')
+        self.assertContains(response, 'Peak')
+    
+
         
     # def test_login(self):
     #     response = self.client.post(reverse('shop:login'), data={'username': 'aleo', 'password': 'aleoaleo'})

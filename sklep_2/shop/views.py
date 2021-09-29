@@ -6,7 +6,7 @@ from django.urls import reverse
 
 from .forms import UserModelForm
 from .models import Category, Product
-from .utils import price_range_products
+from .utils import filter_prices_products
 
 def main(request):
     categories = Category.objects.all()
@@ -60,20 +60,18 @@ def list(request, category=None, text=None):
     if category:
         cat = Category.objects.get(slug=category)
         products = Product.objects.filter(category=cat)
-    elif request.method == 'POST':
-        return redirect(reverse('shop:list_search', args=[request.POST.get('search')]))
+    elif request.method == 'GET':
+        return redirect(reverse('shop:list_search', args=[request.GET.get('search')]))
     else:
         products = None
-    products = price_range_products(request, products)
+    products = filter_prices_products(request, products)
         
     return render(request, 'content/list.html', {'main_bar': True,
                                                  'products': products})
 
-
 def list_search(request, text):
-    print(request.GET)
     products = Product.objects.filter(name__icontains=text)
-    products = price_range_products(request, products)
+    products = filter_prices_products(request, products)
     return render(request, 'content/list.html', {'main_bar': True,
                                                  'products': products})
 

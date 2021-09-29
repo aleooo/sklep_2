@@ -1,4 +1,4 @@
-def price_range_products(*args, **kwargs):
+def filter_prices_products(*args, **kwargs):
     data = args[0].GET
     filter = data.get('filter')
     try:

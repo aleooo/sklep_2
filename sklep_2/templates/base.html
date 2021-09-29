@@ -21,7 +21,7 @@
                 </div>
                 
                 <div id='search' class="width_max_400 margin_0auto">              
-                    <form action="{% url 'shop:list' %}" method='post' class="d-flex">
+                    <form action="{% url 'shop:list' %}" method='get' class="d-flex">
                         {% csrf_token %}
                         <input id="input_search" class="form-control me-2" type="search" placeholder="Search" name='search'>
                         <button type='submit' class='button' ><p class='button_margin'>SEARCH</p></button>
