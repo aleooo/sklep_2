@@ -31,11 +31,14 @@
                     <label for="price_range_5">greater then 150</label>
                 </li>
             </ul> 
-            <form action="">
-                <span class='display_f align_i_c'>
-                    <input type="text" class='width_40 text_a_c padding_tb_05' placeholder='from'>
+     
+            <form action="" method='get' id='list_form_price'>
+                {% csrf_token %}
+                <span class='display_f align_i_c' >
+                    <input type="text" class='width_40 text_a_c padding_tb_05' placeholder='from' name='from'>
                     <p class='margin_lr_05 '>-</p>
-                    <input type="text" class='width_40 text_a_c padding_tb_05' placeholder='to'>
+                    <input type="text" class='width_40 text_a_c padding_tb_05' placeholder='to' name='to'>
+                    <button type='submit' style='display:none'></button>
                 </span>
             </form>
         </div>
@@ -58,4 +61,5 @@
             {% endfor %}
         </div>
     </div>
+    <script type="text/javascript" src="{% static 'assets/js/list.js' %}"></script>
 {% endblock content %}

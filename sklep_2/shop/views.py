@@ -71,6 +71,7 @@ def list(request, category=None, text=None):
 
 
 def list_search(request, text):
+    print(request.GET)
     products = Product.objects.filter(name__icontains=text)
     products = price_range_products(request, products)
     return render(request, 'content/list.html', {'main_bar': True,
