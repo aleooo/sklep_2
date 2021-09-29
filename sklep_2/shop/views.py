@@ -56,10 +56,14 @@ def detail(request, slug, **kwargs):
                                                    'price': price})
 
 def list(request, category=None):
-    products = Product.objects.all()
     if category:
         cat = Category.objects.get(slug=category)
-        products = products.filter(category=cat)
+        products = Product.objects.filter(category=cat)
+    elif request.method == 'POST':
+        print(request.POST)
+        products = Product.objects.filter(name__icontains=request.POST.get('search'))
+    else:
+        products = None
     
     return render(request, 'content/list.html', {'main_bar': True,
                                                  'products': products})

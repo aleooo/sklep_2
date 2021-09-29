@@ -11,6 +11,7 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('search/', views.search, name='search'),
     path('detail/<str:slug>/<int:seconds>/<int:hours>', views.detail, name='detail'),
-    path('list/<str:category>', views.list, name='list'),
+    path('list/<str:category>', views.list, name='list_category'),
+    path('list/', views.list, name='list_search'),
     path('', views.main, name='main'),
 ]

@@ -20,10 +20,11 @@
                     <a href="{% url 'shop:main' %}"><h1 class="logo">SKLEP_2</h1></a>
                 </div>
                 
-                <div id='search' class="width_max_400 margin_0auto">                   
-                    <form action="." class="d-flex">
-                        <input id="input_search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class='button' ><p class='button_margin'>SEARCH</p></button>
+                <div id='search' class="width_max_400 margin_0auto">              
+                    <form action="{% url 'shop:list_search' %}" method='post' class="d-flex">
+                        {% csrf_token %}
+                        <input id="input_search" class="form-control me-2" type="search" placeholder="Search" name='search'>
+                        <button type='submit' class='button' ><p class='button_margin'>SEARCH</p></button>
                     </form>
                 </div>
                 <div id='main_icon' >

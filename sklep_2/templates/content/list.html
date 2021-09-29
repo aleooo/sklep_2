@@ -1,6 +1,19 @@
-<div class='basic'>
-    {% for product in products %}
-        {{ product.name }}
-    {% endfor %}
+{% extends 'base.html' %}
 
-</div>
+{% load static %}
+
+{% block content %}
+    <div class='basic margin_t'>
+        <div id='list_filter'>
+            
+        </div>
+
+        <div id='list_articles'>
+            {% for product in products %}
+                <article>
+                    {{ product.name }}
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
