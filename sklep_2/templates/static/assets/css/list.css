@@ -14,10 +14,10 @@
     max-height: 250px;
 }
 .list_image_size{
-    height: 200px;
+    max-height: 200px;
+    max-width: 200px;
 }
 .list_object:hover{
     color: black;
-    background-color: rgb(231, 231, 231);
-    
+    background-color: rgb(231, 231, 231);   
 }
