@@ -11,6 +11,9 @@ from .utils import filter_prices_products
 def main(request):
     categories = Category.objects.all()
     products = Product.objects.all()
+    print(products)
+    for i in products:
+        print(i.category.name)
     if len(products) > 8 :
         products = products[:8]
 

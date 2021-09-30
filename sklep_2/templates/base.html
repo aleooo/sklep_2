@@ -34,10 +34,7 @@
                                 <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
                             </svg>
                         </div>
-                        <div class='right wrapper' onclick="sidebar()">
-                            {% comment %} <div id='up_toggle_grid'>
-                                {% if request.user.is_authenticated %}<span>Welcome, {{ request.user.username }}</span>{% endif %}
-                            </div> {% endcomment %}
+                        <div class='float_r wrapper' onclick="sidebar()">
                             <div id="toggle_grid">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-caret-up "  viewBox="0 0 16 16">
                                     <path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
