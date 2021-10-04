@@ -32,19 +32,59 @@
                 </li>
             </ul> 
      
-            <form action="" method='get' id='list_form_price'>
-                {% csrf_token %}
+            <form action='/list/search/a/b/' method='get' id='list_form_price'>
+                {% comment %} {% csrf_token %} {% endcomment %}
                 <span class='display_f align_i_c' >
-                    <input type="text" class='width_40 text_a_c padding_tb_05' placeholder='from' name='from'>
+                    <input type="text" class='width_40 text_a_c padding_tb_05' placeholder='from' name='from' id='list_input_from'>
                     <p class='margin_lr_05 '>-</p>
-                    <input type="text" class='width_40 text_a_c padding_tb_05' placeholder='to' name='to'>
+                    <input type="text" class='width_40 text_a_c padding_tb_05' placeholder='to' name='to' id='list_input_to'>
                     <button type='submit' style='display:none'></button>
                 </span>
             </form>
         </div>
 
         <div id='list_articles' class='white'>
-            {% for product in products %}
+            <nav aria-label="Page navigation example" class='margin_0auto width_200p'>
+                <ul class="pagination">
+                    {% if objects.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" id='list_laquo'  href="?page=1">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link"  href="#">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% for number_page in objects.paginator.page_range %}
+                        {% if number_page == objects.number %}
+                            <li class="page-item active"><a class="page-link" href="#">{{ number_page }}</a></li>
+                        {% else %}
+                            {% if number_page > objects.number|add:'-2' and  number_page < objects.number|add:'2' %}
+                                <li class="page-item"><a class="page-link pagination_a" href="?page={{ number_page }}">{{ number_page }}</a></li>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if objects.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" id="list_raquo" href="?page={{ objects.paginator.num_pages }}" name="{{ objects.paginator.num_pages }}">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+
+                </ul>
+            </nav>
+            {% for product in objects %}
                 <a href="{{ product.get_absolute_url }}" class='list_object'>
                     <article class='padding display_f height_250p list_object' >
                         <div class='width_200p'>

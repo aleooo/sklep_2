@@ -1,6 +1,7 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import HttpResponse
 from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
-from django.http import HttpResponse
 from django.test import client
 from django.urls import reverse
 
@@ -59,7 +60,7 @@ def detail(request, slug, **kwargs):
                                                    })
 
 def list(request, category=None, text=None):
-
+    print(request.GET)
     if category:
         cat = Category.objects.get(slug=category)
         products = Product.objects.filter(category=cat)
@@ -68,15 +69,36 @@ def list(request, category=None, text=None):
     else:
         products = None
     products = filter_prices_products(request, products)
+
+    page = request.GET.get('page')
+    paginator = Paginator(products, 2)
+
+    try:
+        objects_pagination = paginator.page(page)
+    except PageNotAnInteger:
+        objects_pagination = paginator.page(1)
+    except EmptyPage:
+        objects_pagination = paginator.page(paginator.num_pages)
         
     return render(request, 'content/list.html', {'main_bar': True,
-                                                 'products': products})
+                                                 'products': objects_pagination})
 
 def list_search(request, text):
+    print(request.GET)
     products = Product.objects.filter(name__icontains=text)
     products = filter_prices_products(request, products)
+    page = request.GET.get('page')
+    paginator = Paginator(products, 2)
+
+    try:
+        objects_pagination = paginator.page(page)
+    except PageNotAnInteger:
+        objects_pagination = paginator.page(1)
+    except EmptyPage:
+        objects_pagination = paginator.page(paginator.num_pages)
+    
     return render(request, 'content/list.html', {'main_bar': True,
-                                                 'products': products})
+                                                 'objects': objects_pagination})
 
     
 
