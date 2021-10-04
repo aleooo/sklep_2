@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=B612+Mono:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tourney&display=swap');
 
 body {background: #ECEFF1;font-family: 'Raleway', sans-serif;}
 a {text-decoration: none;color: rgb(0, 0, 0);}
@@ -9,18 +10,22 @@ a.button_white:hover{color: rgb(255, 255, 255)}
 a:hover{color: rgb(102, 160, 160);}
 
 .align_i_c{align-items: center;}
+.background_inherit{background: inherit;}
 .basic{max-width: 1500px; margin: 0 auto;}
 .border_1sb{border: 1px solid black;}
 .border_1sg{border: 1px solid gray;}
+.border_n{border: none;}
 .border_r_0{border-radius: 0%;}
 .border_r_50{border-radius: 50%;}
 .color_gray{color:rgb(121, 121, 121)}
 .color_white{color: rgb(255, 255, 255)}
 .color_black{color: rgb(0, 0, 0);}
+.color_green{color: rgb(102, 160, 160);}
 .display_f{display: flex;}
 .display_ib{display: inline-block;}
 /* .font_numbers{font-family: 'B612 Mono', monospace;} */
 .font_numbers{font-family:  Roboto,sans-serif;}
+.font_decorative{font-family: 'Tourney', cursive;}
 .font_size_1{font-size: 1rem;}
 .font_size_12{font-size: 1.2rem;}
 .font_size_15{font-size: 1.5rem;}
@@ -30,6 +35,7 @@ a:hover{color: rgb(102, 160, 160);}
 .height_100{height: 100%;}
 .html_list{list-style-type: none;}
 .padding{padding: 1rem;}
+.padding_0{padding: 0;}
 .paddding_b{padding-bottom: 1rem;}
 .padding_lr_4{padding: 0 4rem;}
 .padding_l{padding-left: 1rem;}
@@ -49,6 +55,7 @@ a:hover{color: rgb(102, 160, 160);}
 .margin{margin: 1rem;}
 .margin_0auto{margin: 0 auto;}
 .text_a_c{text-align: center;}
+.text_d{text-decoration: none;}
 .white{background: white;}
 .width_4{width: 4rem;}
 .width_40{width: 40%}

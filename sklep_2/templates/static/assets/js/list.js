@@ -3,7 +3,11 @@ var to = $('#list_input_to')
 var from = $('#list_input_from')
 var form_price = $('#list_form_price')
 var pagination = $('.pagination_a').prop("selectedIndex", 0)
+var filter_button = $('#list_filter')
 var slice = ''
+let number_from = ''
+let number_to = ''
+let form_price_action = location.pathname
 
 
 if (location.href.includes('filter') == true || location.href.includes('from')) {
@@ -20,10 +24,6 @@ if (location.href.includes('filter') == true || location.href.includes('from')) 
         pagination.each(function (index) {
             $(this).attr('href', slice + $(this)[0]['text'])
           })
-
-
-
-
     }
     else{
         pagination.attr('href', location.href.concat('&page=', pagination[0]['text']))
@@ -32,9 +32,7 @@ if (location.href.includes('filter') == true || location.href.includes('from')) 
     
 }
 
-let number_from = ''
-let number_to = ''
-let form_price_action = location.pathname
+
 form_price.attr("action", form_price_action)
 
 
@@ -50,3 +48,7 @@ from.keyup(w => {
     console.log(form_price_action)
 });
 
+
+function list_filter_button(){
+    filter_button.css('display', 'block')
+}

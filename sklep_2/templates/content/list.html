@@ -44,7 +44,9 @@
         </div>
 
         <div id='list_articles' class='white'>
-            <nav aria-label="Page navigation example" class='margin_0auto width_200p'>
+            <nav aria-label="Page navigation example" class='nav_pagination'>
+                <button class='padding_0 border_n margin_0 background_inherit' id='list_filter_button' onclick='list_filter_button()'><strong><p class='font_size_15 color_green' >Filters</p></strong></button>
+            
                 <ul class="pagination">
                     {% if objects.has_previous %}
                         <li class="page-item">
@@ -84,6 +86,7 @@
 
                 </ul>
             </nav>
+        
             {% for product in objects %}
                 <a href="{{ product.get_absolute_url }}" class='list_object'>
                     <article class='padding display_f height_250p list_object' >
