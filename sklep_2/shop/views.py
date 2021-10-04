@@ -69,7 +69,7 @@ def list(request, category=None, text=None):
     else:
         products = None
     products = filter_prices_products(request, products)
-
+    print(products)
     page = request.GET.get('page')
     paginator = Paginator(products, 2)
 
@@ -81,10 +81,9 @@ def list(request, category=None, text=None):
         objects_pagination = paginator.page(paginator.num_pages)
         
     return render(request, 'content/list.html', {'main_bar': True,
-                                                 'products': objects_pagination})
+                                                 'objects': objects_pagination})
 
 def list_search(request, text):
-    print(request.GET)
     products = Product.objects.filter(name__icontains=text)
     products = filter_prices_products(request, products)
     page = request.GET.get('page')
