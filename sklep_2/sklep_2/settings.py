@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',   
     'shop',
+    'cart',
     'bootstrap5',
     'social_django',
     'phonenumber_field',
