@@ -29,7 +29,7 @@
                 </div>
                 <div id='main_icon' >
                     <div id='main_icons'>
-                        <div class='float_l left_icon'>
+                        <div class='float_l left_icon' id='cart_icon'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
                                 <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
                             </svg>
@@ -47,7 +47,12 @@
                 
             </header>
 
-            <div class='main'>
+            <div class='main position_r'>
+                <div id='shopping_cart_bar'>
+                    {% comment %} <img class='height_100p' src="{{ cart.cart.2.image }}" alt="">
+                    <p>{{ cart.cart.2.quantity }} x </p> {% endcomment %}
+
+                </div>
                 <div id='toggle_bar'>
                     <div class="toggle_bar_button">
                         {% if user.is_authenticated %}

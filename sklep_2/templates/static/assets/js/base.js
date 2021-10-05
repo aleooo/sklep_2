@@ -5,6 +5,8 @@ let sidebar_status = true;
 let input_search = $('#input_search')
 var search_box = $('.search_box')
 var search_list = $('#list_search_box')
+var icon_cart = $('#cart_icon')
+var shopping_cart = $('#shopping_cart_bar')
 
 
 function getCookie(c_name) {
@@ -82,3 +84,17 @@ document.onclick = function (e) {
         
     }
 }
+
+function cart_shop(){
+    console.log(1)
+    shopping_cart.css('display', 'none')
+}
+icon_cart.hover(function () {
+    
+    shopping_cart.css('display', 'block')
+     setTimeout(cart_shop, 1000)
+     console.log(2)
+
+        
+    });
+
