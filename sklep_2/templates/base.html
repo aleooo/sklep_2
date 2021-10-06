@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static '/assets/css/main.css' %}"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Sklep_2</title>
+</head>
+<body>
+    {% if main_bar %}
+        <div id="main">
+            <header class='main_flex'>
+                <div id='dlogo'>
+                    <h1 class="logo">SKLEP_2</h1>
+                </div>
+                
+                <div id='search' class="width_max_400 margin_0auto">                   
+                    <form action="." class="d-flex">
+                        <input id="input_search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class='button' ><p class='button_margin'>SEARCH</p></button>
+                    </form>
+                </div>
+                <div class='main_icon' >
+                    <div id='main_icons'>
+                        <div class='left left_icon'>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                            </svg>
+                        </div>
+                        <div class='right wrapper' onclick="sidebar()">
+                            {% comment %} <div id='up_toggle_grid'>
+                                {% if request.user.is_authenticated %}<span>Welcome, {{ request.user.username }}</span>{% endif %}
+                            </div> {% endcomment %}
+                            <div id="toggle_grid">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-caret-up "  viewBox="0 0 16 16">
+                                    <path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
+                                </svg>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </header>
+
+            <div class='main'>
+                <div class='toggle_bar' >
+                    <div class="toggle_bar_button">
+                        {% if user.is_authenticated %}
+                            <button class="button "><a href="{% url 'shop:logout' %}">LOGOUT</a></button>
+                        {% else %}
+                           
+                            <button class="button "><a href="{% url 'shop:login' %}">LOGIN</a></button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='main' id='main_filling'>
+        </div>
+        <div class="search_box">
+            <div class="list-group" id="list_search_box" >       
+                        {% comment %} <a href="#" class="list-group-item list-group-item-action " aria-current="true">{{ product.name}}</a>   {% endcomment %}
+            </div>
+        </div>
+    {% else %}
+        <div id="main_registration">
+            <header class='main_flex'>
+                <div>
+                    <h1 class="logo">SKLEP_2</h1>
+                </div>
+            </header>    
+        </div>
+    {% endif %}
+
+    {% block content %}    
+    {% endblock content %}
+
+    <script type="text/javascript" src="{% static 'assets/js/base.js' %}"></script>
+</body>
+
+</html>
