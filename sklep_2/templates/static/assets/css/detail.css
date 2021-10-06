@@ -1,0 +1,13 @@
+#detail{
+    display: flex;
+    flex-direction: row;
+}
+.detail_right_div{
+    padding: 4rem 0 2rem 1rem;
+}
+.detail_image{max-width: 70%;max-height: 500px;}
+@media (max-width: 813px) {
+    #detail{flex-direction: column;}
+    .detail_div{width: 100% !important;}
+    .detail_image{max-height: 200px;}
+}

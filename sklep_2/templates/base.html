@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{% static '/assets/css/main.css' %}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static '/assets/css/base.css' %}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Sklep_2</title>
 </head>
@@ -16,26 +17,24 @@
         <div id="main">
             <header class='main_flex'>
                 <div id='dlogo'>
-                    <h1 class="logo">SKLEP_2</h1>
+                    <a href="{% url 'shop:main' %}"><h1 class="logo">SKLEP_2</h1></a>
                 </div>
                 
-                <div id='search' class="width_max_400 margin_0auto">                   
-                    <form action="." class="d-flex">
-                        <input id="input_search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class='button' ><p class='button_margin'>SEARCH</p></button>
+                <div id='search' class="width_max_400 margin_0auto">              
+                    <form action="{% url 'shop:list' %}" method='get' class="d-flex">
+                        {% csrf_token %}
+                        <input id="input_search" class="form-control me-2" type="search" placeholder="Search" name='search'>
+                        <button type='submit' class='button' ><p class='button_margin'>SEARCH</p></button>
                     </form>
                 </div>
-                <div class='main_icon' >
+                <div id='main_icon' >
                     <div id='main_icons'>
-                        <div class='left left_icon'>
+                        <div class='float_l left_icon' id='cart_icon'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
                                 <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
                             </svg>
                         </div>
-                        <div class='right wrapper' onclick="sidebar()">
-                            {% comment %} <div id='up_toggle_grid'>
-                                {% if request.user.is_authenticated %}<span>Welcome, {{ request.user.username }}</span>{% endif %}
-                            </div> {% endcomment %}
+                        <div class='float_r wrapper' onclick="sidebar()">
                             <div id="toggle_grid">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-caret-up "  viewBox="0 0 16 16">
                                     <path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
@@ -48,14 +47,19 @@
                 
             </header>
 
-            <div class='main'>
-                <div class='toggle_bar' >
+            <div class='main position_r'>
+                <div id='shopping_cart_bar'>
+                    {% comment %} <img class='height_100p' src="{{ cart.cart.2.image }}" alt="">
+                    <p>{{ cart.cart.2.quantity }} x </p> {% endcomment %}
+
+                </div>
+                <div id='toggle_bar'>
                     <div class="toggle_bar_button">
                         {% if user.is_authenticated %}
-                            <button class="button "><a href="{% url 'shop:logout' %}">LOGOUT</a></button>
+                            <button class="button "><a href="{% url 'shop:logout' %}" class='button_white'>LOGOUT</a></button>
                         {% else %}
                            
-                            <button class="button "><a href="{% url 'shop:login' %}">LOGIN</a></button>
+                            <button class="button "><a href="{% url 'shop:login' %}" class='button_white'>LOGIN</a></button>
                         {% endif %}
                     </div>
                 </div>
