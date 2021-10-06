@@ -1,11 +1,13 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import HttpResponse
 from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
-from django.http import HttpResponse
 from django.test import client
 from django.urls import reverse
 
 from .forms import UserModelForm
 from .models import Category, Product
+from .utils import filter_prices_products
 
 def main(request):
     categories = Category.objects.all()
@@ -50,10 +52,51 @@ def search(request):
 
 def detail(request, slug, **kwargs):
     product = Product.objects.get(slug=slug)
-    price = str(product.price)
     return render(request, 'content/detail.html', {'product': product,
                                                    'main_bar': True,
-                                                   'price': price})
+                                                   })
+
+def list(request, category=None, text=None):
+    print(request.GET)
+    if category:
+        cat = Category.objects.get(slug=category)
+        products = Product.objects.filter(category=cat)
+    elif request.method == 'GET':
+        return redirect(reverse('shop:list_search', args=[request.GET.get('search')]))
+    else:
+        products = None
+    products = filter_prices_products(request, products)
+    print(products)
+    page = request.GET.get('page')
+    paginator = Paginator(products, 2)
+
+    try:
+        objects_pagination = paginator.page(page)
+    except PageNotAnInteger:
+        objects_pagination = paginator.page(1)
+    except EmptyPage:
+        objects_pagination = paginator.page(paginator.num_pages)
+        
+    return render(request, 'content/list.html', {'main_bar': True,
+                                                 'objects': objects_pagination})
+
+def list_search(request, text):
+    products = Product.objects.filter(name__icontains=text)
+    products = filter_prices_products(request, products)
+    page = request.GET.get('page')
+    paginator = Paginator(products, 2)
+
+    try:
+        objects_pagination = paginator.page(page)
+    except PageNotAnInteger:
+        objects_pagination = paginator.page(1)
+    except EmptyPage:
+        objects_pagination = paginator.page(paginator.num_pages)
+    
+    return render(request, 'content/list.html', {'main_bar': True,
+                                                 'objects': objects_pagination})
+
+    
 
 
 
