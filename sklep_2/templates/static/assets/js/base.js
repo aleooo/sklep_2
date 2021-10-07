@@ -84,6 +84,7 @@ document.onclick = function (e) {
         
     }
 }
+
 function cart_time(){
     shopping_cart.hover(function (){
         clearTimeout(a)
@@ -91,17 +92,18 @@ function cart_time(){
         function(){  
             setTimeout(cart_shop, 300)
             })
-        a = setTimeout(cart_shop, 1000)
+    a = setTimeout(cart_shop, 1000)
     
     
  
 }
 function cart_shop(){
     shopping_cart.css('display', 'none')
+    
 }
 icon_cart.hover(function () {
     shopping_cart.css('display', 'block')
-        
+    clearTimeout(a) 
     }, cart_time);
 
 
