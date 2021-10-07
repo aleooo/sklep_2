@@ -7,13 +7,15 @@ from shop.models import Product, Category, UserModel, Address
 class ModelsTestCase(TestCase):
     def setUp(self):
         category = Category.objects.create(name='Books', slug='books')
-        Product.objects.create(name='Django 3',
+        Product.objects.create(category=category,
+                                name='Django 3',
                                 slug='django_3',
                                 description='practical web application development',
                                 price=69.99,
                                 available=True,
                                 quantity_available=13)
-        Product.objects.create(name='Peak',
+        Product.objects.create(category=category,
+                                name='Peak',
                                 slug='peak',
                                 description='Anyone who wants to get better at anything should read Peak',
                                 price=49.99,

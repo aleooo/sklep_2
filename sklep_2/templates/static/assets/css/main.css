@@ -68,6 +68,19 @@ a.orange:hover {color:#ff5a00;}
 .main {max-width: 1500px;margin: 0 auto; height: 0;}
 .main_icon{width: 100px;}
 #main_icons{width: 80px;float: right;}
+#shopping_cart_bar{
+
+    width: 500px;
+    height: 30vh;
+    border: 1px solid gray;
+    background: white;
+    position: absolute;
+    right: 0;
+    z-index: 101;
+    overflow-y: auto;
+    
+    /* display: none; */
+}
 #toggle_bar{
     height: 40vh;
     width: 300px;
@@ -75,8 +88,6 @@ a.orange:hover {color:#ff5a00;}
     position: relative;
     margin-left: auto; 
     display: none;
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
     z-index: 100;
 }
 .toggle_bar_button{text-align: center;}

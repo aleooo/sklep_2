@@ -1,27 +1,28 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load price_tags %}
 
 {% block content %}
 
     <div id="detail" class="basic white margin_t">
           
-        <div class="detail_div width_60 align_i display_f padding">
+        <div class="detail_div width_60 align_i_c display_f padding">
             <img class='detail_image margin_0auto' src="{{ product.image.url }}">
         </div>
         <div class="detail_div width_40 detail_right_div">       
                 <strong><p class='font_size_15'>{{ product.name }}</p></strong>
                 <div class='display_ib'>
-                    <span class='font_size_2 font_numbers'>{{ price|slice:':-3'}}</span><span class='font_size_15 font_numbers' >.{{ price|slice:'-2:' }}</span>
+                    <span class='font_size_2 font_numbers'>{{ product.price|price_front }}</span><span class='font_size_15 font_numbers' >{{ product.price|price_back }}</span>
                 </div>
                 <hr class='margin'>
-                <form action="." method='post'>
+                <form action="{% url 'cart:add' product.id %}" method='get'>
                 <p class='color_gray'>Number of items</p>
                 <div class="input-group mb-3 margin_t">
                     <div class="input-group-prepend">
                         <button type='button' class="btn  btn-sm border_1sg border_r_0" id="minus"><i class="fa fa-minus"></i></button>
                     </div>
-                    <input  id="input" class=" form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="1" min="1">
+                    <input  id="input" class=" form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="1" min="1" name='quantity'>
                     <div class="input-group-prepend">
                         <button type='button' class="btn  btn-sm border_1sg border_r_0" id="plus"><i class="fa fa-plus"></i></button>
                     </div>
