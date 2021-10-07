@@ -58,9 +58,7 @@
                                 <div class='padding_lr  display_ib '>
                                     <span class=' font_size_12 padding_r_05'>cart value:</span><span class='font_size_2 font_numbers'>{{ cart.total_value_cart|price_front }}</span><span class='font_size_15 font_numbers' >{{ cart.total_value_cart|price_back }}</span>
                                 </div>
-                            </div>
-                            
-                            
+                            </div>                                    
                         </div>
                     {% for item in cart %}
                         <div class='display_f justify_c_s_a padding_tb background_w margin_tb_05'>
@@ -75,11 +73,7 @@
                                     <span class='font_size_2 font_numbers'>{{ item.price|price_front }}</span><span class='font_size_15 font_numbers' >{{ item.price|price_back }}</span>
                                 </div>
                             </div>
-                        </div>
-                        
-                        
-                        
-                        
+                        </div>  
                     {% endfor %}
                 </div>
                 <div id='toggle_bar'>
