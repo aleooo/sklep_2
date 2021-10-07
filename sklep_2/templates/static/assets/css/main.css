@@ -74,6 +74,7 @@ a.orange:hover {color:#ff5a00;}
     height: 30vh;
     border: 1px solid gray;
     position: absolute;
+    display: none;
     right: 0;
     z-index: 101;
     overflow-y: auto;

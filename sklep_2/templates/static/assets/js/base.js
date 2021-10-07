@@ -84,17 +84,27 @@ document.onclick = function (e) {
         
     }
 }
-
+function cart_time(){
+    shopping_cart.hover(function (){
+        clearTimeout(a)
+        }, 
+        function(){  
+            setTimeout(cart_shop, 300)
+            })
+        a = setTimeout(cart_shop, 1000)
+    
+    
+ 
+}
 function cart_shop(){
-    console.log(1)
     shopping_cart.css('display', 'none')
 }
 icon_cart.hover(function () {
-    
     shopping_cart.css('display', 'block')
-     setTimeout(cart_shop, 1000)
-     console.log(2)
-
         
-    });
+    }, cart_time);
 
+
+
+
+    
