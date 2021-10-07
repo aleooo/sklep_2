@@ -49,18 +49,33 @@
             </header>
 
             <div class='main position_r'>
-                <div id='shopping_cart_bar'>
-                    {% for item in cart %}
-                        <div class='display_f justify_c_s_a padding_tb'>
-                            <div class='width_200p display_f align_i_c'>
-                                <img src="{{ item.image }}" class='height_100p padding_l_05'>
+                <div id='shopping_cart_bar' class='background_g'>
+                        <div class='display_f justify_c_s_b  background_w margin_tb_05'>
+                            <div class='padding_lr'>
+                                <strong><p class='font_size_15'>Cart</p></strong>
                             </div>
-                            <div class='width_200p text_a_c word_b_b_w display_f align_i_c'>
+                            <div class='display_f align_i_c'>
+                                <div class='padding_lr  display_ib '>
+                                    <span class=' font_size_12 padding_r_05'>cart value:</span><span class='font_size_2 font_numbers'>{{ cart.total_value_cart|price_front }}</span><span class='font_size_15 font_numbers' >{{ cart.total_value_cart|price_back }}</span>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                    {% for item in cart %}
+                        <div class='display_f justify_c_s_a padding_tb background_w margin_tb_05'>
+                            <div class='width_200p   text_a_c'>
+                                <img src="{{ item.image }}" class='height_100p  width_max_150'>
+                            </div>
+                            <div class='width_200p text_a_c word_b_b_w display_f align_i_c  padding_l_05'>
                                 <p>{{item.quantity}} x {{ item.name }}</p>
                             </div>
-                            <div class='width_100p text_a_c display_f align_i_c'>
-                                <span class='font_size_2 font_numbers'>{{ item.price|price_front }}</span><span class='font_size_15 font_numbers' >{{ item.price|price_back }}</span>
+                            <div class='display_f align_i_c'>
+                                <div class='width_100p text_a_c display_ib'>
+                                    <span class='font_size_2 font_numbers'>{{ item.price|price_front }}</span><span class='font_size_15 font_numbers' >{{ item.price|price_back }}</span>
+                                </div>
                             </div>
+                            
                         </div>
                         
                         

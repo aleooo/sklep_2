@@ -8,13 +8,17 @@ class Cart(object):
         self.session['add'] = False
         self.cart = self.session.setdefault('cart', {})
         
-    
+    def total_price_item(self, id):
+        self.cart[id]['total_price'] = str(self.cart[id]['quantity'] * Decimal(self.cart[id]['price']))
+
     def add(self, product, quantity):
         id_product = str(product.id)
         if id_product in self.cart:
             self.cart[id_product]['quantity'] += quantity
+            self.total_value_cart(id_product)
         else:
             self.cart[id_product] = {'quantity': quantity, 'price': str(product.price), 'name': product.name, 'image': product.image.url}
+            self.total_value_cart(id_product)
         self.session['add'] = True
         
     
@@ -26,13 +30,20 @@ class Cart(object):
 
 
     def __iter__(self):
-        # id_products = self.cart.keys()
-        # products = Product.objects.filter(id__in=id_products)
-        # cart = self.cart.copy()
-        # for product in products.values():
-        #     self.cart[str(product['id'])]['product'] = product 
-        
         for item in self.cart.values():
-            item['total_price'] = str(item['quantity'] * Decimal(item['price']))
             yield item
+    
+
+    def total_value_cart(self):
+        total_value = 0
+        for item in self.cart.values():
+            print(item)
+            total_value += Decimal(item['total_price'])
+        return total_value
+
+    
+
+    
+
+        
         
