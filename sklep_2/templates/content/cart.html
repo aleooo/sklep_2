@@ -37,8 +37,12 @@
                                 <span class='font_size_12'>for each {{ item.price }}</span>
                             </div>
                         </div>
-                        <div class='display_f align_i_c'>
-                            <i class="far fa-trash-alt font_size_2"></i>
+                        <div>
+                            <a href="{% url 'cart:remove_item' item.id %}">
+                                <div class='display_f align_i_c'>
+                                    <i class="far fa-trash-alt font_size_2"></i>
+                                </div>
+                            </a>
                         </div>
                         
                     </div>

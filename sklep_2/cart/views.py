@@ -12,6 +12,11 @@ def add_to_cart(request, id):
         return redirect(product.get_absolute_url())
     Cart.error('quantity')
 
+def remove_item(request, id):
+    cart = Cart(request)
+    cart.remove(id)
+    return redirect('cart:main_cart')
+
 
 def main_cart(request):
     return render(request, 'content/cart.html', {'main_bar': True})
