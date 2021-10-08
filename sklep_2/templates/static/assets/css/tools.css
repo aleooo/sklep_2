@@ -45,6 +45,7 @@ a:hover{color: rgb(102, 160, 160);}
 .height_100{height: 100%;}
 .height_80p{height: 80px;}
 .height_100p{height: 100px;}
+.height_200p{height: 200px;}
 .height_400p{height: 400px;}
 .html_list{list-style-type: none;}
 .padding{padding: 1rem;}
@@ -76,6 +77,8 @@ a:hover{color: rgb(102, 160, 160);}
 .margin_0auto{margin: 0 auto;}
 .text_a_c{text-align: center;}
 .text_d{text-decoration: none;}
+.top_25{top: 25%;}
+.vertical_a{vertical-align: middle;}
 .white{background: white;}
 .width_4{width: 4rem;}
 .width_30{width: 30%;}

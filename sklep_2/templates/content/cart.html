@@ -49,14 +49,16 @@
                 </div>  
             {% endfor %}
         </div>
-        <div class="width_30 background_w margin_tb_05 height_400p flex_d_c align_i_c">
-            <div class='width_90 padding_tb_05 '>
-                <div class='display_ib float_r'>
-                    <span class='font_size_12 padding_r_05'>TO PAY</span><span class='font_size_2 font_numbers'>{{ cart.total_value_cart|price_front }}</span><span class='font_size_15 font_numbers' >{{ cart.total_value_cart|price_back }}</span>
+        <div class="width_30 background_w margin_tb_05 height_400p">
+            <div class='flex_d_c align_i_c  top_25 position_r'>
+                <div class='width_90 padding_tb_05 '>
+                    <div class='display_ib float_r'>
+                        <span class='font_size_12 padding_r_05'>TO PAY</span><span class='font_size_2 font_numbers'>{{ cart.total_value_cart|price_front }}</span><span class='font_size_15 font_numbers' >{{ cart.total_value_cart|price_back }}</span>
+                    </div>
                 </div>
+                <button type='submit' class='button width_90 margin_b' ><p class='button_margin'>PAYMENT</p></button>
+                <button class='button width_90 margin_b' ><p class='button_margin '>CONTINUE</p></button>
             </div>
-            <button type='submit' class='button width_90 margin_b' ><p class='button_margin'>PAYMENT</p></button>
-            <button class='button width_90 margin_b' ><p class='button_margin '>CONTINUE</p></button>
         </div>
     </div>
     <script type='text/javascript' src='{% static 'assets/js/cart.js' %}'></script>
