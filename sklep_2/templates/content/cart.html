@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load price_tags %}
+
+{% block content %}
+    <div class='main' id='cart'>
+        <div class='width_65'>
+            {% for item in cart %}
+                <div class='display_f justify_c_c background_w padding_tb margin_tb_05'>
+                    <div class='width_200p'>
+                        <div>
+                            <img class='height_100p width_max_150' src="{{ item.image }}" >
+                        </div>
+                    </div>  
+                    <div class='display_f justify_c_s_b width_cart height_80p padding_t_15'>
+                        <div class=' width_200p  padding_l'>
+                            <p  class='font_size_12 word_b_b_w'>{{ item.name }}</p>
+                        </div>
+                        <div >
+                            
+                            <div class="input-group mb-3 margin_t">
+                                <div class="input-group-prepend">
+                                    <button type='button' class="btn  btn-sm border_1sg border_r_0" id="minus"><i class="fa fa-minus"></i></button>
+                                </div>
+                                <input  id="input" class=" form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="1" min="1" name='quantity'>
+                                <div class="input-group-prepend">
+                                    <button type='button' class="btn  btn-sm border_1sg border_r_0" id="plus"><i class="fa fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div >
+                            <div class='width_100 text_a_c display_ib'>
+                                <span class='font_size_2 font_numbers'>{{ item.total_price|price_front }}</span><span class='font_size_15 font_numbers' >{{ item.total_price|price_back }}</span>
+                            </div>
+                            <div class='width_200p text_a_c'>
+                                <span class='font_size_12'>for each {{ item.price }}</span>
+                            </div>
+                        </div>
+                        <div class='display_f align_i_c'>
+                            <i class="far fa-trash-alt font_size_2"></i>
+                        </div>
+                        
+                    </div>
+                </div>  
+            {% endfor %}
+        </div>
+        <div class="width_30 background_w margin_tb_05 height_400p flex_d_c align_i_c">
+            <div class='width_90 padding_tb_05 '>
+                <div class='display_ib float_r'>
+                    <span class='font_size_12 padding_r_05'>TO PAY</span><span class='font_size_2 font_numbers'>{{ cart.total_value_cart|price_front }}</span><span class='font_size_15 font_numbers' >{{ cart.total_value_cart|price_back }}</span>
+                </div>
+            </div>
+            <button type='submit' class='button width_90 margin_b' ><p class='button_margin'>PAYMENT</p></button>
+            <button class='button width_90 margin_b' ><p class='button_margin '>CONTINUE</p></button>
+        </div>
+    </div>
+    <script type='text/javascript' src='{% static 'assets/js/cart.js' %}'></script>
+{% endblock content %}

@@ -1,0 +1,20 @@
+#cart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.width_cart{
+    width: calc(90% - 200px);
+    display: flex;
+    justify-content:center;
+}
+
+@media (max-width: 813px) {
+    #cart{
+        flex-direction: column;
+    }
+    #cart > div{
+        width: 100%;
+    }
+    
+}

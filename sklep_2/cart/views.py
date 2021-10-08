@@ -13,5 +13,8 @@ def add_to_cart(request, id):
     Cart.error('quantity')
 
 
+def main_cart(request):
+    return render(request, 'content/cart.html', {'main_bar': True})
+
     
 
