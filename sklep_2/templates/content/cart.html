@@ -7,7 +7,7 @@
     <div class='main' id='cart'>
         <div class='width_65'>
             {% for item in cart %}
-                <div class='display_f justify_c_c background_w padding_tb margin_tb_05' id='cart_item'>
+                <div class='display_f justify_c_c background_w padding_tb margin_tb_05 height_150p' id='cart_item'>
                     <div class='width_150p'>
                         <div>
                             <img class='height_100p width_max_150' src="{{ item.image }}" >
@@ -18,15 +18,19 @@
                             <p  class='font_size_12 word_b_b_w'>{{ item.name }}</p>
                         </div>
                         <div>
-                            <div class="input-group mb-3 margin_t">
-                                <div class="input-group-prepend">
-                                    <button type='button' class="btn  btn-sm border_1sg border_r_0" id="minus"><i class="fa fa-minus"></i></button>
+                            <form action="{% url 'cart:add' item.id %}" method='get' class='text_a_c'>
+                                <div class="input-group mb-3 margin_t">
+                                    <div class="input-group-prepend">
+                                        <button type='button' class="btn  btn-sm border_1sg border_r_0" id="minus"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                    <input  id="input" class=" form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="{{ item.quantity }}" min="1" name='quantity'>
+                                    <div class="input-group-prepend">
+                                        <button type='button' class="btn  btn-sm border_1sg border_r_0" id="plus"><i class="fa fa-plus"></i></button>
+                                    </div>
                                 </div>
-                                <input  id="input" class=" form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="{{ item.quantity }}" min="1" name='quantity'>
-                                <div class="input-group-prepend">
-                                    <button type='button' class="btn  btn-sm border_1sg border_r_0" id="plus"><i class="fa fa-plus"></i></button>
-                                </div>
-                            </div>
+                                <input type="hidden" value='cart' name='cart'>
+                                <button class="btn btn-secondary btn-sm" type='submit'>change</button>
+                            </form>
                         </div>
                         <div>
                             <div class='width_100 text_a_c display_ib'>

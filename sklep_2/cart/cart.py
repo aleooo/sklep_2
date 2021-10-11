@@ -13,10 +13,13 @@ class Cart(object):
     def total_price_item(self, id):
         self.cart[id]['total_price'] = str(self.cart[id]['quantity'] * Decimal(self.cart[id]['price']))
 
-    def add(self, product, quantity):
+    def add(self, product, quantity, modify_cart=False):
         id_product = str(product.id)
         if id_product in self.cart:
-            self.cart[id_product]['quantity'] += quantity
+            if modify_cart:
+                self.cart[id_product]['quantity'] = quantity
+            else:
+                self.cart[id_product]['quantity'] += quantity
             self.total_price_item(id_product)
         else:
             self.cart[id_product] = {'quantity': quantity, 'price': str(product.price), 'name': product.name, 'image': product.image.url, 'id': str(product.id)}
