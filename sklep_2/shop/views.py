@@ -57,7 +57,6 @@ def detail(request, slug, **kwargs):
                                                    })
 
 def list(request, category=None, text=None):
-    print(request.GET)
     if category:
         cat = Category.objects.get(slug=category)
         products = Product.objects.filter(category=cat)
@@ -66,7 +65,6 @@ def list(request, category=None, text=None):
     else:
         products = None
     products = filter_prices_products(request, products)
-    print(products)
     page = request.GET.get('page')
     paginator = Paginator(products, 2)
 

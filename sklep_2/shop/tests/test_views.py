@@ -50,7 +50,7 @@ class ViewTestCase(TestCase):
     def test_detail(self):
         product = Product.objects.first()
         response = self.client.get(product.get_absolute_url())  
-        self.assertContains(response, 'Django 3')
+        self.assertContains(response, 'Peak')
     
     def test_list_search(self):
         response = self.client.get(reverse('shop:list_search', args=['p']))

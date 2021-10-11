@@ -70,6 +70,7 @@ class Product(models.Model):
     class Meta:
         db_table = 'Product'
         managed = True
+        ordering = ['-id']
         verbose_name = 'Product'
         verbose_name_plural = 'Products'
     
