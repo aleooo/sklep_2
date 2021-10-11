@@ -15,10 +15,10 @@ class Cart(object):
         id_product = str(product.id)
         if id_product in self.cart:
             self.cart[id_product]['quantity'] += quantity
-            self.total_value_cart(id_product)
+            self.total_price_item(id_product)
         else:
-            self.cart[id_product] = {'quantity': quantity, 'price': str(product.price), 'name': product.name, 'image': product.image.url}
-            self.total_value_cart(id_product)
+            self.cart[id_product] = {'quantity': quantity, 'price': str(product.price), 'name': product.name, 'image': product.image.url, 'id': str(product.id)}
+            self.total_price_item(id_product)
         self.session['add'] = True
         
     
@@ -28,6 +28,9 @@ class Cart(object):
     def clear(self):
         del self.session['cart']
 
+
+    def remove(self, id):
+        del self.cart[str(id)]
 
     def __iter__(self):
         for item in self.cart.values():

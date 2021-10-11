@@ -10,6 +10,7 @@ a.button_white:hover{color: rgb(255, 255, 255)}
 a:hover{color: rgb(102, 160, 160);}
 
 .align_i_c{align-items: center;}
+._align_i_c{align-items: center; display: flex;}
 .background_inherit{background: inherit;}
 .background_g{background: #ECEFF1;}
 .background_w{background: rgb(255, 255, 255)}
@@ -19,6 +20,7 @@ a:hover{color: rgb(102, 160, 160);}
 .border_n{border: none;}
 .border_r_0{border-radius: 0%;}
 .border_r_50{border-radius: 50%;}
+.bottom_0{bottom: 0;}
 .color_gray{color:rgb(121, 121, 121)}
 .color_white{color: rgb(255, 255, 255)}
 .color_black{color: rgb(0, 0, 0);}
@@ -26,6 +28,8 @@ a:hover{color: rgb(102, 160, 160);}
 .display_f{display: flex;}
 .display_ib{display: inline-block;}
 /* .font_numbers{font-family: 'B612 Mono', monospace;} */
+.flex_d_c{display: flex; flex-direction: column;}
+.flex_d_r{display: flex; flex-direction: row;}
 .font_numbers{font-family:  Roboto,sans-serif;}
 .font_decorative{font-family: 'Tourney', cursive;}
 .font_size_1{font-size: 1rem;}
@@ -36,8 +40,13 @@ a:hover{color: rgb(102, 160, 160);}
 .float_r{float: right;}
 .justify_c_s_a{justify-content: space-around;}
 .justify_c_s_b{justify-content: space-between;}
+.justify_c_r{justify-content: right;}
+.justify_c_c{justify-content: center;}
 .height_100{height: 100%;}
+.height_80p{height: 80px;}
 .height_100p{height: 100px;}
+.height_200p{height: 200px;}
+.height_400p{height: 400px;}
 .html_list{list-style-type: none;}
 .padding{padding: 1rem;}
 .padding_0{padding: 0;}
@@ -49,6 +58,7 @@ a:hover{color: rgb(102, 160, 160);}
 .padding_lr{padding: 0 1rem}
 .padding_r_05{padding-right: 0.5rem;}
 .padding_ud_4{padding: 4rem;}
+.padding_t_15{padding-top: 1.5rem;}
 .padding_tb{padding: 1rem 0;}
 .padding_tb_05{padding: 0.5rem 0;}
 .position_i{position:inherit}
@@ -67,15 +77,21 @@ a:hover{color: rgb(102, 160, 160);}
 .margin_0auto{margin: 0 auto;}
 .text_a_c{text-align: center;}
 .text_d{text-decoration: none;}
+.top_25{top: 25%;}
+.vertical_a{vertical-align: middle;}
 .white{background: white;}
 .width_4{width: 4rem;}
+.width_30{width: 30%;}
 .width_40{width: 40%}
 .width_50{width: 50%;}
 .width_60{width: 60%}
+.width_65{width: 65%;}
 .width_90{width: 90%;}
 .width_100{width: 100%;}
+.width_80p{width: 80px;}
 .width_100p{width: 100px;}
 .width_200p{width: 200px;}
+.width_400p{width: 400px;}
 .width_max_400{max-width: 400px;}
 .width_max_150{max-width: 150px;}
 .word_b_b_w{word-break: break-word;}

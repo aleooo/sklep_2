@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from shop.models import Product, Category, UserModel, Address
 
 
-class ModelsTestCase(TestCase):
+class ObjectsModelsTest(TestCase):
     def setUp(self):
         category = Category.objects.create(name='Books', slug='books')
         Product.objects.create(category=category,
@@ -24,6 +24,10 @@ class ModelsTestCase(TestCase):
         address = Address.objects.create(street='Krotka', street_number='3', ZIP_code='08-116', town='Seroczyn', country='Poland')
         UserModel.objects.create(username='aleo', first_name='alek', last_name='wiedenski', email='dwdawdw@gmail.com', password='aleoaleo', address=address, number='333333333')
                                 
+
+
+class ModelsTestCase(TestCase, ObjectsModelsTest):
+    
     def test_Category(self):
         category = Category.objects.first()
         self.assertEqual(category.name, 'Books')
