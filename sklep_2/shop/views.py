@@ -1,4 +1,3 @@
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse
 from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
@@ -7,7 +6,7 @@ from django.urls import reverse
 
 from .forms import UserModelForm
 from .models import Category, Product
-from .utils import filter_prices_products
+from .utils import filter_prices_products, pagination
 
 def main(request):
     categories = Category.objects.all()
@@ -66,30 +65,18 @@ def list(request, category=None, text=None):
         products = None
     products = filter_prices_products(request, products)
     page = request.GET.get('page')
-    paginator = Paginator(products, 2)
-
-    try:
-        objects_pagination = paginator.page(page)
-    except PageNotAnInteger:
-        objects_pagination = paginator.page(1)
-    except EmptyPage:
-        objects_pagination = paginator.page(paginator.num_pages)
+    objects_pagination = pagination(products, page)
         
     return render(request, 'content/list.html', {'main_bar': True,
                                                  'objects': objects_pagination})
+
+
 
 def list_search(request, text):
     products = Product.objects.filter(name__icontains=text)
     products = filter_prices_products(request, products)
     page = request.GET.get('page')
-    paginator = Paginator(products, 2)
-
-    try:
-        objects_pagination = paginator.page(page)
-    except PageNotAnInteger:
-        objects_pagination = paginator.page(1)
-    except EmptyPage:
-        objects_pagination = paginator.page(paginator.num_pages)
+    objects_pagination = pagination(products, page)
     
     return render(request, 'content/list.html', {'main_bar': True,
                                                  'objects': objects_pagination})

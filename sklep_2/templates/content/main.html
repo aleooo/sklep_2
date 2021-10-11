@@ -49,13 +49,15 @@
                                     <div class="carousel-item active ">
                                         <div class="imgf width_100 margin_t_2">
                                             {% for product in products|slice:":4" %}
-                                            <div style=''>
-                                                <div>
-                                                    <img src="{{ product.image.url }}" class=" image_grid  mx-auto" >
-                                                </div>
-                                                <div id='grid_product_text'>
-                                                    <p class='text_a_c margin_0'>{{ product.name }}</p>
-                                                </div>
+                                            <div>
+                                                <a href="{{ product.get_absolute_url }}">
+                                                    <div>
+                                                        <img src="{{ product.image.url }}" class=" image_grid  mx-auto" >
+                                                    </div>
+                                                    <div id='grid_product_text'>
+                                                        <p class='text_a_c margin_0'>{{ product.name }}</p>
+                                                    </div>
+                                                </a>
                                             </div>
                                             {% endfor %}
                                         </div>     

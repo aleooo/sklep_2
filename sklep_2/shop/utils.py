@@ -1,3 +1,6 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+
 def filter_prices_products(*args, **kwargs):
     data = args[0].GET
     filter = data.get('filter')
@@ -24,3 +27,15 @@ def filter_prices_products(*args, **kwargs):
             return args[1].filter(price__range=(150, 1000000))
     else:
         return args[1].filter(price__range=(from_price, to_price))
+
+
+def pagination(products, page):
+    paginator = Paginator(products, 5)
+
+    try:
+        objects = paginator.page(page)
+    except PageNotAnInteger:
+        objects = paginator.page(1)
+    except EmptyPage:
+        objects = paginator.page(paginator.num_pages)
+    return objects
