@@ -7,29 +7,28 @@
     <div class='main' id='cart'>
         <div class='width_65'>
             {% for item in cart %}
-                <div class='display_f justify_c_c background_w padding_tb margin_tb_05'>
-                    <div class='width_200p'>
+                <div class='display_f justify_c_c background_w padding_tb margin_tb_05' id='cart_item'>
+                    <div class='width_150p'>
                         <div>
                             <img class='height_100p width_max_150' src="{{ item.image }}" >
                         </div>
                     </div>  
-                    <div class='display_f justify_c_s_b width_cart height_80p padding_t_15'>
-                        <div class=' width_200p  padding_l'>
+                    <div class='display_f justify_c_s_b width_cart height_80p padding_t_15' >
+                        <div class=' width_200p  padding_l '>
                             <p  class='font_size_12 word_b_b_w'>{{ item.name }}</p>
                         </div>
-                        <div >
-                            
+                        <div>
                             <div class="input-group mb-3 margin_t">
                                 <div class="input-group-prepend">
                                     <button type='button' class="btn  btn-sm border_1sg border_r_0" id="minus"><i class="fa fa-minus"></i></button>
                                 </div>
-                                <input  id="input" class=" form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="1" min="1" name='quantity'>
+                                <input  id="input" class=" form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="{{ item.quantity }}" min="1" name='quantity'>
                                 <div class="input-group-prepend">
                                     <button type='button' class="btn  btn-sm border_1sg border_r_0" id="plus"><i class="fa fa-plus"></i></button>
                                 </div>
                             </div>
                         </div>
-                        <div >
+                        <div>
                             <div class='width_100 text_a_c display_ib'>
                                 <span class='font_size_2 font_numbers'>{{ item.total_price|price_front }}</span><span class='font_size_15 font_numbers' >{{ item.total_price|price_back }}</span>
                             </div>
@@ -46,10 +45,45 @@
                         </div>
                         
                     </div>
-                </div>  
+                </div> 
+
+
+                <div id='cart_media'>
+                    <div class='width_150p'>
+                        <div class='text_a_c'>
+                            <img class='height_80p width_max_150' src="{{ item.image }}" >
+                        </div>
+                        <div>
+                            <div class="input-group mb-3 margin_t width_max_150">
+                                <div class="input-group-prepend">
+                                    <button type='button' class="btn  btn-sm border_1sg border_r_0" id="minuss"><i class="fa fa-minus"></i></button>
+                                </div>
+                                <input  id="inputt" class=" form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="{{ item.quantity }}" min="1" name='quantity'>
+                                <div class="input-group-prepend">
+                                    <button type='button' class="btn  btn-sm border_1sg border_r_0" id="pluss"><i class="fa fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class='display_f flex_d_c justify_c_s_b height_100 width_cart'>
+                        <div class='width_100 padding_l'>
+                            <p  class='font_size_12 word_b_b_w'>{{ item.name }}</p>
+                        </div>
+                        <div>
+                            <div class=' text_a_c display_ib float_r'>
+                                <span class='font_size_2 font_numbers'>{{ item.total_price|price_front }}</span><span class='font_size_15 font_numbers' >{{ item.total_price|price_back }}</span>
+                            </div>
+                            <div id='for_each'>
+                                <span class='float_r'>for each {{ item.price }}</span>
+                            </div>   
+                        </div>
+                    </div>
+                    
+                </div> 
+
             {% endfor %}
         </div>
-        <div class="width_30 background_w margin_tb_05 height_400p">
+        <div class="width_30 background_w margin_tb_05 min_h_300p">
             <div class='flex_d_c align_i_c  top_25 position_r'>
                 <div class='width_90 padding_tb_05 '>
                     <div class='display_ib float_r'>

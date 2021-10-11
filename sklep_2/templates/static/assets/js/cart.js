@@ -1,9 +1,12 @@
-let plus = $('#plus')
-let minus = $('#minus')
-let input = $('#input')
+var plus = $('#plus')
+var minus = $('#minus')
+var input = $('#input')
+var plus_media = $('#pluss')
+var minus_media = $('#minuss')
+var input_media = $('#inputt')
+var for_each = $('#for_each')
 
 plus.click(function(){
-    console.log('plus')
     input.val(parseInt(input.val()) + 1 );
         });
 minus.click(function(){
@@ -11,3 +14,26 @@ minus.click(function(){
 if (input.val() == 0) {
     input.val(1);
 }});
+
+show_for_each()
+plus_media.click(function(){
+    show_for_each()
+    input_media.val(parseInt(input_media.val()) + 1 );
+    show_for_each()
+        });
+minus_media.click(function(){
+    input_media.val(parseInt(input_media.val()) - 1 );
+    show_for_each()
+if (input_media.val() == 0) {
+    input_media.val(1);
+}});
+function show_for_each(){
+    if (input_media.val() < 2){
+        console.log(1)
+        for_each.css('display', 'none')
+    }
+    else{
+        for_each.css('display', 'block')
+    }
+}
+

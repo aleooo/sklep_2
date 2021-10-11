@@ -1,4 +1,8 @@
+#cart_item{
+    display:flex;
+}
 #cart{
+    margin-top: 1.5rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -8,6 +12,9 @@
     display: flex;
     justify-content:center;
 }
+#cart_media{
+    display: none;
+}
 
 @media (max-width: 813px) {
     #cart{
@@ -16,5 +23,19 @@
     #cart > div{
         width: 100%;
     }
-    
+
+    .width_cart{
+        width: calc(90% - 150px);
+    }
+    #cart_item{
+        display: none;
+    }
+    #cart_media{
+        display: flex;
+        align-items: center;
+        height: 200px;
+        background: white;
+        padding: 1rem;
+        margin: 0.5rem 0;
+    }
 }

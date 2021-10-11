@@ -75,6 +75,7 @@ a:hover{color: rgb(102, 160, 160);}
 .margin_0{margin: 0;}
 .margin{margin: 1rem;}
 .margin_0auto{margin: 0 auto;}
+.min_h_300p{min-height: 300px;}
 .text_a_c{text-align: center;}
 .text_d{text-decoration: none;}
 .top_25{top: 25%;}
@@ -86,13 +87,16 @@ a:hover{color: rgb(102, 160, 160);}
 .width_50{width: 50%;}
 .width_60{width: 60%}
 .width_65{width: 65%;}
+.width_80{width: 80%;}
 .width_90{width: 90%;}
 .width_100{width: 100%;}
 .width_80p{width: 80px;}
 .width_100p{width: 100px;}
+.width_150p{width: 150px;}
 .width_200p{width: 200px;}
 .width_400p{width: 400px;}
 .width_max_400{max-width: 400px;}
+.width_min_300{min-width: 300px;}
 .width_max_150{max-width: 150px;}
 .word_b_b_w{word-break: break-word;}
 
