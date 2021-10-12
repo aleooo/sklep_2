@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',   
     'shop',
     'cart',
+    'order',
     'bootstrap5',
     'social_django',
     'phonenumber_field',
