@@ -75,7 +75,7 @@ class Product(models.Model):
         verbose_name_plural = 'Products'
     
     def __str__(self):
-        return f'{self.name} {self.price} {self.available}'
+        return f'{self.name} {self.price} {self.category.name} {self.available} '
 
     def get_absolute_url(self):
         return reverse("shop:detail", args=[self.slug, 
