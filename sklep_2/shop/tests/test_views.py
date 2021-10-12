@@ -27,19 +27,19 @@ class ViewTestCase(TestCase):
         address = Address.objects.create(street='Krotka', street_number='3', ZIP_code='08-116', town='Seroczyn', country='Poland')
         UserModel.objects.create(username='aleo', first_name='alek', last_name='wiedenski', email='dwdawdw@gmail.com', password='aleoaleo', address=address, number='333333333')
     
-    def test_main(self):
+    def testMain(self):
         response = self.client.get(reverse('shop:main'))
         self.assertEqual(response.status_code, 200)
     
-    def test_login_page(self):
+    def testLoginPage(self):
         response = self.client.get(reverse('shop:login'))
         self.assertEqual(response.status_code, 200)
     
-    def test_register_page(self):
+    def testRegisterPage(self):
         response = self.client.get(reverse('shop:register'))
         self.assertEqual(response.status_code, 200)
     
-    def test_register(self):
+    def testRegister(self):
         query = {
          'username': 'aleoo', 'email': '',
           'password1': 'alekoaleko', 'password2': 'alekoaleko',
@@ -47,24 +47,24 @@ class ViewTestCase(TestCase):
         response = self.client.post(reverse('shop:register'), data=query)
         self.assertEqual(response.status_code, 302)
     
-    def test_detail(self):
+    def testDetail(self):
         product = Product.objects.first()
         response = self.client.get(product.get_absolute_url())  
         self.assertContains(response, 'Peak')
     
-    def test_list_search(self):
+    def testListSearch(self):
         response = self.client.get(reverse('shop:list_search', args=['p']))
         self.assertContains(response, 'Peak')
     
-    def test_list_redirect_search(self):
+    def testListRedirectSearch(self):
         response = self.client.get(reverse('shop:list'), data={'search': 'p'})
         self.assertEqual(response.status_code, 302)
         
-    def test_list_category(self):
+    def testListCategory(self):
         response = self.client.get(reverse('shop:list_category', args=['books']))
         self.assertContains(response, 'Django 3')
     
-    def test_list_filter_prices_products(self):
+    def testListFilterPricesProducts(self):
         response = self.client.get(reverse('shop:list_category', args=['books']), data={'to': 50})
         self.assertNotContains(response, 'Django 3')
         self.assertContains(response, 'Peak')

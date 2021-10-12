@@ -23,19 +23,19 @@ class ViewTestCase(TestCase):
         address = Address.objects.create(street='Krotka', street_number='3', ZIP_code='08-116', town='Seroczyn', country='Poland')
         self.item = Product.objects.first()
         self.item_2 = Product.objects.last()
-    def test_add_to_cart(self):
+    def testAddToCart(self):
         response = self.client.get(reverse('cart:add', args=[self.item.id]), data={'quantity': 3})
         
         session = self.client.session
         self.assertEqual(session['cart'][str(self.item.id)]['name'], self.item.name)
         self.assertEqual(response.status_code, 302)
     
-    def test_main_cart(self):
+    def testMainCart(self):
         response = self.client.get(reverse('cart:main_cart'))
 
         self.assertEqual(response.status_code, 200)
     
-    def test_remove_item(self):
+    def testRemoveItem(self):
         self.client.get(reverse('cart:add', args=[str(self.item.id)]), data={'quantity': 3})
         session = self.client.session
 
@@ -44,14 +44,14 @@ class ViewTestCase(TestCase):
         self.assertEqual(session['cart'], {})
         self.assertEqual(response.status_code, 302)
     
-    def test_cart_iter(self):
+    def testCartIter(self):
         self.client.get(reverse('cart:add', args=[self.item.id]), data={'quantity': 3})
         session = self.client.session
 
         response = self.client.get(reverse('cart:main_cart'))
         self.assertContains(response, self.item.price)
     
-    def test_cart_total_value_cart(self):
+    def testCartTotalValueCart(self):
         self.client.get(reverse('cart:add', args=[self.item.id]), data={'quantity': 3})
         session = self.client.session
 
