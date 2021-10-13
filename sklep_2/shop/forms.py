@@ -1,7 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django.forms import fields
 
-from .models import UserModel
+from .models import Address, UserModel
 
 
 class UserModelForm(UserCreationForm):
@@ -18,4 +19,5 @@ class UserModelForm(UserCreationForm):
     error_messages = {
         'password_mismatch': 'The two password fields didn`t match',
     }
+
 

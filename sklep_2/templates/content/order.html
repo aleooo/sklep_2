@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class='basic background_w'>
+    <form action="." method='POST'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type='submit'>post</button>
+    </form>
+</div>
+    
+{% endblock content %}
+

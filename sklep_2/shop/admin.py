@@ -17,7 +17,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(Address)
 class AddressAdmin(admin.ModelAdmin):
-    list_display = [f.name for f in Address._meta.get_fields()]
+    pass
 
 @admin.register(UserModel)
 class UserModelAdmin(admin.ModelAdmin):

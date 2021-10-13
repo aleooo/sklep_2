@@ -26,4 +26,7 @@ class ModelTestCase(TestCase):
         self.order = Order.objects.create(first_name='Alek', last_name='Wiedenski', street='Krotka', street_number='3', ZIP_code='08-116', town='Seroczyn', country='Poland')
 
         self.order_product = OrderProduct.objects.create(order=self.order, product=self.product, quantity=3)
+
+    def test_orderView(self):
+        
     

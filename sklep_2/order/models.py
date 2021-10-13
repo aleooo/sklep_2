@@ -2,12 +2,15 @@ from django.core import validators
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models.base import Model
+from phonenumber_field.modelfields import PhoneNumberField
 
 from shop.models import Product
 
 class Order(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=200)
+    phone_number = PhoneNumberField()
     street = models.CharField(max_length=100)
     street_number = models.CharField(max_length=10)
     ZIP_code = models.CharField(max_length=15)
