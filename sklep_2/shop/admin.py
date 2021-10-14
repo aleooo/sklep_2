@@ -11,7 +11,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'price', 'available']
+    list_display = ['id', 'name']
     prepopulated_fields = {'slug': ('name',)}
 
 
@@ -21,4 +21,4 @@ class AddressAdmin(admin.ModelAdmin):
 
 @admin.register(UserModel)
 class UserModelAdmin(admin.ModelAdmin):
-    list_display = ['username', 'first_name', 'last_name', 'email', 'password', 'address', 'number']
+    list_display = ['username']

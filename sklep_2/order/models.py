@@ -22,7 +22,7 @@ class Order(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
-        return f'{ self.first_name } { self.last_name } { self.paid } { self.created }'
+        return f'{ self.last_name } { self.first_name }'
 
 
 class OrderProduct(models.Model):
