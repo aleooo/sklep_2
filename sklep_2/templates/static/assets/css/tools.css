@@ -43,6 +43,7 @@ a:hover{color: rgb(102, 160, 160);}
 .justify_c_r{justify-content: right;}
 .justify_c_c{justify-content: center;}
 .height_100{height: 100%;}
+.height_50p{height: 50px;}
 .height_80p{height: 80px;}
 .height_100p{height: 100px;}
 .height_150p{height: 150px;}
@@ -57,6 +58,7 @@ a:hover{color: rgb(102, 160, 160);}
 .padding_l_05{padding-left: 0.5rem;}
 .padding_l_50px{padding-left: 50px;}
 .padding_lr{padding: 0 1rem}
+.padding_lr_2{padding: 0 2rem}
 .padding_r_05{padding-right: 0.5rem;}
 .padding_ud_4{padding: 4rem;}
 .padding_t_15{padding-top: 1.5rem;}
@@ -73,11 +75,13 @@ a:hover{color: rgb(102, 160, 160);}
 .margin_t{margin-top: 1rem;}
 .margin_t_2{margin-top: 2rem;}
 .margin_tb_05{margin: 0.5rem 0}
+.margin_tb{margin: 1rem 0}
 .margin_0{margin: 0;}
 .margin{margin: 1rem;}
 .margin_0auto{margin: 0 auto;}
 .min_h_300p{min-height: 300px;}
 .text_a_c{text-align: center;}
+.text_a_r{text-align: right;}
 .text_d{text-decoration: none;}
 .top_25{top: 25%;}
 .vertical_a{vertical-align: middle;}
@@ -85,6 +89,7 @@ a:hover{color: rgb(102, 160, 160);}
 .width_4{width: 4rem;}
 .width_30{width: 30%;}
 .width_40{width: 40%}
+.width_45{width: 45%}
 .width_50{width: 50%;}
 .width_60{width: 60%}
 .width_65{width: 65%;}

@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+.address_form{
+    font-size: 1.2rem;
+    font-family: 'Noto Serif', serif;
+}
+#order_div{
+    width: 40%;
+}
+.order_input{
+    width: 90%;
+    margin: 1rem auto;
+}
+.order_double_input{
+    display: flex;
+    justify-content: space-around;
+}
+@media (max-width: 813px) {
+    #order_div{
+        width: 100%;
+    }
+    .address_form{
+        font-size: 0.9rem;
+        font-family: 'Noto Serif', serif;
+    }
+}
