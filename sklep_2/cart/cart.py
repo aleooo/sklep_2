@@ -38,7 +38,6 @@ class Cart(object):
         del self.session['cart']
         self.save()
 
-
     def remove(self, id):
         del self.cart[str(id)]
         self.save()
