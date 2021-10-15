@@ -29,7 +29,5 @@ def productOrder(request, object_order):
     for item in cart:
         product = Product.objects.get(id=int(item['id']))
         a = OrderProduct.objects.create(order=object_order, product=product, quantity=item['quantity'])
-        print(a)
     cart.clear()
-    return None
     
