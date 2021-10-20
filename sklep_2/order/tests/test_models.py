@@ -26,8 +26,8 @@ class ModelTestCase(TestCase):
 
         self.order_product = OrderProduct.objects.create(order=self.order, product=self.product, quantity=3)
     
-    def testModelOrder(self):
+    def test_Order(self):
         self.assertEqual(self.order.first_name, 'Alek')
     
-    def testModelOrderProduct(self):
+    def test_Order_Product(self):
         self.assertEqual(self.order_product.quantity, 3)

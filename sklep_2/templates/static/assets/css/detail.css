@@ -5,6 +5,7 @@
 .detail_right_div{
     padding: 4rem 0 2rem 1rem;
 }
+
 .detail_image{max-width: 70%;max-height: 500px;}
 @media (max-width: 813px) {
     #detail{flex-direction: column;}

@@ -14,6 +14,7 @@ def add_to_cart(request, id):
     else:
         cart.add(product=product, quantity=quantity)
         return redirect(product.get_absolute_url())
+        
 
 def remove_item(request, id):
     cart = Cart(request)

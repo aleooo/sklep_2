@@ -66,6 +66,7 @@ a:hover{color: rgb(102, 160, 160);}
 .padding_tb_05{padding: 0.5rem 0;}
 .position_i{position:inherit}
 .position_r{position: relative;}
+.position_a{position: absolute}
 .margin_b{margin-bottom: 1rem;}
 .margin_b_0{margin-bottom: 0;}
 .margin_l{margin-left: 1rem;}
@@ -100,9 +101,17 @@ a:hover{color: rgb(102, 160, 160);}
 .width_100p{width: 100px;}
 .width_150p{width: 150px;}
 .width_200p{width: 200px;}
+.width_300p{width: 300px;}
 .width_400p{width: 400px;}
 .width_max_400{max-width: 400px;}
 .width_min_300{min-width: 300px;}
 .width_max_150{max-width: 150px;}
 .word_b_b_w{word-break: break-word;}
 
+
+.center_div_a {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}

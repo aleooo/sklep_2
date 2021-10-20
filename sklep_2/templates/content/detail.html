@@ -6,7 +6,12 @@
 {% block content %}
 
     <div id="detail" class="basic white margin_t">
-          
+        {% if cart.add %}
+            <div class='center_div_a width_300 height_200p'>
+                <div><img src="{% static 'assets/images/check-mark.png' %}" ></div>
+            </div>
+            
+        {% endif %}
         <div class="detail_div width_60 align_i_c display_f padding">
             <img class='detail_image margin_0auto' src="{{ product.image.url }}">
         </div>
