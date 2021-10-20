@@ -6,8 +6,6 @@ from decimal import Decimal
 class Cart(object):
     def __init__(self, request):
         self.session = request.session
-        self.session['error'] = False
-        self.session['add'] = False
         self.cart = self.session.setdefault(settings.CART_SESSION_ID, {})
         
     def total_price_item(self, id):
@@ -38,6 +36,11 @@ class Cart(object):
         del self.session['cart']
         self.save()
 
+    def clear_add(self):
+        if self.session.get('add', False):
+            del self.session['add']
+            return True
+        return False
     def remove(self, id):
         del self.cart[str(id)]
         self.save()

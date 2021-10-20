@@ -6,9 +6,15 @@
 {% block content %}
 
     <div id="detail" class="basic white margin_t">
-        {% if cart.add %}
-            <div class='center_div_a width_300 height_200p'>
-                <div><img src="{% static 'assets/images/check-mark.png' %}" ></div>
+        {% if cart.clear_add %}
+            <div class='center_div_f height_200p width_300p background_g z_i_103 text_a_c'>
+                <div class='width_100 height_2r'><img class='float_r width_1r height_1r margin_05' src="{% static 'images/cancel.png' %}" ></div>
+                <div><img class='width_80p height_80p' src="{% static 'images/check-mark.png' %}"></div>
+                <p>You have added a product!</p>
+                <div>
+                    <button type='submit' class='button width_50 margin_b' ><a class='color_white' href="{% url 'cart:main_cart' %}">GO TO CART</a></button>
+                </div>
+                
             </div>
             
         {% endif %}
@@ -48,6 +54,7 @@
     <div class='basic margin_t white'>
         <div class=' padding' >
             <h3>Product reviews</h3>
+
         </div>
     </div> 
 
