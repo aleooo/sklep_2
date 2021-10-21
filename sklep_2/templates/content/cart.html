@@ -21,11 +21,11 @@
                             <form action="{% url 'cart:add' item.id %}" method='get' class='text_a_c'>
                                 <div class="input-group mb-3 margin_t">
                                     <div class="input-group-prepend">
-                                        <button type='button' class="btn  btn-sm border_1sg border_r_0" id="minus"><i class="fa fa-minus"></i></button>
+                                        <button type='button' class="btn  btn-sm border_1sg border_r_0" onclick='minus({{ item.id }})'><i class="fa fa-minus"></i></button>
                                     </div>
-                                    <input  id="input" class=" form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="{{ item.quantity }}" min="1" name='quantity'>
+                                    <input  id="input{{ item.id }}" class=" form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="{{ item.quantity }}" min="1" name='quantity'>
                                     <div class="input-group-prepend">
-                                        <button type='button' class="btn  btn-sm border_1sg border_r_0" id="plus"><i class="fa fa-plus"></i></button>
+                                        <button type='button' class="btn  btn-sm border_1sg border_r_0"  onclick='plus({{ item.id }})'><i class="fa fa-plus"></i></button>
                                     </div>
                                 </div>
                                 <input type="hidden" value='cart' name='cart'>
@@ -60,11 +60,11 @@
                         <div>
                             <div class="input-group mb-3 margin_t width_max_150">
                                 <div class="input-group-prepend">
-                                    <button type='button' class="btn  btn-sm border_1sg border_r_0" id="minuss"><i class="fa fa-minus"></i></button>
+                                    <button type='button' class="btn  btn-sm border_1sg border_r_0" onclick='minus({{ item.id }})'><i class="fa fa-minus"></i></button>
                                 </div>
-                                <input  id="inputt" class=" form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="{{ item.quantity }}" min="1" name='quantity'>
+                                <input  id="input{{ item.id }}" class=" form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="{{ item.quantity }}" min="1" name='quantity'>
                                 <div class="input-group-prepend">
-                                    <button type='button' class="btn  btn-sm border_1sg border_r_0" id="pluss"><i class="fa fa-plus"></i></button>
+                                    <button type='button' class="btn  btn-sm border_1sg border_r_0" onclick='plus({{ item.id }})'><i class="fa fa-plus"></i></button>
                                 </div>
                             </div>
                         </div>
