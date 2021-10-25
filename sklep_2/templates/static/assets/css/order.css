@@ -3,8 +3,13 @@
     font-size: 1.2rem;
     font-family: 'Noto Serif', serif;
 }
-#order_div{
+.order_div{
     width: 40%;
+}
+#column_order{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 .order_input{
     width: 90%;
@@ -15,7 +20,11 @@
     justify-content: space-around;
 }
 @media (max-width: 813px) {
-    #order_div{
+    #column_order{
+        display: block;
+    }
+    .order_div{
+        margin-top: 2rem;
         width: 100%;
     }
     .address_form{

@@ -1,77 +1,92 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load price_tags %}
 
 {% block content %}
-<div class='basic margin_t_2'>
-    <div class="background_w  padding_tb" id='order_div'>
-        <form action="." method='POST'>
-            {% csrf_token %}
-            <div class="row g-2 width_90 margin_0auto justify_c_s_a">
-                    <div class='form-floating width_50'>
-                        {{ form.first_name }}
-                        <label for="{{ form.first_name.id_for_label }}">First Name</label>
-                    </div>
-                    <div class='form-floating width_50'>
-                        {{ form.last_name }}
-                        <label for="{{ form.last_name.id_for_label }}">Last name</label>
-                    </div>
-            </div>
-            <div class='order_input form-floating'>
-                {{ form.email }}
-                <label for="{{ form.email.id_for_label }}">Email</label>
-            </div>
-            <div class='order_input form-floating'>
-                {{ form.phone_number }}
-                <label for="{{ form.phone_number.id_for_label }}">Phone number</label>
-            </div>
-            <div class="row g-2 width_90 margin_0auto justify_c_s_a">
-                    <div class=' form-floating width_50'>
-                        {{ form.street }}
-                        <label for="{{ form.street.id_for_label }}">Street</label>
-                    </div>
-               
-                    <div class=' form-floating width_50'>
-                        {{ form.street_number }}
-                        <label for="{{ form.street_number.id_for_label }}">Street number</label>
-                    </div>
-            </div>
-            <div class="row g-2 width_90 margin_0auto justify_c_s_a">
-                <div class=' form-floating width_50'>
-                    {{ form.town }}
-                    <label for="{{ form.town.id_for_label }}">Town</label>
+<div class='basic margin_t_2' id='column_order'>
+    <div class='order_div'>
+        <div class="background_w  padding_tb">
+            <form action="." method='POST'>
+                {% csrf_token %}
+                <div class="row g-2 width_90 margin_0auto justify_c_s_a">
+                        <div class='form-floating width_50'>
+                            {{ form.first_name }}
+                            <label for="{{ form.first_name.id_for_label }}">First Name</label>
+                        </div>
+                        <div class='form-floating width_50'>
+                            {{ form.last_name }}
+                            <label for="{{ form.last_name.id_for_label }}">Last name</label>
+                        </div>
                 </div>
-                <div class=' form-floating width_50'>
-                    {{ form.ZIP_code }}
-                    <label for="{{ form.zip_code.id_for_label }}">ZIP code</label>
+                <div class='order_input form-floating'>
+                    {{ form.email }}
+                    <label for="{{ form.email.id_for_label }}">Email</label>
                 </div>
-            </div>
-            <div class='order_input form-floating'>
-                {{ form.country }}
-                <label for="{{ form.country.id_for_label }}">Country</label>
-            </div>
-            <hr>
-            <div class='order_input text_a_r'>
-                <button type='submit' class='button' ><p class='button_margin '>POST</p></button>
-            </div>
-            
-        </form>
+                <div class='order_input form-floating'>
+                    {{ form.phone_number }}
+                    <label for="{{ form.phone_number.id_for_label }}">Phone number</label>
+                </div>
+                <div class="row g-2 width_90 margin_0auto justify_c_s_a">
+                        <div class=' form-floating width_50'>
+                            {{ form.street }}
+                            <label for="{{ form.street.id_for_label }}">Street</label>
+                        </div>
+                
+                        <div class=' form-floating width_50'>
+                            {{ form.street_number }}
+                            <label for="{{ form.street_number.id_for_label }}">Street number</label>
+                        </div>
+                </div>
+                <div class="row g-2 width_90 margin_0auto justify_c_s_a">
+                    <div class=' form-floating width_50'>
+                        {{ form.town }}
+                        <label for="{{ form.town.id_for_label }}">Town</label>
+                    </div>
+                    <div class=' form-floating width_50'>
+                        {{ form.ZIP_code }}
+                        <label for="{{ form.zip_code.id_for_label }}">ZIP code</label>
+                    </div>
+                </div>
+                <div class='order_input form-floating'>
+                    {{ form.country }}
+                    <label for="{{ form.country.id_for_label }}">Country</label>
+                </div>
+                <hr>
+                <div class='order_input text_a_r'>
+                    <button type='submit' class='button' ><p class='button_margin '>POST</p></button>
+                </div>
+                
+            </form>
+        </div>
+        <div class='background_w padding_tb '>
+            <div class="text_a_c"><h3>PAYMENT</h1></div>
+        </div>
     </div>
-    <div class="order_div margin_t_2 background_w">
-        {% for item in cart %}
-            <div class='width_40 display_f justify_c_s_a align_i_c height_50p'>
-                <div class='display_f'>
-                    <img src="{{ item.image }}" class='height_80p'>
-                    <div class='flex_d_c padding_l_05'>
-                        <p>{{ item.name }}</p>
-                        <p>{{ item.quantity }} x {{ item.price }}</p>
+
+    <div class='order_div'>
+        <div class="background_w padding_tb">
+            {% for item in cart %}
+                <div class='display_f justify_c_s_b align_i_c height_80p margin'>
+                    <div class='display_f'>
+                        <img src="{{ item.image }}" class='height_80p'>
+                        <div class='flex_d_c padding_l_05'>
+                            <p>{{ item.name }}</p>
+                            <p class='color_gray'>{{ item.quantity }} x {{ item.price }}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class='font_size_12'>{{ item.total_price}}</p>
                     </div>
                 </div>
-                <div>
-                    <p class='font_size_12'>{{ item.total_price}}</p>
-                </div>
+            {% endfor %}
+            
+            <div class='display_ib margin_r_0 float_r'>
+                <span class='font_size_12 padding_r_05'>TO PAY</span><span class='font_size_2 font_numbers'>{{ cart.total_value_cart|price_front }}</span><span class='font_size_15 font_numbers' >{{ cart.total_value_cart|price_back }}</span>
             </div>
-        {% endfor %}
+            <div class='clear_b'>
+            </div>
+        </div>
     </div>
 </div>
     

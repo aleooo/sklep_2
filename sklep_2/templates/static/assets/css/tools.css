@@ -21,6 +21,7 @@ a:hover{color: rgb(102, 160, 160);}
 .border_r_0{border-radius: 0%;}
 .border_r_50{border-radius: 50%;}
 .bottom_0{bottom: 0;}
+.clear_b{clear:both}
 .color_gray{color:rgb(121, 121, 121)}
 .color_white{color: rgb(255, 255, 255)}
 .color_black{color: rgb(0, 0, 0);}
@@ -78,6 +79,7 @@ a:hover{color: rgb(102, 160, 160);}
 .margin_lr{margin: 0 1rem;}
 .margin_lr_05{margin: 0 0.5rem;}
 .margin_r{margin-right: 1rem;}
+.margin_r_0{margin-right: 0;}
 .margin_t{margin-top: 1rem;}
 .margin_t_2{margin-top: 2rem;}
 .margin_tb_05{margin: 0.5rem 0}
@@ -87,6 +89,7 @@ a:hover{color: rgb(102, 160, 160);}
 .margin{margin: 1rem;}
 .margin_0auto{margin: 0 auto;}
 .min_h_300p{min-height: 300px;}
+.overflow_a{overflow: auto;}
 .text_a_c{text-align: center;}
 .text_a_r{text-align: right;}
 .text_d{text-decoration: none;}
