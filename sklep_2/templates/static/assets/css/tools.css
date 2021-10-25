@@ -42,6 +42,9 @@ a:hover{color: rgb(102, 160, 160);}
 .justify_c_s_b{justify-content: space-between;}
 .justify_c_r{justify-content: right;}
 .justify_c_c{justify-content: center;}
+.height_1r{height: 1rem;}
+.height_2r{height: 2rem;}
+.height_4r{height: 4rem;}
 .height_100{height: 100%;}
 .height_50p{height: 50px;}
 .height_80p{height: 80px;}
@@ -52,6 +55,7 @@ a:hover{color: rgb(102, 160, 160);}
 .html_list{list-style-type: none;}
 .padding{padding: 1rem;}
 .padding_0{padding: 0;}
+.padding_05{padding: 0.5rem}
 .paddding_b{padding-bottom: 1rem;}
 .padding_lr_4{padding: 0 4rem;}
 .padding_l{padding-left: 1rem;}
@@ -67,6 +71,7 @@ a:hover{color: rgb(102, 160, 160);}
 .position_i{position:inherit}
 .position_r{position: relative;}
 .position_a{position: absolute}
+.position_f{position: fixed;}
 .margin_b{margin-bottom: 1rem;}
 .margin_b_0{margin-bottom: 0;}
 .margin_l{margin-left: 1rem;}
@@ -78,6 +83,7 @@ a:hover{color: rgb(102, 160, 160);}
 .margin_tb_05{margin: 0.5rem 0}
 .margin_tb{margin: 1rem 0}
 .margin_0{margin: 0;}
+.margin_05{margin: 0.5rem}
 .margin{margin: 1rem;}
 .margin_0auto{margin: 0 auto;}
 .min_h_300p{min-height: 300px;}
@@ -87,6 +93,7 @@ a:hover{color: rgb(102, 160, 160);}
 .top_25{top: 25%;}
 .vertical_a{vertical-align: middle;}
 .white{background: white;}
+.width_1r{width: 1rem;}
 .width_4{width: 4rem;}
 .width_30{width: 30%;}
 .width_40{width: 40%}
@@ -107,10 +114,17 @@ a:hover{color: rgb(102, 160, 160);}
 .width_min_300{min-width: 300px;}
 .width_max_150{max-width: 150px;}
 .word_b_b_w{word-break: break-word;}
+.z_i_103{z-index: 103;}
 
 
 .center_div_a {
     position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.center_div_f {
+    position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);

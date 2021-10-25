@@ -6,9 +6,15 @@
 {% block content %}
 
     <div id="detail" class="basic white margin_t">
-        {% if cart.add %}
-            <div class='center_div_a width_300 height_200p'>
-                <div><img src="{% static 'assets/images/check-mark.png' %}" ></div>
+        {% if cart.clear_add %}
+            <div class='center_div_f height_200p width_300p background_g z_i_103 text_a_c' id='box_info_added_product'>
+                <div class='width_100 height_2r'><div id='close_box_info_added_product' class='float_r  width_2r height_2r padding_05 display_f align_i_c'><img class=' width_1r height_1r' src="{% static 'images/cancel.png' %}" ></div></div>
+                <div><img class='width_80p height_80p' src="{% static 'images/check-mark.png' %}"></div>
+                <p>You have added a product!</p>
+                <div>
+                    <button type='submit' id='box_info' class='button width_50 margin_b' ><a class='color_white' id='box_info' href="{% url 'cart:main_cart' %}">GO TO CART</a></button>
+                </div>
+                
             </div>
             
         {% endif %}
@@ -25,7 +31,7 @@
                 <p class='color_gray'>Number of items</p>
                 <div class="input-group mb-3 margin_t">
                     <div class="input-group-prepend">
-                        <button type='button' class="btn  btn-sm border_1sg border_r_0" id="minus"><i class="fa fa-minus"></i></button>
+                        <button type='button' class="btn  btn-sm border_1sg border_r_0" id="minus" ><i class="fa fa-minus"></i></button>
                     </div>
                     <input  id="input" class=" form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="1" min="1" name='quantity'>
                     <div class="input-group-prepend">
@@ -48,6 +54,7 @@
     <div class='basic margin_t white'>
         <div class=' padding' >
             <h3>Product reviews</h3>
+
         </div>
     </div> 
 

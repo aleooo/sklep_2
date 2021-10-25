@@ -8,7 +8,7 @@
         <div class='width_65'>
             {% for item in cart %}
                 <div class='display_f justify_c_c background_w padding_tb margin_tb_05 height_150p' id='cart_item'>
-                    <div class='width_150p'>
+                    <div class='width_150p display_f align_i_c'>
                         <div>
                             <img class='height_100p width_max_150' src="{{ item.image }}" >
                         </div>
@@ -19,13 +19,13 @@
                         </div>
                         <div>
                             <form action="{% url 'cart:add' item.id %}" method='get' class='text_a_c'>
-                                <div class="input-group mb-3 margin_t">
+                                <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <button type='button' class="btn  btn-sm border_1sg border_r_0" id="minus"><i class="fa fa-minus"></i></button>
+                                        <button type='button' class="btn  btn-sm border_1sg border_r_0" onclick='minus({{ item.id }})'><i class="fa fa-minus"></i></button>
                                     </div>
-                                    <input  id="input" class=" form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="{{ item.quantity }}" min="1" name='quantity'>
+                                    <input   class="input{{ item.id }} form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="{{ item.quantity }}" min="1" name='quantity'>
                                     <div class="input-group-prepend">
-                                        <button type='button' class="btn  btn-sm border_1sg border_r_0" id="plus"><i class="fa fa-plus"></i></button>
+                                        <button type='button' class="btn  btn-sm border_1sg border_r_0"  onclick='plus({{ item.id }})'><i class="fa fa-plus"></i></button>
                                     </div>
                                 </div>
                                 <input type="hidden" value='cart' name='cart'>
@@ -60,11 +60,11 @@
                         <div>
                             <div class="input-group mb-3 margin_t width_max_150">
                                 <div class="input-group-prepend">
-                                    <button type='button' class="btn  btn-sm border_1sg border_r_0" id="minuss"><i class="fa fa-minus"></i></button>
+                                    <button type='button' class="btn  btn-sm border_1sg border_r_0" onclick='minus({{ item.id }})'><i class="fa fa-minus"></i></button>
                                 </div>
-                                <input  id="inputt" class=" form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="{{ item.quantity }}" min="1" name='quantity'>
+                                <input  class="input{{ item.id }} form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="{{ item.quantity }}" min="1" name='quantity'>
                                 <div class="input-group-prepend">
-                                    <button type='button' class="btn  btn-sm border_1sg border_r_0" id="pluss"><i class="fa fa-plus"></i></button>
+                                    <button type='button' class="btn  btn-sm border_1sg border_r_0" onclick='plus({{ item.id }})'><i class="fa fa-plus"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                         <span class='font_size_12 padding_r_05'>TO PAY</span><span class='font_size_2 font_numbers'>{{ cart.total_value_cart|price_front }}</span><span class='font_size_15 font_numbers' >{{ cart.total_value_cart|price_back }}</span>
                     </div>
                 </div>
-                <a href="{% url 'order:order' %}"><button type='submit' class='button width_90 margin_b'><p class='button_margin'>PAYMENT</p></button></a>
+                <button type='submit' class='button width_90 margin_b'><a href="{% url 'order:order' %}"><p class='button_margin'>PAYMENT</p></a></button>
                 <button class='button width_90 margin_b' ><p class='button_margin '>CONTINUE</p></button>
             </div>
         </div>
