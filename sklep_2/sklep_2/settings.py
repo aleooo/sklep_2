@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'shop',
     'cart',
     'order',
+    'rest_api',
     'bootstrap5',
     'social_django',
     'phonenumber_field',
