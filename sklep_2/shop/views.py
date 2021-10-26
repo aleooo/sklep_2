@@ -63,6 +63,7 @@ def list(request, category=None, text=None):
         return redirect(reverse('shop:list_search', args=[request.GET.get('search')]))
     else:
         products = None
+        
     products = filter_prices_products(request, products)
     page = request.GET.get('page')
     objects_pagination = pagination(products, page)
