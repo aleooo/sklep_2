@@ -34,11 +34,11 @@ INSTALLED_APPS = [
     'cart',
     'order',
     'rest_api',
+    'rest_framework',
     'bootstrap5',
     'social_django',
     'phonenumber_field',
     'utils',
-    
 ]
 
 MIDDLEWARE = [
