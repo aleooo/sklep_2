@@ -38,13 +38,14 @@ INSTALLED_APPS = [
     'social_django',
     'phonenumber_field',
     'utils',
+    'rosetta'
     
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'djagno.middleware.locale.localeMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -120,9 +121,6 @@ LANGUAGES = (
     ('en', _('english'))
 )
 
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale/'),
-)
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -160,3 +158,8 @@ SOCIAL_AUTH_FACEBOOK_KEY = config('SOCIAL_AUTH_FACEBOOK_KEY')
 SOCIAL_AUTH_FACEBOOK_SECRET = config('SOCIAL_AUTH_FACEBOOK_SECRET')  
 
 CART_SESSION_ID = 'cart'
+
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale/'),
+)
