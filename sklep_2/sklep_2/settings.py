@@ -112,7 +112,7 @@ AUTH_USER_MODEL = 'shop.UserModel'
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 LANGUAGES = (
     ('pl', _('polish')),
@@ -157,4 +157,6 @@ SOCIAL_AUTH_FACEBOOK_SECRET = config('SOCIAL_AUTH_FACEBOOK_SECRET')
 
 CART_SESSION_ID = 'cart'
 
-
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale/'),
+)

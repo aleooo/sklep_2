@@ -1,5 +1,6 @@
-{% load static %}
 {% load i18n %}
+{% load static %}
+
 {% load price_tags %}
 <!DOCTYPE html>
 <html lang="en">
@@ -25,8 +26,8 @@
                 <div id='search' class="width_max_400 margin_0auto">              
                     <form action="{% url 'shop:list' %}" method='get' class="d-flex">
                         {% csrf_token %}
-                        <input id="input_search" class="form-control me-2" type="search" placeholder={% trans 'Search' %} name='search'>
-                        <button type='submit' class='button' ><p class='button_margin'>{% trans 'SEARCH' %}</p></button>
+                        <input id="input_search" class="form-control me-2" type="search" placeholder={% trans "Search" %} name='search'>
+                        <button type='submit' class='button' ><p class='button_margin'>{% trans "SEARCH" %}</p></button>
                     </form>
                 </div>
                 <div id='main_icon' >
@@ -65,11 +66,11 @@
                     {% if cart.cart %}
                             <div class='display_f justify_c_s_b  background_w margin_tb_05'>
                                 <div class='padding_lr'>
-                                    <strong><p class='font_size_15'>Cart</p></strong>
+                                    <strong><p class='font_size_15'>{% trans "Cart" %}</p></strong>
                                 </div>
                                 <div class='display_f align_i_c'>
                                     <div class='padding_lr  display_ib '>
-                                        <span class=' font_size_12 padding_r_05'>cart value:</span><span class='font_size_2 font_numbers'>{{ cart.total_value_cart|price_front }}</span><span class='font_size_15 font_numbers' >{{ cart.total_value_cart|price_back }}</span>
+                                        <span class=' font_size_12 padding_r_05'>{% trans "cart value" %}:</span><span class='font_size_2 font_numbers'>{{ cart.total_value_cart|price_front }}</span><span class='font_size_15 font_numbers' >{{ cart.total_value_cart|price_back }}</span>
                                     </div>
                                 </div>                                    
                             </div>
@@ -96,10 +97,10 @@
                 <div id='toggle_bar'>
                     <div class="toggle_bar_button">
                         {% if user.is_authenticated %}
-                            <button class="button "><a href="{% url 'shop:logout' %}" class='button_white'>LOGOUT</a></button>
+                            <button class="button "><a href="{% url 'shop:logout' %}" class='button_white'>{% trans "LOGOUT" %}</a></button>
                         {% else %}
                            
-                            <button class="button "><a href="{% url 'shop:login' %}" class='button_white'>LOGIN</a></button>
+                            <button class="button "><a href="{% url 'shop:login' %}" class='button_white'>{% trans "LOGIN" %}</a></button>
                         {% endif %}
                     </div>
                 </div>

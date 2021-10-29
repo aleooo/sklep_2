@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
 {% load static %}
 {% load price_tags %}
 
@@ -29,7 +30,7 @@
                                     </div>
                                 </div>
                                 <input type="hidden" value='cart' name='cart'>
-                                <button class="btn btn-secondary btn-sm" type='submit'>change</button>
+                                <button class="btn btn-secondary btn-sm" type='submit'>{% trans "change" %}</button>
                             </form>
                         </div>
                         <div>
@@ -37,7 +38,7 @@
                                 <span class='font_size_2 font_numbers'>{{ item.total_price|price_front }}</span><span class='font_size_15 font_numbers' >{{ item.total_price|price_back }}</span>
                             </div>
                             <div class='width_200p text_a_c'>
-                                <span class='font_size_12'>for each {{ item.price }}</span>
+                                <span class='font_size_12'>{% trans "for each" %} {{ item.price }}</span>
                             </div>
                         </div>
                         <div>
@@ -78,7 +79,7 @@
                                 <span class='font_size_2 font_numbers'>{{ item.total_price|price_front }}</span><span class='font_size_15 font_numbers' >{{ item.total_price|price_back }}</span>
                             </div>
                             <div id='for_each'>
-                                <span class='float_r'>for each {{ item.price }}</span>
+                                <span class='float_r'>{% trans "for each" %} {{ item.price }}</span>
                             </div>   
                         </div>
                     </div>
@@ -91,11 +92,11 @@
             <div class='flex_d_c align_i_c  top_25 position_r'>
                 <div class='width_90 padding_tb_05 '>
                     <div class='display_ib float_r'>
-                        <span class='font_size_12 padding_r_05'>TO PAY</span><span class='font_size_2 font_numbers'>{{ cart.total_value_cart|price_front }}</span><span class='font_size_15 font_numbers' >{{ cart.total_value_cart|price_back }}</span>
+                        <span class='font_size_12 padding_r_05'>{% trans "TO PAY" %}</span><span class='font_size_2 font_numbers'>{{ cart.total_value_cart|price_front }}</span><span class='font_size_15 font_numbers' >{{ cart.total_value_cart|price_back }}</span>
                     </div>
                 </div>
-                <button type='submit' class='button width_90 margin_b'><a href="{% url 'order:order' %}"><p class='button_margin'>PAYMENT</p></a></button>
-                <button class='button width_90 margin_b' ><p class='button_margin '>CONTINUE</p></button>
+                <button type='submit' class='button width_90 margin_b'><a href="{% url 'order:order' %}"><p class='button_margin'>{% trans "PAYMENT" %}</p></a></button>
+                <button class='button width_90 margin_b' ><p class='button_margin '>{% trans "CONTINUE" %}</p></button>
             </div>
         </div>
     </div>

@@ -12,55 +12,55 @@
                 <div class="row g-2 width_90 margin_0auto justify_c_s_a">
                         <div class='form-floating width_50'>
                             {{ form.first_name }}
-                            <label for="{{ form.first_name.id_for_label }}">First Name</label>
+                            <label for="{{ form.first_name.id_for_label }}">{% trans "First Name" %}</label>
                         </div>
                         <div class='form-floating width_50'>
                             {{ form.last_name }}
-                            <label for="{{ form.last_name.id_for_label }}">Last name</label>
+                            <label for="{{ form.last_name.id_for_label }}">{% trans "Last name" %}</label>
                         </div>
                 </div>
                 <div class='order_input form-floating'>
                     {{ form.email }}
-                    <label for="{{ form.email.id_for_label }}">Email</label>
+                    <label for="{{ form.email.id_for_label }}">{% trans "Email" %}</label>
                 </div>
                 <div class='order_input form-floating'>
                     {{ form.phone_number }}
-                    <label for="{{ form.phone_number.id_for_label }}">Phone number</label>
+                    <label for="{{ form.phone_number.id_for_label }}">{% trans "Phone number" %}</label>
                 </div>
                 <div class="row g-2 width_90 margin_0auto justify_c_s_a">
                         <div class=' form-floating width_50'>
                             {{ form.street }}
-                            <label for="{{ form.street.id_for_label }}">Street</label>
+                            <label for="{{ form.street.id_for_label }}">{% trans "Street" %}</label>
                         </div>
                 
                         <div class=' form-floating width_50'>
                             {{ form.street_number }}
-                            <label for="{{ form.street_number.id_for_label }}">Street number</label>
+                            <label for="{{ form.street_number.id_for_label }}">{% trans "Street number" %}</label>
                         </div>
                 </div>
                 <div class="row g-2 width_90 margin_0auto justify_c_s_a">
                     <div class=' form-floating width_50'>
                         {{ form.town }}
-                        <label for="{{ form.town.id_for_label }}">Town</label>
+                        <label for="{{ form.town.id_for_label }}">{% trans "Town" %}</label>
                     </div>
                     <div class=' form-floating width_50'>
                         {{ form.ZIP_code }}
-                        <label for="{{ form.zip_code.id_for_label }}">ZIP code</label>
+                        <label for="{{ form.zip_code.id_for_label }}">{% trans "ZIP code" %}</label>
                     </div>
                 </div>
                 <div class='order_input form-floating'>
                     {{ form.country }}
-                    <label for="{{ form.country.id_for_label }}">Country</label>
+                    <label for="{{ form.country.id_for_label }}">{% trans "Country" %}</label>
                 </div>
                 <hr>
                 <div class='order_input text_a_r'>
-                    <button type='submit' class='button' ><p class='button_margin '>POST</p></button>
+                    <button type='submit' class='button' ><p class='button_margin '>{% trans "POST" %}</p></button>
                 </div>
                 
             </form>
         </div>
         <div class='background_w padding_tb '>
-            <div class="text_a_c"><h3>PAYMENT</h1></div>
+            <div class="text_a_c"><h3>{% trans "PAYMENT" %}</h1></div>
         </div>
     </div>
 
@@ -82,7 +82,7 @@
             {% endfor %}
             
             <div class='display_ib margin_r_0 float_r'>
-                <span class='font_size_12 padding_r_05'>TO PAY</span><span class='font_size_2 font_numbers'>{{ cart.total_value_cart|price_front }}</span><span class='font_size_15 font_numbers' >{{ cart.total_value_cart|price_back }}</span>
+                <span class='font_size_12 padding_r_05'>{% trans "TO PAY" %}</span><span class='font_size_2 font_numbers'>{{ cart.total_value_cart|price_front }}</span><span class='font_size_15 font_numbers' >{{ cart.total_value_cart|price_back }}</span>
             </div>
             <div class='clear_b'>
             </div>
