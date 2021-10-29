@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 {% load price_tags %}
 <!DOCTYPE html>
 <html lang="en">
@@ -24,8 +25,8 @@
                 <div id='search' class="width_max_400 margin_0auto">              
                     <form action="{% url 'shop:list' %}" method='get' class="d-flex">
                         {% csrf_token %}
-                        <input id="input_search" class="form-control me-2" type="search" placeholder="Search" name='search'>
-                        <button type='submit' class='button' ><p class='button_margin'>SEARCH</p></button>
+                        <input id="input_search" class="form-control me-2" type="search" placeholder={% trans 'Search' %} name='search'>
+                        <button type='submit' class='button' ><p class='button_margin'>{% trans 'SEARCH' %}</p></button>
                     </form>
                 </div>
                 <div id='main_icon' >

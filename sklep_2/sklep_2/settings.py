@@ -37,9 +37,7 @@ INSTALLED_APPS = [
     'bootstrap5',
     'social_django',
     'phonenumber_field',
-    'utils',
-    'rosetta'
-    
+    'utils',  
 ]
 
 MIDDLEWARE = [
@@ -160,6 +158,3 @@ SOCIAL_AUTH_FACEBOOK_SECRET = config('SOCIAL_AUTH_FACEBOOK_SECRET')
 CART_SESSION_ID = 'cart'
 
 
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale/'),
-)
