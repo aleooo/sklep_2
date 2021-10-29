@@ -140,6 +140,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'shop:main'
 LOGOUT_REDIRECT_URL = 'shop:main'
+LOGIN_URL = 'shop:login'
+LOGOUT_URL = 'shop:logout'
 
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.facebook.FacebookOAuth2',
