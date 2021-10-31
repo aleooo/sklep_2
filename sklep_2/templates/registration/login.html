@@ -19,6 +19,7 @@
             <div>
                 <input type="password" name="password" autocomplete="current-password" required="" id="id_password" class='login_input' >
             </div>
+           
             {% csrf_token %}
             {% comment %} <input type="hidden" name="next" value="{{ next }}" /> {% endcomment %}
             <div class='bar_login'>
