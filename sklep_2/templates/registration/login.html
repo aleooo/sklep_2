@@ -19,10 +19,11 @@
             <div>
                 <input type="password" name="password" autocomplete="current-password" required="" id="id_password" class='login_input' >
             </div>
+           
             {% csrf_token %}
-            <input type="hidden" name="next" value="{{ next }}" />
+            {% comment %} <input type="hidden" name="next" value="{{ next }}" /> {% endcomment %}
             <div class='bar_login'>
-                <a class='registration' href="">Forgot password</a>
+                <a class='registration' href="{% url 'shop:password_reset' %}">Forgot password</a>
                 <button type='submit' class="button login_input button_registration" id='login_button'><p class='button_margin'>LOGIN</p></button>
              
           
