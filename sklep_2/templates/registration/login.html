@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 
-
+{% load i18n %}
 
 {% block content %}
     
     <div class="login-form">
         {% if form.errors %}
             <p>
-                The username or password is incorrect.
-                Try again. 
+                {% trans "The username or password is incorrect.
+                Try again. " %}
             </p>
         {% endif %}
-        <h1 class='registration' >Log in</h1>
+        <h1 class='registration' >{% trans "Log in" %}</h1>
         <form action="{% url 'shop:login' %}" method="post">
             <div>
                 <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username" class='login_input'>
@@ -23,26 +23,22 @@
             {% csrf_token %}
             {% comment %} <input type="hidden" name="next" value="{{ next }}" /> {% endcomment %}
             <div class='bar_login'>
-                <a class='registration' href="{% url 'shop:password_reset' %}">Forgot password</a>
-                <button type='submit' class="button login_input button_registration" id='login_button'><p class='button_margin'>LOGIN</p></button>
-             
-          
-            </div>
-
-            
+                <a class='registration' href="">{% trans "Forgot password" %}</a>
+                <button type='submit' class="button login_input button_registration" id='login_button'><p class='button_margin'>{% trans "LOGIN" %}</p></button>    
+            </div>    
         </form>
           <div class="align_i_c display_f">
                 <hr class="width_100">
-                <p id='hr_or'>or</p>
+                <p id='hr_or'>{% trans "or" %}</p>
                 <hr class="width_100">
             </div>
               <button class="btn btn-primary mb-2">
-            <a href="{% url 'social:begin' 'facebook' %}" class='button_white'>Login with Facebook</a>
+            <a href="{% url 'social:begin' 'facebook' %}" class='button_white'>{% trans "Login with Facebook" %}</a>
         </button>
     </div >
 
     <div class="login-form">
-        <p class='float_l'>Don't have an account?</p>
-        <a class="registration float_l margin_l" href="{% url 'shop:register' %}">SIGN UP</a>
+        <p class='float_l'>{% trans "Don't have an account" %}?</p>
+        <a class="registration float_l margin_l" href="{% url 'shop:register' %}">{% trans "SIGN UP" %}</a>
     </div>
 {% endblock content %}

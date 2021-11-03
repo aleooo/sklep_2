@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
 {% load static %}
 
 
@@ -32,18 +33,18 @@
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
+                                        <span class="visually-hidden">{% trans "Previous" %}</span>
                                     </button>
                                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
+                                        <span class="visually-hidden">{% trans "Next" %}</span>
                                     </button>
                                 </div>
                             </div>
                         </div>
 
                         <div id="grid_main_products" class="white">    
-                            <strong><p class='padding'>Popular for sale</p></strong>
+                            <strong><p class='padding'>{% trans "Popular for sale" %}</p></strong>
                             <div id="carouselExampleIndicators" class="carousel slide " data-type="carousel">                    
                                 <div class="carousel-inner">                          
                                     <div class="carousel-item active ">
@@ -80,11 +81,11 @@
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
+                                    <span class="visually-hidden">{% trans "Previous" %}</span>
                                 </button>
                                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
+                                    <span class="visually-hidden">{% trans "Next" %}</span>
                                 </button>
                             </div>
                         </div>

@@ -1,5 +1,6 @@
 import os
 
+from django.utils.translation import gettext_lazy as _
 from pathlib import Path
 from decouple import config
 
@@ -36,13 +37,13 @@ INSTALLED_APPS = [
     'bootstrap5',
     'social_django',
     'phonenumber_field',
-    'utils',
-    
+    'utils',  
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -111,7 +112,12 @@ AUTH_USER_MODEL = 'shop.UserModel'
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
+
+LANGUAGES = (
+    ('pl', _('polish')),
+    ('en', _('english'))
+)
 
 TIME_ZONE = 'UTC'
 
@@ -154,9 +160,15 @@ SOCIAL_AUTH_FACEBOOK_SECRET = config('SOCIAL_AUTH_FACEBOOK_SECRET')
 CART_SESSION_ID = 'cart'
 
 
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale/'),
+)
+
