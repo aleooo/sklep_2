@@ -10,35 +10,42 @@
             <form action="." method='POST'>
                 {% csrf_token %}
                 <div class="row g-2 width_90 margin_0auto justify_c_s_a">
-                        <div class='form-floating width_50'>
-                            {{ form.first_name }}
-                            <label for="{{ form.first_name.id_for_label }}">First Name</label>
-                        </div>
-                        <div class='form-floating width_50'>
-                            {{ form.last_name }}
-                            <label for="{{ form.last_name.id_for_label }}">Last name</label>
-                        </div>
+                    {{ form.first_name.errors }}
+                    {{ form.last_name.errors }}
+                    <div class='form-floating width_50'>
+                        {{ form.first_name }}
+                        <label for="{{ form.first_name.id_for_label }}">First Name</label>
+                    </div>
+                    <div class='form-floating width_50'>
+                        {{ form.last_name }}
+                        <label for="{{ form.last_name.id_for_label }}">Last name</label>
+                    </div>
                 </div>
+                {{ form.email.errors }}
                 <div class='order_input form-floating'>
+                    
                     {{ form.email }}
                     <label for="{{ form.email.id_for_label }}">Email</label>
                 </div>
+                {{ form.phone_number.errors }}
                 <div class='order_input form-floating'>
                     {{ form.phone_number }}
                     <label for="{{ form.phone_number.id_for_label }}">Phone number</label>
                 </div>
                 <div class="row g-2 width_90 margin_0auto justify_c_s_a">
-                        <div class=' form-floating width_50'>
-                            {{ form.street }}
-                            <label for="{{ form.street.id_for_label }}">Street</label>
-                        </div>
-                
-                        <div class=' form-floating width_50'>
-                            {{ form.street_number }}
-                            <label for="{{ form.street_number.id_for_label }}">Street number</label>
-                        </div>
+                    {{ form.street.errors }}
+                    <div class=' form-floating width_50'>
+                        {{ form.street }}
+                        <label for="{{ form.street.id_for_label }}">Street</label>
+                    </div>
+            
+                    <div class=' form-floating width_50'>
+                        {{ form.street_number }}
+                        <label for="{{ form.street_number.id_for_label }}">Street number</label>
+                    </div>
                 </div>
                 <div class="row g-2 width_90 margin_0auto justify_c_s_a">
+                    {{ form.town.errors }}
                     <div class=' form-floating width_50'>
                         {{ form.town }}
                         <label for="{{ form.town.id_for_label }}">Town</label>
@@ -48,6 +55,7 @@
                         <label for="{{ form.zip_code.id_for_label }}">ZIP code</label>
                     </div>
                 </div>
+                {{ form.country.errors }}
                 <div class='order_input form-floating'>
                     {{ form.country }}
                     <label for="{{ form.country.id_for_label }}">Country</label>
