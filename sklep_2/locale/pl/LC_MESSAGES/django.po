@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-29 18:12+0200\n"
+"POT-Creation-Date: 2021-11-03 22:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,11 +72,12 @@ msgstr "Wartość koszyka"
 msgid "LOGOUT"
 msgstr "Wyloguj się"
 
-#: templates/base.html:103 templates/registration/login.html:26
+#: templates/base.html:103 templates/registration/login.html:28
 msgid "LOGIN"
 msgstr "Zaloguj się"
 
 #: templates/content/cart.html:33
+#: templates/registration/password_change_form.html:15
 msgid "change"
 msgstr "zmień"
 
@@ -84,11 +85,11 @@ msgstr "zmień"
 msgid "for each"
 msgstr "za każdy"
 
-#: templates/content/cart.html:95 templates/content/order.html:85
+#: templates/content/cart.html:95 templates/content/order.html:86
 msgid "TO PAY"
 msgstr "DO ZAPŁATY"
 
-#: templates/content/cart.html:98 templates/content/order.html:63
+#: templates/content/cart.html:98 templates/content/order.html:64
 msgid "PAYMENT"
 msgstr "PŁATNOŚĆ"
 
@@ -164,43 +165,43 @@ msgstr "Następny"
 msgid "Popular for sale"
 msgstr "Popularne w sprzedaży"
 
-#: templates/content/order.html:15
+#: templates/content/order.html:16
 msgid "First Name"
 msgstr "Imię"
 
-#: templates/content/order.html:19
+#: templates/content/order.html:20
 msgid "Last name"
 msgstr "Nazwisko"
 
-#: templates/content/order.html:24
+#: templates/content/order.html:25
 msgid "Email"
 msgstr "Email"
 
-#: templates/content/order.html:28
+#: templates/content/order.html:29
 msgid "Phone number"
 msgstr "Numer telefonu"
 
-#: templates/content/order.html:33
+#: templates/content/order.html:34
 msgid "Street"
 msgstr "Ulica"
 
-#: templates/content/order.html:38
+#: templates/content/order.html:39
 msgid "Street number"
 msgstr "Numer ulicy"
 
-#: templates/content/order.html:44
+#: templates/content/order.html:45
 msgid "Town"
 msgstr "Miasto"
 
-#: templates/content/order.html:48
+#: templates/content/order.html:49
 msgid "ZIP code"
 msgstr "KOD pocztowy"
 
-#: templates/content/order.html:53
+#: templates/content/order.html:54
 msgid "Country"
 msgstr "Kraj"
 
-#: templates/content/order.html:57
+#: templates/content/order.html:58
 msgid "POST"
 msgstr "WYŚLIJ"
 
@@ -208,25 +209,119 @@ msgstr "WYŚLIJ"
 msgid "Log in"
 msgstr "Zaloguj się"
 
-#: templates/registration/login.html:25
+#: templates/registration/login.html:27
 msgid "Forgot password"
 msgstr "Zapomniałeś hasła"
 
-#: templates/registration/login.html:35
+#: templates/registration/login.html:33
 msgid "or"
 msgstr "lub"
 
-#: templates/registration/login.html:39
+#: templates/registration/login.html:37
 msgid "Login with Facebook"
 msgstr "Zaloguj się przez Facebook"
 
-#: templates/registration/login.html:44
+#: templates/registration/login.html:42
 msgid "Don't have an account"
 msgstr "Nie masz konta"
 
-#: templates/registration/login.html:45 templates/registration/register.html:33
+#: templates/registration/login.html:43 templates/registration/register.html:33
 msgid "SIGN UP"
 msgstr "ZAREJESTRUJ SIĘ"
+
+#: templates/registration/password_change_done.html:5
+#: templates/registration/password_change_done.html:9
+msgid "Password change done"
+msgstr "Zmiana hasła wykonana"
+
+#: templates/registration/password_change_done.html:10
+msgid "MAIN"
+msgstr "SKLEP_2"
+
+#: templates/registration/password_change_form.html:6
+#: templates/registration/password_change_form.html:10
+msgid "Password change"
+msgstr "Zmiana Hasła"
+
+#: templates/registration/password_reset_complete.html:5
+#: templates/registration/password_reset_complete.html:10
+#: templates/registration/password_reset_confirm.html:6
+#: templates/registration/password_reset_confirm.html:11
+msgid "Reset password"
+msgstr "Reset hasła"
+
+#: templates/registration/password_reset_complete.html:14
+msgid "The password has been defined. You can"
+msgstr "Hasło zostało zdefiniowane. Możesz"
+
+#: templates/registration/password_reset_complete.html:14
+msgid "login"
+msgstr "zalogować się"
+
+#: templates/registration/password_reset_complete.html:14
+msgid "in now"
+msgstr "w tej chwili"
+
+#: templates/registration/password_reset_confirm.html:16
+msgid "Enter the new password twice"
+msgstr "Wpisz dwa razy nowe hasło"
+
+#: templates/registration/password_reset_confirm.html:44
+msgid "CHANGE"
+msgstr "ZMIEŃ"
+
+#: templates/registration/password_reset_confirm.html:49
+msgid ""
+"Link to reset password is incorrect because it has probably been used "
+"before. You must again to start the procedure password reset."
+msgstr ""
+"Link do resetowania hasła jest niepoprawny ponieważ prawdopodobnie został "
+"już użyty. Musisz ponownie zacząć procedure resetowania hasła"
+
+#: templates/registration/password_reset_done.html:5
+msgid "Password has been changed "
+msgstr "Hasło zostało zmienione"
+
+#: templates/registration/password_reset_done.html:11
+msgid "Reset Password"
+msgstr "Reset Hasła"
+
+#: templates/registration/password_reset_done.html:15
+msgid "We send you email with instructions let you create a new password"
+msgstr "Wysłaliśmy Ci email z instrukcjami pozwalającymi stworzyć nowe hasło"
+
+#: templates/registration/password_reset_done.html:18
+msgid ""
+"If you haven't the email message make sure on the form of password reset "
+"enter address e-mail provided when creating the user account"
+msgstr ""
+"Jeśli nie otrzymałeś wiadomości email, upewnij się, że wpisałeś w formularzu "
+"email, który był dostarczony podczas tworzenia konta"
+
+#: templates/registration/password_reset_email.html:3
+msgid "We received the a password reset request for users use the email"
+msgstr "Otrzymaliśmy żądanie resetowania hasła"
+
+#: templates/registration/password_reset_email.html:3
+msgid "Click below link:"
+msgstr "Kliknij poniższy link"
+
+#: templates/registration/password_reset_email.html:5
+msgid "Your username:"
+msgstr "Nazwa twojego użytkownika"
+
+#: templates/registration/password_reset_form.html:6
+#: templates/registration/password_reset_form.html:10
+msgid "Password reset"
+msgstr "Reset Hasła"
+
+#: templates/registration/password_reset_form.html:16
+msgid "BACK"
+msgstr "WRÓĆ"
+
+#: templates/registration/password_reset_form.html:17
+msgid "SEND EMAIL"
+msgstr "WYŚLIJ EMAIL"
 
 #: templates/registration/register.html:6
 msgid "Register"
