@@ -44,5 +44,5 @@ class ModelsTestCase(TestCase):
         product = Product.objects.first()
         seconds = product.created.strftime('%S')
         hours = product.created.strftime('%H')
-        self.assertEqual(product.get_absolute_url(), f'/detail/{ product.slug }/{ seconds }/{ hours }/{ product.id }/')
+        self.assertEqual(product.get_absolute_url(), f'/en/detail/{ product.slug }/{ seconds }/{ hours }/{ product.id }/')
     

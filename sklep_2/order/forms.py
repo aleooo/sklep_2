@@ -26,7 +26,6 @@ class OrderForm(forms.ModelForm):
     
     def clean(self):
         first_name = self.cleaned_data['first_name']
-        last_name = self.cleaned_data['last_name']
         field_upper = {'first_name': 'First Name', 'last_name': 'Last Name', 'street': 'Street', 'town': 'Town', 'country': 'Country'}
 
         for field in field_upper:
