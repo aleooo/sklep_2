@@ -23,7 +23,7 @@ def remove_item(request, id):
 
 
 def main_cart(request):
-    return render(request, 'content/cart.html', {'main_bar': True})
+    return render(request, 'content/cart/cart.html', {'main_bar': True})
 
     
 
