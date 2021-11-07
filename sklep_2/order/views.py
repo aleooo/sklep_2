@@ -1,11 +1,29 @@
-from django.shortcuts import redirect, render
+from django.http.response import HttpResponse
+from django.shortcuts import get_object_or_404, redirect, render
+from django.template.loader import render_to_string
 
-from order.models import OrderProduct
+import weasyprint
 
 from .forms import OrderForm
+from .models import Order
 from .utils import data
 from cart.cart import Cart
+from order.models import OrderProduct
 from shop.models import Product
+from sklep_2 import settings
+
+
+def admin_order_pdf(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+    html = render_to_string('content/order/pdf.html', {'order': order})
+
+    response = HttpResponse(headers={
+        'Content-Type': 'application/pdf',
+        'Content-Disposition': f'attachment; filename="order_{order_id}.pdf"'})
+
+    weasyprint.HTML(string=html).write_pdf(response, stylesheets=[weasyprint.CSS(
+        'templates/static/assets/css/base.css')])
+    return response
 
 
 def order(request):

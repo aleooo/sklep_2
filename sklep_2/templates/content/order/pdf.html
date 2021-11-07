@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <h1>Sklep_2</h1>
+        <p>
+            Bill nr. {{ order.id }}</br>
+            <span>
+                {{ order.created }}
+            </span>
+        </p>
+
+        <h3>Buyer</3>
+            <p>{{ order.first_name }} {{ order.last_name }}</p>
+            <p>{{ order.email }}</p>
+            <p>{{ order.street }}  {{ order.street_number}}</p>
+            <p>{{ order.ZIP_code }} {{ order.town }}</p>
+        <h3>Products</h3>
+            {% for product in order.products.all %}
+                <p>{{product}}</p>
+            {% endfor %}
