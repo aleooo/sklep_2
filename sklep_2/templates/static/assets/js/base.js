@@ -7,7 +7,7 @@ var search_box = $('.search_box')
 var search_list = $('#list_search_box')
 var icon_cart = $('#cart_icon')
 var shopping_cart = $('#shopping_cart_bar')
-
+var a = null
 
 function getCookie(c_name) {
     if(document.cookie.length > 0) {
@@ -84,27 +84,28 @@ document.onclick = function (e) {
         
     }
 }
-
-function cart_time(){
+if (window.location.pathname.includes('cart') == false & window.location.pathname.includes('order') == false){
+    function cart_time(){
+        a = setTimeout(cart_shop, 400)
+    }
     shopping_cart.hover(function (){
         clearTimeout(a)
         }, 
         function(){  
-            setTimeout(cart_shop, 300)
+            a = setTimeout(cart_shop, 400)
             })
-    a = setTimeout(cart_shop, 1000)
     
     
- 
+    function cart_shop(){
+        shopping_cart.css('display', 'none')
+        
+    }
+    icon_cart.hover(function () {
+        shopping_cart.css('display', 'block')
+        clearTimeout(a) 
+        }, cart_time);
 }
-function cart_shop(){
-    shopping_cart.css('display', 'none')
-    
-}
-icon_cart.hover(function () {
-    shopping_cart.css('display', 'block')
-    clearTimeout(a) 
-    }, cart_time);
+
 
 
 

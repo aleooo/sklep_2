@@ -21,7 +21,8 @@ def order(request):
             form = OrderForm(initial=data(user))
         else:
             form = OrderForm()
-    return render(request, 'content/order/order.html', {'form': form})
+    return render(request, 'content/order/order.html', {'form': form,
+                                                        'main_bar': True})
 
 
 def productOrder(request, object_order):
