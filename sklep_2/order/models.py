@@ -23,6 +23,14 @@ class Order(models.Model):
 
     def __str__(self) -> str:
         return f'{ self.last_name } { self.first_name }'
+    
+    def total_price(self):
+        products = self.products.all()
+        total = 0
+        for product in products:
+            total += product.total_price()
+        return total
+
 
 
 class OrderProduct(models.Model):
@@ -32,6 +40,9 @@ class OrderProduct(models.Model):
 
     def __str__(self) -> str:
         return f'{ str(self.id) } - { self.product.name }'
+    
+    def total_price(self):
+        return self.quantity * self.product.price
     
 
 
