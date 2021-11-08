@@ -42,7 +42,7 @@ def order(request):
             html = render_to_string('content/order/pdf.html', {'order': object_order})
             out = BytesIO()
             weasyprint.HTML(string=html).write_pdf(out, stylesheets=[weasyprint.CSS('templates/static/assets/css/base.css')])
-            email.attach_file( f'order_{object_order.id }.pdf', out.getvalue(), 'application/pdf')
+            email.attach( f'order_{object_order.id }.pdf', out.getvalue(), 'application/pdf')
             email.send()
 
             return redirect('shop:main')
