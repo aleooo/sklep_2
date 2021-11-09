@@ -1,6 +1,31 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap'); */
+
 .pdf_div{
     max-width: 800px;
     margin: 1rem auto;
     background: white;
     padding: 1rem;
 }
+.pdf_div_start{
+    max-width: 800px;
+    margin: 0 auto 1rem;
+    background: white;
+    padding: 1rem;
+}
+/* .padding_0{padding: 0;}
+.margin_0{margin: 0;} */
+/* .display_f{display: flex;} */
+/* .color_green{color: rgb(102, 160, 160);} */
+/* .justify_c_s_b{justify-content: space-between;}
+.align_i_c{align-items: center;}
+.margin{margin: 1rem;} */
+/* .height_100p{height: 100px;} */
+/* .display_f{display: flex;}
+.display_ib{display: inline-block;}
+.flex_d_c{display: flex; flex-direction: column;}
+.padding_l{padding-left: 1rem;}
+.font_size_12{font-size: 1.2rem;}
+.justify_c_r{justify-content: right;}
+.width_4{width: 4rem;}
+.font_size_2{font-size: 2rem;}
+.font_numbers{font-family:  Roboto,sans-serif;} */

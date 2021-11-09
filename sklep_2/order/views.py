@@ -19,12 +19,11 @@ from sklep_2 import settings
 def admin_order_pdf(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     html = render_to_string('content/order/pdf.html', {'order': order})
-
     response = HttpResponse(headers={
         'Content-Type': 'application/pdf',
         'Content-Disposition': f'attachment; filename="order_{order_id}.pdf"'})
 
-    weasyprint.HTML(string=html).write_pdf(response, stylesheets=[weasyprint.CSS(
+    weasyprint.HTML(string=html).write_pdf(response, stylesheets=[weasyprint.CSS( 
         'templates/static/assets/css/base.css')])
     return response
 
@@ -37,11 +36,12 @@ def order(request):
             object_order = form.save()
             product_order(request, object_order)
 
-            names_products = 'You ordered: ' + '  '.join([product.product.name for product in object_order.products.all()])
+            names_products = 'You ordered: ' + ',  '.join([product.product.name for product in object_order.products.all()])
             email = EmailMessage(subject=names_products, from_email=settings.EMAIL_HOST_USER, to=[object_order.email])
             html = render_to_string('content/order/pdf.html', {'order': object_order})
             out = BytesIO()
-            weasyprint.HTML(string=html).write_pdf(out, stylesheets=[weasyprint.CSS('templates/static/assets/css/base.css')])
+            #Must add STATIC_ROOT and make collectstatic in development
+            weasyprint.HTML(string=html, base_url=request.build_absolute_uri()).write_pdf(out)
             email.attach( f'order_{object_order.id }.pdf', out.getvalue(), 'application/pdf')
             email.send()
 

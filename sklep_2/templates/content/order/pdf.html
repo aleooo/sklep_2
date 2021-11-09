@@ -1,54 +1,58 @@
 {% extends 'base.html' %}
-
 {% load static %}
-{% load price_tags %}
 
-{% block content %}
-    <div class='pdf_div'>
-        <h1 class='logo padding_0'>Sklep_2</h1>
-        <p>
-            Bill nr. {{ order.id }}</br>
-            <span>
-                {{ order.created }}
-            </span>
-        </p>
-    </div>
-    <div class='pdf_div'>
-        <h3>Buyer</h3>
-            <p class='margin_0'>{{ order.first_name }} {{ order.last_name }}</p>
-            <p class='margin_0'>{{ order.email }}</p>
-            <p class='margin_0'>{{ order.street }}  {{ order.street_number}}</p>
-            <p class='margin_0'>{{ order.ZIP_code }} {{ order.town }}</p>
-        
-    </div>
-    <div class='pdf_div'>
-        <h3>Products</h3>
-        <div class='display_f'>
-            <h4>status: </h4><h4 class='color_green'>&nbsp;{% if order.paid %}paid{% else %}unpaid{% endif %}</h4>
+{% load price_tags %}
+<html>
+
+    <body>
+    {% block content %}
+        <div class=' pdf_div_start'>
+            <p>
+                Bill nr. {{ order.id }}</br>
+                <span>
+                    {{ order.created }}
+                </span>
+            </p>
         </div>
-        
-        {% for product in order.products.all %}
-            <div class='display_f justify_c_s_b align_i_c height_80p margin'>
-                    <div class='display_f'>
-                
-                        <img src="{{ product.product.image.url }}" class='height_80p'>
-                        <div class='flex_d_c padding_l_05'>
-                            <p>{{ product.product.name }}</p>
-                            <p class='color_gray'>{{ product.product.quantity }} x {{ product.product.price }}</p>
+        <div class='pdf_div'>
+            <h3>Buyer</h3>
+                <p class='margin_0'>{{ order.first_name }} {{ order.last_name }}</p>
+                <p class='margin_0'>{{ order.email }}</p>
+                <p class='margin_0'>{{ order.street }}  {{ order.street_number}}</p>
+                <p class='margin_0'>{{ order.ZIP_code }} {{ order.town }}</p>
+            
+        </div>
+        <div class='pdf_div'>
+            <h3>Products</h3>
+            <div class='display_f'>
+                <h4>status: </h4><h4 class='color_green'>&nbsp;{% if order.paid %}paid{% else %}unpaid{% endif %}</h4>
+            </div>
+              {{ product.product.image.url }}
+            {% for product in order.products.all %}
+                <div class='display_f justify_c_s_b align_i_c height_100p margin'>
+                        <div class='display_f'>
+                            <img src="{{ product.product.image.url }}" class='height_100p'>
+                            <div class='flex_d_c padding_l'>
+                                <p>{{ product.product.name }}</p>
+                                <p class='color_gray font_numbers'>{{ product.product.quantity }} x {{ product.product.price }}</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p class='font_size_12 font_numbers'>{{ product.total_price }}</p>
                         </div>
                     </div>
-                    <div>
-                        <p class='font_size_12'>{{ product.total_price }}</p>
+            {% endfor %}
+            <hr>
+            <div class='display_f justify_c_r'>
+                <div class='width_max_150'>
+                    <h5><strong>TOTAL</strong></h5>
+                    <div class='display_ib'>
+                        <span class='font_size_2 font_numbers'>{{ order.total_price|price_front }}</span><span class='font_size_15 font_numbers' >{{ order.total_price|price_back }}</span>
                     </div>
-                </div>
-        {% endfor %}
-        <hr>
-        <div class=' display_f  justify_c_r'>
-            <div class='width_4'>
-                <h5><strong>TOTAL</strong></h5>
-                <span class='font_size_2 font_numbers'>{{ order.total_price|price_front }}</span><span class='font_size_15 font_numbers' >{{ order.total_price|price_back }}</span>
-                
-            </div>    
+                    
+                </div>    
+            </div>
         </div>
-    </div>
-{% endblock content %}
+        {% endblock content %}
+</body>
+</html>

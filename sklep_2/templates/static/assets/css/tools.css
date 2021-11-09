@@ -26,7 +26,7 @@ a:hover{color: rgb(102, 160, 160);}
 .color_white{color: rgb(255, 255, 255)}
 .color_black{color: rgb(0, 0, 0);}
 .color_green{color: rgb(102, 160, 160);}
-.color_
+/* .color_ */
 .display_f{display: flex;}
 .display_ib{display: inline-block;}
 /* .font_numbers{font-family: 'B612 Mono', monospace;} */
@@ -101,6 +101,7 @@ a:hover{color: rgb(102, 160, 160);}
 .white{background: white;}
 .width_1r{width: 1rem;}
 .width_4{width: 4rem;}
+.width_25{width: 25%;}
 .width_30{width: 30%;}
 .width_40{width: 40%}
 .width_45{width: 45%}
