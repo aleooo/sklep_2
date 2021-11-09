@@ -1,21 +1,23 @@
 {% extends 'base.html' %}
-{% load static %}
 
+{% load static %}
 {% load price_tags %}
+{% load i18n %}
+
 <html>
 
     <body>
     {% block content %}
         <div class=' pdf_div_start'>
             <p>
-                Bill nr. {{ order.id }}</br>
+                {% trans "Bill nr." %} {{ order.id }}</br>
                 <span>
                     {{ order.created }}
                 </span>
             </p>
         </div>
         <div class='pdf_div'>
-            <h3>Buyer</h3>
+            <h3>{% trans "Buyer" %}</h3>
                 <p class='margin_0'>{{ order.first_name }} {{ order.last_name }}</p>
                 <p class='margin_0'>{{ order.email }}</p>
                 <p class='margin_0'>{{ order.street }}  {{ order.street_number}}</p>
@@ -23,9 +25,9 @@
             
         </div>
         <div class='pdf_div'>
-            <h3>Products</h3>
+            <h3>{% trans "Products" %}</h3>
             <div class='display_f'>
-                <h4>status: </h4><h4 class='color_green'>&nbsp;{% if order.paid %}paid{% else %}unpaid{% endif %}</h4>
+                <h4>status:&nbsp; </h4>{% if order.paid %}<h4 class='color_green'>{% trans "paid" %}</h4>{% else %}<h4 class='color_red'>{% trans "unpaid" %}</h4>{% endif %}
             </div>
               {{ product.product.image.url }}
             {% for product in order.products.all %}
@@ -45,7 +47,7 @@
             <hr>
             <div class='display_f justify_c_r'>
                 <div class='width_max_150'>
-                    <h5><strong>TOTAL</strong></h5>
+                    <h5><strong>{% trans "TOTAL" %}</strong></h5>
                     <div class='display_ib'>
                         <span class='font_size_2 font_numbers'>{{ order.total_price|price_front }}</span><span class='font_size_15 font_numbers' >{{ order.total_price|price_back }}</span>
                     </div>

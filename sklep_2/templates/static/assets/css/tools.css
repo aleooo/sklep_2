@@ -26,7 +26,7 @@ a:hover{color: rgb(102, 160, 160);}
 .color_white{color: rgb(255, 255, 255)}
 .color_black{color: rgb(0, 0, 0);}
 .color_green{color: rgb(102, 160, 160);}
-/* .color_ */
+.color_red{color: rgb(218, 58, 58)}
 .display_f{display: flex;}
 .display_ib{display: inline-block;}
 /* .font_numbers{font-family: 'B612 Mono', monospace;} */

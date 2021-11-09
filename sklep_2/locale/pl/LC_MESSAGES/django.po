@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-03 22:37+0000\n"
+"POT-Creation-Date: 2021-11-09 22:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -76,24 +76,24 @@ msgstr "Wyloguj się"
 msgid "LOGIN"
 msgstr "Zaloguj się"
 
-#: templates/content/cart.html:33
+#: templates/content/cart/cart.html:33
 #: templates/registration/password_change_form.html:15
 msgid "change"
 msgstr "zmień"
 
-#: templates/content/cart.html:41 templates/content/cart.html:82
+#: templates/content/cart/cart.html:41 templates/content/cart/cart.html:82
 msgid "for each"
 msgstr "za każdy"
 
-#: templates/content/cart.html:95 templates/content/order.html:86
+#: templates/content/cart/cart.html:95 templates/content/order/order.html:95
 msgid "TO PAY"
 msgstr "DO ZAPŁATY"
 
-#: templates/content/cart.html:98 templates/content/order.html:64
+#: templates/content/cart/cart.html:98 templates/content/order/order.html:72
 msgid "PAYMENT"
 msgstr "PŁATNOŚĆ"
 
-#: templates/content/cart.html:99
+#: templates/content/cart/cart.html:99
 msgid "CONTINUE"
 msgstr "KONTYNUUJ"
 
@@ -165,45 +165,69 @@ msgstr "Następny"
 msgid "Popular for sale"
 msgstr "Popularne w sprzedaży"
 
-#: templates/content/order.html:16
+#: templates/content/order/order.html:18
 msgid "First Name"
 msgstr "Imię"
 
-#: templates/content/order.html:20
+#: templates/content/order/order.html:22
 msgid "Last name"
 msgstr "Nazwisko"
 
-#: templates/content/order.html:25
+#: templates/content/order/order.html:29
 msgid "Email"
 msgstr "Email"
 
-#: templates/content/order.html:29
+#: templates/content/order/order.html:34
 msgid "Phone number"
 msgstr "Numer telefonu"
 
-#: templates/content/order.html:34
+#: templates/content/order/order.html:40
 msgid "Street"
 msgstr "Ulica"
 
-#: templates/content/order.html:39
+#: templates/content/order/order.html:45
 msgid "Street number"
 msgstr "Numer ulicy"
 
-#: templates/content/order.html:45
+#: templates/content/order/order.html:52
 msgid "Town"
 msgstr "Miasto"
 
-#: templates/content/order.html:49
+#: templates/content/order/order.html:56
 msgid "ZIP code"
 msgstr "KOD pocztowy"
 
-#: templates/content/order.html:54
+#: templates/content/order/order.html:62
 msgid "Country"
 msgstr "Kraj"
 
-#: templates/content/order.html:58
+#: templates/content/order/order.html:66
 msgid "POST"
 msgstr "WYŚLIJ"
+
+#: templates/content/order/pdf.html:13
+msgid "Bill nr."
+msgstr "Rachunek nr."
+
+#: templates/content/order/pdf.html:20
+msgid "Buyer"
+msgstr "Dane odbiorcy przesyłki"
+
+#: templates/content/order/pdf.html:28
+msgid "Products"
+msgstr "Produkty"
+
+#: templates/content/order/pdf.html:30
+msgid "paid"
+msgstr "opłacone"
+
+#: templates/content/order/pdf.html:30
+msgid "unpaid"
+msgstr "nieopłacone"
+
+#: templates/content/order/pdf.html:50
+msgid "TOTAL"
+msgstr "SUMA"
 
 #: templates/registration/login.html:14
 msgid "Log in"
