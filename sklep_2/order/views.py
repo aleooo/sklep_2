@@ -22,9 +22,7 @@ def admin_order_pdf(request, order_id):
     response = HttpResponse(headers={
         'Content-Type': 'application/pdf',
         'Content-Disposition': f'attachment; filename="order_{order_id}.pdf"'})
-
-    weasyprint.HTML(string=html).write_pdf(response, stylesheets=[weasyprint.CSS( 
-        'templates/static/assets/css/base.css')])
+    weasyprint.HTML(string=html, base_url=request.build_absolute_uri()).write_pdf(response)
     return response
 
 
