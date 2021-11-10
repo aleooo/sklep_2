@@ -117,9 +117,9 @@ a:hover{color: rgb(102, 160, 160);}
 .width_200p{width: 200px;}
 .width_300p{width: 300px;}
 .width_400p{width: 400px;}
+.width_max_150{max-width: 150px;}
 .width_max_400{max-width: 400px;}
 .width_min_300{min-width: 300px;}
-.width_max_150{max-width: 150px;}
 .word_b_b_w{word-break: break-word;}
 .z_i_103{z-index: 103;}
 

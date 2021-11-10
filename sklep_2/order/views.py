@@ -19,6 +19,7 @@ from sklep_2 import settings
 def admin_order_pdf(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     html = render_to_string('content/order/pdf.html', {'order': order})
+    # return render(request, 'content/order/pdf.html', {'order': order})
     response = HttpResponse(headers={
         'Content-Type': 'application/pdf',
         'Content-Disposition': f'attachment; filename="order_{order_id}.pdf"'})

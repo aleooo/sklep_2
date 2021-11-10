@@ -33,7 +33,7 @@
             {% for product in order.products.all %}
                 <div class='display_f justify_c_s_b align_i_c height_100p margin'>
                         <div class='display_f'>
-                            <img src="{{ product.product.image.url }}" class='height_100p'>
+                            <img src="{{ product.product.image.url }}" class='height_100p width_max_150'>
                             <div class='flex_d_c padding_l'>
                                 <p>{{ product.product.name }}</p>
                                 <p class='color_gray font_numbers'>{{ product.product.quantity }} x {{ product.product.price }}</p>
