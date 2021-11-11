@@ -15,10 +15,13 @@
     width: 90%;
     margin: 1rem auto;
 }
+.margin_t_05_{margin-top: 0.5rem !important;}
+
 .order_double_input{
     display: flex;
     justify-content: space-around;
 }
+
 @media (max-width: 813px) {
     #column_order{
         display: block;
