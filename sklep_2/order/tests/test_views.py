@@ -50,7 +50,7 @@ class ModelTestCase(TestCase):
         response = self.client.get(reverse('order:admin_order_pdf', args=[self.order.id]))
         
         self.assertEqual(response.status_code, 200)
-        # don't pass tests about contains values though in real they work
+        # don't pass tests about contains values though in manual operation they work
         # self.assertContains(response, 69.99)
 
     

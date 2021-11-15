@@ -3,6 +3,7 @@ from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
 from django.test import client
 from django.urls import reverse
+from django.views.generic.list import ListView
 
 from .forms import UserModelForm
 from .models import Category, Product
@@ -69,7 +70,6 @@ def list(request, category=None, text=None):
         
     return render(request, 'content/list.html', {'main_bar': True,
                                                  'objects': objects_pagination})
-
 
 
 def list_search(request, text):
