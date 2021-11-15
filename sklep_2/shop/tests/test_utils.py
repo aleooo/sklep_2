@@ -73,3 +73,7 @@ class UtilsTestCase(TestCase):
     def test_pagination_over_the_page(self):
         objects = pagination(self.products, 3)
         self.assertEqual(len(objects), 2)
+    
+    def test_pagination_over_the_page(self):
+        objects = pagination(self.products, 0)
+        self.assertEqual(len(objects), 2)

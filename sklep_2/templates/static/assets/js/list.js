@@ -10,10 +10,12 @@ let number_to = ''
 let form_price_action = location.pathname
 
 
+// checks if the url has any filter keywords 
 if (location.href.includes('filter') == true || location.href.includes('from')) {
 
-    
     if(location.href.includes('page')){
+
+        // slice from url, for example url: http://127.0.0.1:8000/en/list/search/i/?page=2 will be slice http://127.0.0.1:8000/en/list/search/i/?page=
         slice = location.href.slice(0, location.href.search('page=')+5)
         if($('#list_laquo').length){
             $('#list_laquo').attr('href', slice + '1')
@@ -25,10 +27,11 @@ if (location.href.includes('filter') == true || location.href.includes('from')) 
             $(this).attr('href', slice + $(this)[0]['text'])
           })
     }
-    else{
-        pagination.attr('href', location.href.concat('&page=', pagination[0]['text']))
-        $('#list_raquo').attr('href', location.href.concat('&page=', $('#list_raquo')[0]['name']))
-    }
+    // else{
+    //     console.log(pagination['text']);
+    //     pagination.attr('href', location.href.concat('&page=', pagination[0]['text']))
+    //     $('#list_raquo').attr('href', location.href.concat('&page=', $('#list_raquo')[0]['name']))
+    // }
     
 }
 

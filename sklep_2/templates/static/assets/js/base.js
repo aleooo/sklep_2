@@ -1,4 +1,4 @@
-let get_sidebar = document.querySelector('#toggle_bar')
+var get_sidebar = document.querySelector('#toggle_bar')
 let toggle = $('#toggle_grid')
 let slid = document.querySelector('#carouselExampleCaptions')
 let sidebar_status = true;
@@ -7,7 +7,16 @@ var search_box = $('.search_box')
 var search_list = $('#list_search_box')
 var icon_cart = $('#cart_icon')
 var shopping_cart = $('#shopping_cart_bar')
-var a = null
+var url = location.href
+// let a = null
+
+if (url.includes('pl')){
+    url = '/pl/search/'
+}
+else{
+    url = '/en/search/'
+}
+
 
 function getCookie(c_name) {
     if(document.cookie.length > 0) {
@@ -45,7 +54,7 @@ function sidebar() {
 function sendtext(text){
     $.ajax({
         type: "POST",
-        url: "/search/",
+        url: url,
         data: {
             'csrfmiddlewaretoken': getCookie("csrftoken"),
             'text': text,
@@ -85,6 +94,7 @@ document.onclick = function (e) {
     }
 }
 if (window.location.pathname.includes('cart') == false & window.location.pathname.includes('order') == false){
+
     function cart_time(){
         a = setTimeout(cart_shop, 400)
     }

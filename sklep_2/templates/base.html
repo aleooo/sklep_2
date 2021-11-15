@@ -95,6 +95,18 @@
 
                 </div>
                 <div id='toggle_bar'>
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    <select  class="btn  width_100 " onchange="location = this.value">
+                        <option class="btn">{% trans "Language" %}</option>
+                        {% for language in languages %}
+                            <option  value="/{{ language.code }}/" {% if language.code == LANGUAGE_CODE %} class="selected"{% endif %}>
+                                    {{ language.name_local }}
+                            </option>
+                        {% endfor %}
+                    </select>
+
                     <div class="toggle_bar_button">
                         {% if user.is_authenticated %}
                             <button class="button "><a href="{% url 'shop:logout' %}" class='button_white'>{% trans "LOGOUT" %}</a></button>
