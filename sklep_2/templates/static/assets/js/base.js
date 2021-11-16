@@ -66,7 +66,7 @@ function sendtext(text){
             }
             search_list.html(array_products)
             
-            
+             
             
         }
     });
