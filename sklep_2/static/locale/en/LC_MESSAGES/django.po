@@ -1,0 +1,354 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-09 22:32+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: shop/forms.py:14
+msgid "username"
+msgstr ""
+
+#: shop/forms.py:15
+msgid "email"
+msgstr ""
+
+#: shop/forms.py:16
+msgid "password"
+msgstr ""
+
+#: shop/forms.py:17
+msgid "password again"
+msgstr ""
+
+#: shop/forms.py:18
+msgid "number"
+msgstr ""
+
+#: shop/forms.py:21
+msgid "The two password fields didn`t match"
+msgstr ""
+
+#: sklep_2/settings.py:118
+msgid "polish"
+msgstr ""
+
+#: sklep_2/settings.py:119
+msgid "english"
+msgstr ""
+
+#: templates/base.html:29
+msgid "Search"
+msgstr ""
+
+#: templates/base.html:30
+msgid "SEARCH"
+msgstr ""
+
+#: templates/base.html:69
+msgid "Cart"
+msgstr ""
+
+#: templates/base.html:73
+msgid "cart value"
+msgstr ""
+
+#: templates/base.html:100
+msgid "LOGOUT"
+msgstr ""
+
+#: templates/base.html:103 templates/registration/login.html:28
+msgid "LOGIN"
+msgstr ""
+
+#: templates/content/cart/cart.html:33
+#: templates/registration/password_change_form.html:15
+msgid "change"
+msgstr ""
+
+#: templates/content/cart/cart.html:41 templates/content/cart/cart.html:82
+msgid "for each"
+msgstr ""
+
+#: templates/content/cart/cart.html:95 templates/content/order/order.html:95
+msgid "TO PAY"
+msgstr ""
+
+#: templates/content/cart/cart.html:98 templates/content/order/order.html:72
+msgid "PAYMENT"
+msgstr ""
+
+#: templates/content/cart/cart.html:99
+msgid "CONTINUE"
+msgstr ""
+
+#: templates/content/detail.html:14
+msgid "You have added a product"
+msgstr ""
+
+#: templates/content/detail.html:16
+msgid "GO TO CART"
+msgstr ""
+
+#: templates/content/detail.html:32
+msgid "Number of items"
+msgstr ""
+
+#: templates/content/detail.html:43
+msgid "ADD TO CART"
+msgstr ""
+
+#: templates/content/detail.html:44
+msgid "BUY NOW"
+msgstr ""
+
+#: templates/content/detail.html:51
+msgid "Description"
+msgstr ""
+
+#: templates/content/detail.html:57
+msgid "Product reviews"
+msgstr ""
+
+#: templates/content/list.html:10
+msgid "Filters"
+msgstr ""
+
+#: templates/content/list.html:11
+msgid "Prices"
+msgstr ""
+
+#: templates/content/list.html:16
+msgid "less than 20"
+msgstr ""
+
+#: templates/content/list.html:20
+msgid "20 to 50"
+msgstr ""
+
+#: templates/content/list.html:24
+msgid "50 to 75"
+msgstr ""
+
+#: templates/content/list.html:28
+msgid "75-150"
+msgstr ""
+
+#: templates/content/list.html:32
+msgid "greater then 150"
+msgstr ""
+
+#: templates/content/main.html:36 templates/content/main.html:84
+msgid "Previous"
+msgstr ""
+
+#: templates/content/main.html:40 templates/content/main.html:88
+msgid "Next"
+msgstr ""
+
+#: templates/content/main.html:47
+msgid "Popular for sale"
+msgstr ""
+
+#: templates/content/order/order.html:18
+msgid "First Name"
+msgstr ""
+
+#: templates/content/order/order.html:22
+msgid "Last name"
+msgstr ""
+
+#: templates/content/order/order.html:29
+msgid "Email"
+msgstr ""
+
+#: templates/content/order/order.html:34
+msgid "Phone number"
+msgstr ""
+
+#: templates/content/order/order.html:40
+msgid "Street"
+msgstr ""
+
+#: templates/content/order/order.html:45
+msgid "Street number"
+msgstr ""
+
+#: templates/content/order/order.html:52
+msgid "Town"
+msgstr ""
+
+#: templates/content/order/order.html:56
+msgid "ZIP code"
+msgstr ""
+
+#: templates/content/order/order.html:62
+msgid "Country"
+msgstr ""
+
+#: templates/content/order/order.html:66
+msgid "POST"
+msgstr ""
+
+#: templates/content/order/pdf.html:13
+msgid "Bill nr."
+msgstr ""
+
+#: templates/content/order/pdf.html:20
+msgid "Buyer"
+msgstr ""
+
+#: templates/content/order/pdf.html:28
+msgid "Products"
+msgstr ""
+
+#: templates/content/order/pdf.html:30
+msgid "paid"
+msgstr ""
+
+#: templates/content/order/pdf.html:30
+msgid "unpaid"
+msgstr ""
+
+#: templates/content/order/pdf.html:50
+msgid "TOTAL"
+msgstr ""
+
+#: templates/registration/login.html:14
+msgid "Log in"
+msgstr ""
+
+#: templates/registration/login.html:27
+msgid "Forgot password"
+msgstr ""
+
+#: templates/registration/login.html:33
+msgid "or"
+msgstr ""
+
+#: templates/registration/login.html:37
+msgid "Login with Facebook"
+msgstr ""
+
+#: templates/registration/login.html:42
+msgid "Don't have an account"
+msgstr ""
+
+#: templates/registration/login.html:43 templates/registration/register.html:33
+msgid "SIGN UP"
+msgstr ""
+
+#: templates/registration/password_change_done.html:5
+#: templates/registration/password_change_done.html:9
+msgid "Password change done"
+msgstr ""
+
+#: templates/registration/password_change_done.html:10
+msgid "MAIN"
+msgstr ""
+
+#: templates/registration/password_change_form.html:6
+#: templates/registration/password_change_form.html:10
+msgid "Password change"
+msgstr ""
+
+#: templates/registration/password_reset_complete.html:5
+#: templates/registration/password_reset_complete.html:10
+#: templates/registration/password_reset_confirm.html:6
+#: templates/registration/password_reset_confirm.html:11
+msgid "Reset password"
+msgstr ""
+
+#: templates/registration/password_reset_complete.html:14
+msgid "The password has been defined. You can"
+msgstr ""
+
+#: templates/registration/password_reset_complete.html:14
+msgid "login"
+msgstr ""
+
+#: templates/registration/password_reset_complete.html:14
+msgid "in now"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:16
+msgid "Enter the new password twice"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:44
+msgid "CHANGE"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:49
+msgid ""
+"Link to reset password is incorrect because it has probably been used "
+"before. You must again to start the procedure password reset."
+msgstr ""
+
+#: templates/registration/password_reset_done.html:5
+msgid "Password has been changed "
+msgstr ""
+
+#: templates/registration/password_reset_done.html:11
+msgid "Reset Password"
+msgstr ""
+
+#: templates/registration/password_reset_done.html:15
+msgid "We send you email with instructions let you create a new password"
+msgstr ""
+
+#: templates/registration/password_reset_done.html:18
+msgid ""
+"If you haven't the email message make sure on the form of password reset "
+"enter address e-mail provided when creating the user account"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:3
+msgid "We received the a password reset request for users use the email"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:3
+msgid "Click below link:"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:5
+msgid "Your username:"
+msgstr ""
+
+#: templates/registration/password_reset_form.html:6
+#: templates/registration/password_reset_form.html:10
+msgid "Password reset"
+msgstr ""
+
+#: templates/registration/password_reset_form.html:16
+msgid "BACK"
+msgstr ""
+
+#: templates/registration/password_reset_form.html:17
+msgid "SEND EMAIL"
+msgstr ""
+
+#: templates/registration/register.html:6
+msgid "Register"
+msgstr ""
+
+#: templates/registration/register.html:13
+msgid "Sign up"
+msgstr ""
+
+#: templates/registration/register.html:32
+msgid "Already have an account"
+msgstr ""

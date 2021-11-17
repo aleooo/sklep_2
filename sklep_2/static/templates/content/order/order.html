@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load price_tags %}
+
+{% block content %}
+<form action="." method='POST'>
+    {% csrf_token %}
+    <div class='basic margin_t_2' id='column_order'>
+        <div class='order_div'>
+            <div class="background_w  padding_tb ">
+                <div class="width_90 margin_0auto">
+                    <p class='font_size_2  font_numbers'>Details of the recipient</p>
+                
+                    
+                    {{ form.first_name.errors }}
+                    {{ form.last_name.errors }}
+                    <div class="row g-2 width_100 margin_0auto justify_c_s_a">
+                            <div class='form-floating width_50'>
+                                {{ form.first_name }}
+                                <label for="{{ form.first_name.id_for_label }}">{% trans "First Name" %}</label>
+                            </div>
+                            <div class='form-floating width_50'>
+                                {{ form.last_name }}
+                                <label for="{{ form.last_name.id_for_label }}">{% trans "Last name" %}</label>
+                            </div>
+                    </div>
+                    {{ form.email.errors }}
+                    <div class='form-floating'>
+                        
+                        {{ form.email }}
+                        <label for="{{ form.email.id_for_label }}">{% trans "Email" %}</label>
+                    </div>
+                    {{ form.phone_number.errors }}
+                    <div class='margin_t_05 form-floating'>
+                        {{ form.phone_number }}
+                        <label for="{{ form.phone_number.id_for_label }}">{% trans "Phone number" %}</label>
+                    </div>
+                    {{ form.street.errors }}
+                    <div class="row g-2  margin_0auto justify_c_s_a">
+                            <div class=' form-floating width_50'>
+                                {{ form.street }}
+                                <label for="{{ form.street.id_for_label }}">{% trans "Street" %}</label>
+                            </div>
+                    
+                            <div class=' form-floating width_50'>
+                                {{ form.street_number }}
+                                <label for="{{ form.street_number.id_for_label }}">{% trans "Street number" %}</label>
+                            </div>
+                    </div>
+                    <div class="row g-2  margin_0auto justify_c_s_a">
+                        {{ form.town.errors }}
+                        <div class=' form-floating width_50'>
+                            {{ form.town }}
+                            <label for="{{ form.town.id_for_label }}">{% trans "Town" %}</label>
+                        </div>
+                        <div class=' form-floating width_50'>
+                            {{ form.ZIP_code }}
+                            <label for="{{ form.zip_code.id_for_label }}">{% trans "ZIP code" %}</label>
+                        </div>
+                    </div>                  
+                    {{ form.country.errors }}
+                    <div class='margin_t_05 form-floating'>
+                        {{ form.country }}
+                        <label for="{{ form.country.id_for_label }}">{% trans "Country" %}</label>
+                    </div>
+                
+                    
+                    
+            </div>
+            </div>
+            <div class='background_w  margin_t_2 padding'>
+                <div class='width_90 margin_0auto'>
+                    <p class='font_size_2 font_numbers'>{% trans "Delivery offer" %}</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="delivery" id="parcer_locker">
+                        <label class="form-check-label" for="parcer_locker">
+                            {% trans "Parcel locker" %}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="delivery" id="courier" checked>
+                        <label class="form-check-label" for="courier">
+                            {% trans "Courier" %}
+                        </label>
+                    </div>
+                    <div class='height_400p' id='map_parcel_locker'></div>
+                </div>
+            </div>
+            <div class='background_w  margin_t_2 padding'>
+                <div class='width_90'>
+                    <p class='font_size_2 font_numbers'>{% trans "Payment" %}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class='order_div'>
+            <div class="background_w padding_tb">
+                <div class="width_90 margin_0auto">
+                    {% for item in cart %}
+                        <div class='display_f justify_c_s_b align_i_c height_80p'>
+                            <div class='display_f'>
+            
+                                <img src="{{ item.image }}" class='height_80p'>
+                                <div class='flex_d_c padding_l_05'>
+                                    <p>{{ item.name }}</p>
+                                    <p class='color_gray'>{{ item.quantity }} x {{ item.price }}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <p class='font_size_12'>{{ item.total_price}}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    
+                    <div class='display_ib  float_r'>
+                        <span class='font_size_12 padding_r_05'>{% trans "TO PAY" %}</span><span class='font_size_2 font_numbers'>{{ cart.total_value_cart|price_front }}</span><span class='font_size_15 font_numbers' >{{ cart.total_value_cart|price_back }}</span>
+                    </div>
+                    <div class='clear_b'>
+                    </div>
+                </div>
+            </div>
+            <div class="background_w padding_tb margin_t_2">
+                <div class='width_90 margin_0auto'>
+                    <p class='font_size_2 font_numbers'>{% trans "Summary" %}</p>
+            
+                    <div class='margin_t'>
+                        <button type='submit' class='button  padding_tb_05 width_100' ><p class='button_margin '>{% trans "PAY AND POST" %}</p></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+crossorigin=""></script>
+<script type='text/javascript' src='{% static "assets/js/order.js" %}'></script>
+{% endblock content %}
+

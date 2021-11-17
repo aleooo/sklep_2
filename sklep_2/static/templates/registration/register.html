@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Register" %}{% endblock %}
+
+{% block content %}
+<div class="login-form">
+    {% if user_form.errors %}
+        {{ user_form.errors }}
+    {% endif %}
+    <h1 class='registration' >{% trans "Sign up" %}</h1>
+    <form action="." method='post'>
+        {% csrf_token %}
+        <div>
+            {{ user_form.username }}
+        </div>
+        <div>
+            {{ user_form.email }}
+        </div>
+        <div>
+            {{ user_form.password1 }}
+        </div>
+        <div>
+            {{ user_form.password2 }}
+        </div>
+        <div>
+            {{ user_form.number }}
+        </div>
+        <div class='bar_login'>
+                <a class='registration' href="{% url 'shop:login' %}">{% trans "Already have an account" %}?</a>
+                <button type='submit' class="button login_input button_registration" id='login_button'><p class='button_margin'>{% trans "SIGN UP" %}</p></button>
+            </div>
+    </form>
+
+    
+</div>
+<script type='text/javascript' src='{% static 'assets/js/register.js' %}'></script>
+{% endblock %}

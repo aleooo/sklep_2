@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load price_tags %}
+
+{% block content %}
+
+    <div id="detail" class="basic white margin_t">
+        {% if cart.clear_add %}
+            <div class='center_div_f height_200p width_300p background_g z_i_103 text_a_c' id='box_info_added_product'>
+                <div class='width_100 height_2r'><div id='close_box_info_added_product' class='float_r  width_2r height_2r padding_05 display_f align_i_c'><img class=' width_1r height_1r' src="{% static 'images/cancel.png' %}" ></div></div>
+                <div><img class='width_80p height_80p' src="{% static 'images/check-mark.png' %}"></div>
+                <p>{% trans "You have added a product" %}!</p>
+                <div>
+                    <button type='submit' id='box_info' class='button width_50 margin_b' ><a class='color_white' id='box_info' href="{% url 'cart:main_cart' %}">{% trans "GO TO CART" %}</a></button>
+                </div>
+                
+            </div>
+            
+        {% endif %}
+        <div class="detail_div width_60 align_i_c display_f padding">
+            <img class='detail_image margin_0auto' src="{{ product.image.url }}">
+        </div>
+        <div class="detail_div width_40 detail_right_div">       
+                <strong><p class='font_size_15'>{{ product.name }}</p></strong>
+                <div class='display_ib'>
+                    <span class='font_size_2 font_numbers'>{{ product.price|price_front }}</span><span class='font_size_15 font_numbers' >{{ product.price|price_back }}</span>
+                </div>
+                <hr class='margin'>
+                <form action="{% url 'cart:add' product.id %}" method='get'>
+                <p class='color_gray'>{% trans "Number of items" %}</p>
+                <div class="input-group mb-3 margin_t">
+                    <div class="input-group-prepend">
+                        <button type='button' class="btn  btn-sm border_1sg border_r_0" id="minus" ><i class="fa fa-minus"></i></button>
+                    </div>
+                    <input  id="input" class=" form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="1" min="1" name='quantity'>
+                    <div class="input-group-prepend">
+                        <button type='button' class="btn  btn-sm border_1sg border_r_0" id="plus"><i class="fa fa-plus"></i></button>
+                    </div>
+                </div>
+                
+                <button type='submit' class='button width_90 margin_b' ><p class='button_margin'>{% trans "ADD TO CART" %}</p></button>
+                <button class='button width_90 margin_b' ><p class='button_margin'>{% trans "BUY NOW" %}</p></button>
+                </form>
+        </div> 
+        
+    </div>
+    <div class='basic margin_t white'>
+        <div class=' padding' >
+            <h3>{% trans "Description" %}</h3>
+            <p class='padding_l'>{{ product.description }}</p>
+        </div>
+    </div> 
+    <div class='basic margin_t white'>
+        <div class=' padding' >
+            <h3>{% trans "Product reviews" %}</h3>
+
+        </div>
+    </div> 
+
+    <script type='text/javascript' src="{% static 'assets/js/detail.js' %}"></script>
+{% endblock content %}

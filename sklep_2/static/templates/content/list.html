@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load price_tags %}
+
+{% block content %}
+    <div class='basic margin_t' id='list'>
+        <div id='list_filter' class='white padding'>
+            <strong><p class='font_size_15 '>{% trans "Filters" %}</p></strong>
+            <strong><p class='font_size_12'>{% trans "Prices" %}</p></strong>
+
+            <ul>
+                <li class='html_list font_size_12 paddding_b'>
+                    <a href="?filter=20"><input id='price_range_1' type="radio" name=""></a>
+                    <label for="price_range_1">{% trans "less than 20" %}</label>
+                </li>
+                <li class='html_list font_size_12 paddding_b'>
+                    <a href="?filter=50"><input id='price_range_2' type="radio" name=""></a>
+                    <label for="price_range_2">{% trans "20 to 50" %}</label>
+                </li>
+                <li class='html_list font_size_12 paddding_b'>
+                    <a href="?filter=75"><input id='price_range_3' type="radio" name=""></a>
+                    <label for="price_range_3">{% trans "50 to 75" %}</label>
+                </li>
+                <li class='html_list font_size_12 paddding_b'>
+                    <a href="?filter=150"><input id='price_range_4' type="radio" name=""></a>
+                    <label for="price_range_4">{% trans "75-150" %}</label>
+                </li>
+                <li class='html_list font_size_12 paddding_b'>
+                    <a href="?filter=0"><input id='price_range_5' type="radio" name=""></a>
+                    <label for="price_range_5">{% trans "greater then 150" %}</label>
+                </li>
+            </ul> 
+     
+            <form action='/list/search/a/b/' method='get' id='list_form_price'>
+                <span class='display_f align_i_c' >
+                    <input type="text" class='width_40 text_a_c padding_tb_05' placeholder='from' name='from' id='list_input_from'>
+                    <p class='margin_lr_05 '>-</p>
+                    <input type="text" class='width_40 text_a_c padding_tb_05' placeholder='to' name='to' id='list_input_to'>
+                    <button type='submit' style='display:none'></button>
+                </span>
+            </form>
+        </div>
+
+        <div id='list_articles' class='white'>
+            <nav aria-label="Page navigation example" class='nav_pagination'>
+                <button class='padding_0 border_n margin_0 background_inherit' id='list_filter_button' onclick='list_filter_button()'><strong><p class='font_size_15 color_green' >Filters</p></strong></button>
+            
+                <ul class="pagination">
+                    {% if objects.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" id='list_laquo'  href="?page=1">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link"  href="#">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% for number_page in objects.paginator.page_range %}
+                        {% if number_page == objects.number %}
+                            <li class="page-item active"><a class="page-link" href="#">{{ number_page }}</a></li>
+                        {% else %}
+                            {% if number_page > objects.number|add:'-2' and  number_page < objects.number|add:'2' %}
+                                <li class="page-item"><a class="page-link pagination_a" href="?page={{ number_page }}">{{ number_page }}</a></li>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if objects.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" id="list_raquo" href="?page={{ objects.paginator.num_pages }}" name="{{ objects.paginator.num_pages }}">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+
+                </ul>
+            </nav>
+        
+            {% for product in objects %}
+                <a href="{{ product.get_absolute_url }}" class='list_object'>
+                    <article class='padding display_f height_250p list_object' >
+                        <div class='width_200p'>
+                            <img src="{{ product.image.url }}" class='list_image_size'>
+                        </div>
+                        
+                        <div class='padding_lr_4'>
+                            <h4>{{ product.name }}</h4>
+                            <span class='font_size_2 font_numbers'>{{ product.price|price_front }}</span><span class='font_size_15 font_numbers' >{{ product.price|price_back }}</span>
+                        </div>
+                        
+                    </article>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'assets/js/list.js' %}"></script>
+{% endblock content %}

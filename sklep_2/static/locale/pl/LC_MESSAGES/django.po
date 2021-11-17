@@ -1,0 +1,360 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-09 22:32+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
+"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
+"%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+#: shop/forms.py:14
+msgid "username"
+msgstr "nazwa użytkownika"
+
+#: shop/forms.py:15
+msgid "email"
+msgstr "email"
+
+#: shop/forms.py:16
+msgid "password"
+msgstr "hasło"
+
+#: shop/forms.py:17
+msgid "password again"
+msgstr "powtórz hasło"
+
+#: shop/forms.py:18
+msgid "number"
+msgstr "numer telefonu"
+
+#: shop/forms.py:21
+msgid "The two password fields didn`t match"
+msgstr "Hasła nie są identyczne"
+
+#: sklep_2/settings.py:118
+msgid "polish"
+msgstr "polski"
+
+#: sklep_2/settings.py:119
+msgid "english"
+msgstr "angielski"
+
+#: templates/base.html:29
+msgid "Search"
+msgstr "Szukaj"
+
+#: templates/base.html:30
+msgid "SEARCH"
+msgstr "SZUKAJ"
+
+#: templates/base.html:69
+msgid "Cart"
+msgstr "Koszyk"
+
+#: templates/base.html:73
+msgid "cart value"
+msgstr "Wartość koszyka"
+
+#: templates/base.html:100
+msgid "LOGOUT"
+msgstr "Wyloguj się"
+
+#: templates/base.html:103 templates/registration/login.html:28
+msgid "LOGIN"
+msgstr "Zaloguj się"
+
+#: templates/content/cart/cart.html:33
+#: templates/registration/password_change_form.html:15
+msgid "change"
+msgstr "zmień"
+
+#: templates/content/cart/cart.html:41 templates/content/cart/cart.html:82
+msgid "for each"
+msgstr "za każdy"
+
+#: templates/content/cart/cart.html:95 templates/content/order/order.html:95
+msgid "TO PAY"
+msgstr "DO ZAPŁATY"
+
+#: templates/content/cart/cart.html:98 templates/content/order/order.html:72
+msgid "PAYMENT"
+msgstr "PŁATNOŚĆ"
+
+#: templates/content/cart/cart.html:99
+msgid "CONTINUE"
+msgstr "KONTYNUUJ"
+
+#: templates/content/detail.html:14
+msgid "You have added a product"
+msgstr "Dodałeś produkt"
+
+#: templates/content/detail.html:16
+msgid "GO TO CART"
+msgstr "IDŹ DO KOSZYKA"
+
+#: templates/content/detail.html:32
+msgid "Number of items"
+msgstr "Liczba rzeczy"
+
+#: templates/content/detail.html:43
+msgid "ADD TO CART"
+msgstr "DODAJ DO KOSZYKA"
+
+#: templates/content/detail.html:44
+msgid "BUY NOW"
+msgstr "KUP TERAZ"
+
+#: templates/content/detail.html:51
+msgid "Description"
+msgstr "Opis"
+
+#: templates/content/detail.html:57
+msgid "Product reviews"
+msgstr "Opinie"
+
+#: templates/content/list.html:10
+msgid "Filters"
+msgstr "Filtry"
+
+#: templates/content/list.html:11
+msgid "Prices"
+msgstr "Ceny"
+
+#: templates/content/list.html:16
+msgid "less than 20"
+msgstr "mniej niż 20"
+
+#: templates/content/list.html:20
+msgid "20 to 50"
+msgstr "20 do 50"
+
+#: templates/content/list.html:24
+msgid "50 to 75"
+msgstr "50 do 75"
+
+#: templates/content/list.html:28
+msgid "75-150"
+msgstr "75 do 150"
+
+#: templates/content/list.html:32
+msgid "greater then 150"
+msgstr "więcej niż 150"
+
+#: templates/content/main.html:36 templates/content/main.html:84
+msgid "Previous"
+msgstr "Poprzedni"
+
+#: templates/content/main.html:40 templates/content/main.html:88
+msgid "Next"
+msgstr "Następny"
+
+#: templates/content/main.html:47
+msgid "Popular for sale"
+msgstr "Popularne w sprzedaży"
+
+#: templates/content/order/order.html:18
+msgid "First Name"
+msgstr "Imię"
+
+#: templates/content/order/order.html:22
+msgid "Last name"
+msgstr "Nazwisko"
+
+#: templates/content/order/order.html:29
+msgid "Email"
+msgstr "Email"
+
+#: templates/content/order/order.html:34
+msgid "Phone number"
+msgstr "Numer telefonu"
+
+#: templates/content/order/order.html:40
+msgid "Street"
+msgstr "Ulica"
+
+#: templates/content/order/order.html:45
+msgid "Street number"
+msgstr "Numer ulicy"
+
+#: templates/content/order/order.html:52
+msgid "Town"
+msgstr "Miasto"
+
+#: templates/content/order/order.html:56
+msgid "ZIP code"
+msgstr "KOD pocztowy"
+
+#: templates/content/order/order.html:62
+msgid "Country"
+msgstr "Kraj"
+
+#: templates/content/order/order.html:66
+msgid "POST"
+msgstr "WYŚLIJ"
+
+#: templates/content/order/pdf.html:13
+msgid "Bill nr."
+msgstr "Rachunek nr."
+
+#: templates/content/order/pdf.html:20
+msgid "Buyer"
+msgstr "Dane odbiorcy przesyłki"
+
+#: templates/content/order/pdf.html:28
+msgid "Products"
+msgstr "Produkty"
+
+#: templates/content/order/pdf.html:30
+msgid "paid"
+msgstr "opłacone"
+
+#: templates/content/order/pdf.html:30
+msgid "unpaid"
+msgstr "nieopłacone"
+
+#: templates/content/order/pdf.html:50
+msgid "TOTAL"
+msgstr "SUMA"
+
+#: templates/registration/login.html:14
+msgid "Log in"
+msgstr "Zaloguj się"
+
+#: templates/registration/login.html:27
+msgid "Forgot password"
+msgstr "Zapomniałeś hasła"
+
+#: templates/registration/login.html:33
+msgid "or"
+msgstr "lub"
+
+#: templates/registration/login.html:37
+msgid "Login with Facebook"
+msgstr "Zaloguj się przez Facebook"
+
+#: templates/registration/login.html:42
+msgid "Don't have an account"
+msgstr "Nie masz konta"
+
+#: templates/registration/login.html:43 templates/registration/register.html:33
+msgid "SIGN UP"
+msgstr "ZAREJESTRUJ SIĘ"
+
+#: templates/registration/password_change_done.html:5
+#: templates/registration/password_change_done.html:9
+msgid "Password change done"
+msgstr "Zmiana hasła wykonana"
+
+#: templates/registration/password_change_done.html:10
+msgid "MAIN"
+msgstr "SKLEP_2"
+
+#: templates/registration/password_change_form.html:6
+#: templates/registration/password_change_form.html:10
+msgid "Password change"
+msgstr "Zmiana Hasła"
+
+#: templates/registration/password_reset_complete.html:5
+#: templates/registration/password_reset_complete.html:10
+#: templates/registration/password_reset_confirm.html:6
+#: templates/registration/password_reset_confirm.html:11
+msgid "Reset password"
+msgstr "Reset hasła"
+
+#: templates/registration/password_reset_complete.html:14
+msgid "The password has been defined. You can"
+msgstr "Hasło zostało zdefiniowane. Możesz"
+
+#: templates/registration/password_reset_complete.html:14
+msgid "login"
+msgstr "zalogować się"
+
+#: templates/registration/password_reset_complete.html:14
+msgid "in now"
+msgstr "w tej chwili"
+
+#: templates/registration/password_reset_confirm.html:16
+msgid "Enter the new password twice"
+msgstr "Wpisz dwa razy nowe hasło"
+
+#: templates/registration/password_reset_confirm.html:44
+msgid "CHANGE"
+msgstr "ZMIEŃ"
+
+#: templates/registration/password_reset_confirm.html:49
+msgid ""
+"Link to reset password is incorrect because it has probably been used "
+"before. You must again to start the procedure password reset."
+msgstr ""
+"Link do resetowania hasła jest niepoprawny ponieważ prawdopodobnie został "
+"już użyty. Musisz ponownie zacząć procedure resetowania hasła"
+
+#: templates/registration/password_reset_done.html:5
+msgid "Password has been changed "
+msgstr "Hasło zostało zmienione"
+
+#: templates/registration/password_reset_done.html:11
+msgid "Reset Password"
+msgstr "Reset Hasła"
+
+#: templates/registration/password_reset_done.html:15
+msgid "We send you email with instructions let you create a new password"
+msgstr "Wysłaliśmy Ci email z instrukcjami pozwalającymi stworzyć nowe hasło"
+
+#: templates/registration/password_reset_done.html:18
+msgid ""
+"If you haven't the email message make sure on the form of password reset "
+"enter address e-mail provided when creating the user account"
+msgstr ""
+"Jeśli nie otrzymałeś wiadomości email, upewnij się, że wpisałeś w formularzu "
+"email, który był dostarczony podczas tworzenia konta"
+
+#: templates/registration/password_reset_email.html:3
+msgid "We received the a password reset request for users use the email"
+msgstr "Otrzymaliśmy żądanie resetowania hasła"
+
+#: templates/registration/password_reset_email.html:3
+msgid "Click below link:"
+msgstr "Kliknij poniższy link"
+
+#: templates/registration/password_reset_email.html:5
+msgid "Your username:"
+msgstr "Nazwa twojego użytkownika"
+
+#: templates/registration/password_reset_form.html:6
+#: templates/registration/password_reset_form.html:10
+msgid "Password reset"
+msgstr "Reset Hasła"
+
+#: templates/registration/password_reset_form.html:16
+msgid "BACK"
+msgstr "WRÓĆ"
+
+#: templates/registration/password_reset_form.html:17
+msgid "SEND EMAIL"
+msgstr "WYŚLIJ EMAIL"
+
+#: templates/registration/register.html:6
+msgid "Register"
+msgstr "Rejestracja"
+
+#: templates/registration/register.html:13
+msgid "Sign up"
+msgstr "Zarejestruj się"
+
+#: templates/registration/register.html:32
+msgid "Already have an account"
+msgstr "Masz konto"
