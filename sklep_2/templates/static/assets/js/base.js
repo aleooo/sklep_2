@@ -77,6 +77,7 @@ function sendtext(text){
 input_search.keyup(w => { 
     let words = w.target.value
     let len = parseInt(w.target.textLength)
+    console.log(words.length);
     if (len > 0){
         search_box.addClass('active_search')
     }

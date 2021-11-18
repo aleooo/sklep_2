@@ -59,12 +59,13 @@ a:hover{color: rgb(102, 160, 160);}
 .padding_0{padding: 0;}
 .padding_05{padding: 0.5rem}
 .paddding_b{padding-bottom: 1rem;}
-.padding_lr_4{padding: 0 4rem;}
 .padding_l{padding-left: 1rem;}
+.padding_l_2{padding-left: 2rem;}
 .padding_l_05{padding-left: 0.5rem;}
 .padding_l_50px{padding-left: 50px;}
 .padding_lr{padding: 0 1rem}
 .padding_lr_2{padding: 0 2rem}
+.padding_lr_4{padding: 0 4rem;}
 .padding_r_05{padding-right: 0.5rem;}
 .padding_ud_4{padding: 4rem;}
 .padding_t_15{padding-top: 1.5rem;}
@@ -77,6 +78,7 @@ a:hover{color: rgb(102, 160, 160);}
 .margin_b{margin-bottom: 1rem;}
 .margin_b_0{margin-bottom: 0;}
 .margin_l{margin-left: 1rem;}
+.margin_l_2{margin-left: 2rem;}
 .margin_lr{margin: 0 1rem;}
 .margin_lr_05{margin: 0 0.5rem;}
 .margin_r{margin-right: 1rem;}
@@ -118,8 +120,10 @@ a:hover{color: rgb(102, 160, 160);}
 .width_200p{width: 200px;}
 .width_300p{width: 300px;}
 .width_400p{width: 400px;}
+.width_max_90{max-width: 90%}
 .width_max_150{max-width: 150px;}
 .width_max_400{max-width: 400px;}
+.width_min_100p{min-width: 100px;}
 .width_min_300{min-width: 300px;}
 .word_b_b_w{word-break: break-word;}
 .z_i_103{z-index: 103;}

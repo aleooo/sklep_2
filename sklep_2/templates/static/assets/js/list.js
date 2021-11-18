@@ -9,7 +9,7 @@ let number_from = ''
 let number_to = ''
 let form_price_action = location.pathname
 
-
+// in the case of a filter, the href of the paging buttons would not redirect to the filter page
 // checks if the url has any filter keywords 
 if (location.href.includes('filter') == true || location.href.includes('from')) {
 
@@ -27,12 +27,16 @@ if (location.href.includes('filter') == true || location.href.includes('from')) 
             $(this).attr('href', slice + $(this)[0]['text'])
           })
     }
-    // else{
-    //     console.log(pagination['text']);
-    //     pagination.attr('href', location.href.concat('&page=', pagination[0]['text']))
-    //     $('#list_raquo').attr('href', location.href.concat('&page=', $('#list_raquo')[0]['name']))
-    // }
-    
+    else{
+        // if there is more than one page
+        if(pagination.length > 0){
+
+            // assign href to the next button after the current one that redirects to the filter page
+            pagination.attr('href', location.href.concat('&page=', pagination[0]['text']))
+            // assign href to the raquo that redirects to the next filter page
+            $('#list_raquo').attr('href', location.href.concat('&page=', $('#list_raquo')[0]['name']))
+        }
+    }   
 }
 
 
@@ -48,7 +52,6 @@ from.keyup(w => {
     number_to = w.target.value
     form_price_action =  location.pathname+'?from='+number_from+'&to='+number_to+'&'
     form_price.attr("action", form_price_action)
-    console.log(form_price_action)
 });
 
 

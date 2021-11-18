@@ -89,17 +89,17 @@
         
             {% for product in objects %}
                 <a href="{{ product.get_absolute_url }}" class='list_object'>
-                    <article class='padding display_f height_250p list_object' >
-                        <div class='width_200p'>
+                    <div class='padding display_f height_250p list_object' >
+                        <div class='width_image_list'>
                             <img src="{{ product.image.url }}" class='list_image_size'>
                         </div>
                         
-                        <div class='padding_lr_4'>
-                            <h4>{{ product.name }}</h4>
+                        <div class='padding_l_2'>
+                            <p class='font_list'>{{ product.name }}</p>
                             <span class='font_size_2 font_numbers'>{{ product.price|price_front }}</span><span class='font_size_15 font_numbers' >{{ product.price|price_back }}</span>
                         </div>
                         
-                    </article>
+                    </div>
                 </a>
             {% endfor %}
         </div>
