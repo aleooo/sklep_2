@@ -145,6 +145,8 @@ a.orange:hover {color:#ff5a00;}
 @media (max-width: 813px) {
     #grid_main_advertisement{height: 200px; }
     #grid_main_products{display: none;}
+    #grid_main_old_advertisement{display: none;}
+    #grid_main_sale_promotion{margin-top: 1rem;}
     #main{height: 100px;}
     .search_box{
         top: 100px;
