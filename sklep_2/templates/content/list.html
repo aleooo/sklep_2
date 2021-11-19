@@ -12,23 +12,23 @@
 
             <ul>
                 <li class='html_list font_size_12 paddding_b'>
-                    <a href="?filter=20"><input id='price_range_1' type="radio" name=""></a>
-                    <label for="price_range_1">{% trans "less than 20" %}</label>
+                    <input id='price_range_1' type="radio" name="filter_radio " onchange="location = this.value;" value='?filter=20'>
+                    <label for="price_range_1" >{% trans "less than 20" %}</label>
                 </li>
                 <li class='html_list font_size_12 paddding_b'>
-                    <a href="?filter=50"><input id='price_range_2' type="radio" name=""></a>
+                    <input id='price_range_2' type="radio" name="filter_radio" onchange="location = this.value;" value='?filter=50'>
                     <label for="price_range_2">{% trans "20 to 50" %}</label>
                 </li>
                 <li class='html_list font_size_12 paddding_b'>
-                    <a href="?filter=75"><input id='price_range_3' type="radio" name=""></a>
+                    <input id='price_range_3' type="radio" name="filter_radio" onchange="location = this.value;" value='?filter=75'>
                     <label for="price_range_3">{% trans "50 to 75" %}</label>
                 </li>
                 <li class='html_list font_size_12 paddding_b'>
-                    <a href="?filter=150"><input id='price_range_4' type="radio" name=""></a>
-                    <label for="price_range_4">{% trans "75-150" %}</label>
+                    <input id='price_range_4' type="radio" name="filter_radio" onchange="location = this.value;" value='?filter=150'>
+                    <label for="price_range_4">{% trans "75 to 150" %}</label>
                 </li>
                 <li class='html_list font_size_12 paddding_b'>
-                    <a href="?filter=0"><input id='price_range_5' type="radio" name=""></a>
+                    <input id='price_range_5' type="radio" name="filter_radio" onchange="location = this.value;" value='?filter=0'>
                     <label for="price_range_5">{% trans "greater then 150" %}</label>
                 </li>
             </ul> 
