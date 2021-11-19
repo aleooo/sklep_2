@@ -8,7 +8,7 @@
 
     <div id="detail" class="basic white margin_t">
         {% if cart.clear_add %}
-            <div class='center_div_f height_200p width_300p background_g z_i_103 text_a_c' id='box_info_added_product'>
+            <div class='center_div_f width_300p background_g z_i_103 text_a_c' id='box_info_added_product'>
                 <div class='width_100 height_2r'><div id='close_box_info_added_product' class='float_r  width_2r height_2r padding_05 display_f align_i_c'><img class=' width_1r height_1r' src="{% static 'images/cancel.png' %}" ></div></div>
                 <div><img class='width_80p height_80p' src="{% static 'images/check-mark.png' %}"></div>
                 <p>{% trans "You have added a product" %}!</p>
@@ -22,7 +22,8 @@
         <div class="detail_div width_60 align_i_c display_f padding">
             <img class='detail_image margin_0auto' src="{{ product.image.url }}">
         </div>
-        <div class="detail_div width_40 detail_right_div">       
+        <div class="detail_div width_40 detail_right_div">
+            <div class='width_90 margin_0auto'>
                 <strong><p class='font_size_15'>{{ product.name }}</p></strong>
                 <div class='display_ib'>
                     <span class='font_size_2 font_numbers'>{{ product.price|price_front }}</span><span class='font_size_15 font_numbers' >{{ product.price|price_back }}</span>
@@ -40,9 +41,10 @@
                     </div>
                 </div>
                 
-                <button type='submit' class='button width_90 margin_b' ><p class='button_margin'>{% trans "ADD TO CART" %}</p></button>
-                <button class='button width_90 margin_b' ><p class='button_margin'>{% trans "BUY NOW" %}</p></button>
+                <button type='submit' class='button width_100 margin_b' ><p class='button_margin'>{% trans "ADD TO CART" %}</p></button>
+                <button class='button width_100 margin_b' ><p class='button_margin'>{% trans "BUY NOW" %}</p></button>
                 </form>
+            </div>       
         </div> 
         
     </div>

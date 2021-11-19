@@ -3,7 +3,7 @@
     flex-direction: row;
 }
 .detail_right_div{
-    padding: 4rem 0 2rem 1rem;
+    padding: 4rem 0 2rem 0;
 }
 #close_box_info_added_product:hover{
     background: rgb(92, 149, 235);
