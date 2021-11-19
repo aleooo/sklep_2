@@ -1,7 +1,6 @@
 let plus = $('#plus')
 let minus = $('#minus')
 let input = $('#input')
-let a = $('.but')
 let box_info_added_product = $('#box_info_added_product')
 
 
