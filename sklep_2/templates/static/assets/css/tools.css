@@ -32,6 +32,7 @@ a:hover{color: rgb(102, 160, 160);}
 /* .font_numbers{font-family: 'B612 Mono', monospace;} */
 .flex_d_c{display: flex; flex-direction: column;}
 .flex_d_r{display: flex; flex-direction: row;}
+.font_numbers_light{font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-weight: 200 !important;}
 .font_numbers{font-family:  Roboto,sans-serif;}
 .font_decorative{font-family: 'Tourney', cursive;}
 .font_size_1{font-size: 1rem;}

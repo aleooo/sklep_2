@@ -16,6 +16,10 @@
     display: none;
 }
 
+.button_quantity_cart{
+    width: 125px;
+    margin: 0 auto;
+}
 @media (max-width: 813px) {
     #cart{
         flex-direction: column;

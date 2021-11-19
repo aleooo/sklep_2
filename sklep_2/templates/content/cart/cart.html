@@ -22,15 +22,15 @@
                             <form action="{% url 'cart:add' item.id %}" method='get' class='text_a_c'>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <button type='button' class="btn  btn-sm border_1sg border_r_0" onclick='minus({{ item.id }})'><i class="fa fa-minus"></i></button>
+                                        <button type='submit' class="btn  btn-sm border_1sg border_r_0" onclick='minus({{ item.id }})'><i class="fa fa-minus"></i></button>
                                     </div>
                                     <input   class="input{{ item.id }} form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="{{ item.quantity }}" min="1" name='quantity'>
                                     <div class="input-group-prepend">
-                                        <button type='button' class="btn  btn-sm border_1sg border_r_0"  onclick='plus({{ item.id }})'><i class="fa fa-plus"></i></button>
+                                        <button type='submit' class="btn  btn-sm border_1sg border_r_0"  onclick='plus({{ item.id }})'><i class="fa fa-plus"></i></button>
                                     </div>
                                 </div>
                                 <input type="hidden" value='cart' name='cart'>
-                                <button class="btn btn-secondary btn-sm" type='submit'>{% trans "change" %}</button>
+                                {% comment %} <button class="btn btn-secondary btn-sm" type='submit'>{% trans "change" %}</button> {% endcomment %}
                             </form>
                         </div>
                         <div>
@@ -38,7 +38,7 @@
                                 <span class='font_size_2 font_numbers'>{{ item.total_price|price_front }}</span><span class='font_size_15 font_numbers' >{{ item.total_price|price_back }}</span>
                             </div>
                             <div class='width_200p text_a_c'>
-                                <span class='font_size_12'>{% trans "for each" %} {{ item.price }}</span>
+                                <span class='font_size_12 font_numbers_light'>{% trans "for each" %} {{ item.price }}</span>
                             </div>
                         </div>
                         <div>
@@ -54,32 +54,35 @@
 
 
                 <div id='cart_media'>
-                    <div class='width_150p'>
+                    <div class='width_150p height_100 flex_d_c justify_c_s_a'>
                         <div class='text_a_c'>
                             <img class='height_80p width_max_150' src="{{ item.image }}" >
                         </div>
                         <div>
-                            <div class="input-group mb-3 margin_t width_max_150">
-                                <div class="input-group-prepend">
-                                    <button type='button' class="btn  btn-sm border_1sg border_r_0" onclick='minus({{ item.id }})'><i class="fa fa-minus"></i></button>
+                            <form action="{% url 'cart:add' item.id %}" method='get' class='text_a_c'>
+                                <div class="input-group mb-3 button_quantity_cart">
+                                    <div class="input-group-prepend">
+                                        <button type='submit' class="btn  btn-sm border_1sg border_r_0" onclick='minus({{ item.id }})'><i class="fa fa-minus"></i></button>
+                                    </div>
+                                    <input  class="input{{ item.id }} form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="{{ item.quantity }}" min="1" name='quantity'>
+                                    <div class="input-group-prepend">
+                                        <button type='submit' class="btn  btn-sm border_1sg border_r_0" onclick='plus({{ item.id }})' ><i class="fa fa-plus"></i></button>
+                                    </div>
                                 </div>
-                                <input  class="input{{ item.id }} form-control-sm border_1sg width_4 border_1sg border_r_0 text_a_c font_numbers" value="{{ item.quantity }}" min="1" name='quantity'>
-                                <div class="input-group-prepend">
-                                    <button type='button' class="btn  btn-sm border_1sg border_r_0" onclick='plus({{ item.id }})'><i class="fa fa-plus"></i></button>
-                                </div>
-                            </div>
+                                <input type="hidden" value='cart' name='cart'>
+                            </form>
                         </div>
                     </div> 
                     <div class='display_f flex_d_c justify_c_s_b height_100 width_cart'>
                         <div class='width_100 padding_l'>
                             <p  class='font_size_12 word_b_b_w'>{{ item.name }}</p>
                         </div>
-                        <div>
-                            <div class=' text_a_c display_ib float_r'>
+                        <div class='flex_d_c'>
+                            <div class='text_a_c display_ib float_r'>
                                 <span class='font_size_2 font_numbers'>{{ item.total_price|price_front }}</span><span class='font_size_15 font_numbers' >{{ item.total_price|price_back }}</span>
                             </div>
-                            <div id='for_each'>
-                                <span class='float_r'>{% trans "for each" %} {{ item.price }}</span>
+                            <div id='for_each' class='text_a_c '>
+                               <p class='font_numbers_light'>{% trans "for each" %}  {{ item.price }}</p>
                             </div>   
                         </div>
                     </div>
