@@ -11,6 +11,7 @@ var url = location.href
 let a = setTimeout('',0)
 let count_time = 0
 
+// url to request for the search function view
 if (url.includes('pl')){
     url = '/pl/search/'
 }
@@ -31,11 +32,15 @@ function getCookie(c_name) {
     }
     return "";
 } 
+
+//the main bar toggle 
 function sidebar() {
     if (sidebar_status === true){
         get_sidebar.style.display = 'block';
         get_sidebar.style.opacity = '1';
+        // On mobile the carrousel disturb the main bar toggle 
         if($(window).width() < 813){   
+            // the carrousel
             slid.style.opacity = '0';
         } 
         toggle.html('<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16"><path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/></svg>')
@@ -51,6 +56,7 @@ function sidebar() {
         sidebar_status = true;
     }
 }
+
 
 function sendtext(text){
     $.ajax({
@@ -74,6 +80,7 @@ function sendtext(text){
     });
 }
 
+// typed text is pass to the function sendtext
 input_search.keyup(w => { 
     let words = w.target.value
     let len = parseInt(w.target.textLength)
@@ -85,6 +92,7 @@ input_search.keyup(w => {
 
 });
 
+// When click outside the search, the box search disappears
 document.onclick = function (e) {
     if (e.target.id != 'input_search'){
         search_box.removeClass('active_search')
@@ -96,35 +104,34 @@ document.onclick = function (e) {
         
     }
 }
+
+// When url includes 'cart' or 'order', cart toggle is disabled 
 if (window.location.pathname.includes('cart') == false & window.location.pathname.includes('order') == false){
+    // On mobile the cart toggle is disabled 
+    if(navigator.userAgent.includes('iPad') == false & navigator.userAgent.includes('iPhone') == false & navigator.userAgent.includes('Android') == false){
 
-    function cart_time(){
-        a = setTimeout(cart_shop, 400)
-    }
-    shopping_cart.hover(function (){
-        clearTimeout(a)
-        }, 
-        function(){  
+        function cart_time(){
             a = setTimeout(cart_shop, 400)
-            })
-    
-    
-    function cart_shop(){
-        shopping_cart.css('display', 'none')
-        
-    }
-    icon_cart.hover(function () {
-        shopping_cart.css('display', 'block')
-        
-        if(count_time > 0){
-            clearTimeout(a)
         }
-        count_time += 1; 
-        }, cart_time);
+        shopping_cart.hover(function (){
+            clearTimeout(a)
+            }, 
+            function(){  
+                a = setTimeout(cart_shop, 400)
+                })
+        
+        
+        function cart_shop(){
+            shopping_cart.css('display', 'none')
+            
+        }
+        icon_cart.hover(function () {
+            shopping_cart.css('display', 'block')
+            
+            if(count_time > 0){
+                clearTimeout(a)
+            }
+            count_time += 1; 
+            }, cart_time);
+    }
 }
-
-
-
-
-
-    
