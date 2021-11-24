@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'shop',
     'cart',
     'order',
+    'coupon',
     'bootstrap5',
     'social_django',
     'phonenumber_field',
