@@ -81,14 +81,16 @@ function sendtext(text){
 }
 
 // typed text is pass to the function sendtext
-input_search.keyup(w => { 
-    let words = w.target.value
-    let len = parseInt(w.target.textLength)
-    console.log(words.length);
+input_search.keyup(w => {
+    let text = w.target.value
+    // let len = parseInt(w.target.textLength)
+    let len = text.length
     if (len > 0){
-        search_box.addClass('active_search')
+        search_box.addClass('active_search')}
+    else{
+        search_box.removeClass('active_search')    
     }
-    sendtext(words)
+    sendtext(text)
 
 });
 

@@ -2,7 +2,6 @@ var for_each = $('#for_each')
 
 function show_for_each(){
     if (input_media.val() < 2){
-        console.log(1)
         for_each.css('display', 'none')
     }
     else{

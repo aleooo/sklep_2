@@ -22,7 +22,8 @@ class Cart(object):
         else:
             self.cart[id_product] = {'quantity': quantity, 'price': str(product.price), 'name': product.name, 'image': product.image.url, 'id': str(product.id)}
             self.total_price_item(id_product)
-        self.session['add'] = True
+        if not modify_cart:
+            self.session['add'] = True
         self.save()
         
     

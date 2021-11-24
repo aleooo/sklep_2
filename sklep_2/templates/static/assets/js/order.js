@@ -23,7 +23,6 @@ points = [
 ]
 
 for(i=0; i<points.length; i++){
-    console.log(i);
     L.marker(points[i][1]).addTo(m).bindPopup(points[i][0]);
 }
  

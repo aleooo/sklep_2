@@ -4,7 +4,7 @@ let input = $('#input')
 let box_info_added_product = $('#box_info_added_product')
 
 
-    
+   
 plus.click(function(){
     input.val(parseInt(input.val()) + 1 );
         });
