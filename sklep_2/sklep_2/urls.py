@@ -24,6 +24,7 @@ from django.urls import path, include
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('cart/', include('cart.urls', namespace='cart')),
+    path('coupon/', include('coupon.urls', namespace='coupon')),
     path('order/', include('order.urls', namespace='order')),
     path('social-auth/', include('social_django.urls', namespace='social')),
     path('', include('shop.urls', namespace='shop')),

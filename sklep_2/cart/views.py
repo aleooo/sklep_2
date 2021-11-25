@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
+
 from .cart import Cart
+from coupon.forms import CouponForm
 from shop.models import Product
 
 
@@ -23,7 +25,9 @@ def remove_item(request, id):
 
 
 def main_cart(request):
-    return render(request, 'content/cart/cart.html', {'main_bar': True})
+    coupon_form = CouponForm()
+    return render(request, 'content/cart/cart.html', {'main_bar': True,
+                                                      'coupon_form': coupon_form})
 
     
 

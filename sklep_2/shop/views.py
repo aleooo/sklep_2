@@ -8,8 +8,10 @@ from django.views.generic.list import ListView
 from .forms import UserModelForm
 from .models import Category, Product
 from .utils import filter_prices_products, pagination
+from cart.cart import Cart
 
 def main(request):
+  
     categories = Category.objects.all()
     products = Product.objects.all()
     if len(products) > 8 :

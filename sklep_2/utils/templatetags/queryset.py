@@ -4,7 +4,6 @@ register = template.Library()
 
 @register.filter
 def index(queryset, value):
-    print(queryset, value, type(value))
     
     try:
         object = queryset[value]
