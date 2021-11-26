@@ -17,6 +17,7 @@ a:hover{color: rgb(102, 160, 160);}
 .basic{max-width: 1500px; margin: 0 auto;}
 .border_1sb{border: 1px solid black;}
 .border_1sg{border: 1px solid gray;}
+.border_1slg{border: 1px solid rgb(185, 185, 185);}
 .border_n{border: none;}
 .border_r_0{border-radius: 0%;}
 .border_r_50{border-radius: 50%;}

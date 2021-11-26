@@ -85,18 +85,20 @@
                                <p class='font_numbers_light'>{% trans "for each" %}  {{ item.price }}</p>
                             </div>   
                         </div>
-                    </div>
-                    
-                </div> 
-                
+                    </div>                   
+                </div>                
             {% endfor %}
-            <div>
+            <div class='white padding_tb '>
+                <div class='width_90 margin_0auto'>
+                    <h4>{% trans "Discount" %}</h4>
+                    <hr>
                     <form action='{% url 'coupon:coupon' %}' method='post' class='display_f'>
                         {% csrf_token %}
-                        {{ coupon_form.as_p }}
-                        <button type='submit'>check</button>
+                        {{ coupon_form.code }}
+                        <button type='submit' class='button margin_l' id='coupon_button'><p class='button_margin'>{% trans "add" %}</p></button>
                     </form>
                 </div>
+            </div>
         </div>
         <div class="width_30 background_w margin_tb_05 min_h_300p">
             <div class='flex_d_c align_i_c  top_25 position_r'>

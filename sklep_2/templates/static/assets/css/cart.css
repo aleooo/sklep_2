@@ -42,4 +42,10 @@
         padding: 1rem;
         margin: 0.5rem 0;
     }
+  #coupon_button {
+      width: 25%;
+  }
+  #coupon_input {
+      width: 70%;
+  }
 }
