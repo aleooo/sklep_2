@@ -101,12 +101,28 @@
             </div>
         </div>
         <div class="width_30 background_w margin_tb_05 min_h_300p">
-            <div class='flex_d_c align_i_c  top_25 position_r'>
-                <div class='width_90 padding_tb_05 '>
-                    <div class='display_ib float_r'>
-                        <span class='font_size_12 padding_r_05'>{% trans "TO PAY" %}</span><span class='font_size_2 font_numbers'>{{ cart.total_value_cart|price_front }}</span><span class='font_size_15 font_numbers' >{{ cart.total_value_cart|price_back }}</span>
+            <div class='flex_d_c align_i_c top_25 position_r'>
+                {% if cart.check_coupon %}
+                    <div class='width_90'>
+                        <div class='display_ib float_r cart_size_total_value'>
+                            <span class='font_size_2 font_numbers color_gray'><del>{{ cart.total_value_cart|price_front }}</del></span><span class=' color_gray font_size_15 font_numbers'><del>{{ cart.total_value_cart|price_back }}</del></span>
+                        </div>
                     </div>
-                </div>
+
+                    <div class='width_90 padding_b_2'>
+                        <div class='display_ib float_r cart_size_total_value'>
+                            <span class='font_size_12 padding_r_05'>{% trans "TO PAY" %}</span>
+                            <span class='font_size_2 font_numbers'>{{ cart.total_value_cart_after_discount|price_front }}</span><span class='font_size_15 font_numbers'>{{ cart.total_value_cart_after_discount|price_back }}</span>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class='width_90 padding_b_2'>
+                        <div class='display_ib float_r cart_size_total_value'>
+                            <span class='font_size_12 padding_r_05'>{% trans "TO PAY" %}</span>
+                            <span class='font_size_2 font_numbers'>{{ cart.total_value_cart|price_front }}</span><span class='font_size_15 font_numbers'>{{ cart.total_value_cart|price_back }}</span>
+                        </div>
+                    </div>
+                {% endif %}
                 <button type='submit' class='button width_90 margin_b'><a href="{% url 'order:order' %}"><p class='button_margin'>{% trans "PAYMENT" %}</p></a></button>
                 <button class='button width_90 margin_b' ><p class='button_margin '>{% trans "CONTINUE" %}</p></button>
             </div>

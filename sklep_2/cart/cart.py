@@ -60,15 +60,23 @@ class Cart(object):
     
 
     def total_value_cart(self):
-        total_value = 0
-        coupon = self.session['coupon'].get('discount', None)
+        total_value = 0   
 
         for item in self.cart.values():
             total_value += Decimal(item['total_price'])
-        if coupon:
-            total_value *= (1 - Decimal(coupon))
+        
+        return total_value
+    
+    def total_value_cart_after_discount(self):
+        disc = self.session['coupon'].get('discount', 1)
+        total_value = self.total_value_cart() * (1 - Decimal(disc))
 
         return round(total_value, 2)
+
+    def check_coupon(self):
+        if self.session['coupon']:
+            return True
+        return False
 
     
 

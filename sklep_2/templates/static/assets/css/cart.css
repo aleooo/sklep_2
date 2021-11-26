@@ -20,6 +20,9 @@
     width: 125px;
     margin: 0 auto;
 }
+.cart_size_total_value{
+    max-height: 2rem;
+}
 @media (max-width: 813px) {
     #cart{
         flex-direction: column;
