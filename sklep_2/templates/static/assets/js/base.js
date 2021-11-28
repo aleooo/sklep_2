@@ -1,4 +1,4 @@
-var get_sidebar = document.querySelector('#toggle_bar')
+var get_sidebar = $('.toggle_bar')
 let toggle = $('#toggle_grid')
 let slid = document.querySelector('#carouselExampleCaptions')
 let sidebar_status = true;
@@ -10,6 +10,7 @@ var shopping_cart = $('#shopping_cart_bar')
 var url = location.href
 let a = setTimeout('',0)
 let count_time = 0
+let active_mode = 'main'
 
 // url to request for the search function view
 if (url.includes('pl')){
@@ -19,6 +20,16 @@ else{
     url = '/en/search/'
 }
 
+// shows which mode is (ACCOUNT, ANALYSIS, MAIN), searches based on url
+if (url.includes('account')){
+    $('#mode_account').addClass('toggle_border_mode');
+}
+else if (url.includes('analysis')){
+    $('#mode_analysis').addClass('toggle_border_mode');
+}
+else{
+    $('#mode_main').addClass('toggle_border_mode');
+}
 
 function getCookie(c_name) {
     if(document.cookie.length > 0) {
@@ -36,8 +47,8 @@ function getCookie(c_name) {
 //the main bar toggle 
 function sidebar() {
     if (sidebar_status === true){
-        get_sidebar.style.display = 'block';
-        get_sidebar.style.opacity = '1';
+        get_sidebar.addClass('toggle_active')
+
         // On mobile the carrousel disturb the main bar toggle 
         if($(window).width() < 813){   
             // the carrousel
@@ -47,8 +58,8 @@ function sidebar() {
         sidebar_status = false;
     }
     else {
-        get_sidebar.style.display = 'none';
-        get_sidebar.style.opacity = '0';
+        get_sidebar.removeClass('toggle_active')
+
         if($(window).width() < 813){
             slid.style.opacity = '1'
         }      

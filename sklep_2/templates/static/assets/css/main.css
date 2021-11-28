@@ -82,7 +82,7 @@ a.orange:hover {color:#ff5a00;}
     
     /* display: none; */
 }
-#toggle_bar{
+.toggle_bar{
     height: 40vh;
     width: 300px;
     background: white;
@@ -90,9 +90,25 @@ a.orange:hover {color:#ff5a00;}
     margin-left: auto; 
     display: none;
     z-index: 100;
+    overflow-x: auto;
     
 }
+.toggle_active{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .toggle_bar_button{text-align: center;}
+.toggle_mode{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33.3%;
+    border-bottom: 5px solid white;
+}
+.toggle_border_mode{
+    border-bottom: 5px solid rgb(255, 105, 18);
+}
 #hr_or{padding: 0 0.5rem;margin: 0;}
 .grid_main{
     display: grid;
@@ -176,7 +192,9 @@ a.orange:hover {color:#ff5a00;}
         grid-column: 2;
         grid-row: 1;
     }
-    #toggle_bar{
-        width: 100%;
+    .toggle_bar{
+        width: 90%;
+        margin: 0 auto;
     }
+    
 }
