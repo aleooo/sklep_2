@@ -101,15 +101,16 @@
                     {% for item in cart %}
                         <div class='display_f justify_c_s_b align_i_c height_80p margin_t'>
                             <div class='display_f'>
-            
-                                <img src="{{ item.image }}" class='height_80p'>
+                                <div class='width_100p'>
+                                    <img src="{{ item.image }}" class='height_80p'>
+                                </div>
                                 <div class='flex_d_c padding_l_05'>
                                     <p>{{ item.name }}</p>
-                                    <p class='color_gray'>{{ item.quantity }} x {{ item.price }}</p>
+                                    <p class='color_gray font_numbers'>{{ item.quantity }} x {{ item.price }}</p>
                                 </div>
                             </div>
                             <div>
-                                <p class='font_size_12'>{{ item.total_price}}</p>
+                                <p class='font_size_12 font_numbers'>{{ item.total_price}}</p>
                             </div>
                         </div>
                     {% endfor %}
