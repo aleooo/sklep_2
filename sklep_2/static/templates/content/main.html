@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load queryset %}
+
+
+{% block content %}
+
+    <div class="main margin_t">
+                <div>
+                    <div class="grid_main">
+                        <div id='grid_main_advertisement' class='width_100'>
+                            
+                            <div id="carouselExampleCaptions" class="carousel slide advertisement" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                </div>
+                                <div class="carousel-inner advertisement">
+                                    <div class="carousel-item active advertisement">
+                                        <img class="advertisement d-block w-100" src="{% static 'images/0.jpg' %}">
+                                    </div>
+                                    <div class="carousel-item advertisement">
+                                        <img class="advertisement d-block w-100" src="{% static 'images/1.jpg' %}">
+                                    </div>
+                                    <div class="carousel-item advertisement">
+                                        <img class="advertisement d-block w-100" src="{% static 'images/2.jpg' %}">
+                                    </div>
+                                    <div class="carousel-item advertisement">
+                                        <img class="advertisement d-block w-100" src="{% static 'images/3.jpg' %}">
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">{% trans "Previous" %}</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">{% trans "Next" %}</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="grid_main_products" class="white">    
+                            <strong><p class='padding'>{% trans "Popular for sale" %}</p></strong>
+                            <div id="carouselExampleIndicators" class="carousel slide " data-type="carousel">                    
+                                <div class="carousel-inner">                          
+                                    <div class="carousel-item active ">
+                                        <div class="imgf width_100 margin_t_2">
+                                            {% for product in products|slice:":4" %}
+                                            <div>
+                                                <a href="{{ product.get_absolute_url }}">
+                                                    <div>
+                                                        <img src="{{ product.image.url }}" class=" image_grid  mx-auto" >
+                                                    </div>
+                                                    <div id='grid_product_text'>
+                                                        <p class='text_a_c margin_0'>{{ product.name }}</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            {% endfor %}
+                                        </div>     
+                                    </div>
+                                
+                                    <div class="carousel-item ">
+                                        <div class="imgf width_100 margin_t_2">
+                                            {% for product in products|slice:"4:8" %}
+                                                <div style=''>
+                                                    <div>
+                                                        <img src="{{ product.image.url }}" class=" image_grid  mx-auto" >
+                                                    </div>
+                                                    <div id='grid_product_text'>
+                                                        <p class='text_a_c margin_0'>{{ product.name }}</p>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                         </div>
+                                    </div>  
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">{% trans "Previous" %}</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">{% trans "Next" %}</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id='grid_main_category'>  
+                            <div class='padding_tb'>
+                                <a href="{% url 'shop:list_category' category='book' %}" class='color_black orange'>                      
+                                    <div class="padding_lr_4 display_f margin_t">
+                                        <div class='width_icon'>
+                                           <i class="fas fa-home fa-lg"></i>
+                                        </div>
+                                        <div class='margin_l'>
+                                            {{ categories|index:0}}
+                                        </div>
+                                    </div>
+                                </a> 
+                                <a href="{% url 'shop:list_category' category='game' %}" class='color_black orange'> 
+                                    <div class="padding_lr_4 display_f margin_t">
+                                        <div class='width_icon'>
+                                            <i class="fas fa-gamepad fa-lg"></i>
+                                        </div>
+                                        <div class='margin_l '>
+                                            {{ categories|index:1}}
+                                        </div>
+                                    </div>  
+                                </a> 
+                                <a href="{% url 'shop:list_category' category='furniture' %}" class='color_black orange'> 
+                                    <div class="padding_lr_4 display_f margin_t">
+                                        <div class='width_icon'>
+                                            <i class="fas fa-couch fa-lg"></i>
+                                        </div>
+                                        <div class='margin_l'>
+                                            {{ categories|index:2}} 
+                                        </div>
+                                    </div>  
+                                </a> 
+                               
+                                <a href="{% url 'shop:list_category' category='rtv-agd' %}" class='color_black orange'> 
+                                    <div class="padding_lr_4 display_f margin_t">
+                                        <div class='width_icon'>
+                                             <i class="fas fa-tv fa-lg"></i>
+                                        </div>
+                                        <div class='margin_l'>
+                                            {{ categories|index:3}}
+                                            
+                                        </div>
+                                    </div>  
+                                </a>
+                              
+                                <a href="{% url 'shop:list_category' category='music' %}" class='color_black orange'> 
+                                    <div class="padding_lr_4 display_f margin_t">
+                                        <div class='width_icon'>
+                                            <i class="fas fa-music fa-lg"></i>
+                                        </div>
+                                        <div class='margin_l'>  
+                                            {{ categories|index:4}}
+                                        </div>
+                                    </div>  
+                                </a>
+                                <a href="{% url 'shop:list_category' category='automotive' %}" class='color_black orange'> 
+                                    <div class="padding_lr_4 display_f margin_t">
+                                        <div class='width_icon'>
+                                              <i class="fas fa-car fa-lg"></i>
+                                        </div>
+                                        <div class='margin_l'>  
+                                            {{ categories|index:5}}
+                                        </div>
+                                    </div>  
+                                </a>
+                                   <a href="{% url 'shop:list_category' category='baby' %}" class='color_black orange'> 
+                                    <div class="padding_lr_4 display_f margin_t">
+                                        <div class='width_icon'>
+                                              <i class="fas fa-baby fa-lg"></i>
+                                        </div>
+                                        <div class='margin_l'>  
+                                            {{ categories|index:6}}
+                                        </div>
+                                    </div>  
+                                </a>
+                                   <a href="{% url 'shop:list_category' category='fashion' %}" class='color_black orange'> 
+                                    <div class="padding_lr_4 display_f margin_t">
+                                        <div class='width_icon'>
+                                              <i class="fas fa-tshirt fa-lg"></i>
+                                        </div>
+                                        <div class='margin_l'>  
+                                            {{ categories|index:7}}
+                                        </div>
+                                    </div>  
+                                </a>
+                                   <a href="{% url 'shop:list_category' category='sport' %}" class='color_black orange'> 
+                                    <div class="padding_lr_4 display_f margin_t">
+                                        <div class='width_icon'>
+                                              <i class="fas fa-futbol fa-lg"></i>
+                                        </div>
+                                        <div class='margin_l'>  
+                                            {{ categories|index:8}}
+                                        </div>
+                                    </div>  
+                                </a>
+                          
+                            </div>                        
+                        </div>
+
+                        <div id="grid_main_old_advertisement">
+                            <img class='height_100 width_100' src="{% static 'images/old_advertisement.jpg' %}">
+                        </div>
+
+                        <div id="grid_main_sale_promotion">
+                            <img class='width_100 height_100' src="{% static 'images/sales-promotion.png' %}">
+                        </div>
+                        <div id="grid_main_1" class="white"></div>
+                    </div>
+
+                    <div></div>
+                </div>
+            </div>
+            <script type="text/javascript" src="{% static 'assets/js/main.js' %}"></script>
+{% endblock content %}

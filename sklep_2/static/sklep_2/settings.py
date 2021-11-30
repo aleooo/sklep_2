@@ -18,7 +18,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = ['127.0.0.1', 'aleo.project.sklep2', 'www.aleo.project.sklep2']
+ALLOWED_HOSTS = ['127.0.0.1', 'aleo.waw.pl', 'www.aleo.waw.pl']
 
 
 # Application definition
