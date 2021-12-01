@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-17 11:52+0000\n"
+"POT-Creation-Date: 2021-12-01 22:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
 "%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+#: coupon/forms.py:7
+msgid "coupon"
+msgstr "kupon"
 
 #: shop/forms.py:14
 msgid "username"
@@ -44,11 +48,11 @@ msgstr "numer telefonu"
 msgid "The two password fields didn`t match"
 msgstr "Hasła nie są identyczne"
 
-#: sklep_2/settings.py:119
+#: sklep_2/settings.py:120
 msgid "polish"
 msgstr "polski"
 
-#: sklep_2/settings.py:120
+#: sklep_2/settings.py:121
 msgid "english"
 msgstr "angielski"
 
@@ -68,36 +72,52 @@ msgstr "Koszyk"
 msgid "cart value"
 msgstr "Wartość koszyka"
 
-#: templates/base.html:102
+#: templates/base.html:101
+msgid "ACCOUNT"
+msgstr "KONTO"
+
+#: templates/base.html:104
+msgid "ANALYSIS"
+msgstr "ANALIZA"
+
+#: templates/base.html:107 templates/registration/password_change_done.html:10
+msgid "MAIN"
+msgstr "MENU"
+
+#: templates/base.html:115
 msgid "Language"
 msgstr "Język"
 
-#: templates/base.html:112
+#: templates/base.html:127
 msgid "LOGOUT"
 msgstr "Wyloguj się"
 
-#: templates/base.html:115 templates/registration/login.html:28
+#: templates/base.html:130 templates/registration/login.html:28
 msgid "LOGIN"
 msgstr "Zaloguj się"
 
-#: templates/content/cart/cart.html:33
-#: templates/registration/password_change_form.html:15
-msgid "change"
-msgstr "zmień"
-
-#: templates/content/cart/cart.html:41 templates/content/cart/cart.html:82
+#: templates/content/cart/cart.html:42 templates/content/cart/cart.html:86
 msgid "for each"
 msgstr "za każdy"
 
-#: templates/content/cart/cart.html:95 templates/content/order/order.html:118
+#: templates/content/cart/cart.html:94
+msgid "Discount"
+msgstr "Zniżka"
+
+#: templates/content/cart/cart.html:99
+msgid "add"
+msgstr "dodaj"
+
+#: templates/content/cart/cart.html:115 templates/content/cart/cart.html:122
+#: templates/content/order/order.html:119
 msgid "TO PAY"
 msgstr "DO ZAPŁATY"
 
-#: templates/content/cart/cart.html:98
+#: templates/content/cart/cart.html:127
 msgid "PAYMENT"
 msgstr "PŁATNOŚĆ"
 
-#: templates/content/cart/cart.html:99
+#: templates/content/cart/cart.html:128
 msgid "CONTINUE"
 msgstr "KONTYNUUJ"
 
@@ -109,23 +129,23 @@ msgstr "Dodałeś produkt"
 msgid "GO TO CART"
 msgstr "IDŹ DO KOSZYKA"
 
-#: templates/content/detail.html:32
+#: templates/content/detail.html:33
 msgid "Number of items"
 msgstr "Liczba rzeczy"
 
-#: templates/content/detail.html:43
+#: templates/content/detail.html:44
 msgid "ADD TO CART"
 msgstr "DODAJ DO KOSZYKA"
 
-#: templates/content/detail.html:44
+#: templates/content/detail.html:45
 msgid "BUY NOW"
 msgstr "KUP TERAZ"
 
-#: templates/content/detail.html:51
+#: templates/content/detail.html:53
 msgid "Description"
 msgstr "Opis"
 
-#: templates/content/detail.html:57
+#: templates/content/detail.html:59
 msgid "Product reviews"
 msgstr "Opinie"
 
@@ -150,22 +170,24 @@ msgid "50 to 75"
 msgstr "50 do 75"
 
 #: templates/content/list.html:28
-msgid "75-150"
-msgstr "75 do 150"
+#, fuzzy
+#| msgid "20 to 50"
+msgid "75 to 150"
+msgstr "20 do 50"
 
 #: templates/content/list.html:32
 msgid "greater then 150"
 msgstr "więcej niż 150"
 
-#: templates/content/main.html:36 templates/content/main.html:84
+#: templates/content/main.html:37 templates/content/main.html:85
 msgid "Previous"
 msgstr "Poprzedni"
 
-#: templates/content/main.html:40 templates/content/main.html:88
+#: templates/content/main.html:41 templates/content/main.html:89
 msgid "Next"
 msgstr "Następny"
 
-#: templates/content/main.html:47
+#: templates/content/main.html:48
 msgid "Popular for sale"
 msgstr "Popularne w sprzedaży"
 
@@ -221,11 +243,11 @@ msgstr "Kurier"
 msgid "Payment"
 msgstr "Płatność"
 
-#: templates/content/order/order.html:126
+#: templates/content/order/order.html:127
 msgid "Summary"
 msgstr "PODSUMOWANIE"
 
-#: templates/content/order/order.html:129
+#: templates/content/order/order.html:130
 msgid "PAY AND POST"
 msgstr "ZAPŁAĆ I WYŚLIJ"
 
@@ -282,14 +304,14 @@ msgstr "ZAREJESTRUJ SIĘ"
 msgid "Password change done"
 msgstr "Zmiana hasła wykonana"
 
-#: templates/registration/password_change_done.html:10
-msgid "MAIN"
-msgstr "SKLEP_2"
-
 #: templates/registration/password_change_form.html:6
 #: templates/registration/password_change_form.html:10
 msgid "Password change"
 msgstr "Zmiana Hasła"
+
+#: templates/registration/password_change_form.html:15
+msgid "change"
+msgstr "zmień"
 
 #: templates/registration/password_reset_complete.html:5
 #: templates/registration/password_reset_complete.html:10
@@ -382,6 +404,9 @@ msgstr "Zarejestruj się"
 #: templates/registration/register.html:32
 msgid "Already have an account"
 msgstr "Masz konto"
+
+#~ msgid "75-150"
+#~ msgstr "75 do 150"
 
 #~ msgid "POST"
 #~ msgstr "WYŚLIJ"
