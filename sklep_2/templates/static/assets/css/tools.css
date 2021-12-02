@@ -34,6 +34,7 @@ a:hover{color: rgb(102, 160, 160);}
 /* .font_numbers{font-family: 'B612 Mono', monospace;} */
 .flex_d_c{display: flex; flex-direction: column;}
 .flex_d_r{display: flex; flex-direction: row;}
+.flex_w_w{display: flex; flex-wrap: wrap;}
 .font_numbers_light{font-family: sans-serif;}
 .font_numbers{font-family:  Roboto,sans-serif;}
 .font_decorative{font-family: 'Tourney', cursive;}
@@ -48,6 +49,7 @@ a:hover{color: rgb(102, 160, 160);}
 .justify_c_r{justify-content: right;}
 .justify_c_c{justify-content: center;}
 .height_1r{height: 1rem;}
+.height_15r{height: 1.5rem;}
 .height_2r{height: 2rem;}
 .height_4r{height: 4rem;}
 .height_100{height: 100%;}
@@ -94,6 +96,7 @@ a:hover{color: rgb(102, 160, 160);}
 .margin_tb_05{margin: 0.5rem 0}
 .margin_tb{margin: 1rem 0}
 .margin_tbl{margin: 1rem 0 1rem 1rem}
+.margin_tauto{margin: 1rem auto 0}
 .margin_0{margin: 0;}
 .margin_05{margin: 0.5rem}
 .margin{margin: 1rem;}
@@ -107,12 +110,14 @@ a:hover{color: rgb(102, 160, 160);}
 .vertical_a{vertical-align: middle;}
 .white{background: white;}
 .width_1r{width: 1rem;}
+.width_2r{width: 2rem;}
 .width_4{width: 4rem;}
 .width_25{width: 25%;}
 .width_30{width: 30%;}
 .width_33{width: 33.3%;}
 .width_40{width: 40%}
 .width_45{width: 45%}
+.width_49{width: 49%;}
 .width_50{width: 50%;}
 .width_60{width: 60%}
 .width_65{width: 65%;}
@@ -125,6 +130,7 @@ a:hover{color: rgb(102, 160, 160);}
 .width_200p{width: 200px;}
 .width_300p{width: 300px;}
 .width_400p{width: 400px;}
+.width_450p{width: 450px;}
 .width_max_90{max-width: 90%}
 .width_max_150{max-width: 150px;}
 .width_max_400{max-width: 400px;}

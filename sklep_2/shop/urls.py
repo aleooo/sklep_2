@@ -15,10 +15,11 @@ urlpatterns = [
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(success_url=reverse_lazy('shop:password_reset_complete')), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('register/', views.register, name='register'),
-    path('search/', views.search, name='search'),
+    path('account', views.account, name='account'),
     path('detail/<str:slug>/<int:seconds>/<int:hours>/<int:id>/', views.detail, name='detail'),
     path('list/category/<str:category>/', views.list, name='list_category'),
-    path('list/', views.list, name='list'),
     path('list/search/<str:text>/', views.list_search, name='list_search'),
+    path('list/', views.list, name='list'),
+    path('search/', views.search, name='search'),
     path('', views.main, name='main'),
 ]

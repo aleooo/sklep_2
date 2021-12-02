@@ -12,12 +12,13 @@ let a = setTimeout('',0)
 let count_time = 0
 let active_mode = 'main'
 
+
 // url to request for the search function view
 if (url.includes('pl')){
-    url = '/pl/search/'
+    url_search = '/pl/search/'
 }
 else{
-    url = '/en/search/'
+    url_search = '/en/search/'
 }
 
 // shows which mode is (ACCOUNT, ANALYSIS, MAIN), searches based on url
@@ -72,7 +73,7 @@ function sidebar() {
 function sendtext(text){
     $.ajax({
         type: "POST",
-        url: url,
+        url: url_search,
         data: {
             'csrfmiddlewaretoken': getCookie("csrftoken"),
             'text': text,

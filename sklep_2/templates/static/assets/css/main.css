@@ -4,12 +4,12 @@ a.orange:hover {color:#ff5a00;}
     position: fixed;
     background: white;
     width: 100vw;
-    height: 80px; 
+    height: 100px; 
     left: 0;
     right: 0;
     z-index: 100;
 }
-#main_filling{height: 80px;}
+#main_filling{height: 100px;}
 #main_registration{
     background: white;
     width: 100vw;

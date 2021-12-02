@@ -1,0 +1,39 @@
+#address_and_bills{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+    width: 100%;
+}
+#account_address{
+    grid-column: 1;
+}
+#account_bills{
+    grid-column: 2;
+}
+.personal_data_width{
+    width: 33.33%;
+    max-width: 33.33%;
+}
+.personal_data{
+    margin-top: 1.5rem;
+}
+@media (min-width: 814px) and (max-width: 1056px) {
+    .personal_data_width{
+        width: 50%;
+        max-width: 50%;
+    }
+}
+@media (max-width: 813px) {
+    #address_and_bills{
+        display: block;
+    }
+    .a_and_b{
+        width: 100%;
+    }
+    .personal_data_width{
+        width: 100%;
+        max-width: 100%;
+      
+    }
+}

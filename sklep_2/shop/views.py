@@ -83,6 +83,11 @@ def list_search(request, text):
     return render(request, 'content/list.html', {'main_bar': True,
                                                  'objects': objects_pagination})
 
+
+def account(request):
+ 
+    return render(request, 'content/account.html', {'main_bar': True,}) 
+
     
 
 
