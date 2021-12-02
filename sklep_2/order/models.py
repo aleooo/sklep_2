@@ -4,7 +4,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models.base import Model
 from phonenumber_field.modelfields import PhoneNumberField
 
-from shop.models import Product
+from shop.models import Product, UserModel
 
 class Order(models.Model):
     first_name = models.CharField(max_length=100)
@@ -18,6 +18,7 @@ class Order(models.Model):
     country = models.CharField(max_length=50)
     discount = models.PositiveSmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
     paid = models.BooleanField(default=False)
+    user = models.ForeignKey(UserModel, related_name='order', on_delete=models.SET_NULL, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

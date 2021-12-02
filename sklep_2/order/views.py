@@ -12,7 +12,7 @@ from .models import Order
 from .utils import data
 from cart.cart import Cart
 from order.models import OrderProduct
-from shop.models import Product
+from shop.models import Product, UserModel
 from sklep_2 import settings
 
 
@@ -32,7 +32,11 @@ def order(request):
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
-            object_order = form.save()
+            object_order = form.save(commit=False)
+            if user.id:
+                object_order.user = UserModel.objects.get(id=user.id)
+            object_order.save()
+
             product_order(request, object_order)
 
             names_products = 'You ordered: ' + ',  '.join([product.product.name for product in object_order.products.all()])

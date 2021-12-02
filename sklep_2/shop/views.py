@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
@@ -5,10 +6,11 @@ from django.test import client
 from django.urls import reverse
 from django.views.generic.list import ListView
 
-from .forms import UserModelForm
-from .models import Category, Product
-from .utils import filter_prices_products, pagination
 from cart.cart import Cart
+from .forms import UserModelForm
+from .models import Category, Product, UserModel
+from .utils import filter_prices_products, pagination
+
 
 def main(request):
   
@@ -85,8 +87,11 @@ def list_search(request, text):
 
 
 def account(request):
- 
-    return render(request, 'content/account.html', {'main_bar': True,}) 
+    user = UserModel.objects.get(id=request.user.id)
+    orders = user.order.values('id', 'created')
+    
+    return render(request, 'content/account.html', {'main_bar': True,
+                                                    'orders': orders}) 
 
     
 

@@ -6,8 +6,10 @@
     <div class="basic ">
         <div id='address_and_bills'>
             <div class='account_address white padding margin_t'>          
-                <h4 class='font_numbers_light'>Your address</h1>
+                <h4 class='font_numbers_light'>Your address</h1>                   
+                    
                     {% with address=request.user.address %}
+                    
                     
                         <div class='display_f justify_c_s_b padding_l margin_t_2'>
                             <div class='display_f width'>
@@ -53,17 +55,17 @@
                             <div>
                                 <a href="" class='color_green'>CHANGE</a>
                             </div>
-                        </div>
-                        
-                        
-                        
-                        
+                        </div>     
                     {% endwith %}
-                    
             </div>
-            
             <div class='account_bills white padding margin_t'>         
-                <h4 class='font_numbers_light'>Bills</h1>            
+                <h4 class='font_numbers_light'>Bills</h1>      
+                <div>
+                    {% for order in orders %}
+                        <div><a href={% url 'order:admin_order_pdf' order.id %}>{{ order.created }}</a></div>
+                    {% endfor %}
+                    
+                </div>      
             </div>
         </div>
         <div class='white margin_t padding'>
@@ -79,7 +81,7 @@
                     </div>
                     <div class='personal_data'>
                         <div>
-                            <div class='display_f justify_c_s_b width_200p height_2r'><p class='font_numbers font_size_12  color_gray'>Last name</p><a href="" class='color_green'>CHANGE</a></div>
+                            <div class='display_f justify_c_s_b width_200p height_2r'><p class='font_numbers font_size_12  color_gray'>Last name</p><a href="" class='color_green font_size_12'>CHANGE</a></div>
                             <p class='font_numbers_light'>{{ user.last_name }}</p>
                         </div>
                     </div>
@@ -87,13 +89,13 @@
                 <div class='personal_data_width'>
                     <div class='personal_data'>
                         <div>
-                            <div class='display_f justify_c_s_b width_200p height_2r'><p class='font_numbers font_size_12  color_gray'>Email</p><a href="" class='color_green'>CHANGE</a></div>
+                            <div class='display_f justify_c_s_b width_200p height_2r'><p class='font_numbers font_size_12  color_gray'>Email</p><a href="" class='color_green font_size_12'>CHANGE</a></div>
                             <p class='font_numbers_light'>{{ user.email }}</p>
                         </div>
                     </div>
                     <div class='personal_data'>
                         <div>
-                            <div class='display_f justify_c_s_b width_200p height_2r'><p class='font_numbers font_size_12  color_gray'>Date joined</p><a href="" class='color_green'>CHANGE</a></div>
+                            <div class='display_f justify_c_s_b width_200p height_2r'><p class='font_numbers font_size_12  color_gray'>Date joined</p><a href="" class='color_green font_size_12'>CHANGE</a></div>
                             <p class='font_numbers_light'>{{ user.date_joined }}</p>
                         </div>
                         
@@ -102,7 +104,7 @@
                 <div class='personal_data_width'>
                     <div class='personal_data'>
                         <div>
-                            <div class='display_f justify_c_s_b width_200p height_2r'><p class='font_numbers font_size_12  color_gray'>Number</p><a href="" class='color_green'>CHANGE</a></div>
+                            <div class='display_f justify_c_s_b width_200p height_2r'><p class='font_numbers font_size_12  color_gray'>Number</p><a href="" class='color_green font_size_12'>CHANGE</a></div>
                             <p class='font_numbers_light'>{{ user.number }}</p>
                         </div>  
                     </div>
