@@ -170,6 +170,15 @@ a.orange:hover {color:#ff5a00;}
 .main_4_products{
     display: flex;
 }
+.carousel_control_next_button{
+    width: 4rem;
+    height: 4rem;
+    margin: auto 0;
+    background: rgba(244, 244, 244, 0.863);
+}
+.carousel_control_next_button{
+    background: rgb(255, 255, 255);
+}
 @media (min-width:814px) and (max-width:1300px){
     .grid_main{
         display: grid;

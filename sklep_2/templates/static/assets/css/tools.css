@@ -103,6 +103,7 @@ a:hover{color: rgb(102, 160, 160);}
 .margin_05{margin: 0.5rem}
 .margin{margin: 1rem;}
 .margin_0auto{margin: 0 auto;}
+.margin_auto0{margin: auto 0;}
 .min_h_300p{min-height: 300px;}
 .overflow_a{overflow: auto;}
 .overflow_v{overflow:visible}
