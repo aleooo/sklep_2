@@ -46,35 +46,65 @@
 
                         <div id="grid_main_products" class="white">    
                             <strong><p class='padding'>{% trans "Popular for sale" %}</p></strong>
-                            <div id="carouselExampleIndicators" class="carousel slide " data-type="carousel">                    
-                                <div class="carousel-inner">                          
-                                    <div class="carousel-item active ">
-                                        <div class="imgf width_100 margin_t_2">
+                            <div id="carouselExampleIndicators" class="carousel slide height_80" data-bs-ride="carousel">                    
+                                <div class="carousel-inner height_100">                          
+                                    <div class="carousel-item active height_100">
+                                        <div class="imgf width_100 main_4_products">
                                             {% for product in products|slice:":4" %}
-                                            <div>
-                                                <a href="{{ product.get_absolute_url }}">
-                                                    <div>
-                                                        <img src="{{ product.image.url }}" class=" image_grid  mx-auto" >
-                                                    </div>
-                                                    <div id='grid_product_text'>
-                                                        <p class='text_a_c margin_0'>{{ product.name }}</p>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                                <div class='main_size_image'>
+                                                    <a href="{{ product.get_absolute_url }}">
+                                                        <div class='content'>
+                                                            <img src="{{ product.image.url }}" class="image_grid  mx-auto" >
+                                                        </div>
+                                                        <div class='grid_product_text'>
+                                                            <p class='text_a_c margin_0'>{{ product.name }}</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="imgf width_100 main_3_products">
+                                            {% for product in products|slice:":3" %}
+                                                <div class='main_size_image'>
+                                                    <a href="{{ product.get_absolute_url }}">
+                                                        <div class='content'>
+                                                            <img src="{{ product.image.url }}" class="image_grid  mx-auto" >
+                                                        </div>
+                                                        <div class='grid_product_text'>
+                                                            <p class='text_a_c margin_0'>{{ product.name }}</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             {% endfor %}
                                         </div>     
                                     </div>
                                 
-                                    <div class="carousel-item ">
-                                        <div class="imgf width_100 margin_t_2">
+                                    <div class="carousel-item height_100">
+                                        <div class="imgf width_100 main_4_products">
                                             {% for product in products|slice:"4:8" %}
-                                                <div style=''>
-                                                    <div>
-                                                        <img src="{{ product.image.url }}" class=" image_grid  mx-auto" >
-                                                    </div>
-                                                    <div id='grid_product_text'>
-                                                        <p class='text_a_c margin_0'>{{ product.name }}</p>
-                                                    </div>
+                                                <div class='main_size_image'>
+                                                    <a href="{{ product.get_absolute_url }}">
+                                                        <div class='content'>
+                                                            <img src="{{ product.image.url }}" class="image_grid  mx-auto" >
+                                                        </div>
+                                                        <div class='grid_product_text'>
+                                                            <p class='text_a_c margin_0'>{{ product.name }}</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            {% endfor %}
+                                         </div>
+                                         <div class="imgf width_100 main_3_products">
+                                            {% for product in products|slice:"3:6" %}
+                                                <div class='main_size_image'>
+                                                    <a href="{{ product.get_absolute_url }}">
+                                                        <div class='content'>
+                                                            <img src="{{ product.image.url }}" class="image_grid  mx-auto" >
+                                                        </div>
+                                                        <div class='grid_product_text'>
+                                                            <p class='text_a_c margin_0'>{{ product.name }}</p>
+                                                        </div>
+                                                    </a>
                                                 </div>
                                             {% endfor %}
                                          </div>

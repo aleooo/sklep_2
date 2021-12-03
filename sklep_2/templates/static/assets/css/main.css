@@ -131,10 +131,11 @@ a.orange:hover {color:#ff5a00;}
     grid-column: 2;
     grid-row: 3/5;
 }
-#grid_product_text{
-    width: 180px;
-    word-break: break-word;
-    padding-top: 1rem;
+.grid_product_text{
+    position:relative;
+    width: 100%;
+    word-wrap: break-word;
+    top: 2rem;
 }
 #grid_main_old_advertisement{
     grid-column: 3;
@@ -150,29 +151,66 @@ a.orange:hover {color:#ff5a00;}
 }
 .advertisement{width: 100%;height: 100%;}
 .image_grid{
-    height: 180px;
-    width: 180px;
-    border-radius: 50%;
+    width: 100%;
+    height: 230px;
+    border-radius: 40% 40% 0 0;
     } 
+.main_size_image{
+    position: relative;
+    width: 20%;
+}
 .imgf{
-    display: flex;
     justify-content: space-around;
     padding: 10px 0;
+    height: 100%;
 }
-
+.main_3_products{
+    display: none;
+}
+.main_4_products{
+    display: flex;
+}
+@media (min-width:814px) and (max-width:1300px){
+    .grid_main{
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        gap: 1rem;
+        grid-template-rows: repeat(4, 200px);
+    }
+    #grid_main_old_advertisement{display: none;}
+    #grid_main_sale_promotion{display: none;}
+    .image_grid{
+        height: 210px;
+        } 
+}
 @media (max-width: 813px) {
-    #grid_main_advertisement{height: 200px; }
-    #grid_main_products{display: none;}
+    .main_3_products{
+        display: flex;
+    }
+    .main_4_products{
+        display: none;
+    }
+    #grid_main_advertisement{height: 300px; }
+    #grid_main_products{display: block;margin-top: 1rem; height: 350px;}
     #grid_main_old_advertisement{display: none;}
     #grid_main_sale_promotion{margin-top: 1rem;}
+    #grid_main_category{
+        margin-top: 1rem;
+    }
     #main{height: 100px;}
+    .grid_product_text{
+        font-size: small;
+    }
+    .image_grid{
+        height: 140px;
+        } 
     .search_box{
         top: 100px;
         width: 90%;
         height: 200px;
     }
     .logo{font-size: 20px;}    
-    .grid_main{display:block;margin-top: 2rem;}
+    .grid_main{display:block;margin-top: 1rem;}
     
     .main_flex{
         height: 100px;

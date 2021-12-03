@@ -52,6 +52,7 @@ a:hover{color: rgb(102, 160, 160);}
 .height_15r{height: 1.5rem;}
 .height_2r{height: 2rem;}
 .height_4r{height: 4rem;}
+.height_80{height: 80%;}
 .height_100{height: 100%;}
 .height_50p{height: 50px;}
 .height_80p{height: 80px;}
@@ -59,6 +60,7 @@ a:hover{color: rgb(102, 160, 160);}
 .height_150p{height: 150px;}
 .height_200p{height: 200px;}
 .height_400p{height: 400px;}
+.height_max_100{max-height: 100%;}
 .html_list{list-style-type: none;}
 .padding{padding: 1rem;}
 .padding_0{padding: 0;}
@@ -103,6 +105,8 @@ a:hover{color: rgb(102, 160, 160);}
 .margin_0auto{margin: 0 auto;}
 .min_h_300p{min-height: 300px;}
 .overflow_a{overflow: auto;}
+.overflow_v{overflow:visible}
+.overflow_y_v{overflow-x: hidden;}
 .text_a_c{text-align: center;}
 .text_a_r{text-align: right;}
 .text_d{text-decoration: none;}
@@ -112,6 +116,7 @@ a:hover{color: rgb(102, 160, 160);}
 .width_1r{width: 1rem;}
 .width_2r{width: 2rem;}
 .width_4{width: 4rem;}
+.width_20{width: 20%;}
 .width_25{width: 25%;}
 .width_30{width: 30%;}
 .width_33{width: 33.3%;}
