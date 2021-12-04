@@ -18,6 +18,16 @@
 .personal_data{
     margin-top: 1.5rem;
 }
+.account_forms{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background: white;
+
+
+}
 @media (min-width: 814px) and (max-width: 1056px) {
     .personal_data_width{
         width: 50%;

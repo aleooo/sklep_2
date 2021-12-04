@@ -176,7 +176,7 @@ a.orange:hover {color:#ff5a00;}
     margin: auto 0;
     background: rgba(244, 244, 244, 0.863);
 }
-.carousel_control_next_button{
+.carousel_control_next_button:hover{
     background: rgb(255, 255, 255);
 }
 @media (min-width:814px) and (max-width:1300px){
