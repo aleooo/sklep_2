@@ -18,15 +18,25 @@
 .personal_data{
     margin-top: 1.5rem;
 }
+#account_background_form{
+    position: fixed;
+    width: 100vw;
+    min-height: 100vh;
+    background: #ECEFF1;
+    opacity: 0.5;
+    z-index: 2000;
+}
 .account_forms{
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     width: 500px;
-    background: white;
-
-
+    height: 400px;
+    padding: 3rem 1rem 1rem 1rem;
+    background: rgb(255, 255, 255);
+    opacity: 1;
+    z-index: 2001;
 }
 @media (min-width: 814px) and (max-width: 1056px) {
     .personal_data_width{

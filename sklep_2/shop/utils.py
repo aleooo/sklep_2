@@ -30,7 +30,7 @@ def filter_prices_products(*args, **kwargs):
 
 
 def pagination(products, page):
-    paginator = Paginator(products, 2)
+    paginator = Paginator(products, 5)
 
     try:
         objects = paginator.page(page)

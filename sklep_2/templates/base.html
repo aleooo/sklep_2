@@ -27,7 +27,7 @@
                     <form action="{% url 'shop:list' %}" method='get' class="d-flex">
                         {% csrf_token %}
                         <input id="input_search" class="form-control me-2" type="search" placeholder={% trans "Search" %} name='search'>
-                        <button type='submit' class='button' ><p class='button_margin'>{% trans "SEARCH" %}</p></button>
+                        <button type='submit' class='button'><p class='button_margin'>{% trans "SEARCH" %}</p></button>
                     </form>
                 </div>
                 <div id='main_icon' >
