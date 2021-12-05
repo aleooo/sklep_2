@@ -22,6 +22,7 @@ a:hover{color: rgb(102, 160, 160);}
 .border_r_0{border-radius: 0%;}
 .border_r_50{border-radius: 50%;}
 .bottom_0{bottom: 0;}
+.button_n{border: none; background: none;}
 .clear_b{clear:both}
 .color_gray{color:rgb(121, 121, 121)}
 .color_white{color: rgb(255, 255, 255)}
