@@ -39,3 +39,11 @@ def pagination(products, page):
     except EmptyPage:
         objects = paginator.page(paginator.num_pages)
     return objects
+
+
+# data without csrfmiddlewaretoken
+def data_post(request):
+    data = request.POST.copy()
+  
+    del data['csrfmiddlewaretoken']
+    return data    

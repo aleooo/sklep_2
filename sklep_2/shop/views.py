@@ -9,7 +9,7 @@ from django.views.generic.list import ListView
 from cart.cart import Cart
 from .forms import UserModelForm
 from .models import Category, Product, UserModel
-from .utils import filter_prices_products, pagination
+from .utils import filter_prices_products, pagination, data_post
 
 
 def main(request):
@@ -92,6 +92,25 @@ def account(request):
     
     return render(request, 'content/account.html', {'main_bar': True,
                                                     'orders': orders}) 
+
+def account_data(request, type):
+    user = request.user
+    address = request.user.address
+    if request.method == 'POST':
+        data = data_post(request)
+    
+        if type == 'address':
+            for k, v in data.items():
+                setattr(address, k, v)
+                address.save()
+        else:
+            for k, v in data.items():
+                setattr(user, k, v)
+                address.save()
+    return redirect('shop:account')
+
+
+
 
     
 

@@ -8,67 +8,70 @@
         <div id='account_background_form'></div>
         <div id='account_div_form'>
             <h3 class='font_numbers_light'>{% trans "Zmień" %}</h3>
-            <div  id='account_form'>
-               
+            <div>
+                <form action="{% url 'shop:account_data' type='address' %}" method='post'  id='account_form'>
+                    {% csrf_token %}
+                    <div class='display_f align_i_c float_r margin_t'>
+                        <button class='button_n' onclick='cancel()'><p class='color_green margin_0'>{% trans "CANCEL" %}</p></button>
+                        <button type='submit' class='button margin_l' ><p class='button_margin'>{% trans "SUBMIT" %}</p></button>
+                    </div>
+                </form>
             </div>
-            <div class='display_f align_i_c float_r'>
-                <button class='button_n' onclick='cancel()'><p class='color_green margin_0'>{% trans "CANCEL" %}</p></button>
-                <button type='submit' class='button margin_l' ><p class='button_margin'>{% trans "SUBMIT" %}</p></button>
-            </div>
+            
         </div> 
         <div id='address_and_bills'>
             <div class='account_address white padding margin_t'>          
-                <h4 class='font_numbers_light'>{% trans "Your address" %}</h1>                   
-                    
-                    {% with address=request.user.address %}
-                    
-                    
-                        <div class='display_f justify_c_s_b padding_l margin_t_2'>
-                            <div class='display_f width'>
-                                <div class='width_150p'><p class='font_numbers font_size_12 color color_gray'>{% trans "Street" %}:</p></div>
-                                <p class='margin_l font_numbers_light font_size_12'>{{ address.street }}</p>
-                            </div>
-                            <div>
-                                <button class='color_green button_n' onclick='address("street")'>CHANGE</button>
-                            </div>
+                <div class="display_f justify_c_s_b">
+                    <h4 class='font_numbers_light display_f align_i_c margin_0'>{% trans "Your address" %}</h1>
+                    <button class='color_green button_n font_size_15' onclick='address("all")'>CHANGE</button>
+                </div>                   
+                {% with address=request.user.address %}
+                    <div class='display_f justify_c_s_b padding_l margin_t_2'>
+                        <div class='display_f width'>
+                            <div class='width_150p'><p class='font_numbers font_size_12 color color_gray'>{% trans "Street" %}:</p></div>
+                            <p class='margin_l font_numbers_light font_size_12'>{{ address.street }}</p>
                         </div>
-                        <div class='display_f justify_c_s_b padding_l margin_t'>
-                            <div class='display_f'>
-                                <div class='width_150p'><p class='font_numbers font_size_12  color_gray'>{% trans "Street number" %}:</p></div>
-                                <p class='margin_l font_numbers_light font_size_12'>{{ address.street_number }}</p>
-                            </div>
-                            <div>
-                                <button class='color_green button_n' onclick='address("street_number")'>CHANGE</button>
-                            </div>
+                        <div>
+                            <button class='color_green button_n' onclick='address("street")'>CHANGE</button>
                         </div>
-                        <div class='display_f justify_c_s_b padding_l margin_t'>
-                            <div class='display_f'>
-                                <div class='width_150p'><p class='font_numbers font_size_12 color color_gray'{% trans ">ZIP code" %}:</p></div>
-                                <p class='margin_l font_numbers_light font_size_12'>{{ address.ZIP_code }}</p>
-                            </div>
-                            <div>
-                                <button class='color_green button_n' onclick='address("ZIP_code")'>CHANGE</button>
-                            </div>
+                    </div>
+                    <div class='display_f justify_c_s_b padding_l margin_t'>
+                        <div class='display_f'>
+                            <div class='width_150p'><p class='font_numbers font_size_12  color_gray'>{% trans "Street number" %}:</p></div>
+                            <p class='margin_l font_numbers_light font_size_12'>{{ address.street_number }}</p>
                         </div>
-                        <div class='display_f justify_c_s_b padding_l margin_t'>
-                            <div class='display_f'>
-                                <div class='width_150p'><p class='font_numbers font_size_12 color color_gray'>{% trans "Town" %}:</p></div>
-                                <p class='margin_l font_numbers_light font_size_12'>{{ address.town }}</p>
-                            </div>
-                            <div>
-                                <button class='color_green button_n' onclick='address("town")'>CHANGE</button>
-                            </div>
+                        <div>
+                            <button class='color_green button_n' onclick='address("street_number")'>CHANGE</button>
                         </div>
-                        <div class='display_f justify_c_s_b padding_l margin_t'>
-                            <div class='display_f'>
-                                <div class='width_150p'><p class='font_numbers font_size_12 color color_gray'>{% trans "Country" %}:</p></div>
-                                <p class='margin_l font_numbers_light font_size_12'>{{ address.country }}</p>
-                            </div>
-                            <div>
-                                <button class='color_green button_n' onclick='address("country")'>CHANGE</button>
-                            </div>
-                        </div>     
-                    {% endwith %}
+                    </div>
+                    <div class='display_f justify_c_s_b padding_l margin_t'>
+                        <div class='display_f'>
+                            <div class='width_150p'><p class='font_numbers font_size_12 color color_gray'{% trans ">ZIP code" %}:</p></div>
+                            <p class='margin_l font_numbers_light font_size_12'>{{ address.ZIP_code }}</p>
+                        </div>
+                        <div>
+                            <button class='color_green button_n' onclick='address("ZIP_code")'>CHANGE</button>
+                        </div>
+                    </div>
+                    <div class='display_f justify_c_s_b padding_l margin_t'>
+                        <div class='display_f'>
+                            <div class='width_150p'><p class='font_numbers font_size_12 color color_gray'>{% trans "Town" %}:</p></div>
+                            <p class='margin_l font_numbers_light font_size_12'>{{ address.town }}</p>
+                        </div>
+                        <div>
+                            <button class='color_green button_n' onclick='address("town")'>CHANGE</button>
+                        </div>
+                    </div>
+                    <div class='display_f justify_c_s_b padding_l margin_t'>
+                        <div class='display_f'>
+                            <div class='width_150p'><p class='font_numbers font_size_12 color color_gray'>{% trans "Country" %}:</p></div>
+                            <p class='margin_l font_numbers_light font_size_12'>{{ address.country }}</p>
+                        </div>
+                        <div>
+                            <button class='color_green button_n' onclick='address("country")'>CHANGE</button>
+                        </div>
+                    </div>     
+                {% endwith %}
             </div>
             <div class='account_bills white padding margin_t'>         
                 <h4 class='font_numbers_light'>{% trans "Bills" %}</h1>      
