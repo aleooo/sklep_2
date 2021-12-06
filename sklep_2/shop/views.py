@@ -1,15 +1,19 @@
+from django.core import serializers
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
 from django.test import client
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 from django.views.generic.list import ListView
 
 from cart.cart import Cart
 from .forms import UserModelForm
 from .models import Category, Product, UserModel
 from .utils import filter_prices_products, pagination, data_post
+
+import json 
 
 
 def main(request):
@@ -89,9 +93,22 @@ def list_search(request, text):
 def account(request):
     user = UserModel.objects.get(id=request.user.id)
     orders = user.order.values('id', 'created')
-    
+    address = {'town':{'value':'no town','field':'Town'},
+                'ZIP_code':{'value':'no ZIP code','field':'ZIP code'},
+                'country':{'value':'no country','field':'Country'},
+                'street_number':{'value':'no street number','field':'Street number'},
+                'street':{'value':'no street','field':'Street'}}
+    for field, value in user.address.__dict__.items():
+        if field not in ['_state', 'id']:
+            if value: 
+                address[field]['value'] = value
+
+    address_json = json.dumps(address)
+
     return render(request, 'content/account.html', {'main_bar': True,
-                                                    'orders': orders}) 
+                                                    'orders': orders,
+                                                    'address': address,
+                                                    'address_json': address_json}) 
 
 def account_data(request, type):
     user = request.user
