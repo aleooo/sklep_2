@@ -39,6 +39,12 @@
     z-index: 2001;
     display: none;
 }
+#account_div_form_address{
+    display: none;
+}
+#account_div_form_personal_data{
+    display: none;
+}
 @media (min-width: 814px) and (max-width: 1056px) {
     .personal_data_width{
         width: 50%;

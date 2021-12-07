@@ -8,15 +8,28 @@
         <div id='account_background_form'></div>
         <div id='account_div_form'>
             <h3 class='font_numbers_light'>{% trans "Zmień" %}</h3>
-            <div>
-                <form action="{% url 'shop:account_data' type='address' %}" method='post'  >
+            <div id='account_div_form_address'>
+                <form action="{% url 'shop:account_data' type='address' %}" method='post'>
                     {% csrf_token %}
-                    <div id='account_form'>
+                    <div id='account_form_address'>
                     </div>
                     <div class='display_f align_i_c float_r margin_t'>
                         <button type='button' class='button_n' onclick='cancel()'><p class='color_green margin_0'>{% trans "CANCEL" %}</p></button>
                         <button type='submit' class='button margin_l' ><p class='button_margin'>{% trans "SUBMIT" %}</p></button>
                     </div>
+                    
+                </form>
+            </div>
+            <div id='account_div_form_personal_data'>
+                <form action="{% url 'shop:account_data' type='personal_data' %}" method='post'>
+                    {% csrf_token %}
+                    <div id='account_form_personal_data'>
+                    </div>
+                    <div class='display_f align_i_c float_r margin_t'>
+                        <button type='button' class='button_n' onclick='cancel()'><p class='color_green margin_0'>{% trans "CANCEL" %}</p></button>
+                        <button type='submit' class='button margin_l' ><p class='button_margin'>{% trans "SUBMIT" %}</p></button>
+                    </div>
+                    
                 </form>
             </div>
             
@@ -25,7 +38,7 @@
             <div class='account_address white padding margin_t'>          
                 <div class="display_f justify_c_s_b">
                     <h4 class='font_numbers_light display_f align_i_c margin_0'>{% trans "Your address" %}</h1>
-                    <button class='color_green button_n font_size_15' onclick="address('{{ address_json }}')">CHANGE</button>
+                    <button class='color_green button_n font_size_15' onclick="address('{{ address_json }}','0','address')">CHANGE</button>
                 </div>                   
 
                 {% for key, field in address.items %}
@@ -36,7 +49,7 @@
                         </div>
                   
                         <div>
-                            <button class='color_green button_n' onclick="address('{{ key }}','{{ field.value }}')">CHANGE</button>
+                            <button class='color_green button_n' onclick="address('{{ key }}','{{ field.value }}','address')">CHANGE</button>
                         </div>
                     </div>
                 {% endfor %}
@@ -54,32 +67,43 @@
         <div class='white margin_t padding'>
             <h4 class='font_numbers_light'>{% trans "Personal data" %}</h1>
             <div class='display_f width_100 flex_w_w'>
-                {% with user=request.user %}
                 <div class='personal_data_width'>
                     <div class='personal_data'>
                         <div>
-                            <div class='display_f justify_c_s_b width_250p height_2r'><p class='font_numbers font_size_12  color_gray'>{% trans "First Name" %}</p><a href="" class='color_green font_size_12'><p>CHANGE</p></a></div>
-                            <p class='font_numbers_light'>{{ user.first_name }}</p>
+                            <div class='display_f justify_c_s_b width_250p height_2r'>
+                                <p class='font_numbers font_size_12  color_gray'>{% trans "First Name" %}</p>
+                                <button class='color_green button_n' onclick="address('{{ personal_data.first_name.field }}','{{ personal_data.first_name.value }}','personal_data')">CHANGE</button>
+                            </div>
+                            <p class='font_numbers_light'>{{ personal_data.first_name.value }}</p>
                         </div>
                     </div>
                     <div class='personal_data'>
                         <div>
-                            <div class='display_f justify_c_s_b width_250p height_2r'><p class='font_numbers font_size_12  color_gray'>{% trans "Last name" %}</p><a href="" class='color_green font_size_12'>CHANGE</a></div>
-                            <p class='font_numbers_light'>{{ user.last_name }}</p>
+                            <div class='display_f justify_c_s_b width_250p height_2r'>
+                                <p class='font_numbers font_size_12  color_gray'>{% trans "Last name" %}</p>
+                                <button class='color_green button_n' onclick="address('{{ personal_data.last_name.field }}','{{ personal_data.last_name.value }}','personal_data')">CHANGE</button>
+                            </div>
+                            <p class='font_numbers_light'>{{ personal_data.last_name.value }}</p>
                         </div>
                     </div>
                 </div>
                 <div class='personal_data_width'>
                     <div class='personal_data'>
                         <div>
-                            <div class='display_f justify_c_s_b width_250p height_2r'><p class='font_numbers font_size_12  color_gray'>{% trans "Email" %}</p><a href="" class='color_green font_size_12'>CHANGE</a></div>
-                            <p class='font_numbers_light'>{{ user.email }}</p>
+                            <div class='display_f justify_c_s_b width_250p height_2r'>
+                                <p class='font_numbers font_size_12  color_gray'>{% trans "Email" %}</p>
+                                <button class='color_green button_n' onclick="address('{{ personal_data.email.field }}','{{ personal_data.email.value }}','personal_data')">CHANGE</button>
+                            </div>
+                            <p class='font_numbers_light'>{{ personal_data.email.value }}</p>
                         </div>
                     </div>
                     <div class='personal_data'>
                         <div>
-                            <div class='display_f justify_c_s_b width_250p height_2r'><p class='font_numbers font_size_12  color_gray'>{% trans "Date joined" %}</p><a href="" class='color_green font_size_12'>CHANGE</a></div>
-                            <p class='font_numbers_light'>{{ user.date_joined }}</p>
+                            <div class='display_f justify_c_s_b width_250p height_2r'>
+                                <p class='font_numbers font_size_12  color_gray'>{% trans "Date joined" %}</p>
+                                <button class='color_green button_n' onclick="address('{{ personal_data.date_joined.field }}','{{ personal_data.date_joined.value }}','personal_data')">CHANGE</button>
+                            </div>
+                            <p class='font_numbers_light'>{{ personal_data.date_joined.value }}</p>
                         </div>
                         
                     </div>     
@@ -87,12 +111,15 @@
                 <div class='personal_data_width'>
                     <div class='personal_data'>
                         <div>
-                            <div class='display_f justify_c_s_b width_250p height_2r'><p class='font_numbers font_size_12  color_gray'>{% trans "Number" %}</p><a href="" class='color_green font_size_12'>CHANGE</a></div>
-                            <p class='font_numbers_light'>{{ user.number }}</p>
+                            <div class='display_f justify_c_s_b width_250p height_2r'>
+                                <p class='font_numbers font_size_12  color_gray'>{% trans "Number" %}</p>
+                                <button class='color_green button_n' onclick="address('{{ personal_data.number.field }}','{{ personal_data.number.value }}','personal_data')">CHANGE</button>
+                            </div>
+                            <p class='font_numbers_light'>{{ personal_data.number.value }}</p>
                         </div>  
                     </div>
                 </div>
-            {% endwith %}
+           
             </div>
         </div>
     </div>

@@ -1,20 +1,17 @@
-from django.core import serializers
+import json
 from django.contrib.auth.models import User
-from django.http import HttpResponse
+
+from django.core import serializers
 from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
-from django.test import client
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-from django.views.generic.list import ListView
 
 from cart.cart import Cart
 from .forms import UserModelForm
 from .models import Category, Product, UserModel
 from .utils import filter_prices_products, pagination, data_post
-
-import json 
-
+ 
 
 def main(request):
   
@@ -64,6 +61,7 @@ def detail(request, slug, **kwargs):
                                                    'main_bar': True,
                                                    })
 
+
 def list(request, category=None, text=None):
     if category:
         cat = Category.objects.get(slug=category)
@@ -98,39 +96,52 @@ def account(request):
                 'country':{'value':'no country','field':'Country'},
                 'street_number':{'value':'no street number','field':'Street number'},
                 'street':{'value':'no street','field':'Street'}}
+    personal_data = {'first_name':{'value':'no first name','field':'First Name'},
+                     'last_name':{'value':'no last name','field':'Last Name'},
+                     'email':{'value':'no email','field':'Email'},
+                     'date_joined':{'value':'no date joined','field':'Date joined'},
+                     'number':{'value':'no number','field':'Number'}}
+    user_fields = ['first_name', 'last_name', 'number', 'email', 'date_joined']
+
     for field, value in user.address.__dict__.items():
         if field not in ['_state', 'id']:
             if value: 
                 address[field]['value'] = value
+    
+    for field, value in user.__dict__.items():
+        if field in user_fields:
+            if value:
+                personal_data[field]['value'] = str(value)
 
     address_json = json.dumps(address)
+    personal_data_json = json.dumps(personal_data)
 
-    return render(request, 'content/account.html', {'main_bar': True,
+    return render(request, 'content/account.html', {'address': address,
+                                                    'address_json': address_json,
+                                                    'main_bar': True,
                                                     'orders': orders,
-                                                    'address': address,
-                                                    'address_json': address_json}) 
+                                                    'personal_data': personal_data,
+                                                    'personal_data_json': personal_data_json}) 
+
 
 def account_data(request, type):
     user = request.user
-    address = request.user.address
+    address = user.address
+    print(request.POST)
     if request.method == 'POST':
         data = data_post(request)
     
         if type == 'address':
             for k, v in data.items():
-                setattr(address, k, v)
-                address.save()
-        else:
+                if k in address.__dict__:
+                    setattr(address, k, v)
+                    address.save()
+        elif type == 'personal_data':
+            print(type)
             for k, v in data.items():
-                setattr(user, k, v)
-                address.save()
+                print(data)
+                if k in user._wrapped.__dict__:
+                    
+                    setattr(user, k, v)
+                    user.save()
     return redirect('shop:account')
-
-
-
-
-    
-
-
-
-        
