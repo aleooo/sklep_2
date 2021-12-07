@@ -18,9 +18,13 @@ function cancel(){
 }
 
 // call a form to the address and personal data user
-function address(data, value=null, type){
+function account_form(data, type, kind=null){
+    data = JSON.parse(data);
+    form_html = '';
+
     background.css('display', 'block');
     div_form.css('display', 'block');
+    
     if(type == 'address'){
         account_div_form_address.css('display', 'block')
         var form = form_address
@@ -29,30 +33,20 @@ function address(data, value=null, type){
         account_div_form_personal_data.css('display', 'block')
         var form = form_personal_data
     }
-
-
-    if(data.length > 50){
-        data = JSON.parse(data);
-        form_html = '';
-        for (key in data){
-            if(data[key].value.includes('no') || data[key].value.includes('brak')){
-                data[key].value = '';
-            }
-            console.log(key);
-            form_html += `<div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="${key}_input" placeholder="${data[key]['field']}" name="${key}" value="${data[key].value}">
-                            <label for="${key}_input">${data[key]['field']}</label>
-                          </div>`
-            }
-        form.html(form_html)
-        
+    
+    if(kind){
+        form_html = `<div class="form-floating mb-3">
+            <input type="text" class="form-control font_numbers_light" id="floatingInput" placeholder="${data[kind].field}" name="${data[kind].name}" value="${data[kind].value}">
+            <label for="floatingInput">${data[kind].field}</label></div>`
     }
     else{
-        if(value.includes('no') || value.includes('brak')){
-            value = '';
-        }
-        form.html(`<div class="form-floating mb-3">
-            <input type="text" class="form-control font_numbers" id="floatingInput" placeholder="${value}" name="${data}" value="${value}">
-            <label for="floatingInput">${data}</label></div>`)
+        for (kind in data){
+            form_html += `<div class="form-floating mb-3">
+                            <input type="text" class="form-control font_numbers_light" id="${data[kind].name}_input" placeholder="${data[kind].field}" name="${data[kind].name}" value="${data[kind].value}">
+                            <label for="${data[kind].name}_input">${data[kind].field}</label>
+                            </div>`
+            }
+        
     }
+    form.html(form_html)
 }

@@ -91,17 +91,16 @@ def list_search(request, text):
 def account(request):
     user = UserModel.objects.get(id=request.user.id)
     orders = user.order.values('id', 'created')
-    address = {'town':{'value':'no town','field':'Town'},
-                'ZIP_code':{'value':'no ZIP code','field':'ZIP code'},
-                'country':{'value':'no country','field':'Country'},
-                'street_number':{'value':'no street number','field':'Street number'},
-                'street':{'value':'no street','field':'Street'}}
-    personal_data = {'first_name':{'value':'no first name','field':'First Name'},
-                     'last_name':{'value':'no last name','field':'Last Name'},
-                     'email':{'value':'no email','field':'Email'},
-                     'date_joined':{'value':'no date joined','field':'Date joined'},
-                     'number':{'value':'no number','field':'Number'}}
-    user_fields = ['first_name', 'last_name', 'number', 'email', 'date_joined']
+    address = {'town':{'value':'------','field':'Town','name':'town'},
+                'ZIP_code':{'value':'------','field':'ZIP code','name':'ZIP_code'},
+                'country':{'value':'------','field':'Country','name':'country'},
+                'street_number':{'value':'------','field':'Street number','name':'street_number'},
+                'street':{'value':'------','field':'Street','name':'street'}}
+    personal_data = {'first_name':{'value':'------','field':'First Name','name':'first_name'},
+                     'last_name':{'value':'------','field':'Last Name','name':'last_name'},
+                     'email':{'value':'------','field':'Email','name':'email'},
+                     'number':{'value':'------','field':'Number','name':'number'}}
+    user_fields = ['first_name', 'last_name', 'number', 'email']
 
     for field, value in user.address.__dict__.items():
         if field not in ['_state', 'id']:
@@ -127,21 +126,18 @@ def account(request):
 def account_data(request, type):
     user = request.user
     address = user.address
-    print(request.POST)
+
     if request.method == 'POST':
         data = data_post(request)
-    
+
         if type == 'address':
             for k, v in data.items():
                 if k in address.__dict__:
                     setattr(address, k, v)
                     address.save()
         elif type == 'personal_data':
-            print(type)
             for k, v in data.items():
-                print(data)
                 if k in user._wrapped.__dict__:
-                    
                     setattr(user, k, v)
                     user.save()
     return redirect('shop:account')

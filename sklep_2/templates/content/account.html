@@ -7,7 +7,7 @@
     <div class="basic ">
         <div id='account_background_form'></div>
         <div id='account_div_form'>
-            <h3 class='font_numbers_light'>{% trans "Zmień" %}</h3>
+            <h3 class='font_numbers_light'>{% trans "Change" %}</h3>
             <div id='account_div_form_address'>
                 <form action="{% url 'shop:account_data' type='address' %}" method='post'>
                     {% csrf_token %}
@@ -38,88 +38,47 @@
             <div class='account_address white padding margin_t'>          
                 <div class="display_f justify_c_s_b">
                     <h4 class='font_numbers_light display_f align_i_c margin_0'>{% trans "Your address" %}</h1>
-                    <button class='color_green button_n font_size_15' onclick="address('{{ address_json }}','0','address')">CHANGE</button>
+                    <button class='color_green button_n font_size_15' onclick="account_form('{{ address_json }}','address')">CHANGE</button>
                 </div>                   
-
-                {% for key, field in address.items %}
-                    <div class='display_f justify_c_s_b padding_l margin_t_2'>
-                        <div class='display_f width'>
-                            <div class='width_130p'><p class='font_numbers font_size_12 color color_gray'>{{ field.field }}:</p></div>
-                            <p class='margin_l font_numbers_light font_size_12'>{{ field.value }}</p>
-                        </div>
-                  
+                <div class='display_f width_100 flex_w_w'>
+                {% for key, value in address.items %}
+                    <div class='personal_data width_320p margin_t_2'>
                         <div>
-                            <button class='color_green button_n' onclick="address('{{ key }}','{{ field.value }}','address')">CHANGE</button>
+                            <p class='font_numbers font_size_15 color_gray margin_0'>{{ value.field }}:</p>   
+                            <p class='font_numbers_light margin_0 font_size_12'>{{ value.value }}</p>
+                            <button class='color_green button_n padding_0' onclick="account_form('{{ address_json }}','address','{{ key }}')">CHANGE</button>
                         </div>
                     </div>
                 {% endfor %}
             </div>
+            </div>
             <div class='account_bills white padding margin_t'>         
                 <h4 class='font_numbers_light'>{% trans "Bills" %}</h1>      
-                <div>
+                <div class='overflow_a'>
                     {% for order in orders %}
-                        <div><a href={% url 'order:admin_order_pdf' order.id %}>{{ order.created }}</a></div>
+                        <div class='margin_t'><a href={% url 'order:admin_order_pdf' order.id %}><p class='font_numbers_light'>{{ order.created }}</p></a></div>
                     {% endfor %}
                     
                 </div>      
             </div>
         </div>
         <div class='white margin_t padding'>
-            <h4 class='font_numbers_light'>{% trans "Personal data" %}</h1>
+            <div class='width_320p display_f justify_c_s_b align_i_c'>
+                <h4 class='font_numbers_light margin_0'>{% trans "Personal data" %}</h1>
+                <button class='font_size_15 color_green button_n padding_0' onclick="account_form('{{ personal_data_json }}','personal_data')">CHANGE</button>
+            </div>
+            
             <div class='display_f width_100 flex_w_w'>
-                <div class='personal_data_width'>
-                    <div class='personal_data'>
+                {% for key, value in personal_data.items %}
+                    <div class='personal_data width_320p'>
                         <div>
-                            <div class='display_f justify_c_s_b width_250p height_2r'>
-                                <p class='font_numbers font_size_12  color_gray'>{% trans "First Name" %}</p>
-                                <button class='color_green button_n' onclick="address('{{ personal_data.first_name.field }}','{{ personal_data.first_name.value }}','personal_data')">CHANGE</button>
-                            </div>
-                            <p class='font_numbers_light'>{{ personal_data.first_name.value }}</p>
+                            <p class='font_numbers font_size_12 color_gray margin_0'>{{ value.field }}:</p>   
+                            <p class='font_numbers_light margin_0'>{{ value.value }}</p>
+                            <button class='color_green button_n padding_0' onclick="account_form('{{ personal_data_json }}','personal_data', '{{ key }}')">CHANGE</button>
                         </div>
                     </div>
-                    <div class='personal_data'>
-                        <div>
-                            <div class='display_f justify_c_s_b width_250p height_2r'>
-                                <p class='font_numbers font_size_12  color_gray'>{% trans "Last name" %}</p>
-                                <button class='color_green button_n' onclick="address('{{ personal_data.last_name.field }}','{{ personal_data.last_name.value }}','personal_data')">CHANGE</button>
-                            </div>
-                            <p class='font_numbers_light'>{{ personal_data.last_name.value }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class='personal_data_width'>
-                    <div class='personal_data'>
-                        <div>
-                            <div class='display_f justify_c_s_b width_250p height_2r'>
-                                <p class='font_numbers font_size_12  color_gray'>{% trans "Email" %}</p>
-                                <button class='color_green button_n' onclick="address('{{ personal_data.email.field }}','{{ personal_data.email.value }}','personal_data')">CHANGE</button>
-                            </div>
-                            <p class='font_numbers_light'>{{ personal_data.email.value }}</p>
-                        </div>
-                    </div>
-                    <div class='personal_data'>
-                        <div>
-                            <div class='display_f justify_c_s_b width_250p height_2r'>
-                                <p class='font_numbers font_size_12  color_gray'>{% trans "Date joined" %}</p>
-                                <button class='color_green button_n' onclick="address('{{ personal_data.date_joined.field }}','{{ personal_data.date_joined.value }}','personal_data')">CHANGE</button>
-                            </div>
-                            <p class='font_numbers_light'>{{ personal_data.date_joined.value }}</p>
-                        </div>
-                        
-                    </div>     
-                </div>
-                <div class='personal_data_width'>
-                    <div class='personal_data'>
-                        <div>
-                            <div class='display_f justify_c_s_b width_250p height_2r'>
-                                <p class='font_numbers font_size_12  color_gray'>{% trans "Number" %}</p>
-                                <button class='color_green button_n' onclick="address('{{ personal_data.number.field }}','{{ personal_data.number.value }}','personal_data')">CHANGE</button>
-                            </div>
-                            <p class='font_numbers_light'>{{ personal_data.number.value }}</p>
-                        </div>  
-                    </div>
-                </div>
-           
+                
+                {% endfor %}
             </div>
         </div>
     </div>
