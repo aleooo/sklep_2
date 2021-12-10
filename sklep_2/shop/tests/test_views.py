@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
+from django.test.client import Client
 from django.urls.base import reverse
 
 from shop.models import Address, Category, Product, UserModel
@@ -26,6 +27,8 @@ class ViewTestCase(TestCase):
                                 quantity_available=4)
         address = Address.objects.create(street='Krotka', street_number='3', ZIP_code='08-116', town='Seroczyn', country='Poland')
         UserModel.objects.create(username='aleo', first_name='alek', last_name='wiedenski', email='dwdawdw@gmail.com', password='aleoaleo', address=address, number='333333333')
+        c = Client()
+        self.user = c.login(username='aleo', password='aleoaleo')
     
     def test_Main(self):
         response = self.client.get(reverse('shop:main'))
@@ -69,7 +72,10 @@ class ViewTestCase(TestCase):
         self.assertNotContains(response, 'Django 3')
         self.assertContains(response, 'Peak')
     
+    def test_account(self):
+        response = self.user.get(reverse('shop:account'))
 
+        self.assertEqual(response.status_code, 200)
         
     # def test_login(self):
     #     response = self.client.post(reverse('shop:login'), data={'username': 'aleo', 'password': 'aleoaleo'})
