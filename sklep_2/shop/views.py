@@ -37,7 +37,7 @@ def register(request):
 
 
 def search(request):
-    if request.is_ajax():
+    if request.method == 'POST':
         text = request.POST.get('text')
         products = Product.objects.filter(name__icontains=text)[:8]
         data = []
