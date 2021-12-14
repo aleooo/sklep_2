@@ -128,10 +128,10 @@
 
                     <div class="toggle_bar_button">
                         {% if user.is_authenticated %}
-                            <button class="button width_100"><a href="{% url 'shop:logout' %}" class='button_white'>{% trans "LOGOUT" %}</a></button>
+                        <a href="{% url 'shop:logout' %}"><button class="button width_100 color_white">{% trans "LOGOUT" %}</button></a>
                         {% else %}
                            
-                            <button class="button width_100"><a href="{% url 'shop:login' %}" class='button_white'>{% trans "LOGIN" %}</a></button>
+                        <a href="{% url 'shop:login' %}"><button class="button width_100 color_white">{% trans "LOGIN" %}</button></a>
                         {% endif %}
                     </div>
                 </div>

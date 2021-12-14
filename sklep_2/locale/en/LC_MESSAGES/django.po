@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-01 22:56+0000\n"
+"POT-Creation-Date: 2021-12-14 20:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,6 +46,42 @@ msgstr ""
 msgid "The two password fields didn`t match"
 msgstr ""
 
+#: shop/views.py:94 templates/content/order/order.html:56
+msgid "Town"
+msgstr ""
+
+#: shop/views.py:95 templates/content/order/order.html:60
+msgid "ZIP code"
+msgstr ""
+
+#: shop/views.py:96 templates/content/order/order.html:66
+msgid "Country"
+msgstr ""
+
+#: shop/views.py:97 templates/content/order/order.html:49
+msgid "Street number"
+msgstr ""
+
+#: shop/views.py:98 templates/content/order/order.html:44
+msgid "Street"
+msgstr ""
+
+#: shop/views.py:99 templates/content/order/order.html:22
+msgid "First Name"
+msgstr ""
+
+#: shop/views.py:100
+msgid "Last Name"
+msgstr ""
+
+#: shop/views.py:101 templates/content/order/order.html:33
+msgid "Email"
+msgstr ""
+
+#: shop/views.py:102
+msgid "Number"
+msgstr ""
+
 #: sklep_2/settings.py:120
 msgid "polish"
 msgstr ""
@@ -70,28 +106,58 @@ msgstr ""
 msgid "cart value"
 msgstr ""
 
-#: templates/base.html:101
+#: templates/base.html:102 templates/base.html:104
 msgid "ACCOUNT"
 msgstr ""
 
-#: templates/base.html:104
+#: templates/base.html:108
 msgid "ANALYSIS"
 msgstr ""
 
-#: templates/base.html:107 templates/registration/password_change_done.html:10
+#: templates/base.html:111 templates/registration/password_change_done.html:10
 msgid "MAIN"
 msgstr ""
 
-#: templates/base.html:115
+#: templates/base.html:119
 msgid "Language"
 msgstr ""
 
-#: templates/base.html:127
+#: templates/base.html:131
 msgid "LOGOUT"
 msgstr ""
 
-#: templates/base.html:130 templates/registration/login.html:28
+#: templates/base.html:134 templates/registration/login.html:28
 msgid "LOGIN"
+msgstr ""
+
+#: templates/content/account.html:10
+msgid "Change"
+msgstr ""
+
+#: templates/content/account.html:17 templates/content/account.html:29
+msgid "CANCEL"
+msgstr ""
+
+#: templates/content/account.html:18 templates/content/account.html:30
+msgid "SUBMIT"
+msgstr ""
+
+#: templates/content/account.html:40
+msgid "Your address"
+msgstr ""
+
+#: templates/content/account.html:41 templates/content/account.html:49
+#: templates/content/account.html:68 templates/content/account.html:77
+#: templates/registration/password_reset_confirm.html:44
+msgid "CHANGE"
+msgstr ""
+
+#: templates/content/account.html:56
+msgid "Bills"
+msgstr ""
+
+#: templates/content/account.html:67
+msgid "Personal data"
 msgstr ""
 
 #: templates/content/cart/cart.html:42 templates/content/cart/cart.html:86
@@ -175,11 +241,11 @@ msgstr ""
 msgid "greater then 150"
 msgstr ""
 
-#: templates/content/main.html:37 templates/content/main.html:85
+#: templates/content/main.html:37 templates/content/main.html:117
 msgid "Previous"
 msgstr ""
 
-#: templates/content/main.html:41 templates/content/main.html:89
+#: templates/content/main.html:41 templates/content/main.html:123
 msgid "Next"
 msgstr ""
 
@@ -187,40 +253,16 @@ msgstr ""
 msgid "Popular for sale"
 msgstr ""
 
-#: templates/content/order/order.html:22
-msgid "First Name"
+#: templates/content/order/order.html:14
+msgid "Details of the recipient"
 msgstr ""
 
 #: templates/content/order/order.html:26
 msgid "Last name"
 msgstr ""
 
-#: templates/content/order/order.html:33
-msgid "Email"
-msgstr ""
-
 #: templates/content/order/order.html:38
 msgid "Phone number"
-msgstr ""
-
-#: templates/content/order/order.html:44
-msgid "Street"
-msgstr ""
-
-#: templates/content/order/order.html:49
-msgid "Street number"
-msgstr ""
-
-#: templates/content/order/order.html:56
-msgid "Town"
-msgstr ""
-
-#: templates/content/order/order.html:60
-msgid "ZIP code"
-msgstr ""
-
-#: templates/content/order/order.html:66
-msgid "Country"
 msgstr ""
 
 #: templates/content/order/order.html:75
@@ -291,7 +333,7 @@ msgstr ""
 msgid "Don't have an account"
 msgstr ""
 
-#: templates/registration/login.html:43 templates/registration/register.html:33
+#: templates/registration/login.html:43 templates/registration/register.html:39
 msgid "SIGN UP"
 msgstr ""
 
@@ -330,10 +372,6 @@ msgstr ""
 
 #: templates/registration/password_reset_confirm.html:16
 msgid "Enter the new password twice"
-msgstr ""
-
-#: templates/registration/password_reset_confirm.html:44
-msgid "CHANGE"
 msgstr ""
 
 #: templates/registration/password_reset_confirm.html:49
@@ -393,6 +431,11 @@ msgstr ""
 msgid "Sign up"
 msgstr ""
 
-#: templates/registration/register.html:32
+#: templates/registration/register.html:34
+msgid ""
+"I declare that I know and accept the provisions of the Regulations Sklep_2."
+msgstr ""
+
+#: templates/registration/register.html:38
 msgid "Already have an account"
 msgstr ""

@@ -91,15 +91,15 @@ def list_search(request, text):
 def account(request):
     user = UserModel.objects.get(id=request.user.id)
     orders = user.order.values('id', 'created')
-    address = {'town':{'value':'------','field':'Town','name':'town'},
-                'ZIP_code':{'value':'------','field':'ZIP code','name':'ZIP_code'},
-                'country':{'value':'------','field':'Country','name':'country'},
-                'street_number':{'value':'------','field':'Street number','name':'street_number'},
-                'street':{'value':'------','field':'Street','name':'street'}}
-    personal_data = {'first_name':{'value':'------','field':'First Name','name':'first_name'},
-                     'last_name':{'value':'------','field':'Last Name','name':'last_name'},
-                     'email':{'value':'------','field':'Email','name':'email'},
-                     'number':{'value':'------','field':'Number','name':'number'}}
+    address = {'town':{'value':'------','field':str(_('Town')),'name':'town'},
+                'ZIP_code':{'value':'------','field':str(_('ZIP code')),'name':'ZIP_code'},
+                'country':{'value':'------','field':str(_('Country')),'name':'country'},
+                'street_number':{'value':'------','field':str(_('Street number')),'name':'street_number'},
+                'street':{'value':'------','field':str(_('Street')),'name':'street'}}
+    personal_data = {'first_name':{'value':'------','field':str(_('First Name')),'name':'first_name'},
+                     'last_name':{'value':'------','field':str(_('Last Name')),'name':'last_name'},
+                     'email':{'value':'------','field':str(_('Email')),'name':'email'},
+                     'number':{'value':'------','field':str(_('Number')),'name':'number'}}
     user_fields = ['first_name', 'last_name', 'number', 'email']
 
     for field, value in user.address.__dict__.items():

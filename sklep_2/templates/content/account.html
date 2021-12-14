@@ -38,7 +38,7 @@
             <div class='account_address white padding margin_t'>          
                 <div class="display_f justify_c_s_b">
                     <h4 class='font_numbers_light display_f align_i_c margin_0'>{% trans "Your address" %}</h1>
-                    <button class='color_green button_n font_size_15' onclick="account_form('{{ address_json }}','address')">CHANGE</button>
+                    <button class='color_green button_n font_size_15' onclick="account_form('{{ address_json }}','address')">{% trans "CHANGE" %}</button>
                 </div>                   
                 <div class='display_f width_100 flex_w_w'>
                 {% for key, value in address.items %}
@@ -46,7 +46,7 @@
                         <div>
                             <p class='font_numbers font_size_15 color_gray margin_0'>{{ value.field }}:</p>   
                             <p class='font_numbers_light margin_0 font_size_12'>{{ value.value }}</p>
-                            <button class='color_green button_n padding_0' onclick="account_form('{{ address_json }}','address','{{ key }}')">CHANGE</button>
+                            <button class='color_green button_n padding_0' onclick="account_form('{{ address_json }}','address','{{ key }}')">{% trans "CHANGE" %}</button>
                         </div>
                     </div>
                 {% endfor %}
@@ -65,7 +65,7 @@
         <div class='white margin_t padding'>
             <div class='width_320p display_f justify_c_s_b align_i_c'>
                 <h4 class='font_numbers_light margin_0'>{% trans "Personal data" %}</h1>
-                <button class='font_size_15 color_green button_n padding_0' onclick="account_form('{{ personal_data_json }}','personal_data')">CHANGE</button>
+                <button class='font_size_15 color_green button_n padding_0' onclick="account_form('{{ personal_data_json }}','personal_data')">{% trans "CHANGE" %}</button>
             </div>
             
             <div class='display_f width_100 flex_w_w'>
@@ -74,7 +74,7 @@
                         <div>
                             <p class='font_numbers font_size_12 color_gray margin_0'>{{ value.field }}:</p>   
                             <p class='font_numbers_light margin_0'>{{ value.value }}</p>
-                            <button class='color_green button_n padding_0' onclick="account_form('{{ personal_data_json }}','personal_data', '{{ key }}')">CHANGE</button>
+                            <button class='color_green button_n padding_0' onclick="account_form('{{ personal_data_json }}','personal_data', '{{ key }}')">{% trans "CHANGE" %}</button>
                         </div>
                     </div>
                 
