@@ -9,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 
 from cart.cart import Cart
 from .forms import UserModelForm
-from .models import Category, Product, UserModel
+from .models import Address, Category, Product, UserModel
 from .utils import filter_prices_products, pagination, data_post
  
 
@@ -101,17 +101,22 @@ def account(request):
                      'email':{'value':'------','field':str(_('Email')),'name':'email'},
                      'number':{'value':'------','field':str(_('Number')),'name':'number'}}
     user_fields = ['first_name', 'last_name', 'number', 'email']
-
-    for field, value in user.address.__dict__.items():
-        if field not in ['_state', 'id']:
-            if value: 
-                address[field]['value'] = value
     
+    # assign value fields to address.*.value
+    if user.address:
+        for field, value in user.address.__dict__.items():
+            # omitting variables that are irrelevant
+            if field not in ['_state', 'id']:
+                if value: 
+                    address[field]['value'] = value
+    
+    # assign value fields to personal_data.*.value
     for field, value in user.__dict__.items():
         if field in user_fields:
             if value:
                 personal_data[field]['value'] = str(value)
 
+    # convert dictionary to json to pass data to javascript
     address_json = json.dumps(address)
     personal_data_json = json.dumps(personal_data)
 
@@ -125,19 +130,29 @@ def account(request):
 
 def account_data(request, type):
     user = request.user
-    address = user.address
+
+    # checks if user has address
+    if user.address:
+        address = user.address
+    else:
+        # like user has no address. Address is create and assign to user
+        user.address = Address.objects.create()
+        user.save()
+        address = user.address
 
     if request.method == 'POST':
+        # using own function which is the shop.utils.py throw away the csrftoken from request.POST
         data = data_post(request)
 
+        # assigning data to an object
         if type == 'address':
-            for k, v in data.items():
+            for k, v in data.items():  
                 if k in address.__dict__:
                     setattr(address, k, v)
-                    address.save()
+            address.save()
         elif type == 'personal_data':
             for k, v in data.items():
                 if k in user._wrapped.__dict__:
                     setattr(user, k, v)
-                    user.save()
+            user.save()
     return redirect('shop:account')

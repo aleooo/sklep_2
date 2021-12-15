@@ -17,11 +17,11 @@ def get_path_upload_to(self, filename):
 
 
 class Address(models.Model):
-    street = models.CharField(max_length=100)
-    street_number = models.CharField(max_length=10)
-    ZIP_code = models.CharField(max_length=15)
-    town = models.CharField(max_length=50)
-    country = models.CharField(max_length=50)
+    street = models.CharField(max_length=100, null=True, blank=True)
+    street_number = models.CharField(max_length=10, null=True, blank=True)
+    ZIP_code = models.CharField(max_length=15, null=True, blank=True)
+    town = models.CharField(max_length=50, null=True, blank=True)
+    country = models.CharField(max_length=50, null=True, blank=True)
 
     class Meta:
         db_table = ''
