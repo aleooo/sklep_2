@@ -63,4 +63,7 @@
         max-width: 100%;
       
     }
+    #account_div_form{
+        width: 100%;
+    }
 }
