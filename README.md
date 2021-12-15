@@ -24,15 +24,18 @@ git push -uf origin main
 The sklep_2 name in english means 'shop_2'. 
 
 ## Description
-The sklep_2 project is a template modeled on Allegro. Project is created in Django. Contains:
+The sklep_2 project is a template modeled on Allegro. The application is adapted to mobile devices Project is created in Django.Contains:
 - live-search(dynamic search made with AJAX)
-- login panel
+- authorization system
 - dynamic paging and filtering of the list of objects
 - cart based on Django Session
+- create pdf to order which is send on email
 
 
 
-## Visuals
+## Visual
+https://www.sklep2.waw.pl
+if the link above doesn't work, below are gif 
 https://drive.google.com/file/d/1D21ITyQ5V9jehyEUVD54s_yZyfrD-_ps/view?usp=sharing
 https://drive.google.com/file/d/1Hz6cxeFOZk4aDCqtQYCBT7IYLQ_mY9vy/view?usp=sharing
 
