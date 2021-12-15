@@ -40,7 +40,7 @@ https://drive.google.com/file/d/1Hz6cxeFOZk4aDCqtQYCBT7IYLQ_mY9vy/view?usp=shari
 1. create database postgres
 2. create virtual environment
 3. add .env with settings:
-    SECRET_KEY=django-insecure-3^vz+_leo=c!a$cdgq2tpa*=2y-4m_(4ven3uxah+eme45n(&3
+    SECRET_KEY=
     DEBUG=True
     ADDRESS_IP=127.0.0.1
     DOMAIN=
