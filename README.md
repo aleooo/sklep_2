@@ -24,20 +24,41 @@ git push -uf origin main
 The sklep_2 name in english means 'shop_2'. 
 
 ## Description
-The sklep_2 project is a template modeled on Allegro. Project is created in Django. Contains:
+The sklep_2 project is a template modeled on Allegro. The application is adapted to mobile devices Project is created in Django.Contains:
 - live-search(dynamic search made with AJAX)
-- login panel
+- authorization system
 - dynamic paging and filtering of the list of objects
 - cart based on Django Session
+- create pdf to order which is send on email
 
 
 
-## Visuals
+## Visual
+https://www.sklep2.waw.pl
+if the link above doesn't work, below are gif 
 https://drive.google.com/file/d/1D21ITyQ5V9jehyEUVD54s_yZyfrD-_ps/view?usp=sharing
 https://drive.google.com/file/d/1Hz6cxeFOZk4aDCqtQYCBT7IYLQ_mY9vy/view?usp=sharing
 
 ## Installation
+1. create database postgres
+2. create virtual environment
+3. add .env with settings:
+    SECRET_KEY=
+    DEBUG=True
+    ADDRESS_IP=127.0.0.1
+    DOMAIN=
+    WWWDOMAIN=
+    DB_NAME=
+    DB_USER=
+    DB_PASSWORD=
+    DB_HOST=
+    SOCIAL_AUTH_FACEBOOK_KEY=
+    SOCIAL_AUTH_FACEBOOK_SECRET=
+    EMAIL_HOST_USER=
+    EMAIL_HOST_PASSWORD=
 
+4. install libpangocairo-1.0-0 in system
+5. install package from requirements.txt
 
 ## Project status
 The project is under development
