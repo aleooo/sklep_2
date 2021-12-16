@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
 .address_form{
     font-size: 1.2rem;
-    font-family: 'Noto Serif', serif;
+    font-family: sans-serif;
+    margin-top: 0.5rem;
 }
 .order_div{
     width: 40%;
@@ -21,7 +22,13 @@
     display: flex;
     justify-content: space-around;
 }
+.phonenumber{
+    max-width: 49%;
+    margin: 0.5 4px 0;
+    font-size: 1.2rem;
+    font-family: sans-serif;
 
+}
 @media (max-width: 813px) {
     #column_order{
         display: block;

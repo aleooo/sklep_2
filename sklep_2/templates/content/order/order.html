@@ -16,59 +16,66 @@
                     
                     {{ form.first_name.errors }}
                     {{ form.last_name.errors }}
-                    <div class="row g-2 width_100 margin_0auto justify_c_s_a">
-                            <div class='form-floating width_50'>
+                    <div class="row g-2">
+                        <div class="col-md">
+                            <div class='form-floating'>
                                 {{ form.first_name }}
-                                <label for="{{ form.first_name.id_for_label }}">{% trans "First Name" %}</label>
+                                <label for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label>
                             </div>
-                            <div class='form-floating width_50'>
+                        </div>
+                        <div class="col-md">
+                            <div class='form-floating'>
                                 {{ form.last_name }}
-                                <label for="{{ form.last_name.id_for_label }}">{% trans "Last name" %}</label>
+                                <label for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label>
                             </div>
+                        </div>
                     </div>
                     {{ form.email.errors }}
                     <div class='form-floating'>
-                        
                         {{ form.email }}
-                        <label for="{{ form.email.id_for_label }}">{% trans "Email" %}</label>
-                    </div>
-                    {{ form.phone_number.errors }}
-                    <div class='margin_t_05 form-floating'>
-                        {{ form.phone_number }}
-                        <label for="{{ form.phone_number.id_for_label }}">{% trans "Phone number" %}</label>
+                        <label for="{{ form.email.id_for_label }}">{{ form.email.label}}</label>
                     </div>
                     {{ form.street.errors }}
-                    <div class="row g-2  margin_0auto justify_c_s_a">
-                            <div class=' form-floating width_50'>
+                    <div class="row g-2">
+                        <div class="col-md">
+                            <div class='form-floating '>
                                 {{ form.street }}
-                                <label for="{{ form.street.id_for_label }}">{% trans "Street" %}</label>
+                                <label for="{{ form.street.id_for_label }}">{{ form.street.label }}</label>
                             </div>
-                    
-                            <div class=' form-floating width_50'>
+                        </div>
+                        <div class="col-md">
+                            <div class=' form-floating '>
                                 {{ form.street_number }}
-                                <label for="{{ form.street_number.id_for_label }}">{% trans "Street number" %}</label>
+                                <label for="{{ form.street_number.id_for_label }}">{{ form.street_number.label }}</label>
                             </div>
+                        </div>
                     </div>
-                    <div class="row g-2  margin_0auto justify_c_s_a">
-                        {{ form.town.errors }}
-                        <div class=' form-floating width_50'>
-                            {{ form.town }}
-                            <label for="{{ form.town.id_for_label }}">{% trans "Town" %}</label>
+                    <div class="row g-2">
+                        <div class="col-md">
+                            {{ form.town.errors }}
+                            <div class=' form-floating '>
+                                {{ form.town }}
+                                <label for="{{ form.town.id_for_label }}">{{ form.town.label }}</label>
+                            </div>
                         </div>
-                        <div class=' form-floating width_50'>
-                            {{ form.ZIP_code }}
-                            <label for="{{ form.zip_code.id_for_label }}">{% trans "ZIP code" %}</label>
+                        <div class="col-md">
+                            <div class='form-floating '>
+                                {{ form.ZIP_code }}
+                                <label for="{{ form.zip_code.id_for_label }}">{{ form.ZIP_code.label }}</label>
+                            </div>
                         </div>
-                    </div>                  
+                    </div>                
                     {{ form.country.errors }}
-                    <div class='margin_t_05 form-floating'>
+                    <div class='form-floating'>
                         {{ form.country }}
-                        <label for="{{ form.country.id_for_label }}">{% trans "Country" %}</label>
+                        <label for="{{ form.country.id_for_label }}">{{ form.country.label }}</label>
                     </div>
-                
-                    
-                    
-            </div>
+                    {{ form.phone_number.errors }}
+                    <div class="form-floating display_f justify_c_s_b">
+                        {{ form.phone_number }}
+                        <label for="id_phone_number_1">{{ form.phone_number.label }}</label>
+                    </div>    
+                </div>
             </div>
             <div class='background_w  margin_t_2 padding'>
                 <div class='width_90 margin_0auto'>
