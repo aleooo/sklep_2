@@ -40,7 +40,7 @@ class ModelTestCase(TestCase):
         self.assertContains(response, 'Alek')
 
     def test_order_post(self):
-        data = {'first_name': ['Aleksander'], 'last_name': ['Wiedenski'], 'email': ['romek@gmail.com'], 'phone_number': ['+48510865704'], 'street': ['Krotka'], 'street_number': ['3'], 'ZIP_code': ['08-116'], 'town': ['Seroczyn'], 'country': ['Poland']}
+        data = {'first_name': ['Aleksander'], 'last_name': ['Wiedenski'], 'email': ['romek@gmail.com'],'phone_number_0': ['+48'], 'phone_number_1': ['510865704'], 'street': ['Krotka'], 'street_number': ['3'], 'ZIP_code': ['08-116'], 'town': ['Seroczyn'], 'country': ['Poland']}
         
         response = self.client.post(reverse('order:order'), data=data)
         

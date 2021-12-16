@@ -16,7 +16,7 @@ class Order(models.Model):
     ZIP_code = models.CharField(max_length=15)
     town = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
-    discount = models.PositiveSmallIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    discount = models.DecimalField(default=0, decimal_places=2, max_digits=3)
     paid = models.BooleanField(default=False)
     user = models.ForeignKey(UserModel, related_name='order', on_delete=models.SET_NULL, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)

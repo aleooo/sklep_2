@@ -36,6 +36,7 @@ class Cart(object):
     
     def clear(self):
         del self.session['cart']
+        self.session['coupon'] = {}
         self.save()
 
     def clear_add(self):

@@ -36,7 +36,6 @@ class OrderForm(forms.ModelForm):
             'country': _('Country')
         }
     
-    # 'phone_number': forms.TextInput(attrs={'class': 'address_form form-control', 'placeholder': 'phone_number'}),
     def clean(self):
         first_name = self.cleaned_data['first_name']
         field_upper = {'first_name': 'First Name', 'last_name': 'Last Name', 'street': 'Street', 'town': 'Town', 'country': 'Country'}
