@@ -1,6 +1,7 @@
 import json
-from django.contrib.auth.models import User
 
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.core import serializers
 from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
@@ -14,7 +15,6 @@ from .utils import filter_prices_products, pagination, data_post
  
 
 def main(request):
-  
     categories = Category.objects.all()
     products = Product.objects.all()
     if len(products) > 8 :
@@ -88,6 +88,7 @@ def list_search(request, text):
                                                  'objects': objects_pagination})
 
 
+@login_required
 def account(request):
     user = UserModel.objects.get(id=request.user.id)
     orders = user.order.values('id', 'created')

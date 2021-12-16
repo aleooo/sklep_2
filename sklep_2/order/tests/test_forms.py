@@ -8,7 +8,7 @@ class OrderFormTests(TestCase):
         self.data = {'first_name': ['alek.san=der'],
          'last_name': ['wiedenski'],
           'email': ['aleksanderwiedenskiail.com'],
-           'phone_number': ['5108da'],
+           'phone_number_0': ['+48'], 'phone_number_1': ['5108657dw04'],
             'street': ['krótka'],
              'street_number': ['3'],
               'town': ['seroczyn'],
@@ -34,11 +34,6 @@ class OrderFormTests(TestCase):
         response = self.client.post(reverse('order:order'), data=self.data)
 
         self.assertContains(response, "contain punctuation")
-
-    def test_phone_number(self):
-        response = self.client.post(reverse('order:order'), data=self.data)
-
-        self.assertContains(response, 'Enter a valid phone number (e.g. +12125552368).')
     
     def test_email(self):
         response = self.client.post(reverse('order:order'), data=self.data)
