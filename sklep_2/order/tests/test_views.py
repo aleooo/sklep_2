@@ -23,7 +23,7 @@ class ModelTestCase(TestCase):
                                 available=True,
                                 quantity_available=4)
         address = Address.objects.create(street='Krotka', street_number='3', ZIP_code='08-116', town='Seroczyn', country='Poland')
-        user = UserModel.objects.create(username='aleo', first_name='Alek', last_name='wiedenski', email='dwdawdw@gmail.com', password='aleoaleo', address=address, number='333333333')                                
+        user = UserModel.objects.create(username='aleo', first_name='Alek', last_name='wiedenski', email='dwdawdw@gmail.com', password='aleoaleo', address=address, number='+48434331333')                                
         self.client.force_login(user)
         self.order = Order.objects.create(first_name='Alek', last_name='Wiedenski', street='Krotka', street_number='3', ZIP_code='08-116', town='Seroczyn', country='Poland')
 

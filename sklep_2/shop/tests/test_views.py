@@ -1,10 +1,11 @@
+from django.http import response
 from django.test import TestCase
 from django.contrib.auth.models import User
 from django.test.client import Client
-from django.urls.base import reverse
+from django.urls.base import resolve, reverse
 
 from shop.models import Address, Category, Product, UserModel
-from shop.views import register
+from shop.views import account_data, register
 
 
 
@@ -26,7 +27,9 @@ class ViewTestCase(TestCase):
                                 available=True,
                                 quantity_available=4)
         address = Address.objects.create(street='Krotka', street_number='3', ZIP_code='08-116', town='Seroczyn', country='Poland')
-        self.user = UserModel.objects.create(username='aleo', first_name='alek', last_name='wiedenski', email='dwdawdw@gmail.com', password='aleoaleo', address=address, number='333333333')
+        self.user = UserModel.objects.create(username='aleo', first_name='alek', last_name='wiedenski', email='dwdawdw@gmail.com', password='aleoaleo', address=address, number='+48510865704')
+        self.user_without_data = UserModel.objects.create(username='alek', password='aleoaleo')
+        
         
     
     def test_Main(self):
@@ -79,8 +82,90 @@ class ViewTestCase(TestCase):
     def test_account_logout_user(self):
         response = self.client.get(reverse('shop:account'))
         self.assertEqual(response.status_code, 302)
+    
+    def test_account_with_all_fill_fields(self):
+        self.client.force_login(self.user)
+        response = self.client.get(reverse('shop:account'))
+
+        self.assertContains(response, 'dwdawdw@gmail.com')
+        self.assertNotContains(response, '------')
+    
+    def test_account_without_data_user(self):
+        self.client.force_login(self.user_without_data)
+        response = self.client.get(reverse('shop:account'))
+
+        self.assertContains(response, '------')
+    
+    def test_account_address(self):
+        self.client.force_login(self.user)
+        response = self.client.get(reverse('shop:account'))
+
+        self.assertContains(response, 'Seroczyn')
+        self.assertContains(response, 'Poland')
+        self.assertContains(response, 'Krotka')
+        self.assertContains(response, '3')
+        self.assertContains(response, '08-116')
+    
+    def test_account_personal_data(self):
+        self.client.force_login(self.user)
+        response = self.client.get(reverse('shop:account'))
+
+        self.assertContains(response, 'alek')
+        self.assertContains(response, 'wiedenski')
+        self.assertContains(response, 'dwdawdw@gmail.com')
+        self.assertContains(response, '+48510865704')
+    
+    def test_account_data_form_address_one_field(self):
+        self.client.force_login(self.user)
+        response = self.client.post(reverse('shop:account_data', args=['address']), data={'town': 'Zaliczeniec', 'csrfmiddlewaretoken': 'awdawd1212@e4'})
+
+        self.assertRedirects(response, expected_url=reverse('shop:account'), status_code=302, target_status_code=200)
+        response = self.client.get(reverse('shop:account'))
+
+        self.assertContains(response, 'Zaliczeniec')
+    
+    def test_account_data_form_address_all_fields(self):
+        self.client.force_login(self.user)
+        response = self.client.post(reverse('shop:account_data', args=['address']), data={'town': 'Zaliczeniec', 'country': 'Poland',
+                                                                                          'street': 'Oblique', 'street': '3',
+                                                                                          'ZIP_code': '08-116', 'csrfmiddlewaretoken': 'awdawd1212@e4'})
+
+        self.assertRedirects(response, expected_url=reverse('shop:account'), status_code=302, target_status_code=200)
+        response = self.client.get(reverse('shop:account'))
+
+        self.assertContains(response, 'Zaliczeniec')
+        self.assertContains(response, 'Poland')
+        self.assertContains(response, '3')
+        self.assertContains(response, '08-116')
+    
+    def test_account_data_form_personal_data_one_field(self):
+        self.client.force_login(self.user)
+        response = self.client.post(reverse('shop:account_data', args=['personal_data']), data={'number': '+48523765109',
+                                                                                                'csrfmiddlewaretoken': 'dawdawdd211#21'})
+        self.assertRedirects(response, expected_url=reverse('shop:account'), status_code=302, target_status_code=200)
+        response = self.client.get(reverse('shop:account'))
+        self.assertContains(response, '+48523765109')
+
+
+    def test_account_data_form_personal_data_all_fields(self):
+        self.client.force_login(self.user)
+        response = self.client.post(reverse('shop:account_data', args=['personal_data']), data={'first_name': 'Trolo', 'last_name': 'Borek',
+                                                                                                'email': 'trolo@gmail.com', 'number': '+48523765109',
+                                                                                                'csrfmiddlewaretoken': 'dawdawdd211#21'})
         
-    # def test_login(self):
-    #     response = self.client.post(reverse('shop:login'), data={'username': 'aleo', 'password': 'aleoaleo'})
-    #     self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, expected_url=reverse('shop:account'), status_code=302, target_status_code=200)
+        response = self.client.get(reverse('shop:account'))
+
+        self.assertContains(response, 'Trolo')
+        self.assertContains(response, 'Borek')
+        self.assertContains(response, 'trolo@gmail.com')
+        self.assertContains(response, '+48523765109')
+    
+    
+
+        
+
+
+
+        
         

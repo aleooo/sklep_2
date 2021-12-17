@@ -19,7 +19,9 @@ function cancel(){
 
 // call a form to the address and personal data user
 function account_form(data, type, kind=null){
+    
     data = JSON.parse(data);
+    console.log(data);
     form_html = '';
 
     background.css('display', 'block');
@@ -35,12 +37,18 @@ function account_form(data, type, kind=null){
     }
     
     if(kind){
+        if(data[kind].value == '------'){
+            data[kind].value = '';
+        }
         form_html = `<div class="form-floating mb-3">
             <input type="text" class="form-control font_numbers_light" id="floatingInput" placeholder="${data[kind].field}" name="${data[kind].name}" value="${data[kind].value}">
             <label for="floatingInput">${data[kind].field}</label></div>`
     }
     else{
         for (kind in data){
+            if(data[kind].value == '------'){
+                data[kind].value = '';
+            }
             form_html += `<div class="form-floating mb-3">
                             <input type="text" class="form-control font_numbers_light" id="${data[kind].name}_input" placeholder="${data[kind].field}" name="${data[kind].name}" value="${data[kind].value}">
                             <label for="${data[kind].name}_input">${data[kind].field}</label>
