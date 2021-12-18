@@ -29,7 +29,7 @@ def filter_prices_products(*args, **kwargs):
         return args[1].filter(price__range=(from_price, to_price))
 
 
-def pagination(products, page):
+def pagination(page, products):
     paginator = Paginator(products, 5)
 
     try:
@@ -44,6 +44,8 @@ def pagination(products, page):
 # data without csrfmiddlewaretoken
 def data_post(request):
     data = request.POST.copy()
-  
-    del data['csrfmiddlewaretoken']
+    try:
+        del data['csrfmiddlewaretoken']
+    except KeyError:
+        pass
     return data    

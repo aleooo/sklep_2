@@ -6,6 +6,7 @@ from django.core import serializers
 from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
+from django.urls.base import resolve
 from django.utils.translation import gettext_lazy as _
 
 from cart.cart import Cart
@@ -55,7 +56,7 @@ def search(request):
         return JsonResponse({'data': data})
 
 
-def detail(request, slug, **kwargs):
+def detail(request, slug, *args, **kwargs):
     product = Product.objects.get(slug=slug)
     return render(request, 'content/detail.html', {'product': product,
                                                    'main_bar': True,
@@ -71,8 +72,10 @@ def list(request, category=None, text=None):
     else:
         products = None
     products = filter_prices_products(request, products)
+    
+    # objects pagination
     page = request.GET.get('page')
-    objects_pagination = pagination(products, page)
+    objects_pagination = pagination(page, products)
         
     return render(request, 'content/list.html', {'main_bar': True,
                                                  'objects': objects_pagination})
@@ -80,9 +83,11 @@ def list(request, category=None, text=None):
 
 def list_search(request, text):
     products = Product.objects.filter(name__icontains=text)
+    # filter out products with given price range in the request
     products = filter_prices_products(request, products)
+    # objects pagination
     page = request.GET.get('page')
-    objects_pagination = pagination(products, page)
+    objects_pagination = pagination(page, products)               
     
     return render(request, 'content/list.html', {'main_bar': True,
                                                  'objects': objects_pagination})

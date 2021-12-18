@@ -2,7 +2,7 @@ from django.http import HttpRequest
 from django.test import TestCase
 
 from shop.models import Address, Category, Product
-from shop.utils import filter_prices_products, pagination
+from shop.utils import filter_prices_products, pagination, data_post
 
 
 class UtilsTestCase(TestCase):
@@ -67,13 +67,33 @@ class UtilsTestCase(TestCase):
         self.assertEqual(list(objects), [])
     
     def test_pagination(self):
-        objects = pagination(self.products, 1)
+        objects = pagination(1, self.products)
         self.assertEqual(len(objects), 2)
     
     def test_pagination_over_the_page(self):
-        objects = pagination(self.products, 3)
+        objects = pagination(3, self.products)
         self.assertEqual(len(objects), 2)
     
     def test_pagination_over_the_page(self):
-        objects = pagination(self.products, 0)
+        objects = pagination(0, self.products)
         self.assertEqual(len(objects), 2)
+
+    def test_data_post_with_csrftoken(self):
+        request = HttpRequest()
+        request.method = 'POST'
+        request.POST = {'csrfmiddlewaretoken': '12faw%$2a1', 'key': 'value'}
+
+        self.assertEqual(data_post(request), {'key': 'value'})
+    
+    def test_data_post_without_csrftoken(self):
+        request = HttpRequest()
+        request.method = 'POST'
+        request.POST = {'key': 'value'}
+
+        self.assertEqual(data_post(request), {'key': 'value'})
+
+
+        
+
+
+        

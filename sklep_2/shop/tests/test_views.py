@@ -52,6 +52,20 @@ class ViewTestCase(TestCase):
         response = self.client.post(reverse('shop:register'), data=query)
         self.assertEqual(response.status_code, 302)
     
+    def test_search_with_available_letter(self):
+        response = self.client.post(reverse('shop:search'), data={'text': 'a'})
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Django')
+        self.assertContains(response, 'Peak')
+    
+    def test_search_with_not_available_letter(self):
+        response = self.client.post(reverse('shop:search'), data={'text': 'x'})
+
+        self.assertEqual(response.status_code, 200)
+        self.assertJSONEqual(response.content, {'data': []})
+
+    
     def test_detail(self):
         product = Product.objects.first()
         response = self.client.get(product.get_absolute_url())  
