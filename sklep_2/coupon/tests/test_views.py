@@ -1,6 +1,6 @@
 import datetime as d
-from decimal import Decimal
 import pytz
+from decimal import Decimal
 
 from django.test import TestCase
 from django.urls import reverse
