@@ -13,4 +13,4 @@ class ViewTestCase(TestCase):
     def test_coupon(self):
         response = self.client.post(reverse('coupon:coupon'), data={'code': '1234abc'})
 
-        self.assertEqual(response.status_code, 302)````
+        self.assertEqual(response.status_code, 302)
