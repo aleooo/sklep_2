@@ -17,6 +17,12 @@ h1.registration {
     width: 100%;
     min-height: 3rem;
     font-size: 1.2rem;
+    border-radius: 0%;
+    border: 1px solid gray;
+
+}
+.register_input:focus{
+    border: 2px solid gray;
 }
 .button_registration {
     width: 40%;
@@ -25,9 +31,7 @@ h1.registration {
     display: flex;
     justify-content: space-between;
 }
-#id_username, #id_password1, #id_password2 {
-    border: 1px solid black;
-}
+
 
 @media (max-width: 813px) {
     .login-form{
