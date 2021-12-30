@@ -5,19 +5,18 @@
 {% block content %}
     
     <div class="login-form">
-        {% if form.errors %}
-            <p>
-                {% trans "The username or password is incorrect.
-                Try again. " %}
-            </p>
-        {% endif %}
         <h1 class='registration' >{% trans "Log in" %}</h1>
         <form action="{% url 'shop:login' %}" method="post">
-            <div>
-                <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username" class='login_input'>
+            {% if form.errors %}
+                <div class='color_red'>{% trans "The username or password is incorrect. Try again. " %}</div>
+            {% endif %}
+            <div class="form-floating">
+                <input id="id_username" class='login_input form-control shadow-none register_input margin_tb' type="text" name="username"  required>
+                <label for="id_username">{% trans 'Username' %}</label>
             </div>
-            <div>
-                <input type="password" name="password" autocomplete="current-password" required="" id="id_password" class='login_input' >
+            <div class="form-floating">
+                <input id="id_password" class='login_input form-control shadow-none register_input margin_tb' type="password" name="password" required>
+                <label for="id_password">{% trans 'Password' %}</label>
             </div>
             {% csrf_token %}
             <div class='bar_login'>
