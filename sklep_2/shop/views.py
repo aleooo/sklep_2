@@ -29,8 +29,13 @@ def main(request):
 def register(request):
     if request.method == 'POST':
         user_form = UserModelForm(request.POST)
+        print(request.POST)
         if user_form.is_valid():
-            user_form.save()
+            new_user = user_form.save(commit=False)
+            new_user.set_password(
+                user_form.cleaned_data['password']
+            )
+            new_user.save()
             return redirect('shop:login')
     else:
         user_form = UserModelForm()

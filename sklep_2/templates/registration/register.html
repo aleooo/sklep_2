@@ -11,25 +11,39 @@
         {{ user_form.errors }}
     {% endif %}
     <h1 class='registration' >{% trans "Sign up" %}</h1>
-    <form action="." method='post'>
+    <form action="." method='post' class='was-validated'>
         {% csrf_token %}
-        <div>
+        <div class='form-floating'>
             {{ user_form.username }}
+            <label for="id_username">{{ user_form.username.label }}</label>
         </div>
-        <div>
+        <div class='form-floating'>
             {{ user_form.email }}
+            <label for="id_email">{{ user_form.email.label }}</label>
+            <div class="invalid-feedback">
+                {% trans "Please enter a valid email" %}
+              </div>
         </div>
-        <div>
-            {{ user_form.password1 }}
+        <div class='form-floating'>
+            <input type="password" class="register_input form-control shadow-none" id="password1" placeholder="Password" name='password' minlength='999999' required>
+            <label for="password1">{% trans "Password" %}</label>
+            <div class="invalid-feedback">
+                {% trans "Passwords must be the same" %}
+              </div>
         </div>
-        <div>
-            {{ user_form.password2 }}
+        <div class='form-floating'>
+            <input type="password" class="register_input form-control shadow-none" id="password2" placeholder="Password again"  minlength='999999' required>
+            <label for="password2">{% trans "Repeat Password" %}</label>
+            <div class="invalid-feedback">
+                {% trans "Passwords must be the same" %}
+              </div>
+            
         </div>
         <div class="display_f justify_c_s_b">
             {{ user_form.number }}
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
             <label class="form-check-label font_numbers_light" for="flexCheckDefault">
                 {% trans "I declare that I know and accept the provisions of the Regulations Sklep_2." %}
             </label>
@@ -39,7 +53,7 @@
                 <button type='submit' class="button login_input button_registration" id='login_button'><p class='button_margin'>{% trans "SIGN UP" %}</p></button>
             </div>
     </form>
-
+<button onclick='vali()'>aw</button>
     
 </div>
 <script type='text/javascript' src='{% static 'assets/js/register.js' %}'></script>

@@ -8,15 +8,18 @@ from .models import Address, UserModel
 
 
 class UserModelForm(UserCreationForm):
-    
+
     class Meta:
         model = UserModel 
-        fields = ('username', 'email', 'password1', 'password2', 'number')
-        widgets = {'username': forms.TextInput(attrs={'class': 'register_input form-control shadow-none', 'placeholder': _('username')}),
-                   'email': forms.TextInput(attrs={'class': 'register_input form-control shadow-none', 'placeholder': _('email'), 'type': 'email'}),
-                   'password1': forms.TextInput(attrs={'class': 'register_input form-control shadow-none', 'placeholder': _('password')}),
-                   'password2': forms.PasswordInput(attrs={'class': 'register_input form-control shadow-none', 'placeholder': _('password again')}),
-                     'number': PhoneNumberPrefixWidget(initial='PL', attrs={'class': 'register_input address_form form-control shadow-none  phonenumber'})}
+        fields = ('username', 'email', 'number')
+        widgets = {'username': forms.TextInput(attrs={'class': 'register_input form-control shadow-none', 'placeholder': _('username'), 'required': 'required'}),
+                   'email': forms.TextInput(attrs={'class': 'register_input form-control shadow-none form-check-input', 'placeholder': _('email'), 'minlength': '3', 'type': 'email', 'required': 'required'}),
+                   'number': PhoneNumberPrefixWidget(initial='PL', attrs={'class': 'phone_number_register form-control shadow-none  phonenumber font_size_1', 'minlength': '9', 'required': 'required'})}
+        labels = {
+            'username': _('Username'),
+            'email': _('Email'),
+            'number': _('Phone Number')
+        }
                      
     error_messages = {
         'password_mismatch': _('The two password fields didn`t match'),

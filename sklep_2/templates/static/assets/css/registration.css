@@ -31,8 +31,15 @@ h1.registration {
     display: flex;
     justify-content: space-between;
 }
-
-
+.phone_number_register{
+    min-height: 58px;
+    border: 1px solid gray;
+    border-radius: 0%;
+    margin-bottom: 1rem;
+}
+.phone_number_register:focus{
+    border: 2px solid gray;
+}
 @media (max-width: 813px) {
     .login-form{
         width: 100%;

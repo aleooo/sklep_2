@@ -1,11 +1,9 @@
-let password1 = $('#id_password1')
-let password2 = $('#id_password2')
+let password1 = $('#password1')
+let password2 = $('#password2')
 
-function register() {
-    password1.attr('placeholder', 'password')
-    password2.attr('placeholder', 'password again')
-  }
+function vali(){
+  password2.attr('minlength', '6')
+}
 
 
-window.onload = register()
 
