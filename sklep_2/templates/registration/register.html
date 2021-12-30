@@ -20,30 +20,36 @@
             {{ user_form.email }}
             <label for="id_email">{{ user_form.email.label }}</label>
             <div class="invalid-feedback">
-                {% trans "Please enter a valid email" %}
+                <ul>
+                    <li>{% trans "Please enter a valid email" %}</li>
+                </ul>
               </div>
         </div>
         <div class='form-floating margin_tb'>
-            <input type="password" class="register_input form-control shadow-none" id="password1" placeholder="Password" name='password' minlength='6' required>
+            <input type="password" class="register_input form-control shadow-none" id="password1" placeholder="Password" name='password1' minlength='8' required>
             <label for="password1">{% trans "Password" %}</label>
             <div class="invalid-feedback">
-                {% trans "Passwords must be the same" %}
-              </div>
+                <ul>
+                    <li>{% trans "Your password can’t be too similar to your other personal information." %}</li>
+                    <li id='password_minlength'>{% trans "Your password must contain at least 8 characters. " %}</li>
+                </ul>                
+            </div>
         </div>
         <div class='form-floating margin_tb'>
-            <input type="password" class="register_input form-control shadow-none" id="password2" placeholder="Confirm Password" required>
+            <input type="password" class="register_input form-control shadow-none" id="password2" name='password2' placeholder="Confirm Password" required>
             <label for="password2">{% trans "Confirm Password" %}</label>
-            <div class="invalid-feedback">
-                {% trans "Passwords must be the same" %}
-              </div>
-            
+            <div class="invalid-feedback">        
+                <ul>
+                    <li>{% trans "Passwords must be the same" %} </li>
+                </ul>           
+            </div>
         </div>
-        <div class='form-floating margin_tb'>
+        {% comment %} <div class='form-floating margin_tb'>
             <div class="display_f justify_c_s_b ">
                 {{ user_form.number }}
             </div>
             <div class='color_red font_numbers_light'>{{ user_form.number.errors }}</div>
-        </div>
+        </div> {% endcomment %}
         
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
@@ -56,6 +62,7 @@
                 <a class='registration' href="{% url 'shop:login' %}">{% trans "Already have an account" %}?</a>
                 <button type='submit' class="button login_input button_registration" id='login_button'><p class='button_margin'>{% trans "SIGN UP" %}</p></button>
             </div>
+            
     </form>
 </div>
 <script type='text/javascript' src='{% static 'assets/js/register.js' %}'></script>
