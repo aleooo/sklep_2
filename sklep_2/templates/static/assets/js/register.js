@@ -1,9 +1,17 @@
-let password1 = $('#password1')
-let password2 = $('#password2')
+var password = document.getElementById("password1")
+  , confirm_password = document.getElementById("password2");
 
-function vali(){
-  password2.attr('minlength', '6')
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+    console.log('same');
+  }
 }
-
+$('#id_username').val('')
+$('#id_password1').val('aaa')
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
 
 

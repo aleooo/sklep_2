@@ -13,7 +13,7 @@ class UserModelForm(UserCreationForm):
         model = UserModel 
         fields = ('username', 'email', 'number')
         widgets = {'username': forms.TextInput(attrs={'class': 'register_input form-control shadow-none', 'placeholder': _('username'), 'required': 'required'}),
-                   'email': forms.TextInput(attrs={'class': 'register_input form-control shadow-none form-check-input', 'placeholder': _('email'), 'minlength': '3', 'type': 'email', 'required': 'required'}),
+                   'email': forms.TextInput(attrs={'class': 'register_input form-control shadow-none form-check-input', 'placeholder': _('email'), 'type': 'email', 'required': 'required'}),
                    'number': PhoneNumberPrefixWidget(initial='PL', attrs={'class': 'phone_number_register form-control shadow-none  phonenumber font_size_1', 'minlength': '9', 'required': 'required'})}
         labels = {
             'username': _('Username'),
