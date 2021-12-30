@@ -24,7 +24,7 @@ def main(request):
     return render(request, 'content/main.html', {'main_bar': True,
                                                  'categories': categories,
                                                  'products': products})
-
+ 
 
 def register(request):
     if request.method == 'POST':
