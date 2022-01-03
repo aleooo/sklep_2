@@ -14,7 +14,7 @@
                     <div id='account_form_address'>
                     </div>
                     <div class='display_f align_i_c float_r margin_t'>
-                        <button type='button' class='button_n' onclick='cancel()'><p class='color_green margin_0'>{% trans "CANCEL" %}</p></button>
+                        <button type='button' class='button_n' onclick='cancel("address")'><p class='color_green margin_0'>{% trans "CANCEL" %}</p></button>
                         <button type='submit' class='button margin_l' ><p class='button_margin'>{% trans "SUBMIT" %}</p></button>
                     </div>
                     
@@ -23,13 +23,26 @@
             <div id='account_div_form_personal_data'>
                 <form action="{% url 'shop:account_data' type='personal_data' %}" method='post'>
                     {% csrf_token %}
-                    <div id='account_form_personal_data'>
+                    <div class="form-floating mb-3 display_n" id='first_name'>
+                        {{ personal_form.first_name }}
+                        <label for="id_first_name">{{ personal_form.first_name.label }}</label>
+                    </div>
+                    <div class="form-floating mb-3 display_n" id='last_name'>
+                        {{ personal_form.last_name }}
+                        <label for="id_last_name">{{ personal_form.last_name.label }}</label>
+                    </div>
+                    <div class="form-floating mb-3 display_n" id='email'>
+                        {{ personal_form.email }}
+                        <label for="id_email">{{ personal_form.email.label }}</label>
+                    </div>
+                    <div class="form-floating display_f justify_c_s_b display_n" id='phone_number'>
+                        {{ personal_form.number }}
+                        <label for="id_phone_number_1">{{ personal_form.number.label }}</label>
                     </div>
                     <div class='display_f align_i_c float_r margin_t'>
-                        <button type='button' class='button_n' onclick='cancel()'><p class='color_green margin_0'>{% trans "CANCEL" %}</p></button>
+                        <button type='button' class='button_n' onclick="cancel('personal_data')"><p class='color_green margin_0'>{% trans "CANCEL" %}</p></button>
                         <button type='submit' class='button margin_l' ><p class='button_margin'>{% trans "SUBMIT" %}</p></button>
                     </div>
-                    
                 </form>
             </div>
             
@@ -65,20 +78,38 @@
         <div class='white margin_t padding'>
             <div class='width_320p display_f justify_c_s_b align_i_c'>
                 <h4 class='font_numbers_light margin_0'>{% trans "Personal data" %}</h1>
-                <button class='font_size_15 color_green button_n padding_0' onclick="account_form('{{ personal_data_json }}','personal_data')">{% trans "CHANGE" %}</button>
+                <button class='font_size_15 color_green button_n padding_0' onclick="account_form('personal_data', 'all')">{% trans "CHANGE" %}</button>
             </div>
             
             <div class='display_f width_100 flex_w_w'>
-                {% for key, value in personal_data.items %}
                     <div class='personal_data width_320p'>
                         <div>
-                            <p class='font_numbers font_size_12 color_gray margin_0'>{{ value.field }}:</p>   
-                            <p class='font_numbers_light margin_0'>{{ value.value }}</p>
-                            <button class='color_green button_n padding_0' onclick="account_form('{{ personal_data_json }}','personal_data', '{{ key }}')">{% trans "CHANGE" %}</button>
+                            <p class='font_numbers font_size_12 color_gray margin_0'>{% trans "First Name" %}:</p>   
+                            <p class='font_numbers_light margin_0'>{{ user.first_name }}</p>
+                            <button class='color_green button_n padding_0' onclick="account_form('personal_data', 'first_name')">{% trans "CHANGE" %}</button>
                         </div>
                     </div>
-                
-                {% endfor %}
+                    <div class='personal_data width_320p'>
+                        <div>
+                            <p class='font_numbers font_size_12 color_gray margin_0'>{% trans "Last Name" %}:</p>   
+                            <p class='font_numbers_light margin_0'>{{ personal_form.last_name.initial }}</p>
+                            <button class='color_green button_n padding_0' onclick="account_form('personal_data', 'last_name')">{% trans "CHANGE" %}</button>
+                        </div>
+                    </div>
+                    <div class='personal_data width_320p'>
+                        <div>
+                            <p class='font_numbers font_size_12 color_gray margin_0'>{% trans "Email" %}:</p>   
+                            <p class='font_numbers_light margin_0'>{{ personal_form.email.initial }}</p>
+                            <button class='color_green button_n padding_0' onclick="account_form('personal_data', 'email')">{% trans "CHANGE" %}</button>
+                        </div>
+                    </div>
+                    <div class='personal_data width_320p'>
+                        <div>
+                            <p class='font_numbers font_size_12 color_gray margin_0'>{% trans "Phone Number" %}:</p>   
+                            <p class='font_numbers_light margin_0'>{{ personal_form.number.initial }}</p>
+                            <button class='color_green button_n padding_0' onclick="account_form('personal_data', 'phone_number')">{% trans "CHANGE" %}</button>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>

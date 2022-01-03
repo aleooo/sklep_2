@@ -31,6 +31,7 @@ a:hover{color: rgb(102, 160, 160);}
 .color_red{color: rgb(218, 58, 58)}
 .display_f{display: flex;}
 .display_ib{display: inline-block;}
+.display_n{display: none;}
 .display_tc{display: table-cell;}
 /* .font_numbers{font-family: 'B612 Mono', monospace;} */
 .flex_d_c{display: flex; flex-direction: column;}

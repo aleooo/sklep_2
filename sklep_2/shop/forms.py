@@ -31,15 +31,34 @@ class PersonalForm(UserCreationForm):
         model = UserModel
         fields = ('first_name', 'last_name', 'email', 'number')
         widgets = {
-            'first_name': forms.TextInput(attrs={'class': 'form-control font_numbers_light', 'pattern': '^[A-ZŻŹŁ].*', 'required': 'required'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control font_numbers_light', 'pattern': '^[A-ZŻŹŁ].*', 'required': 'required'}),
-            'email': forms.TextInput(attrs={'class': 'form-control font_numbers_light', 'type': 'email', 'required': 'required'}),
-            'number': PhoneNumberPrefixWidget(initial='PL', attrs={'class': 'phone_number_register  shadow-none  phonenumber font_size_1', 'minlength': '9', 'required': 'required'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'pattern': '^[A-ZŻŹŁ].*', 'placeholder': '-----'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'pattern': '^[A-ZŻŹŁ].*', 'placeholder': '-----'}),
+            'email': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'type': 'email', 'placeholder': '-----'}),
+            'number': PhoneNumberPrefixWidget(initial='PL', attrs={'class': 'input font_numbers_light phonenumber form-control', 'placeholder': '-----', 'minlength': '9'}),
         }
         labels = {
             'first_name': _('First Name'),
             'last_name': _('Last Name'),
             'email': _('Email'),
-            'phone_number': _('Phone Number'),
+            'number': _('Phone Number'),
         }
 
+
+class AddressForm(forms.ModelForm):
+    class Meta:
+        model = Address
+        fields = ('street', 'street_number', 'country', 'ZIP_code', 'town')
+        widgets = {
+            'street': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'pattern': '^[A-ZŻŹŁ].*', 'placeholder': '-----'}),
+            'street_number': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'placeholder': '-----'}),
+            'town': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'type': 'email', 'placeholder': '-----'}),
+            'ZIP_code': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'pattern': '^[A-ZŻŹŁ].*', 'placeholder': '-----'}),
+            'country': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'pattern': '^[A-ZŻŹŁ].*', 'placeholder': '-----'}),
+        }
+        labels = {
+            'street': _('Street'),
+            'street_number': _('Street Number'),
+            'country': _('Country'),
+            'ZIP_code': _('ZIP Code'),
+            'town': _('Town')
+        }

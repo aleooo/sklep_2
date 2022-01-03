@@ -37,7 +37,9 @@ h1.registration {
 }
 .phone_number_register:focus{
     border: 2px solid gray;
+    outline:none;
 }
+
 @media (max-width: 813px) {
     .login-form{
         width: 100%;

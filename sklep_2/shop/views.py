@@ -10,7 +10,7 @@ from django.urls.base import resolve
 from django.utils.translation import gettext_lazy as _
 
 from cart.cart import Cart
-from .forms import UserModelForm
+from .forms import UserModelForm, PersonalForm, AddressForm
 from .models import Address, Category, Product, UserModel
 from .utils import filter_prices_products, pagination, data_post
  
@@ -94,44 +94,28 @@ def list_search(request, text):
 
 
 @login_required
-def account(request):
+def account(request, type=None):
     user = UserModel.objects.get(id=request.user.id)
     orders = user.order.values('id', 'created')
-    address = {'town':{'value':'------','field':str(_('Town')),'name':'town'},
-                'ZIP_code':{'value':'------','field':str(_('ZIP code')),'name':'ZIP_code'},
-                'country':{'value':'------','field':str(_('Country')),'name':'country'},
-                'street_number':{'value':'------','field':str(_('Street number')),'name':'street_number'},
-                'street':{'value':'------','field':str(_('Street')),'name':'street'}}
-    personal_data = {'first_name':{'value':'------','field':str(_('First Name')),'name':'first_name'},
-                     'last_name':{'value':'------','field':str(_('Last Name')),'name':'last_name'},
-                     'email':{'value':'------','field':str(_('Email')),'name':'email'},
-                     'number':{'value':'------','field':str(_('Number')),'name':'number'}}
-    user_fields = ['first_name', 'last_name', 'number', 'email']
-    
-    # assign value fields to address.*.value
-    if user.address:
-        for field, value in user.address.__dict__.items():
-            # omitting variables that are irrelevant
-            if field not in ['_state', 'id']:
-                if value: 
-                    address[field]['value'] = value
-    
-    # assign value fields to personal_data.*.value
-    for field, value in user.__dict__.items():
-        if field in user_fields:
-            if value:
-                personal_data[field]['value'] = str(value)
+    personal_form = PersonalForm(instance=user)
+    address_form = AddressForm(instance=user.address)
 
-    # convert dictionary to json to pass data to javascript
-    address_json = json.dumps(address)
-    personal_data_json = json.dumps(personal_data)
+    if request.method == 'POST':
+        if type == 'personal_data':
+            personal_form = PersonalForm(request.POST)
+            if personal_form.is_valid():
+                personal_form.save()
 
-    return render(request, 'content/account.html', {'address': address,
-                                                    'address_json': address_json,
+        elif type == 'address':
+            address_form = AddressForm(request.POST)
+            if address_form.is_valid():
+                address_form.save()
+
+    return render(request, 'content/account.html', {'address_form': address_form,
                                                     'main_bar': True,
                                                     'orders': orders,
-                                                    'personal_data': personal_data,
-                                                    'personal_data_json': personal_data_json}) 
+                                                    'personal_form': personal_form,
+                                                    'user': user}) 
 
 
 def account_data(request, type):
