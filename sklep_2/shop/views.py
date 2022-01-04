@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core import serializers
 from django.http.response import JsonResponse
+from django.contrib import messages 
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.urls.base import resolve
@@ -97,19 +98,32 @@ def list_search(request, text):
 def account(request, type=None):
     user = UserModel.objects.get(id=request.user.id)
     orders = user.order.values('id', 'created')
-    personal_form = PersonalForm(instance=user)
-    address_form = AddressForm(instance=user.address)
-
+       
     if request.method == 'POST':
         if type == 'personal_data':
-            personal_form = PersonalForm(request.POST)
-            if personal_form.is_valid():
-                personal_form.save()
-
+            data = request.POST
+            user.first_name = data['first_name']
+            user.last_name = data['last_name']
+            user.email = data['email']
+            user.number = data['number_0'] + data['number_1']
+            user.save()
+            # personal_form = PersonalForm(request.POST)
+            # if personal_form.is_valid():
+            #     personal_form.save()
+       
+            return redirect('shop:account')
+           
         elif type == 'address':
             address_form = AddressForm(request.POST)
             if address_form.is_valid():
-                address_form.save()
+                address = address_form.save()
+                user.address = address
+                user.save()
+                return redirect('shop:account')
+    else:
+        personal_form = PersonalForm(instance=user)
+        address_form = AddressForm(instance=user.address)    
+    
 
     return render(request, 'content/account.html', {'address_form': address_form,
                                                     'main_bar': True,
@@ -118,31 +132,3 @@ def account(request, type=None):
                                                     'user': user}) 
 
 
-def account_data(request, type):
-    user = request.user
-
-    # checks if user has address
-    if user.address:
-        address = user.address
-    else:
-        # like user has no address. Address is create and assign to user
-        user.address = Address.objects.create()
-        user.save()
-        address = user.address
-
-    if request.method == 'POST':
-        # using own function which is the shop.utils.py throw away the csrftoken from request.POST
-        data = data_post(request)
-
-        # assigning data to an object
-        if type == 'address':
-            for k, v in data.items():  
-                if k in address.__dict__:
-                    setattr(address, k, v)
-            address.save()
-        elif type == 'personal_data':
-            for k, v in data.items():
-                if k in user._wrapped.__dict__:
-                    setattr(user, k, v)
-            user.save()
-    return redirect('shop:account')

@@ -26,7 +26,7 @@ class UserModelForm(UserCreationForm):
         'password_mismatch': _('The two password fields didn`t match'),
     }
 
-class PersonalForm(UserCreationForm):
+class PersonalForm(forms.ModelForm):
     class Meta:
         model = UserModel
         fields = ('first_name', 'last_name', 'email', 'number')
@@ -51,8 +51,8 @@ class AddressForm(forms.ModelForm):
         widgets = {
             'street': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'pattern': '^[A-ZŻŹŁ].*', 'placeholder': '-----'}),
             'street_number': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'placeholder': '-----'}),
-            'town': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'type': 'email', 'placeholder': '-----'}),
-            'ZIP_code': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'pattern': '^[A-ZŻŹŁ].*', 'placeholder': '-----'}),
+            'town': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'pattern': '^[A-ZŻŹŁ].*', 'placeholder': '-----'}),
+            'ZIP_code': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'pattern': '[0-9-]*', 'placeholder': '-----'}),
             'country': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'pattern': '^[A-ZŻŹŁ].*', 'placeholder': '-----'}),
         }
         labels = {

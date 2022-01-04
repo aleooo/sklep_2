@@ -33,7 +33,6 @@ def order(request):
     user = request.user
 
     if request.method == 'POST':
-        print(request.POST)
         form = OrderForm(request.POST)
         if form.is_valid():
             object_order = form.save(commit=False)

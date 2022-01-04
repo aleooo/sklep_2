@@ -11,7 +11,25 @@
             <div id='account_div_form_address'>
                 <form action="{% url 'shop:account_data' type='address' %}" method='post'>
                     {% csrf_token %}
-                    <div id='account_form_address'>
+                    <div class="form-floating mb-3 display_n" id='street'>
+                        {{ address_form.street }}
+                        <label for="id_street">{{ address_form.street.label }}</label>
+                    </div>
+                    <div class="form-floating mb-3 display_n" id='street_number'>
+                        {{ address_form.street_number }}
+                        <label for="id_street_number">{{ address_form.street_number.label }}</label>
+                    </div>
+                    <div class="form-floating mb-3 display_n" id='town'>
+                        {{ address_form.town }}
+                        <label for="id_town">{{ address_form.town.label }}</label>
+                    </div>
+                    <div class="form-floating mb-3 display_n" id='ZIP_code'>
+                        {{ address_form.ZIP_code }}
+                        <label for="id_ZIP_code">{{ address_form.ZIP_code.label }}</label>
+                    </div>
+                    <div class="form-floating mb-3 display_n" id='country'>
+                        {{ address_form.country }}
+                        <label for="id_country">{{ address_form.country.label }}</label>
                     </div>
                     <div class='display_f align_i_c float_r margin_t'>
                         <button type='button' class='button_n' onclick='cancel("address")'><p class='color_green margin_0'>{% trans "CANCEL" %}</p></button>
@@ -51,18 +69,46 @@
             <div class='account_address white padding margin_t'>          
                 <div class="display_f justify_c_s_b">
                     <h4 class='font_numbers_light display_f align_i_c margin_0'>{% trans "Your address" %}</h1>
-                    <button class='color_green button_n font_size_15' onclick="account_form('{{ address_json }}','address')">{% trans "CHANGE" %}</button>
+                    <button class='color_green button_n font_size_15' onclick="account_form('address', 'all')">{% trans "CHANGE" %}</button>
                 </div>                   
                 <div class='display_f width_100 flex_w_w'>
-                {% for key, value in address.items %}
+      
                     <div class='personal_data width_320p margin_t_2'>
                         <div>
-                            <p class='font_numbers font_size_15 color_gray margin_0'>{{ value.field }}:</p>   
-                            <p class='font_numbers_light margin_0 font_size_12'>{{ value.value }}</p>
-                            <button class='color_green button_n padding_0' onclick="account_form('{{ address_json }}','address','{{ key }}')">{% trans "CHANGE" %}</button>
+                            <p class='font_numbers font_size_15 color_gray margin_0'>{% trans "Street" %}:</p>   
+                            <p class='font_numbers_light margin_0 font_size_12'>{{ address_form.street.initial }}</p>
+                            <button class='color_green button_n padding_0' onclick="account_form('address', 'street')">{% trans "CHANGE" %}</button>
                         </div>
                     </div>
-                {% endfor %}
+                    <div class='personal_data width_320p margin_t_2'>
+                        <div>
+                            <p class='font_numbers font_size_15 color_gray margin_0'>{% trans "Street Number" %}:</p>   
+                            <p class='font_numbers_light margin_0 font_size_12'>{{ address_form.street_number.initial }}</p>
+                            <button class='color_green button_n padding_0' onclick="account_form('address','street_number')">{% trans "CHANGE" %}</button>
+                        </div>
+                    </div>
+                    <div class='personal_data width_320p margin_t_2'>
+                        <div>
+                            <p class='font_numbers font_size_15 color_gray margin_0'>{% trans "Town" %}:</p>   
+                            <p class='font_numbers_light margin_0 font_size_12'>{{ address_form.town.initial }}</p>
+                            <button class='color_green button_n padding_0' onclick="account_form('address','town')">{% trans "CHANGE" %}</button>
+                        </div>
+                    </div>
+                    <div class='personal_data width_320p margin_t_2'>
+                        <div>
+                            <p class='font_numbers font_size_15 color_gray margin_0'>{% trans "ZIP Code" %}:</p>   
+                            <p class='font_numbers_light margin_0 font_size_12'>{{ address_form.ZIP_code.initial }}</p>
+                            <button class='color_green button_n padding_0' onclick="account_form('address','ZIP_code')">{% trans "CHANGE" %}</button>
+                        </div>
+                    </div>
+                    <div class='personal_data width_320p margin_t_2'>
+                        <div>
+                            <p class='font_numbers font_size_15 color_gray margin_0'>{% trans "Country" %}:</p>   
+                            <p class='font_numbers_light margin_0 font_size_12'>{{ address_form.country.initial }}</p>
+                            <button class='color_green button_n padding_0' onclick="account_form('address','country')">{% trans "CHANGE" %}</button>
+                        </div>
+                    </div>
+               
             </div>
             </div>
             <div class='account_bills white padding margin_t'>         
@@ -92,21 +138,21 @@
                     <div class='personal_data width_320p'>
                         <div>
                             <p class='font_numbers font_size_12 color_gray margin_0'>{% trans "Last Name" %}:</p>   
-                            <p class='font_numbers_light margin_0'>{{ personal_form.last_name.initial }}</p>
+                            <p class='font_numbers_light margin_0'>{{ user.last_name }}</p>
                             <button class='color_green button_n padding_0' onclick="account_form('personal_data', 'last_name')">{% trans "CHANGE" %}</button>
                         </div>
                     </div>
                     <div class='personal_data width_320p'>
                         <div>
                             <p class='font_numbers font_size_12 color_gray margin_0'>{% trans "Email" %}:</p>   
-                            <p class='font_numbers_light margin_0'>{{ personal_form.email.initial }}</p>
+                            <p class='font_numbers_light margin_0'>{{ user.email }}</p>
                             <button class='color_green button_n padding_0' onclick="account_form('personal_data', 'email')">{% trans "CHANGE" %}</button>
                         </div>
                     </div>
                     <div class='personal_data width_320p'>
                         <div>
                             <p class='font_numbers font_size_12 color_gray margin_0'>{% trans "Phone Number" %}:</p>   
-                            <p class='font_numbers_light margin_0'>{{ personal_form.number.initial }}</p>
+                            <p class='font_numbers_light margin_0'>{{ user.number }}</p>
                             <button class='color_green button_n padding_0' onclick="account_form('personal_data', 'phone_number')">{% trans "CHANGE" %}</button>
                         </div>
                     </div>

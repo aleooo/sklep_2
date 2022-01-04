@@ -48,4 +48,6 @@ def data_post(request):
         del data['csrfmiddlewaretoken']
     except KeyError:
         pass
+    if 'number_0' in data:
+        data['']
     return data    

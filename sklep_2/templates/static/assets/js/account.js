@@ -6,12 +6,16 @@ var account_div_form_address = $('#account_div_form_address')
 var account_div_form_personal_data = $('#account_div_form_personal_data')
 var tag_form = $('#account_tag_form')
 var personal_form_ids = ['first_name', 'last_name', 'email', 'phone_number']
+var address_form_ids = ['street', 'street_number', 'town', 'ZIP_code', 'country']
 
 
 // cancel form address and personal data
 function cancel(type){
     for (personal_id of personal_form_ids){
         $(`#${personal_id}`).css('display', 'none');
+    }
+    for (address_id of address_form_ids){
+        $(`#${address_id}`).css('display', 'none');
     }
     background.css('display', 'none');
     div_form.css('display', 'none');
@@ -28,6 +32,16 @@ function account_form(type, kind=null){
     
     if(type == 'address'){
         account_div_form_address.css('display', 'block')
+        if (kind == 'all'){
+            for (address_id of address_form_ids){
+                $(`#${address_id}`).css('display', 'flex')
+            }
+        }
+        else{
+            
+            $(`#${kind}`).css('display', 'flex')
+  
+        }
     }
     else if(type == 'personal_data'){
         account_div_form_personal_data.css('display', 'block')
@@ -42,5 +56,6 @@ function account_form(type, kind=null){
   
         }
     }
+
     
 }
