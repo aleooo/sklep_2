@@ -34,12 +34,12 @@ function account_form(type, kind=null){
         account_div_form_address.css('display', 'block')
         if (kind == 'all'){
             for (address_id of address_form_ids){
-                $(`#${address_id}`).css('display', 'flex')
+                $(`#${address_id}`).css('display', 'block')
             }
         }
         else{
             
-            $(`#${kind}`).css('display', 'flex')
+            $(`#${kind}`).css('display', 'block')
   
         }
     }
@@ -47,15 +47,19 @@ function account_form(type, kind=null){
         account_div_form_personal_data.css('display', 'block')
         if (kind == 'all'){
             for (personal_id of personal_form_ids){
-                $(`#${personal_id}`).css('display', 'flex')
+                $(`#${personal_id}`).css('display', 'block')
             }
         }
         else{
             
-            $(`#${kind}`).css('display', 'flex')
+            $(`#${kind}`).css('display', 'block')
   
         }
     }
 
     
+}
+
+function none(){
+    console.log('form alert');
 }

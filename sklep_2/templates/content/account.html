@@ -9,27 +9,55 @@
         <div id='account_div_form'>
             <h3 class='font_numbers_light'>{% trans "Change" %}</h3>
             <div id='account_div_form_address'>
-                <form action="{% url 'shop:account_data' type='address' %}" method='post'>
+                <form action="{% url 'shop:account_data' type='address' %}" method='post' class='was-validated'>
                     {% csrf_token %}
                     <div class="form-floating mb-3 display_n" id='street'>
                         {{ address_form.street }}
                         <label for="id_street">{{ address_form.street.label }}</label>
+                        <div class="invalid-feedback">
+                            <ul>
+                                <li>{% trans "The first name must start with a capital letter" %}</li>
+                                <li>{% trans "Only letters" %}</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="form-floating mb-3 display_n" id='street_number'>
                         {{ address_form.street_number }}
                         <label for="id_street_number">{{ address_form.street_number.label }}</label>
+                        <div class="invalid-feedback">
+                            <ul>
+                                <li>{% trans "Please enter a valid street number" %}</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="form-floating mb-3 display_n" id='town'>
                         {{ address_form.town }}
                         <label for="id_town">{{ address_form.town.label }}</label>
+                        <div class="invalid-feedback">
+                            <ul>
+                                <li>{% trans "The first name must start with a capital letter" %}</li>
+                                <li>{% trans "Only letters" %}</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="form-floating mb-3 display_n" id='ZIP_code'>
                         {{ address_form.ZIP_code }}
                         <label for="id_ZIP_code">{{ address_form.ZIP_code.label }}</label>
+                        <div class="invalid-feedback">
+                            <ul>
+                                <li>{% trans "Only numbers" %}</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="form-floating mb-3 display_n" id='country'>
                         {{ address_form.country }}
                         <label for="id_country">{{ address_form.country.label }}</label>
+                        <div class="invalid-feedback">
+                            <ul>
+                                <li>{% trans "The country must start with a capital letter" %}</li>
+                                <li>{% trans "Only letters" %}</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class='display_f align_i_c float_r margin_t'>
                         <button type='button' class='button_n' onclick='cancel("address")'><p class='color_green margin_0'>{% trans "CANCEL" %}</p></button>
@@ -39,23 +67,45 @@
                 </form>
             </div>
             <div id='account_div_form_personal_data'>
-                <form action="{% url 'shop:account_data' type='personal_data' %}" method='post'>
+                <form action="{% url 'shop:account_data' type='personal_data' %}" method='post' class='was-validated'>
                     {% csrf_token %}
-                    <div class="form-floating mb-3 display_n" id='first_name'>
+                    <div class="form-floating margin_tb display_n" id='first_name'>
+                        
                         {{ personal_form.first_name }}
                         <label for="id_first_name">{{ personal_form.first_name.label }}</label>
+                        <div class="invalid-feedback">
+                            <ul>
+                                <li>{% trans "The first name must start with a capital letter" %}</li>
+                                <li>{% trans "Only letters" %}</li>
+                            </ul>
+                        </div>
                     </div>
+                    
                     <div class="form-floating mb-3 display_n" id='last_name'>
                         {{ personal_form.last_name }}
                         <label for="id_last_name">{{ personal_form.last_name.label }}</label>
+                        <div class="invalid-feedback">
+                            <ul>
+                                <li>{% trans "The last name must start with a capital letter" %}</li>
+                                <li>{% trans "Only letters" %}</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="form-floating mb-3 display_n" id='email'>
                         {{ personal_form.email }}
                         <label for="id_email">{{ personal_form.email.label }}</label>
+                        <div class="invalid-feedback">
+                            <ul>
+                                <li>{% trans "Please enter a valid email" %}</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="form-floating display_f justify_c_s_b display_n" id='phone_number'>
-                        {{ personal_form.number }}
-                        <label for="id_phone_number_1">{{ personal_form.number.label }}</label>
+                        <div class='display_f justify_c_s_b form-floating'>
+                            {{ personal_form.number }}
+                            <label for="id_phone_number_1">{{ personal_form.number.label }}</label>
+                        </div>
+                          
                     </div>
                     <div class='display_f align_i_c float_r margin_t'>
                         <button type='button' class='button_n' onclick="cancel('personal_data')"><p class='color_green margin_0'>{% trans "CANCEL" %}</p></button>
