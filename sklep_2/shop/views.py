@@ -107,10 +107,6 @@ def account(request, type=None):
             user.email = data['email']
             user.number = data['number_0'] + data['number_1']
             user.save()
-            # personal_form = PersonalForm(request.POST)
-            # if personal_form.is_valid():
-            #     personal_form.save()
-       
             return redirect('shop:account')
            
         elif type == 'address':

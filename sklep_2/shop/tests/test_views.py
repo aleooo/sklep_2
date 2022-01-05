@@ -5,7 +5,7 @@ from django.test.client import Client
 from django.urls.base import resolve, reverse
 
 from shop.models import Address, Category, Product, UserModel
-from shop.views import account_data, register
+from shop.views import  register
 
 
 
@@ -102,13 +102,13 @@ class ViewTestCase(TestCase):
         response = self.client.get(reverse('shop:account'))
 
         self.assertContains(response, 'dwdawdw@gmail.com')
-        self.assertNotContains(response, '------')
+        self.assertContains(response, '-----')
     
     def test_account_without_data_user(self):
         self.client.force_login(self.user_without_data)
         response = self.client.get(reverse('shop:account'))
 
-        self.assertContains(response, '------')
+        self.assertContains(response, '-----')
     
     def test_account_address(self):
         self.client.force_login(self.user)
@@ -164,7 +164,8 @@ class ViewTestCase(TestCase):
     def test_account_data_form_personal_data_all_fields(self):
         self.client.force_login(self.user)
         response = self.client.post(reverse('shop:account_data', args=['personal_data']), data={'first_name': 'Trolo', 'last_name': 'Borek',
-                                                                                                'email': 'trolo@gmail.com', 'number': '+48523765109',
+                                                                                                'email': 'trolo@gmail.com', 'number_0': '+48',
+                                                                                                'number_1': '523765109', 
                                                                                                 'csrfmiddlewaretoken': 'dawdawdd211#21'})
         
         self.assertRedirects(response, expected_url=reverse('shop:account'), status_code=302, target_status_code=200)

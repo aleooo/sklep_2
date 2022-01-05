@@ -126,35 +126,35 @@
                     <div class='personal_data width_320p margin_t_2'>
                         <div>
                             <p class='font_numbers font_size_15 color_gray margin_0'>{% trans "Street" %}:</p>   
-                            <p class='font_numbers_light margin_0 font_size_12'>{{ address_form.street.initial }}</p>
+                            <p class='font_numbers_light margin_0 font_size_12'>{% if user.address.street %}{{ user.address.street }}{% else %}-----{% endif %}</p>
                             <button class='color_green button_n padding_0' onclick="account_form('address', 'street')">{% trans "CHANGE" %}</button>
                         </div>
                     </div>
                     <div class='personal_data width_320p margin_t_2'>
                         <div>
                             <p class='font_numbers font_size_15 color_gray margin_0'>{% trans "Street Number" %}:</p>   
-                            <p class='font_numbers_light margin_0 font_size_12'>{{ address_form.street_number.initial }}</p>
+                            <p class='font_numbers_light margin_0 font_size_12'>{% if user.address.street_number %}{{ user.address.street_number }}{% else %}-----{% endif %}</p>
                             <button class='color_green button_n padding_0' onclick="account_form('address','street_number')">{% trans "CHANGE" %}</button>
                         </div>
                     </div>
                     <div class='personal_data width_320p margin_t_2'>
                         <div>
                             <p class='font_numbers font_size_15 color_gray margin_0'>{% trans "Town" %}:</p>   
-                            <p class='font_numbers_light margin_0 font_size_12'>{{ address_form.town.initial }}</p>
+                            <p class='font_numbers_light margin_0 font_size_12'>{% if user.address.town %}{{ user.address.town }}{% else %}-----{% endif %}</p>
                             <button class='color_green button_n padding_0' onclick="account_form('address','town')">{% trans "CHANGE" %}</button>
                         </div>
                     </div>
                     <div class='personal_data width_320p margin_t_2'>
                         <div>
                             <p class='font_numbers font_size_15 color_gray margin_0'>{% trans "ZIP Code" %}:</p>   
-                            <p class='font_numbers_light margin_0 font_size_12'>{{ address_form.ZIP_code.initial }}</p>
+                            <p class='font_numbers_light margin_0 font_size_12'>{% if user.address.ZIP_code %}{{ user.address.ZIP_code }}{% else %}-----{% endif %}</p>
                             <button class='color_green button_n padding_0' onclick="account_form('address','ZIP_code')">{% trans "CHANGE" %}</button>
                         </div>
                     </div>
                     <div class='personal_data width_320p margin_t_2'>
                         <div>
                             <p class='font_numbers font_size_15 color_gray margin_0'>{% trans "Country" %}:</p>   
-                            <p class='font_numbers_light margin_0 font_size_12'>{{ address_form.country.initial }}</p>
+                            <p class='font_numbers_light margin_0 font_size_12'>{% if user.address.country %}{{ user.address.country }}{% else %}-----{% endif %}</p>
                             <button class='color_green button_n padding_0' onclick="account_form('address','country')">{% trans "CHANGE" %}</button>
                         </div>
                     </div>
@@ -181,28 +181,28 @@
                     <div class='personal_data width_320p'>
                         <div>
                             <p class='font_numbers font_size_12 color_gray margin_0'>{% trans "First Name" %}:</p>   
-                            <p class='font_numbers_light margin_0'>{{ user.first_name }}</p>
+                            <p class='font_numbers_light margin_0'>{% if user.first_name %}{{ user.first_name }}{% else %}-----{% endif %}</p>
                             <button class='color_green button_n padding_0' onclick="account_form('personal_data', 'first_name')">{% trans "CHANGE" %}</button>
                         </div>
                     </div>
                     <div class='personal_data width_320p'>
                         <div>
                             <p class='font_numbers font_size_12 color_gray margin_0'>{% trans "Last Name" %}:</p>   
-                            <p class='font_numbers_light margin_0'>{{ user.last_name }}</p>
+                            <p class='font_numbers_light margin_0'>{% if user.last_name %}{{ user.last_name }}{% else %}-----{% endif %}</p>
                             <button class='color_green button_n padding_0' onclick="account_form('personal_data', 'last_name')">{% trans "CHANGE" %}</button>
                         </div>
                     </div>
                     <div class='personal_data width_320p'>
                         <div>
                             <p class='font_numbers font_size_12 color_gray margin_0'>{% trans "Email" %}:</p>   
-                            <p class='font_numbers_light margin_0'>{{ user.email }}</p>
+                            <p class='font_numbers_light margin_0'>{% if user.email %}{{ user.email }}{% else %}-----{% endif %}</p>
                             <button class='color_green button_n padding_0' onclick="account_form('personal_data', 'email')">{% trans "CHANGE" %}</button>
                         </div>
                     </div>
                     <div class='personal_data width_320p'>
                         <div>
                             <p class='font_numbers font_size_12 color_gray margin_0'>{% trans "Phone Number" %}:</p>   
-                            <p class='font_numbers_light margin_0'>{{ user.number }}</p>
+                            <p class='font_numbers_light margin_0'>{% if user.number %}{{ user.number }}{% else %}-----{% endif %}</p>
                             <button class='color_green button_n padding_0' onclick="account_form('personal_data', 'phone_number')">{% trans "CHANGE" %}</button>
                         </div>
                     </div>
