@@ -1,5 +1,8 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+from order.models import OrderProduct
+from shop.models import Product
+
 
 def filter_prices_products(*args, **kwargs):
     data = args[0].GET
@@ -51,3 +54,13 @@ def data_post(request):
     if 'number_0' in data:
         data['']
     return data    
+
+# top 10 products on sale
+def ranking():
+    orders = OrderProduct.objects.all()
+    rank = {}
+    for order in orders:
+        rank[order.product] = rank.setdefault(order.product, 0) + order.quantity
+    return rank
+
+    

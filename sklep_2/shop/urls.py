@@ -17,6 +17,7 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('account/', views.account, name='account'),
     path('account/<str:type>/', views.account, name='account_data'),
+    path('analysis/', views.analysis, name='analysis'),
     path('detail/<str:slug>/<int:seconds>/<int:hours>/<int:id>/', views.detail, name='detail'),
     path('list/category/<str:category>/', views.list, name='list_category'),
     path('list/search/<str:text>/', views.list_search, name='list_search'),

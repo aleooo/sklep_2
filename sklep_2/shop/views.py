@@ -13,7 +13,7 @@ from django.utils.translation import gettext_lazy as _
 from cart.cart import Cart
 from .forms import UserModelForm, PersonalForm, AddressForm
 from .models import Address, Category, Product, UserModel
-from .utils import filter_prices_products, pagination, data_post
+from .utils import filter_prices_products, pagination, data_post, ranking
  
 
 def main(request):
@@ -127,4 +127,7 @@ def account(request, type=None):
                                                     'personal_form': personal_form,
                                                     'user': user}) 
 
+def analysis(request):
+    r = ranking()
+    return render(request, 'content/analysis.html', {'ranking': r})
 

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+    <div id="detail" class="basic white margin_t">
+        <div class='padding_lr'>
+        {% for k, v in ranking.items %}
+            <div class='margin_t display_f justify_c_s_b align_i_c height_80p'>
+                <h3>{{ k }}</h3>
+                <h3>{{ v }}</h3>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
