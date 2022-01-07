@@ -100,22 +100,23 @@ def account(request, type=None):
     orders = user.order.values('id', 'created')
        
     if request.method == 'POST':
-        if type == 'personal_data':
-            data = request.POST
-            user.first_name = data['first_name']
-            user.last_name = data['last_name']
-            user.email = data['email']
-            user.number = data['number_0'] + data['number_1']
+        address = user.address
+        # using own function which is the shop.utils.py throw away the csrftoken from request.POST
+        data = data_post(request)
+
+        # assigning data to an object
+        if type == 'address':
+            for k, v in data.items():  
+                if k in address.__dict__:
+                    setattr(address, k, v)
+            address.save()
+        elif type == 'personal_data':
+            for k, v in data.items():
+                if k in user.__dict__:
+                    setattr(user, k, v)
             user.save()
-            return redirect('shop:account')
+        return redirect('shop:account')
            
-        elif type == 'address':
-            address_form = AddressForm(request.POST)
-            if address_form.is_valid():
-                address = address_form.save()
-                user.address = address
-                user.save()
-                return redirect('shop:account')
     else:
         personal_form = PersonalForm(instance=user)
         address_form = AddressForm(instance=user.address)    

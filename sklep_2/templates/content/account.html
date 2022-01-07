@@ -100,7 +100,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="form-floating display_f justify_c_s_b display_n" id='phone_number'>
+                    <div class="form-floating display_f justify_c_s_b display_n" id='number'>
                         <div class='display_f justify_c_s_b form-floating'>
                             {{ personal_form.number }}
                             <label for="id_phone_number_1">{{ personal_form.number.label }}</label>
@@ -203,7 +203,7 @@
                         <div>
                             <p class='font_numbers font_size_12 color_gray margin_0'>{% trans "Phone Number" %}:</p>   
                             <p class='font_numbers_light margin_0'>{% if user.number %}{{ user.number }}{% else %}-----{% endif %}</p>
-                            <button class='color_green button_n padding_0' onclick="account_form('personal_data', 'phone_number')">{% trans "CHANGE" %}</button>
+                            <button class='color_green button_n padding_0' onclick="account_form('personal_data', 'number')">{% trans "CHANGE" %}</button>
                         </div>
                     </div>
             </div>
