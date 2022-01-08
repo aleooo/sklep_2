@@ -69,30 +69,22 @@ def list(request, category=None, text=None):
     if category:
         cat = Category.objects.get(slug=category)
         products = Product.objects.filter(category=cat)
+
     elif request.method == 'GET' and request.GET.get('search'):
-        return redirect(reverse('shop:list_search', args=[request.GET.get('search')]))
+        text = request.GET.get('search')
+        products = Product.objects.filter(name__icontains=text)
+        
     else:
         products = Product.objects.all()
     
     if request.GET.get('filter'):
+        # filter out products with given price range in the request
         products = filter_prices_products(request, products)
     
     # objects pagination
     page = request.GET.get('page')
     objects_pagination = pagination(page, products)
         
-    return render(request, 'content/list.html', {'main_bar': True,
-                                                 'objects': objects_pagination})
-
-
-def list_search(request, text):
-    products = Product.objects.filter(name__icontains=text)
-    # filter out products with given price range in the request
-    products = filter_prices_products(request, products)
-    # objects pagination
-    page = request.GET.get('page')
-    objects_pagination = pagination(page, products)               
-    
     return render(request, 'content/list.html', {'main_bar': True,
                                                  'objects': objects_pagination})
 

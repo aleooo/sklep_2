@@ -7,8 +7,8 @@
 {% block content %}
     <div class='basic margin_t' id='list'>
         <div id='list_filter' class='white padding'>
-            <strong><p class='font_size_15 '>{% trans "Filters" %}</p></strong>
-            <strong><p class='font_size_12'>{% trans "Prices" %}</p></strong>
+            <p class='font_size_15 '>{% trans "Filters" %}</p>
+            <p class='font_size_12'>{% trans "Prices" %}</p>
 
             <ul>
                 <li class='html_list font_size_12 paddding_b'>
@@ -36,9 +36,17 @@
             <form action='/list/search/a/b/' method='get' id='list_form_price'>
                 <span class='display_f align_i_c' >
                     <input type='hidden' name='filter' value='0'>
-                    <input type="text" class='width_40 text_a_c padding_tb_05' placeholder='from' name='from' id='list_input_from'>
+                    <div class="form-floating mb-3 width_40">
+                        <input type="number" class=' text_a_c padding_tb_05 form-control input' placeholder='from' name='from' id='list_input_from' min="0">
+                        <label for="list_input_from">{% trans "from" %}</label>
+                    </div>
                     <p class='margin_lr_05 '>-</p>
-                    <input type="text" class='width_40 text_a_c padding_tb_05' placeholder='to' name='to' id='list_input_to'>
+                    <div class="form-floating mb-3 width_40">
+                        <input type="number" class=' text_a_c padding_tb_05 form-control input' placeholder='to' name='to' id='list_input_to' min="1">
+                        <label for="list_input_from">{% trans "to" %}</label>
+                    </div>
+                    
+                    
                     <button type='submit' style='display:none'></button>
                 </span>
             </form>

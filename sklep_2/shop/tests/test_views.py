@@ -1,4 +1,5 @@
 from django.http import response
+from django.http.request import HttpRequest
 from django.test import TestCase
 from django.contrib.auth.models import User
 from django.test.client import Client
@@ -6,6 +7,7 @@ from django.urls.base import resolve, reverse
 
 from shop.models import Address, Category, Product, UserModel
 from shop.views import  register
+from shop.utils import filter_prices_products
 
 
 
@@ -65,29 +67,49 @@ class ViewTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertJSONEqual(response.content, {'data': []})
 
-    
     def test_detail(self):
         product = Product.objects.first()
         response = self.client.get(product.get_absolute_url())  
         self.assertContains(response, 'Peak')
     
-    def test_list_search(self):
-        response = self.client.get(reverse('shop:list_search', args=['p']))
-        self.assertContains(response, 'Peak')
-    
-    def test_list_redirect_search(self):
-        response = self.client.get(reverse('shop:list'), data={'search': 'p'})
-        self.assertEqual(response.status_code, 302)
+    def test_list_none_input_search(self):
+        response = self.client.get(reverse('shop:list'))
         
     def test_list_Category(self):
         response = self.client.get(reverse('shop:list_category', args=['books']))
         self.assertContains(response, 'Django 3')
     
     def test_list_filter_prices_products(self):
-        response = self.client.get(reverse('shop:list_category', args=['books']), data={'to': 50})
+        response = self.client.get(reverse('shop:list_category', args=['books']), data={'filter': 0,'to': 50})
         self.assertNotContains(response, 'Django 3')
         self.assertContains(response, 'Peak')
     
+    def test_list_filter_equal_to_and_from_1(self):
+        response = self.client.get(reverse('shop:list_category', args=['books']), data={'filter': 0, 'from': 50, 'to': 50})
+        self.assertNotContains(response, 'Peak')
+        self.assertNotContains(response, 'Django 3')
+    
+    def test_list_filter_equal_to_and_from_2(self):
+        response = self.client.get(reverse('shop:list_category', args=['books']), data={'filter': 0, 'from': 49.99, 'to': 49.99})
+        self.assertContains(response, 'Peak')
+        self.assertNotContains(response, 'Django 3')
+    
+    def test_filter_prices_products_1(self):
+        request = HttpRequest()
+        request.GET = {'filter': '0', 'from': '60', 'to': '1'}
+        products = Product.objects.all()
+        response = filter_prices_products(request, products)
+
+        self.assertEqual(len(response), 1)
+    
+    def test_filter_prices_products_2(self):
+        request = HttpRequest()
+        request.GET = {'filter': '0', 'from': '10', 'to': '0'}
+        products = Product.objects.all()
+        response = filter_prices_products(request, products)
+
+        self.assertEqual(len(response), 2)
+
     def test_account_login_user(self):
         self.client.force_login(self.user)
         response = self.client.get(reverse('shop:account'))

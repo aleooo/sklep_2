@@ -20,7 +20,6 @@ urlpatterns = [
     path('analysis/', views.analysis, name='analysis'),
     path('detail/<str:slug>/<int:seconds>/<int:hours>/<int:id>/', views.detail, name='detail'),
     path('list/category/<str:category>/', views.list, name='list_category'),
-    path('list/search/<str:text>/', views.list_search, name='list_search'),
     path('list/', views.list, name='list'),
     path('search/', views.search, name='search'),
     path('', views.main, name='main'),
