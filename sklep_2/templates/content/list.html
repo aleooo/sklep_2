@@ -28,13 +28,14 @@
                     <label for="price_range_4">{% trans "75 to 150" %}</label>
                 </li>
                 <li class='html_list font_size_12 paddding_b'>
-                    <input id='price_range_5' type="radio" name="filter_radio" onchange="location = this.value;" value='?filter=0'>
+                    <input id='price_range_5' type="radio" name="filter_radio" onchange="location = this.value;" value='?filter=99999'>
                     <label for="price_range_5">{% trans "greater then 150" %}</label>
                 </li>
             </ul> 
      
             <form action='/list/search/a/b/' method='get' id='list_form_price'>
                 <span class='display_f align_i_c' >
+                    <input type='hidden' name='filter' value='0'>
                     <input type="text" class='width_40 text_a_c padding_tb_05' placeholder='from' name='from' id='list_input_from'>
                     <p class='margin_lr_05 '>-</p>
                     <input type="text" class='width_40 text_a_c padding_tb_05' placeholder='to' name='to' id='list_input_to'>

@@ -65,14 +65,17 @@ def detail(request, slug, *args, **kwargs):
 
 
 def list(request, category=None, text=None):
+    # filter according to the given category
     if category:
         cat = Category.objects.get(slug=category)
         products = Product.objects.filter(category=cat)
-    elif request.method == 'GET':
+    elif request.method == 'GET' and request.GET.get('search'):
         return redirect(reverse('shop:list_search', args=[request.GET.get('search')]))
     else:
-        products = None
-    products = filter_prices_products(request, products)
+        products = Product.objects.all()
+    
+    if request.GET.get('filter'):
+        products = filter_prices_products(request, products)
     
     # objects pagination
     page = request.GET.get('page')
