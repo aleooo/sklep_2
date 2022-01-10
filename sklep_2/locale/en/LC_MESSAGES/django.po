@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-14 20:09+0000\n"
+"POT-Creation-Date: 2022-01-11 00:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,75 +22,72 @@ msgstr ""
 msgid "coupon"
 msgstr ""
 
-#: shop/forms.py:14
-msgid "username"
-msgstr ""
-
-#: shop/forms.py:15
-msgid "email"
-msgstr ""
-
-#: shop/forms.py:16
-msgid "password"
-msgstr ""
-
-#: shop/forms.py:17
-msgid "password again"
-msgstr ""
-
-#: shop/forms.py:18
-msgid "number"
-msgstr ""
-
-#: shop/forms.py:21
-msgid "The two password fields didn`t match"
-msgstr ""
-
-#: shop/views.py:94 templates/content/order/order.html:56
-msgid "Town"
-msgstr ""
-
-#: shop/views.py:95 templates/content/order/order.html:60
-msgid "ZIP code"
-msgstr ""
-
-#: shop/views.py:96 templates/content/order/order.html:66
-msgid "Country"
-msgstr ""
-
-#: shop/views.py:97 templates/content/order/order.html:49
-msgid "Street number"
-msgstr ""
-
-#: shop/views.py:98 templates/content/order/order.html:44
-msgid "Street"
-msgstr ""
-
-#: shop/views.py:99 templates/content/order/order.html:22
+#: order/forms.py:28 shop/forms.py:41 templates/content/account.html:183
 msgid "First Name"
 msgstr ""
 
-#: shop/views.py:100
+#: order/forms.py:29 shop/forms.py:42 templates/content/account.html:190
 msgid "Last Name"
 msgstr ""
 
-#: shop/views.py:101 templates/content/order/order.html:33
+#: order/forms.py:30 shop/forms.py:22 shop/forms.py:43
+#: templates/content/account.html:197
 msgid "Email"
 msgstr ""
 
-#: shop/views.py:102
-msgid "Number"
+#: order/forms.py:31 shop/forms.py:44 templates/content/account.html:204
+msgid "Phone Number"
 msgstr ""
 
-#: sklep_2/settings.py:120
-msgid "polish"
+#: order/forms.py:32 shop/forms.py:60 templates/content/account.html:128
+msgid "Street"
+msgstr ""
+
+#: order/forms.py:33 shop/forms.py:61 templates/content/account.html:135
+msgid "Street Number"
+msgstr ""
+
+#: order/forms.py:34
+msgid "ZIP code"
+msgstr ""
+
+#: order/forms.py:35 shop/forms.py:64 templates/content/account.html:142
+msgid "Town"
+msgstr ""
+
+#: order/forms.py:36 shop/forms.py:62 templates/content/account.html:156
+msgid "Country"
+msgstr ""
+
+#: shop/forms.py:16
+msgid "username"
+msgstr ""
+
+#: shop/forms.py:17
+msgid "email"
+msgstr ""
+
+#: shop/forms.py:21 templates/registration/login.html:15
+msgid "Username"
+msgstr ""
+
+#: shop/forms.py:27
+msgid "The two password fields didn`t match"
+msgstr ""
+
+#: shop/forms.py:63 templates/content/account.html:149
+msgid "ZIP Code"
 msgstr ""
 
 #: sklep_2/settings.py:121
+msgid "polish"
+msgstr ""
+
+#: sklep_2/settings.py:122
 msgid "english"
 msgstr ""
 
-#: templates/base.html:29
+#: templates/base.html:28
 msgid "Search"
 msgstr ""
 
@@ -98,35 +95,35 @@ msgstr ""
 msgid "SEARCH"
 msgstr ""
 
-#: templates/base.html:69
+#: templates/base.html:70
 msgid "Cart"
 msgstr ""
 
-#: templates/base.html:73
+#: templates/base.html:74
 msgid "cart value"
 msgstr ""
 
-#: templates/base.html:102 templates/base.html:104
+#: templates/base.html:102
 msgid "ACCOUNT"
 msgstr ""
 
-#: templates/base.html:108
+#: templates/base.html:105
 msgid "ANALYSIS"
 msgstr ""
 
-#: templates/base.html:111 templates/registration/password_change_done.html:10
+#: templates/base.html:108 templates/registration/password_change_done.html:10
 msgid "MAIN"
 msgstr ""
 
-#: templates/base.html:119
+#: templates/base.html:116
 msgid "Language"
 msgstr ""
 
-#: templates/base.html:131
+#: templates/base.html:128
 msgid "LOGOUT"
 msgstr ""
 
-#: templates/base.html:134 templates/registration/login.html:28
+#: templates/base.html:131 templates/registration/login.html:24
 msgid "LOGIN"
 msgstr ""
 
@@ -134,29 +131,64 @@ msgstr ""
 msgid "Change"
 msgstr ""
 
-#: templates/content/account.html:17 templates/content/account.html:29
+#: templates/content/account.html:19 templates/content/account.html:38
+#: templates/content/account.html:78
+msgid "The first name must start with a capital letter"
+msgstr ""
+
+#: templates/content/account.html:20 templates/content/account.html:39
+#: templates/content/account.html:58 templates/content/account.html:79
+#: templates/content/account.html:90
+msgid "Only letters"
+msgstr ""
+
+#: templates/content/account.html:29
+msgid "Please enter a valid street number"
+msgstr ""
+
+#: templates/content/account.html:48
+msgid "Only numbers"
+msgstr ""
+
+#: templates/content/account.html:57
+msgid "The country must start with a capital letter"
+msgstr ""
+
+#: templates/content/account.html:63 templates/content/account.html:111
 msgid "CANCEL"
 msgstr ""
 
-#: templates/content/account.html:18 templates/content/account.html:30
+#: templates/content/account.html:64 templates/content/account.html:112
 msgid "SUBMIT"
 msgstr ""
 
-#: templates/content/account.html:40
+#: templates/content/account.html:89
+msgid "The last name must start with a capital letter"
+msgstr ""
+
+#: templates/content/account.html:99 templates/registration/register.html:24
+msgid "Please enter a valid email"
+msgstr ""
+
+#: templates/content/account.html:121
 msgid "Your address"
 msgstr ""
 
-#: templates/content/account.html:41 templates/content/account.html:49
-#: templates/content/account.html:68 templates/content/account.html:77
-#: templates/registration/password_reset_confirm.html:44
+#: templates/content/account.html:122 templates/content/account.html:130
+#: templates/content/account.html:137 templates/content/account.html:144
+#: templates/content/account.html:151 templates/content/account.html:158
+#: templates/content/account.html:177 templates/content/account.html:185
+#: templates/content/account.html:192 templates/content/account.html:199
+#: templates/content/account.html:206
+#: templates/registration/password_reset_confirm.html:40
 msgid "CHANGE"
 msgstr ""
 
-#: templates/content/account.html:56
+#: templates/content/account.html:165
 msgid "Bills"
 msgstr ""
 
-#: templates/content/account.html:67
+#: templates/content/account.html:176
 msgid "Personal data"
 msgstr ""
 
@@ -173,7 +205,8 @@ msgid "add"
 msgstr ""
 
 #: templates/content/cart/cart.html:115 templates/content/cart/cart.html:122
-#: templates/content/order/order.html:119
+#: templates/content/order/order.html:132
+#: templates/content/order/order.html:138
 msgid "TO PAY"
 msgstr ""
 
@@ -241,6 +274,14 @@ msgstr ""
 msgid "greater then 150"
 msgstr ""
 
+#: templates/content/list.html:41
+msgid "from"
+msgstr ""
+
+#: templates/content/list.html:46
+msgid "to"
+msgstr ""
+
 #: templates/content/main.html:37 templates/content/main.html:117
 msgid "Previous"
 msgstr ""
@@ -257,35 +298,27 @@ msgstr ""
 msgid "Details of the recipient"
 msgstr ""
 
-#: templates/content/order/order.html:26
-msgid "Last name"
-msgstr ""
-
-#: templates/content/order/order.html:38
-msgid "Phone number"
-msgstr ""
-
-#: templates/content/order/order.html:75
+#: templates/content/order/order.html:80
 msgid "Delivery offer"
 msgstr ""
 
-#: templates/content/order/order.html:79
+#: templates/content/order/order.html:84
 msgid "Parcel locker"
 msgstr ""
 
-#: templates/content/order/order.html:85
+#: templates/content/order/order.html:90
 msgid "Courier"
 msgstr ""
 
-#: templates/content/order/order.html:93
+#: templates/content/order/order.html:98
 msgid "Payment"
 msgstr ""
 
-#: templates/content/order/order.html:127
+#: templates/content/order/order.html:147
 msgid "Summary"
 msgstr ""
 
-#: templates/content/order/order.html:130
+#: templates/content/order/order.html:150
 msgid "PAY AND POST"
 msgstr ""
 
@@ -313,27 +346,35 @@ msgstr ""
 msgid "TOTAL"
 msgstr ""
 
-#: templates/registration/login.html:14
+#: templates/registration/login.html:8
 msgid "Log in"
 msgstr ""
 
-#: templates/registration/login.html:27
+#: templates/registration/login.html:11
+msgid "The username or password is incorrect. Try again. "
+msgstr ""
+
+#: templates/registration/login.html:19 templates/registration/register.html:30
+msgid "Password"
+msgstr ""
+
+#: templates/registration/login.html:23
 msgid "Forgot password"
 msgstr ""
 
-#: templates/registration/login.html:33
+#: templates/registration/login.html:29
 msgid "or"
 msgstr ""
 
-#: templates/registration/login.html:37
+#: templates/registration/login.html:33
 msgid "Login with Facebook"
 msgstr ""
 
-#: templates/registration/login.html:42
+#: templates/registration/login.html:38
 msgid "Don't have an account"
 msgstr ""
 
-#: templates/registration/login.html:43 templates/registration/register.html:39
+#: templates/registration/login.html:39 templates/registration/register.html:64
 msgid "SIGN UP"
 msgstr ""
 
@@ -374,7 +415,11 @@ msgstr ""
 msgid "Enter the new password twice"
 msgstr ""
 
-#: templates/registration/password_reset_confirm.html:49
+#: templates/registration/password_reset_confirm.html:22
+msgid "The two password fields didn’t match"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:45
 msgid ""
 "Link to reset password is incorrect because it has probably been used "
 "before. You must again to start the procedure password reset."
@@ -427,15 +472,31 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
-#: templates/registration/register.html:13
+#: templates/registration/register.html:11
 msgid "Sign up"
 msgstr ""
 
+#: templates/registration/register.html:33
+msgid "Your password can’t be too similar to your other personal information."
+msgstr ""
+
 #: templates/registration/register.html:34
+msgid "Your password must contain at least 8 characters. "
+msgstr ""
+
+#: templates/registration/register.html:40
+msgid "Confirm Password"
+msgstr ""
+
+#: templates/registration/register.html:43
+msgid "Passwords must be the same"
+msgstr ""
+
+#: templates/registration/register.html:58
 msgid ""
 "I declare that I know and accept the provisions of the Regulations Sklep_2."
 msgstr ""
 
-#: templates/registration/register.html:38
+#: templates/registration/register.html:63
 msgid "Already have an account"
 msgstr ""

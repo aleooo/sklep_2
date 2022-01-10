@@ -154,7 +154,7 @@
                     <div class='personal_data width_320p margin_t_2'>
                         <div>
                             <p class='font_numbers font_size_15 color_gray margin_0'>{% trans "Country" %}:</p>   
-                            <p class='font_numbers_light margin_0 font_size_12'>{% if user.address.country %}{{ user.address.country }}{% else %}-----{% endif %}</p>
+                            <p class='font_numbers_light margin_0 font_size_12'>{% if user.address.country %}{{ user.address.country.name }}{% else %}-----{% endif %}</p>
                             <button class='color_green button_n padding_0' onclick="account_form('address','country')">{% trans "CHANGE" %}</button>
                         </div>
                     </div>

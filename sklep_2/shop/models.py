@@ -1,7 +1,7 @@
 import os
 
 from django.urls import reverse
-
+from django_countries.fields import CountryField
 from django.contrib.auth.models import AbstractUser
 from django.core import validators
 from django.core.validators import MaxLengthValidator, MinLengthValidator
@@ -21,7 +21,7 @@ class Address(models.Model):
     street_number = models.CharField(max_length=10, null=True, blank=True)
     ZIP_code = models.CharField(max_length=15, null=True, blank=True)
     town = models.CharField(max_length=50, null=True, blank=True)
-    country = models.CharField(max_length=50, null=True, blank=True)
+    country = CountryField(max_length=60, null=True, blank=True)
 
     class Meta:
         db_table = ''

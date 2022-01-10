@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'social_django',
     'phonenumber_field',
     'utils',  
-    'coverage'
+    'coverage',
+    'django_countries',
 ]
 
 MIDDLEWARE = [

@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import fields, widgets
 from django.utils.translation import gettext_lazy as _
+from django_countries.widgets import CountrySelectWidget
 from phonenumber_field.widgets import PhoneNumberPrefixWidget
 
 from .models import Address, UserModel
@@ -53,7 +54,7 @@ class AddressForm(forms.ModelForm):
             'street_number': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'pattern': '[0-9][0-9a-zA-Z/-]*', 'placeholder': '-----', 'required': 'required', 'disabled': 'true'}),
             'town': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'pattern': '^[A-ZŻŹŁ][a-zęóąśłżźćń ]*', 'placeholder': '-----', 'required': 'required', 'disabled': 'true'}),
             'ZIP_code': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'pattern': '[0-9-]*', 'placeholder': '-----', 'required': 'required', 'disabled': 'true'}),
-            'country': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'pattern': '^[A-ZŻŹŁ][a-zęóąśłżźćń ]*', 'placeholder': '-----', 'required': 'required', 'disabled': 'true'}),
+            'country': CountrySelectWidget(attrs={'class': 'form-control font_numbers_light input', 'placeholder': '-----', 'required': 'required', 'disabled': 'true'}),
         }
         labels = {
             'street': _('Street'),

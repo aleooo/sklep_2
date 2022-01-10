@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-14 20:09+0000\n"
+"POT-Creation-Date: 2022-01-11 00:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,75 +24,74 @@ msgstr ""
 msgid "coupon"
 msgstr "kupon"
 
-#: shop/forms.py:14
-msgid "username"
-msgstr "nazwa użytkownika"
-
-#: shop/forms.py:15
-msgid "email"
-msgstr "email"
-
-#: shop/forms.py:16
-msgid "password"
-msgstr "hasło"
-
-#: shop/forms.py:17
-msgid "password again"
-msgstr "powtórz hasło"
-
-#: shop/forms.py:18
-msgid "number"
-msgstr "numer telefonu"
-
-#: shop/forms.py:21
-msgid "The two password fields didn`t match"
-msgstr "Hasła nie są identyczne"
-
-#: shop/views.py:94 templates/content/order/order.html:56
-msgid "Town"
-msgstr "Miasto"
-
-#: shop/views.py:95 templates/content/order/order.html:60
-msgid "ZIP code"
-msgstr "KOD pocztowy"
-
-#: shop/views.py:96 templates/content/order/order.html:66
-msgid "Country"
-msgstr "Kraj"
-
-#: shop/views.py:97 templates/content/order/order.html:49
-msgid "Street number"
-msgstr "Numer ulicy"
-
-#: shop/views.py:98 templates/content/order/order.html:44
-msgid "Street"
-msgstr "Ulica"
-
-#: shop/views.py:99 templates/content/order/order.html:22
+#: order/forms.py:28 shop/forms.py:41 templates/content/account.html:183
 msgid "First Name"
 msgstr "Imię"
 
-#: shop/views.py:100
+#: order/forms.py:29 shop/forms.py:42 templates/content/account.html:190
 msgid "Last Name"
 msgstr "Nazwisko"
 
-#: shop/views.py:101 templates/content/order/order.html:33
+#: order/forms.py:30 shop/forms.py:22 shop/forms.py:43
+#: templates/content/account.html:197
 msgid "Email"
 msgstr "Email"
 
-#: shop/views.py:102
-msgid "Number"
-msgstr "Numer telefonu"
+#: order/forms.py:31 shop/forms.py:44 templates/content/account.html:204
+msgid "Phone Number"
+msgstr "Numer Telefonu"
 
-#: sklep_2/settings.py:120
+#: order/forms.py:32 shop/forms.py:60 templates/content/account.html:128
+msgid "Street"
+msgstr "Ulica"
+
+#: order/forms.py:33 shop/forms.py:61 templates/content/account.html:135
+msgid "Street Number"
+msgstr "Numer Ulicy"
+
+#: order/forms.py:34
+msgid "ZIP code"
+msgstr "KOD pocztowy"
+
+#: order/forms.py:35 shop/forms.py:64 templates/content/account.html:142
+msgid "Town"
+msgstr "Miasto"
+
+#: order/forms.py:36 shop/forms.py:62 templates/content/account.html:156
+msgid "Country"
+msgstr "Kraj"
+
+#: shop/forms.py:16
+msgid "username"
+msgstr "nazwa użytkownika"
+
+#: shop/forms.py:17
+msgid "email"
+msgstr "email"
+
+#: shop/forms.py:21 templates/registration/login.html:15
+#, fuzzy
+#| msgid "username"
+msgid "Username"
+msgstr "nazwa użytkownika"
+
+#: shop/forms.py:27
+msgid "The two password fields didn`t match"
+msgstr "Hasła nie są identyczne"
+
+#: shop/forms.py:63 templates/content/account.html:149
+msgid "ZIP Code"
+msgstr "KOD pocztowy"
+
+#: sklep_2/settings.py:121
 msgid "polish"
 msgstr "polski"
 
-#: sklep_2/settings.py:121
+#: sklep_2/settings.py:122
 msgid "english"
 msgstr "angielski"
 
-#: templates/base.html:29
+#: templates/base.html:28
 msgid "Search"
 msgstr "Szukaj"
 
@@ -100,67 +99,100 @@ msgstr "Szukaj"
 msgid "SEARCH"
 msgstr "SZUKAJ"
 
-#: templates/base.html:69
+#: templates/base.html:70
 msgid "Cart"
 msgstr "Koszyk"
 
-#: templates/base.html:73
+#: templates/base.html:74
 msgid "cart value"
 msgstr "Wartość koszyka"
 
-#: templates/base.html:102 templates/base.html:104
+#: templates/base.html:102
 msgid "ACCOUNT"
 msgstr "KONTO"
 
-#: templates/base.html:108
+#: templates/base.html:105
 msgid "ANALYSIS"
 msgstr "ANALIZA"
 
-#: templates/base.html:111 templates/registration/password_change_done.html:10
+#: templates/base.html:108 templates/registration/password_change_done.html:10
 msgid "MAIN"
 msgstr "MENU"
 
-#: templates/base.html:119
+#: templates/base.html:116
 msgid "Language"
 msgstr "Język"
 
-#: templates/base.html:131
+#: templates/base.html:128
 msgid "LOGOUT"
 msgstr "Wyloguj się"
 
-#: templates/base.html:134 templates/registration/login.html:28
+#: templates/base.html:131 templates/registration/login.html:24
 msgid "LOGIN"
 msgstr "Zaloguj się"
 
 #: templates/content/account.html:10
-#, fuzzy
-#| msgid "change"
 msgid "Change"
-msgstr "zmień"
+msgstr "Zmień"
 
-#: templates/content/account.html:17 templates/content/account.html:29
+#: templates/content/account.html:19 templates/content/account.html:38
+#: templates/content/account.html:78
+msgid "The first name must start with a capital letter"
+msgstr "Imię musi się zaczynać wielką literą"
+
+#: templates/content/account.html:20 templates/content/account.html:39
+#: templates/content/account.html:58 templates/content/account.html:79
+#: templates/content/account.html:90
+msgid "Only letters"
+msgstr "Tylko litery"
+
+#: templates/content/account.html:29
+msgid "Please enter a valid street number"
+msgstr "Proszę wprowadzić poprawny numer ulicy"
+
+#: templates/content/account.html:48
+msgid "Only numbers"
+msgstr "Tylko liczby"
+
+#: templates/content/account.html:57
+msgid "The country must start with a capital letter"
+msgstr "Kraj musi się zaczynać wielką literą"
+
+#: templates/content/account.html:63 templates/content/account.html:111
 msgid "CANCEL"
 msgstr "ANULUJ"
 
-#: templates/content/account.html:18 templates/content/account.html:30
+#: templates/content/account.html:64 templates/content/account.html:112
 msgid "SUBMIT"
 msgstr "POTWIERDŹ"
 
-#: templates/content/account.html:40
+#: templates/content/account.html:89
+msgid "The last name must start with a capital letter"
+msgstr "Nazwisko musi się zaczynać wielką literą"
+
+#: templates/content/account.html:99 templates/registration/register.html:24
+msgid "Please enter a valid email"
+msgstr "Proszę wprowadzić poprawny email"
+
+#: templates/content/account.html:121
 msgid "Your address"
 msgstr "Twój adres"
 
-#: templates/content/account.html:41 templates/content/account.html:49
-#: templates/content/account.html:68 templates/content/account.html:77
-#: templates/registration/password_reset_confirm.html:44
+#: templates/content/account.html:122 templates/content/account.html:130
+#: templates/content/account.html:137 templates/content/account.html:144
+#: templates/content/account.html:151 templates/content/account.html:158
+#: templates/content/account.html:177 templates/content/account.html:185
+#: templates/content/account.html:192 templates/content/account.html:199
+#: templates/content/account.html:206
+#: templates/registration/password_reset_confirm.html:40
 msgid "CHANGE"
 msgstr "ZMIEŃ"
 
-#: templates/content/account.html:56
+#: templates/content/account.html:165
 msgid "Bills"
 msgstr "Rachunki"
 
-#: templates/content/account.html:67
+#: templates/content/account.html:176
 msgid "Personal data"
 msgstr "Dane Osobiste"
 
@@ -177,7 +209,8 @@ msgid "add"
 msgstr "dodaj"
 
 #: templates/content/cart/cart.html:115 templates/content/cart/cart.html:122
-#: templates/content/order/order.html:119
+#: templates/content/order/order.html:132
+#: templates/content/order/order.html:138
 msgid "TO PAY"
 msgstr "DO ZAPŁATY"
 
@@ -245,6 +278,14 @@ msgstr "75 do 150"
 msgid "greater then 150"
 msgstr "więcej niż 150"
 
+#: templates/content/list.html:41
+msgid "from"
+msgstr "od"
+
+#: templates/content/list.html:46
+msgid "to"
+msgstr "do"
+
 #: templates/content/main.html:37 templates/content/main.html:117
 msgid "Previous"
 msgstr "Poprzedni"
@@ -261,35 +302,27 @@ msgstr "Popularne w sprzedaży"
 msgid "Details of the recipient"
 msgstr "Dane odbiorcy"
 
-#: templates/content/order/order.html:26
-msgid "Last name"
-msgstr "Nazwisko"
-
-#: templates/content/order/order.html:38
-msgid "Phone number"
-msgstr "Numer telefonu"
-
-#: templates/content/order/order.html:75
+#: templates/content/order/order.html:80
 msgid "Delivery offer"
 msgstr "Dostawa"
 
-#: templates/content/order/order.html:79
+#: templates/content/order/order.html:84
 msgid "Parcel locker"
 msgstr "Paczkomat"
 
-#: templates/content/order/order.html:85
+#: templates/content/order/order.html:90
 msgid "Courier"
 msgstr "Kurier"
 
-#: templates/content/order/order.html:93
+#: templates/content/order/order.html:98
 msgid "Payment"
 msgstr "Płatność"
 
-#: templates/content/order/order.html:127
+#: templates/content/order/order.html:147
 msgid "Summary"
 msgstr "PODSUMOWANIE"
 
-#: templates/content/order/order.html:130
+#: templates/content/order/order.html:150
 msgid "PAY AND POST"
 msgstr "ZAPŁAĆ I WYŚLIJ"
 
@@ -317,27 +350,35 @@ msgstr "nieopłacone"
 msgid "TOTAL"
 msgstr "SUMA"
 
-#: templates/registration/login.html:14
+#: templates/registration/login.html:8
 msgid "Log in"
 msgstr "Zaloguj się"
 
-#: templates/registration/login.html:27
+#: templates/registration/login.html:11
+msgid "The username or password is incorrect. Try again. "
+msgstr "Nazwa użytkownika lub hasło są niepoprawne"
+
+#: templates/registration/login.html:19 templates/registration/register.html:30
+msgid "Password"
+msgstr "Hasło"
+
+#: templates/registration/login.html:23
 msgid "Forgot password"
 msgstr "Zapomniałeś hasła"
 
-#: templates/registration/login.html:33
+#: templates/registration/login.html:29
 msgid "or"
 msgstr "lub"
 
-#: templates/registration/login.html:37
+#: templates/registration/login.html:33
 msgid "Login with Facebook"
 msgstr "Zaloguj się przez Facebook"
 
-#: templates/registration/login.html:42
+#: templates/registration/login.html:38
 msgid "Don't have an account"
 msgstr "Nie masz konta"
 
-#: templates/registration/login.html:43 templates/registration/register.html:39
+#: templates/registration/login.html:39 templates/registration/register.html:64
 msgid "SIGN UP"
 msgstr "ZAREJESTRUJ SIĘ"
 
@@ -378,7 +419,11 @@ msgstr "w tej chwili"
 msgid "Enter the new password twice"
 msgstr "Wpisz dwa razy nowe hasło"
 
-#: templates/registration/password_reset_confirm.html:49
+#: templates/registration/password_reset_confirm.html:22
+msgid "The two password fields didn’t match"
+msgstr "Hasła nie są identyczne"
+
+#: templates/registration/password_reset_confirm.html:45
 msgid ""
 "Link to reset password is incorrect because it has probably been used "
 "before. You must again to start the procedure password reset."
@@ -435,17 +480,46 @@ msgstr "WYŚLIJ EMAIL"
 msgid "Register"
 msgstr "Rejestracja"
 
-#: templates/registration/register.html:13
+#: templates/registration/register.html:11
 msgid "Sign up"
 msgstr "Zarejestruj się"
 
+#: templates/registration/register.html:33
+msgid "Your password can’t be too similar to your other personal information."
+msgstr "Twoje hasło nie może być podobne do twoich danych osobistych"
+
 #: templates/registration/register.html:34
-msgid "I declare that I know and accept the provisions of the Regulations Sklep_2."
+msgid "Your password must contain at least 8 characters. "
+msgstr "Twoje hasłó musi zawierać conajmniej 8 znaków"
+
+#: templates/registration/register.html:40
+msgid "Confirm Password"
+msgstr "Potwierdź Hasło"
+
+#: templates/registration/register.html:43
+msgid "Passwords must be the same"
+msgstr "Hasła muszą być takie same"
+
+#: templates/registration/register.html:58
+msgid ""
+"I declare that I know and accept the provisions of the Regulations Sklep_2."
 msgstr "Oświadczam, że znam i akceptuję postanowienia w regulaminie Sklep_2"
 
-#: templates/registration/register.html:38
+#: templates/registration/register.html:63
 msgid "Already have an account"
 msgstr "Masz konto"
+
+#~ msgid "password again"
+#~ msgstr "powtórz hasło"
+
+#~ msgid "number"
+#~ msgstr "numer telefonu"
+
+#~ msgid "Number"
+#~ msgstr "Numer telefonu"
+
+#~ msgid "Last name"
+#~ msgstr "Nazwisko"
 
 #~ msgid "75-150"
 #~ msgstr "75 do 150"

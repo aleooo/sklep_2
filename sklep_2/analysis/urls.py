@@ -6,5 +6,5 @@ app_name = 'analysis'
 
 
 urlpatterns = [
-    path('/', views.main, name='main'),
+    path('', views.main, name='main'),
 ]
