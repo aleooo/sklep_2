@@ -20,21 +20,23 @@ def filter_prices_products(*args, **kwargs):
     
     if filter:
         if filter == 20.0:
-            return args[1].filter(price__lt=filter)
+            products = args[1].filter(price__lt=filter)
         elif filter == 50.0:
-            return args[1].filter(price__range=(20, 50))
+            products =  args[1].filter(price__range=(20, 50))
         elif filter == 75.0:
-            return args[1].filter(price__range=(50, 75))
+            products =  args[1].filter(price__range=(50, 75))
         elif filter == 150.0:
-            return args[1].filter(price__range=(75, 150))
+            products =  args[1].filter(price__range=(75, 150))
         else:
-            return args[1].filter(price__range=(150, 1000000))
+            products =  args[1].filter(price__range=(150, 1000000))
     else:
         
         if from_price == to_price:
-            return args[1].filter(price=from_price)
+            products =  args[1].filter(price=from_price)
         else:
-            return args[1].filter(price__range=(from_price, to_price))
+            products =  args[1].filter(price__range=(from_price, to_price))
+    
+    return products
 
 
 def pagination(page, products):
