@@ -2,6 +2,7 @@ from django.core import validators
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models.base import Model
+from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
 
 from shop.models import Product, UserModel
@@ -15,7 +16,7 @@ class Order(models.Model):
     street_number = models.CharField(max_length=10)
     ZIP_code = models.CharField(max_length=15)
     town = models.CharField(max_length=50)
-    country = models.CharField(max_length=50)
+    country = CountryField(max_length=60)
     discount = models.DecimalField(default=0, decimal_places=2, max_digits=3)
     paid = models.BooleanField(default=False)
     user = models.ForeignKey(UserModel, related_name='order', on_delete=models.SET_NULL, blank=True, null=True)

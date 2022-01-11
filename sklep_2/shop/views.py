@@ -11,16 +11,19 @@ from django.urls.base import resolve
 from django.utils.translation import gettext_lazy as _
 
 from cart.cart import Cart
-from .forms import UserModelForm, PersonalForm, AddressForm
-from .models import Address, Category, Product, UserModel
-from .utils import filter_prices_products, pagination, data_post
+from shop.forms import UserModelForm, PersonalForm, AddressForm
+from shop.models import Address, Category, Product, UserModel
+from shop.recommender import Recommender
+from shop.utils import filter_prices_products, pagination, data_post
  
 
 def main(request):
     categories = Category.objects.all()
     products = Product.objects.all()
+    r = Recommender()
+
     if len(products) > 8 :
-        products = products[:8]
+        products = r.popular_products(products)
 
     return render(request, 'content/main.html', {'main_bar': True,
                                                  'categories': categories,

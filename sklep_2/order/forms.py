@@ -2,6 +2,7 @@ import string
 
 from django import forms
 from django.utils.translation import gettext_lazy as _
+from django_countries.widgets import CountrySelectWidget
 from phonenumber_field.widgets import PhoneNumberPrefixWidget
 
 from .models import Order
@@ -22,7 +23,7 @@ class OrderForm(forms.ModelForm):
             'street_number': forms.TextInput(attrs={'class': 'address_form form-control', 'placeholder': 'street_number'}),
             'ZIP_code': forms.TextInput(attrs={'class': 'address_form form-control', 'placeholder': 'ZIP_code'}),
             'town': forms.TextInput(attrs={'class': 'address_form form-control', 'placeholder': 'town'}),
-            'country': forms.TextInput(attrs={'class': 'address_form form-control', 'placeholder': 'country'}),
+            'country': CountrySelectWidget(attrs={'class': 'address_form form-control', 'placeholder': 'country'}),
         }
         labels = {
             'first_name': _('First Name'),
