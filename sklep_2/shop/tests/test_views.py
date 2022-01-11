@@ -80,23 +80,23 @@ class ViewTestCase(TestCase):
         self.assertContains(response, 'Django 3')
     
     def test_list_filter_prices_products(self):
-        response = self.client.get(reverse('shop:list_category', args=['books']), data={'filter': 0,'to': 50})
+        response = self.client.get(reverse('shop:list_category', args=['books']), data={'filter': 'manual','to': 50})
         self.assertNotContains(response, 'Django 3')
         self.assertContains(response, 'Peak')
     
     def test_list_filter_equal_to_and_from_1(self):
-        response = self.client.get(reverse('shop:list_category', args=['books']), data={'filter': 0, 'from': 50, 'to': 50})
+        response = self.client.get(reverse('shop:list_category', args=['books']), data={'filter': 'manual', 'from': 50, 'to': 50})
         self.assertNotContains(response, 'Peak')
         self.assertNotContains(response, 'Django 3')
     
     def test_list_filter_equal_to_and_from_2(self):
-        response = self.client.get(reverse('shop:list_category', args=['books']), data={'filter': 0, 'from': 49.99, 'to': 49.99})
+        response = self.client.get(reverse('shop:list_category', args=['books']), data={'filter': 'manual', 'from': 49.99, 'to': 49.99})
         self.assertContains(response, 'Peak')
         self.assertNotContains(response, 'Django 3')
     
     def test_filter_prices_products_1(self):
         request = HttpRequest()
-        request.GET = {'filter': '0', 'from': '60', 'to': '1'}
+        request.GET = {'filter': 'manual', 'from': '60', 'to': '1'}
         products = Product.objects.all()
         response = filter_prices_products(request, products)
 
@@ -104,7 +104,7 @@ class ViewTestCase(TestCase):
     
     def test_filter_prices_products_2(self):
         request = HttpRequest()
-        request.GET = {'filter': '0', 'from': '10', 'to': '0'}
+        request.GET = {'filter': 'manual', 'from': '10', 'to': '0'}
         products = Product.objects.all()
         response = filter_prices_products(request, products)
 

@@ -32,7 +32,7 @@ class UtilsTestCase(TestCase):
     
     def test_filter_prices_products_from_price_and_to_price(self):
         request = HttpRequest()
-        request.GET = {'from': 60.00, 'to': 70.00}
+        request.GET = {'filter': 'manual', 'from': 60.00, 'to': 70.00}
         objects = filter_prices_products(request, self.products)
         self.assertQuerysetEqual(objects[0].name, 'Django 3')
     
@@ -57,12 +57,6 @@ class UtilsTestCase(TestCase):
     def test_filter_prices_products_filter_150(self):
         request = HttpRequest()
         request.GET = {'filter': 150}
-        objects = filter_prices_products(request, self.products)
-        self.assertEqual(list(objects), [])
-    
-    def test_filter_prices_products_filter_else(self):
-        request = HttpRequest()
-        request.GET = {'filter': 15000}
         objects = filter_prices_products(request, self.products)
         self.assertEqual(list(objects), [])
     
