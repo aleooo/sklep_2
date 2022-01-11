@@ -50,8 +50,9 @@ class Cart(object):
     
     # clear the session
     def clear(self):
-        self.cart = {}
-        self.session['coupon'] = {}
+        del self.session[settings.CART_SESSION_ID]
+        del self.session['coupon']
+        self.save()
 
     # clear information about an added product
     def clear_add(self):

@@ -20,16 +20,17 @@ class Recommender(object):
 
     def popular_products(self, products, number=8):
         popular_products = self.get_popular_product_ids()
-        popular_product_ids = [p.id for p in popular_products]
+        popular_product_ids = [int(p[0]) for p in popular_products]
+        print(popular_product_ids)
         number_popular_products = len(popular_product_ids)
 
-        products = list(products.filter(id__in=popular_product_ids))
-        products.sort(key=lambda x: popular_product_ids.index(x.id))
+        result = list(products.filter(id__in=popular_product_ids))
+        result.sort(key=lambda x: popular_product_ids.index(x.id))
 
         if number_popular_products < number:
             completing = products.exclude(id__in=popular_product_ids)[:number-number_popular_products]
-            products = list(products) + list(completing)  
-        return products
+            result += list(completing)  
+        return result
 
 
     def suggestion_product_key(self, id):
@@ -46,6 +47,7 @@ class Recommender(object):
     def products_bought(self, products):
         products_ids = [id for id in products.keys()]
         for product_id in products_ids:
+            print('redis add')
             r.zincrby('purchased_product_key', amount=products[product_id], value=product_id)
             for with_product in products_ids:
                 if product_id != with_product:

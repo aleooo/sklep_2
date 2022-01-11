@@ -175,7 +175,7 @@ LOCALE_PATHS = (
 )
 
 
-REDIS_HOST = 'localhost'
+REDIS_HOST = config('ADDRESS_IP')
 REDIS_PORT = 6379
 REDIS_DB = 1
 

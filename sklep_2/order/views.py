@@ -73,7 +73,6 @@ def product_order(object_order, cart):
         a = OrderProduct.objects.create(order=object_order, product=product, quantity=item['quantity'])
 
     r = Recommender()
-
     r.products_bought(recommendation_data)
     cart.clear()
 

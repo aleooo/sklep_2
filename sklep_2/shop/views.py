@@ -22,8 +22,7 @@ def main(request):
     products = Product.objects.all()
     r = Recommender()
 
-    if len(products) > 8 :
-        products = r.popular_products(products)
+    products = r.popular_products(products)
 
     return render(request, 'content/main.html', {'main_bar': True,
                                                  'categories': categories,
