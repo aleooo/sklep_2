@@ -14,6 +14,7 @@ from .utils import data
 from cart.cart import Cart
 from order.models import OrderProduct
 from shop.models import Product, UserModel
+from shop.recommender import Recommender
 from sklep_2 import settings
 
 
@@ -62,9 +63,17 @@ def order(request):
 
 
 def product_order(object_order, cart):
+    # dictionary with data of products id and quantity
+    # this data are needed for engine recommendation 
+    recommendation_data = {}
+
     for item in cart:
+        recommendation_data[item['id']] = item['quantity']
         product = Product.objects.get(id=int(item['id']))
         a = OrderProduct.objects.create(order=object_order, product=product, quantity=item['quantity'])
+
+    r = Recommender()
+    r.products_bought(recommendation_data)
     cart.clear()
 
 
