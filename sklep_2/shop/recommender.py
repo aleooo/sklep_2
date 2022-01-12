@@ -47,7 +47,6 @@ class Recommender(object):
     def products_bought(self, products):
         products_ids = [id for id in products.keys()]
         for product_id in products_ids:
-            print('redis add')
             r.zincrby('purchased_product_key', amount=products[product_id], value=product_id)
             for with_product in products_ids:
                 if product_id != with_product:
