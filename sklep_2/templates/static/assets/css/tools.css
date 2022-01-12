@@ -113,7 +113,8 @@ label{font-family: sans-serif;}
 .min_h_300p{min-height: 300px;}
 .overflow_a{overflow: auto;}
 .overflow_v{overflow:visible}
-.overflow_y_v{overflow-x: hidden;}
+.overflow_x_h{overflow-x: hidden;}
+.overflow_s{overflow: scroll;}
 .text_a_c{text-align: center;}
 .text_a_r{text-align: right;}
 .text_d{text-decoration: none;}

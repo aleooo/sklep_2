@@ -163,7 +163,7 @@
             </div>
             <div class='account_bills white padding margin_t'>         
                 <h4 class='font_numbers_light'>{% trans "Bills" %}</h1>      
-                <div class='overflow_a'>
+                <div class='overflow_s' id='account_bills_scroll'>
                     {% for order in orders %}
                         <div class='margin_t'><a href={% url 'order:admin_order_pdf' order.id %}><p class='font_numbers_light'>{{ order.created }}</p></a></div>
                     {% endfor %}

@@ -56,6 +56,14 @@
     outline:none;
     box-shadow: none;
 }
+#account_bills_scroll{
+    height: 362px;
+}
+@media (min-width: 814px) and (max-width: 1359px) {
+    #account_bills_scroll{
+        height: 604px;
+    }
+}
 @media (min-width: 814px) and (max-width: 1056px) {
     .personal_data_width{
         width: 50%;
