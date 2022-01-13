@@ -8,9 +8,8 @@ a {text-decoration: none;color: rgb(0, 0, 0);}
 a.button_white{color: rgb(255, 255, 255)}
 a.button_white:hover{color: rgb(255, 255, 255)}
 a:hover{color: rgb(102, 160, 160);}
-p{font-family: sans-serif;}
-a{font-family: sans-serif;}
-label{font-family: sans-serif;}
+p, a, label, td, th{font-family: sans-serif;}
+
 
 .align_i_c{align-items: center;}
 ._align_i_c{align-items: center; display: flex;}
@@ -25,6 +24,7 @@ label{font-family: sans-serif;}
 .border_r_0{border-radius: 0%;}
 .border_r_50{border-radius: 50%;}
 .bottom_0{bottom: 0;}
+.box_s_b{box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);}
 .button_n{border: none; background: none;}
 .clear_b{clear:both}
 .color_gray{color:rgb(121, 121, 121)}
@@ -168,3 +168,12 @@ label{font-family: sans-serif;}
     top: 50%;
     transform: translate(-50%,-50%);
 }
+td, th {
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  tr:nth-child(odd) {
+    background-color: #fff2e7;
+  }

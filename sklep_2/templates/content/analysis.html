@@ -4,14 +4,31 @@
 {% load static %}
 
 {% block content %}
-    <div id="detail" class="basic white margin_t">
+    <div id="detail" class="basic white margin_t padding">
         <div class='padding_lr'>
-        {% for k, v in ranking.items %}
-            <div class='margin_t display_f justify_c_s_b align_i_c height_80p'>
-                <h3>{{ k }}</h3>
-                <h3>{{ v }}</h3>
-            </div>
-        {% endfor %}
+            <table class='box_s_b'>
+                <thead>
+                    <tr class='table_header_row'>
+                        <th class='color_white'>ranking</th>
+                        <th class='color_white'>name</th>
+                        <th class='color_white'>number of copies sold</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for k, v in ranking.items %}
+                     <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ k }}</td>  
+                        <td>{{ v }}</td>
+                     </tr>
+                        
+                        <!-- <div class='margin_t display_f justify_c_s_b align_i_c height_80p'></div>
+                    </div> -->
+                {% endfor %}
+                </tbody>
+            </table>
+                
+           
         </div>
     </div>
 {% endblock %}
