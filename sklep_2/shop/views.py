@@ -21,7 +21,7 @@ def main(request):
     categories = Category.objects.all()
     products = Product.objects.all()
     r = Recommender()
-
+    
     products = r.popular_products(products)
 
     return render(request, 'content/main.html', {'main_bar': True,

@@ -3,6 +3,7 @@ import os
 from django.utils.translation import gettext_lazy as _
 from pathlib import Path
 from decouple import config
+import django_redis
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -179,3 +180,13 @@ REDIS_HOST = config('ADDRESS_IP')
 REDIS_PORT = 6379
 REDIS_DB = 1
 
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://redis:6379/0",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "REDIS_CLIENT_CLASS": "fakeredis.FakeStrictRedis",
+        },
+    },
+}
