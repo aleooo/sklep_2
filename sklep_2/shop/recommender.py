@@ -21,7 +21,6 @@ class Recommender(object):
     def popular_products(self, products, number=8):
         popular_products = self.get_popular_product_ids()
         popular_product_ids = [int(p[0]) for p in popular_products]
-        print(popular_product_ids)
         number_popular_products = len(popular_product_ids)
 
         result = list(products.filter(id__in=popular_product_ids))

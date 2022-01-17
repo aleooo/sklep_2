@@ -10,6 +10,7 @@ import weasyprint
 
 from .forms import OrderForm
 from .models import Order
+from .tasks import order_pdf
 from .utils import data
 from cart.cart import Cart
 from order.models import OrderProduct
@@ -48,7 +49,9 @@ def order(request):
             # Each product is an order relation
             product_order(object_order, cart)
             # order_pdf generates pdf which is send on user's email
-            order_pdf(request, object_order)
+            base_url = request.build_absolute_uri()
+            order_pdf(base_url, object_order.id)
+            # order_pdff(request, object_order)
 
             return redirect('shop:main')
     else:
@@ -77,7 +80,7 @@ def product_order(object_order, cart):
     cart.clear()
 
 
-def order_pdf(request, object_order):
+def order_pdff(request, object_order):
     names_products = 'You ordered: ' + ',  '.join([product.product.name for product in object_order.products.all()])
     email = EmailMessage(subject=names_products, from_email=settings.EMAIL_HOST_USER, to=[object_order.email])
     html = render_to_string('content/order/pdf.html', {'order': object_order})

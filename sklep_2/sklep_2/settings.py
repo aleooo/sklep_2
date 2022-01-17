@@ -175,7 +175,7 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale/'),
 )
 
-
+CELERY_BROKER_URL = 'redis://localhost:6379'
 REDIS_HOST = config('ADDRESS_IP')
 REDIS_PORT = 6379
 REDIS_DB = 1
