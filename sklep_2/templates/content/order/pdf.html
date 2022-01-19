@@ -1,14 +1,19 @@
-{% extends 'base.html' %}
+
 
 {% load static %}
 {% load price_tags %}
 {% load i18n %}
-
-<html>
-
-    <body>
-    {% block content %}
-        <div class=' pdf_div_start'>
+<div style='background: #ECEFF1;font-family: Raleway, sans-serif; padding-bottom: 10rem;'>
+   
+   
+        <div style='max-width: 800px;margin: 1rem auto ;background: white;padding: 1rem;'>
+            <header style='background: white;max-width: 1500px;position:relative;margin: 0 auto;align-items: center;display: flex;justify-content: space-between;'>
+                <div>
+                    <h1 style='color:#ff5a00;font-size: 35px;font-weight: 900;font-family: Roboto, sans-serif;padding-bottom: 1rem; margin: 0;'>
+                        SKLEP_2
+                    </h1>
+                </div>
+            </header>
             <p>
                 {% trans "Bill nr." %} {{ order.id }}</br>
                 <span>
@@ -16,45 +21,50 @@
                 </span>
             </p>
         </div>
-        <div class='pdf_div'>
+        <div style='max-width: 800px;margin: 1rem auto;background: white;padding: 1rem;'>
             <h3>{% trans "Buyer" %}</h3>
-                <p class='margin_0'>{{ order.first_name }} {{ order.last_name }}</p>
-                <p class='margin_0'>{{ order.email }}</p>
-                <p class='margin_0'>{{ order.street }}  {{ order.street_number}}</p>
-                <p class='margin_0'>{{ order.ZIP_code }} {{ order.town }}</p>
+                <p  style='margin: 0;'>{{ order.first_name }} {{ order.last_name }}</p>
+                <p style='margin: 0;'>{{ order.email }}</p>
+                <p style='margin: 0;'>{{ order.street }}  {{ order.street_number}}</p>
+                <p style='margin: 0;'>{{ order.ZIP_code }} {{ order.town }}</p>
             
         </div>
-        <div class='pdf_div'>
+        <div style='max-width: 800px;margin: 1rem auto;background: white;padding: 1rem;'>
             <h3>{% trans "Products" %}</h3>
-            <div class='display_f'>
-                <h4>status:&nbsp; </h4>{% if order.paid %}<h4 class='color_green'>{% trans "paid" %}</h4>{% else %}<h4 class='color_red'>{% trans "unpaid" %}</h4>{% endif %}
+            <div style='display: flex;'>
+                <h4>status:&nbsp; </h4>{% if order.paid %}<h4 style="color: greenyellow;">{% trans "paid" %}</h4>{% else %}<h4 style='color: red;'>{% trans "unpaid" %}</h4>{% endif %}
             </div>
               {{ product.product.image.url }}
-            {% for product in order.products.all %}
-                <div class='display_f justify_c_s_b align_i_c height_100p margin'>
-                        <div class='display_f'>
-                            <img src="{{ product.product.image.url }}" class='height_100p width_max_150'>
-                            <div class='flex_d_c padding_l'>
-                                <p>{{ product.product.name }}</p>
-                                <p class='color_gray font_numbers'>{{ product.product.quantity }} x {{ product.product.price }}</p>
-                            </div>
-                        </div>
-                        <div>
-                            <p class='font_size_12 font_numbers'>{{ product.total_price }}</p>
-                        </div>
-                    </div>
-            {% endfor %}
+              <table style='margin: 1rem; width: 100%;'>
+                <tbody>
+                    {% for product in order.products.all %}            
+                        <tr>
+                            <td>
+                                <div style='display: flex;'>
+                                    <img src="{{ product.product.image.url }}" style='height: 100px; max-width: 150px;'>
+                                    <div  style='flex-direction: column; padding-left: 1rem;'>
+                                        <p style='font-size: 1.2rem;'>{{ product.product.name }}</p>
+                                        <p  style='font-family:  Roboto,sans-serif; color: rgb(167, 167, 167); font-size: 1.2rem;'>{{ product.product.quantity }} x {{ product.product.price }}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <p  style='font-family:  Roboto,sans-serif; font-size: 1.2rem;'>{{ product.total_price }}</p>
+                            </td>
+                        </tr>     
+                    {% endfor %}
+                </tbody>
+            </table>
             <hr>
-            <div class='display_f justify_c_r'>
-                <div class='width_max_150'>
-                    <h5><strong>{% trans "TOTAL" %}</strong></h5>
-                    <div class='display_ib'>
-                        <span class='font_size_2 font_numbers'>{{ order.total_price|price_front }}</span><span class='font_size_15 font_numbers' >{{ order.total_price|price_back }}</span>
+            <div style='display: flex;float: right;'>
+                <div  style='max-width: 150px;'>
+                    <h3 style='color:rgb(185, 185, 185)'>{% trans "TOTAL" %}</h3>
+                    <div  style='display: inline-block;'>
+                        <span  style='font-family:sans-serif; font-size: 2rem;'>{{ order.total_price|price_front }}</span><span style='font-size: 1.5rem; font-family:  Roboto,sans-serif;'>{{ order.total_price|price_back }}</span>
                     </div>
                     
                 </div>    
             </div>
+            <div style='clear: both;'></div>
         </div>
-        {% endblock content %}
-</body>
-</html>
+    </div>

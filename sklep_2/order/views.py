@@ -49,8 +49,7 @@ def order(request):
             # Each product is an order relation
             product_order(object_order, cart)
             # order_pdf generates pdf which is send on user's email
-            base_url = request.build_absolute_uri()
-            order_pdf(base_url, object_order.id)
+            order_pdf(object_order.id)
 
             return redirect('shop:main')
     else:
