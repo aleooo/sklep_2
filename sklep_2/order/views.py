@@ -49,7 +49,7 @@ def order(request):
             # Each product is an order relation
             product_order(object_order, cart)
             # order_pdf generates pdf which is send on user's email
-            order_pdf(object_order.id)
+            order_pdf.delay(object_order.id)
 
             return redirect('shop:main')
     else:
@@ -75,17 +75,4 @@ def product_order(object_order, cart):
 
     r = Recommender()
     r.products_bought(recommendation_data)
-    cart.clear()
-
-
-def order_pdff(request, order_id):
-    object_order = Order.objects.get(id=order_id)
-    names_products = 'You ordered: ' + ',  '.join([product.product.name for product in object_order.products.all()])
-    email = EmailMessage(subject=names_products, from_email=settings.EMAIL_HOST_USER, to=[object_order.email])
-    html = render_to_string('content/order/pdf.html', {'order': object_order})
-    out = BytesIO()
-    #Must add STATIC_ROOT and make collectstatic in development
-    weasyprint.HTML(string=html, base_url=request.build_absolute_uri()).write_pdf(out)
-    email.attach( f'order_{object_order.id }.pdf', out.getvalue(), 'application/pdf')
-    email.send()
-    
+    cart.clear()    

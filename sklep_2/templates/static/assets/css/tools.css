@@ -148,6 +148,7 @@ p, a, label, td, th{font-family: sans-serif;}
 .width_400p{width: 400px;}
 .width_450p{width: 450px;}
 .width_max_90{max-width: 90%}
+.width_max_100{max-width: 100px;}
 .width_max_150{max-width: 150px;}
 .width_max_400{max-width: 400px;}
 .width_min_100p{min-width: 100px;}

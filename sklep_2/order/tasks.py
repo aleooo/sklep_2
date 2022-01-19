@@ -30,5 +30,5 @@ def order_pdf(order_id):
     email = EmailMultiAlternatives(subject=names_products, from_email=settings.EMAIL_HOST_USER, to=[object_order.email])
     email.attach_alternative(html, 'text/html')
     email.send()
+    return(f'send email to {object_order.email}')
 
-    return "success" 
