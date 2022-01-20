@@ -9,7 +9,7 @@
 <div class="login-form">
  
     <h1 class='registration' >{% trans "Sign up" %}</h1>
-    <form action="." method='post' class='was-validated'>
+    <form action="." method='post' class='needs-validation' novalidate>
         {% csrf_token %}
         <div class='form-floating margin_tb'>
             {{ user_form.username }}

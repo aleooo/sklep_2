@@ -23,7 +23,7 @@
     justify-content: space-around;
 }
 .phonenumber{
-    max-width: 49%;
+    max-width: calc(50% - 4px);
     margin: 0.5 4px 0;
     font-size: 1.2rem;
     font-family: sans-serif;

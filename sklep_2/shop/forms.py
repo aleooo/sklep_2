@@ -35,7 +35,7 @@ class PersonalForm(forms.ModelForm):
             'first_name': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'pattern': '^[A-ZŻŹŁ][a-zęóąśłżźćń]*', 'placeholder': '-----', 'required': 'required', 'disabled': 'disabled'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'pattern': '^[A-ZŻŹŁ][a-zęóąśłżźćń]*', 'placeholder': '-----', 'required': 'required', 'disabled': 'disabled'}),
             'email': forms.TextInput(attrs={'class': 'form-control font_numbers_light input', 'type': 'email', 'placeholder': '-----', 'required': 'required', 'disabled': 'disabled'}),
-            'number': PhoneNumberPrefixWidget(initial='PL', attrs={'class': 'input font_numbers_light phonenumber form-control', 'placeholder': '-----', 'pattern': '[0-9]*', 'minlength': '9', 'required': 'required', 'disabled': 'disabled'}),
+            'number': PhoneNumberPrefixWidget(initial='PL', attrs={'class': 'input font_numbers_light phonenumber form-control', 'placeholder': '-----', 'pattern': '[0-9]{9,12}', 'required': 'required', 'disabled': 'disabled'}),
         }
         labels = {
             'first_name': _('First Name'),

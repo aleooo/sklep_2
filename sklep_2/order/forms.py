@@ -15,15 +15,15 @@ class OrderForm(forms.ModelForm):
         fields = ['first_name', 'last_name', 'email', 'phone_number', 'street', 'street_number', 'ZIP_code', 'town', 'country']
 
         widgets = {
-            'first_name': forms.TextInput(attrs={'class': 'address_form form-control', 'placeholder': 'first_name'}),
-            'last_name': forms.TextInput(attrs={'class': 'address_form form-control', 'placeholder': 'last_name'}),
-            'email': forms.TextInput(attrs={'class': 'address_form form-control margin_t_05', 'placeholder': 'email'}),
-            'phone_number': PhoneNumberPrefixWidget(initial='PL', attrs={'class': 'address_form form-control phonenumber'}),
-            'street': forms.TextInput(attrs={'class': 'address_form form-control', 'placeholder': 'street'}),
-            'street_number': forms.TextInput(attrs={'class': 'address_form form-control', 'placeholder': 'street_number'}),
-            'ZIP_code': forms.TextInput(attrs={'class': 'address_form form-control', 'placeholder': 'ZIP_code'}),
-            'town': forms.TextInput(attrs={'class': 'address_form form-control', 'placeholder': 'town'}),
-            'country': CountrySelectWidget(attrs={'class': 'address_form form-control', 'placeholder': 'country'}),
+            'first_name': forms.TextInput(attrs={'class': 'address_form form-control', 'placeholder': 'first_name', 'pattern': '^[A-ZŻŹŁ][a-zęóąśłżźćń]*', 'required': 'required',}),
+            'last_name': forms.TextInput(attrs={'class': 'address_form form-control', 'placeholder': 'last_name', 'pattern': '^[A-ZŻŹŁ][a-zęóąśłżźćń]*', 'required': 'required',}),
+            'email': forms.TextInput(attrs={'class': 'address_form form-control margin_t_05', 'placeholder': 'email', 'type': 'email', 'required': 'required'}),
+            'phone_number': PhoneNumberPrefixWidget(initial='PL', attrs={'class': 'address_form form-control phonenumber', 'required': 'required', 'pattern': '[0-9]{9,12}'}),
+            'street': forms.TextInput(attrs={'class': 'address_form form-control', 'placeholder': 'street', 'required': 'required', 'pattern': '^[A-ZŻŹŁ][a-zęóąśłżźćń ]*'}),
+            'street_number': forms.TextInput(attrs={'class': 'address_form form-control', 'placeholder': 'street_number', 'required': 'required', 'pattern': '[0-9][0-9a-zA-Z/-]*'}),
+            'ZIP_code': forms.TextInput(attrs={'class': 'address_form form-control', 'placeholder': 'ZIP_code', 'required': 'required', 'pattern': '[0-9-]*'}),
+            'town': forms.TextInput(attrs={'class': 'address_form form-control', 'placeholder': 'town', 'required': 'required', 'pattern': '^[A-ZŻŹŁ][a-zęóąśłżźćń ]*'}),
+            'country': CountrySelectWidget(attrs={'class': 'address_form form-control', 'placeholder': 'country', 'required': 'required'}),
         }
         labels = {
             'first_name': _('First Name'),
@@ -36,7 +36,9 @@ class OrderForm(forms.ModelForm):
             'town': _('Town'),
             'country': _('Country')
         }
-    
+        error_messages = {
+            'phone_number': {'invalid': _('Incorrect Mobile Number!')}
+        }
     def clean(self):
         first_name = self.cleaned_data['first_name']
         field_upper = {'first_name': 'First Name', 'last_name': 'Last Name', 'street': 'Street', 'town': 'Town', 'country': 'Country'}

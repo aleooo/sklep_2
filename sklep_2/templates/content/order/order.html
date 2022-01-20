@@ -5,74 +5,123 @@
 {% load price_tags %}
 
 {% block content %}
-<form action="." method='POST'>
+<form action="." method='POST' class='needs-validation' novalidate>
     {% csrf_token %}
     <div class='basic margin_t_2' id='column_order'>
         <div class='order_div'>
             <div class="background_w  padding_tb ">
                 <div class="width_90 margin_0auto">
                     <p class='font_size_2  font_numbers'>{% trans "Details of the recipient" %}</p>
-                    {{ form.first_name.errors }}
-                    {{ form.last_name.errors }}
                     <div class="row g-2">
                         <div class="col-md">
                             <div class='form-floating'>
                                 {{ form.first_name }}
                                 <label for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label>
+                                <div class="invalid-feedback">
+                                    <ul>
+                                        <li>{% trans "The first name must start with a capital letter" %}</li>
+                                        <li>{% trans "Only letters" %}</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class='form-floating'>
                                 {{ form.last_name }}
                                 <label for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label>
+                                <div class="invalid-feedback">
+                                    <ul>
+                                        <li>{% trans "The last name must start with a capital letter" %}</li>
+                                        <li>{% trans "Only letters" %}</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    {{ form.email.errors }}
+                    {{ form.first_name.errors }}
+                    {{ form.last_name.errors }}
                     <div class='form-floating'>
                         {{ form.email }}
                         <label for="{{ form.email.id_for_label }}">{{ form.email.label}}</label>
+                        <div class="invalid-feedback">
+                            <ul>
+                                <li>{% trans "Please enter a valid email" %}</li>
+                            </ul>
+                        </div>
                     </div>
-                    {{ form.street.errors }}
+                    {{ form.email.errors }}
                     <div class="row g-2">
                         <div class="col-md">
                             <div class='form-floating '>
                                 {{ form.street }}
                                 <label for="{{ form.street.id_for_label }}">{{ form.street.label }}</label>
+                                <div class="invalid-feedback">
+                                    <ul>
+                                        <li>{% trans "The first name must start with a capital letter" %}</li>
+                                        <li>{% trans "Only letters" %}</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class=' form-floating '>
                                 {{ form.street_number }}
                                 <label for="{{ form.street_number.id_for_label }}">{{ form.street_number.label }}</label>
+                                <div class="invalid-feedback">
+                                    <ul>
+                                        <li>{% trans "Please enter a valid street number" %}</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    {{ form.street.errors }}
+                    {{ form.street_number.errors }}
                     <div class="row g-2">
                         <div class="col-md">
                             {{ form.town.errors }}
                             <div class=' form-floating '>
                                 {{ form.town }}
                                 <label for="{{ form.town.id_for_label }}">{{ form.town.label }}</label>
+                                <div class="invalid-feedback">
+                                    <ul>
+                                        <li>{% trans "The first name must start with a capital letter" %}</li>
+                                        <li>{% trans "Only letters" %}</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class='form-floating '>
                                 {{ form.ZIP_code }}
                                 <label for="{{ form.zip_code.id_for_label }}">{{ form.ZIP_code.label }}</label>
+                                <div class="invalid-feedback">
+                                    <ul>
+                                        <li>{% trans "Only numbers" %}</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>                
-                    {{ form.country.errors }}
-                    <div class='form-floating'>
-                        {{ form.country }}
-                        <label for="{{ form.country.id_for_label }}">{{ form.country.label }}</label>
                     </div>
-                    {{ form.phone_number.errors }}
+                    {{ form.town.errors }}                
+                    {{ form.ZIP_code.errors }}
                     <div class="form-floating display_f justify_c_s_b">
                         {{ form.phone_number }}
                         <label for="id_phone_number_1">{{ form.phone_number.label }}</label>
-                    </div>    
+                    </div>
+                    {{ form.phone_number.errors }}
+                    <div class='form-floating'>
+                        {{ form.country }}
+                        <label for="{{ form.country.id_for_label }}">{{ form.country.label }}</label>
+                        <div class="invalid-feedback">
+                            <ul>
+                                <li>{% trans "The country must start with a capital letter" %}</li>
+                                <li>{% trans "Only letters" %}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    {{ form.country.errors }}
+
                 </div>
             </div>
             <div class='background_w  margin_t_2 padding'>
