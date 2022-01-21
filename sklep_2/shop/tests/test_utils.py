@@ -5,7 +5,7 @@ from shop.models import Address, Category, Product
 from shop.utils import filter_prices_products, pagination, data_post
 
 
-class UtilsTestCase(TestCase):
+class ShopUtilsTest(TestCase):
     def setUp(self):
         category = Category.objects.create(name='Books', slug='books')
         Product.objects.create(category=category,

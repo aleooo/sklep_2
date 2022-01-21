@@ -3,7 +3,7 @@ from django.urls import reverse
 from shop.models import Product, Category, Address
 from cart.cart import Cart
 
-class ViewTestCase(TestCase):
+class CartViewTest(TestCase):
     def setUp(self):
         category = Category.objects.create(name='Books', slug='books')
         Product.objects.create(category=category,

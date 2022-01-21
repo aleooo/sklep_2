@@ -2,11 +2,11 @@ from decimal import Decimal
 
 from django.test import TestCase
 
-from ..models import Order, OrderProduct
+from order.models import Order, OrderProduct
 from shop.models import Product, Address, Category
 
 
-class ModelTestCase(TestCase):
+class OrderModelTest(TestCase):
     def setUp(self):
         category = Category.objects.create(name='Books', slug='books')
         self.product = Product.objects.create(category=category,

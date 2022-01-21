@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from shop.models import Product, Category, UserModel, Address
 
 
-class ModelsTestCase(TestCase):
+class ShopModelTest(TestCase):
     def setUp(self):
         category = Category.objects.create(name='Books', slug='books')
         Product.objects.create(category=category,

@@ -1,11 +1,11 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from ..models import Order, OrderProduct
+from order.models import Order, OrderProduct
 from shop.models import Product, Address, Category, UserModel
 
 
-class ModelTestCase(TestCase):
+class OrderViewTest(TestCase):
     def setUp(self):
         category = Category.objects.create(name='Books', slug='books')
         self.product = Product.objects.create(category=category,
@@ -22,7 +22,7 @@ class ModelTestCase(TestCase):
                                 price=49.99,
                                 available=True,
                                 quantity_available=4)
-        address = Address.objects.create(street='Krotka', street_number='3', ZIP_code='08-116', town='Seroczyn', country='Poland')
+        address = Address.objects.create(street='Krotka', street_number='3', ZIP_code='08-116', town='Seroczyn', country='PL')
         user = UserModel.objects.create(username='aleo', first_name='Alek', last_name='wiedenski', email='dwdawdw@gmail.com', password='aleoaleo', address=address, number='+48434331333')                                
         self.client.force_login(user)
         self.order = Order.objects.create(first_name='Alek', last_name='Wiedenski', street='Krotka', street_number='3', ZIP_code='08-116', town='Seroczyn', country='Poland')
@@ -40,7 +40,7 @@ class ModelTestCase(TestCase):
         self.assertContains(response, 'Alek')
 
     def test_order_post(self):
-        data = {'first_name': ['Aleksander'], 'last_name': ['Wiedenski'], 'email': ['romek@gmail.com'],'phone_number_0': ['+48'], 'phone_number_1': ['510865704'], 'street': ['Krotka'], 'street_number': ['3'], 'ZIP_code': ['08-116'], 'town': ['Seroczyn'], 'country': ['Poland']}
+        data = {'first_name': ['Aleksander'], 'last_name': ['Wiedenski'], 'email': ['romek@gmail.com'],'phone_number_0': ['+48'], 'phone_number_1': ['510865704'], 'street': ['Krotka'], 'street_number': ['3'], 'ZIP_code': ['08-116'], 'town': ['Seroczyn'], 'country': ['PL']}
         
         response = self.client.post(reverse('order:order'), data=data)
         

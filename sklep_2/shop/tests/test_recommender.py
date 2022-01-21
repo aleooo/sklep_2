@@ -9,7 +9,7 @@ from order.views import Recommender
 from shop.models import Category, Product
 
 
-class RecommenderTestCase(TestCase):
+class ShopRecommenderTest(TestCase):
     def setUp(self):
         category = Category.objects.create(name='Books', slug='books')
         self.product_1 = Product.objects.create(category=category,
@@ -35,12 +35,12 @@ class RecommenderTestCase(TestCase):
                       decode_responses=True)
         self.recommender = Recommender()
 
-    @FakeRedis("yourpath.get_redis_connection")
-    def test_products_bought(self):
-        self.recommender.products_bought(self.data)
-        products = self.r.zrange('purchased_product_key', 0, -1, desc=True, withscores=True, byscore=False)
+    # @FakeRedis("yourpath.get_redis_connection")
+    # def test_products_bought(self):
+    #     self.recommender.products_bought(self.data)
+    #     products = self.r.zrange('purchased_product_key', 0, -1, desc=True, withscores=True, byscore=False)
 
-        self.assertEqual(products, [])
+    #     self.assertEqual(products, [])
 
 
 
