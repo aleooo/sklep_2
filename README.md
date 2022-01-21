@@ -16,13 +16,13 @@ git push -uf origin main
 
 ## Description
 The sklep_2 project is a template modeled on Allegro. The application is adapted to mobile devices Project is created in Django.Contains:
-- live-search(dynamic search made with AJAX)
-- authorization system
-- dynamic paging and filtering of the list of objects
-- shopping cart for products based on a Django session
-- create pdf to order which is send on email
-- The recommendation engine on redis
-- dynamic personal data form in javascript
+- Live-search(dynamic search made with AJAX)
+- Authorization system
+- Dynamic paging and filtering of the list of objects
+- Shopping cart for products based on a Django session
+- Asynchronous HTML email confirming the order with Celery
+- The recommendation engine on Redis
+- Dynamic personal data form in Javascript
 
 
 ## Visual
@@ -49,6 +49,8 @@ https://www.sklep2.waw.pl
 
 4. install libpangocairo-1.0-0 in system
 5. install package from requirements.txt
+6. install Redis
+7. install Celery
 
 ## Project status
 The project is being developed
