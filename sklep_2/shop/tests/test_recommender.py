@@ -4,6 +4,7 @@ from django.test import TestCase
 from django.test.client import Client
 from django.urls.base import resolve, reverse
 import redis
+import fakeredis
 
 from order.views import Recommender
 from shop.models import Category, Product
@@ -27,7 +28,7 @@ class ShopRecommenderTest(TestCase):
                                 available=True,
                                 quantity_available=4)
         self.data = {self.product_1.id: 3, self.product_2.id: 2}
-
+        # fakeredis.FakeStrictRedis()
         self.r = redis.StrictRedis(host=settings.REDIS_HOST,
                       port=settings.REDIS_PORT,
                       db=settings.REDIS_DB,

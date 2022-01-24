@@ -11,10 +11,17 @@ $("input[type=radio][name=delivery").click(elem => {
 })
 
 
-var m = L.map('map_parcel_locker').setView([52.012, 18.922], 6)
+var m = L.map('map_parcel_locker').setView([52.236, 21.022], 13)
   
 // L.control.addTo(m);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?').addTo(m)
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1IjoiYWxlb28iLCJhIjoiY2t5dDdzNXU2MWIyZDJ2bzNybjh5emdqMiJ9.PLVGGIqVXevnAjsguGZmYg'
+}).addTo(m)
 
 points = [
     ['Warsaw', [52.241333, 21.028198]],
