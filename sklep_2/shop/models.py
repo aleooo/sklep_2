@@ -77,14 +77,19 @@ class Product(models.Model):
     def __str__(self):
         return f'{self.name}'
     
-
     def get_absolute_url(self):
         return reverse("shop:detail", args=[self.slug, 
                                        self.created.strftime('%S'), 
                                        self.created.strftime('%H'),
                                        self.id])
     
-
+    def data(self):
+        product =  {'name': self.name,
+                    'url': self.get_absolute_url()
+        } 
+        return product
+    
+  
     
 
                                                                   

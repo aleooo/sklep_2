@@ -47,19 +47,11 @@ def search(request):
         data = []
         if len(products) > 0 and len(text) > 0:     
             for product in products:
-                item =  {
-                    'id': product.id,
-                    'name': product.name,
-                    'image': str(product.image.url),
-                    'price': product.price,
-                    'description': product.description,
-                    'url': product.get_absolute_url()
-                }
-                data.append(item)
+                data.append(product.data())
         return JsonResponse({'data': data})
 
 
-def detail(request, slug, *args, **kwargs):
+def detail(request, slug):
     product = Product.objects.get(slug=slug)
     return render(request, 'content/detail.html', {'product': product,
                                                    'main_bar': True,
