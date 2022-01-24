@@ -1,3 +1,4 @@
+from pyexpat import model
 from django.core import validators
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
@@ -5,7 +6,7 @@ from django.db.models.base import Model
 from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
 
-from shop.models import Product, UserModel
+from shop.models import Product, UserModel, Address
 
 class Order(models.Model):
     first_name = models.CharField(max_length=100)
@@ -45,7 +46,16 @@ class OrderProduct(models.Model):
     
     def total_price(self):
         return self.quantity * self.product.price
-    
+
+
+class Parcel(Address):
+    name = models.CharField(max_length=50)
+    latitude = models.CharField(max_length=30)
+    longitude = models.CharField(max_length=30)
+
+    def __str__(self) -> str:
+        return self.name
+
 
 
     

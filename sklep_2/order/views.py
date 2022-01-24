@@ -37,15 +37,19 @@ def order(request):
     if request.method == 'POST':
         print(request.POST)
         form = OrderForm(request.POST)
+
         if form.is_valid():
             object_order = form.save(commit=False)
+
             # the condition checks if the user is registered
             if user.id:
                 object_order.user = UserModel.objects.get(id=user.id)
+
             # the condition checks if the user use coupon
             if cart.session['coupon']:
                 object_order.discount = Decimal(cart.session['coupon']['discount'])
             object_order.save()
+            
             # In the database the function creates separate order products 
             # Each product is an order relation
             product_order(object_order, cart)

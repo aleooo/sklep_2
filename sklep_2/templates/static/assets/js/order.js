@@ -24,7 +24,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(m)
 
 points = [
-    ['Warsaw', [52.241333, 21.028198]],
+    ['Warsaw', ['52.241333', '21.028198']],
     ['Gdansk', [54.349722, 18.648001]],
     ['Cracow', [50.055142, 19.934230]],
 ]

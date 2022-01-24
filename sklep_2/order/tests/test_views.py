@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from order.models import Order, OrderProduct
+from order.models import Order, OrderProduct, Parcel
 from shop.models import Product, Address, Category, UserModel
 
 
@@ -46,12 +46,7 @@ class OrderViewTest(TestCase):
         
         self.assertEqual(response.status_code, 302)
     
-    def test_admin_order_pdf(self):
-        response = self.client.get(reverse('order:admin_order_pdf', args=[self.order.id]))
-        
-        self.assertEqual(response.status_code, 200)
-        # don't pass tests about contains values though in manual operation they work
-        # self.assertContains(response, 69.99)
+    
 
     
 

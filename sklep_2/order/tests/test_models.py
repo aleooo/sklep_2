@@ -2,7 +2,7 @@ from decimal import Decimal
 
 from django.test import TestCase
 
-from order.models import Order, OrderProduct
+from order.models import Order, OrderProduct, Parcel
 from shop.models import Product, Address, Category
 
 
@@ -23,6 +23,7 @@ class OrderModelTest(TestCase):
                                 price=49.99,
                                 available=True,
                                 quantity_available=4)
+        Parcel.objects.create(street='Krotka', street_number='3', ZIP_code='08-116', town='Seroczyn', country='Poland', name='SER1', longitude='54.21212', latitude='31.21424')
         
         self.order = Order.objects.create(first_name='Alek', last_name='Wiedenski', street='Krotka', street_number='3', ZIP_code='08-116', town='Seroczyn', country='Poland')
 
@@ -40,4 +41,10 @@ class OrderModelTest(TestCase):
     
     def test_Order_total_price(self):
         self.assertEqual(self.order.total_price(), Decimal(str((self.product.price * self.order_product.quantity) + (self.product_2.price * self.order_product_2.quantity))))
+    
+    def test_Parcel(self):
+        parcels = Parcel.objects.count()
+
+        self.assertEqual(parcels, 1)
+
 
