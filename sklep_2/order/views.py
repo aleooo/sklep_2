@@ -2,6 +2,7 @@ from io import BytesIO
 from math import e
 
 from decimal import Decimal
+from django.http import JsonResponse
 from django.http.response import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
@@ -13,7 +14,7 @@ from .models import Order
 from .tasks import order_pdf
 from .utils import data
 from cart.cart import Cart
-from order.models import OrderProduct
+from order.models import OrderProduct, Parcel
 from shop.models import Product, UserModel
 from shop.recommender import Recommender
 from sklep_2 import settings
@@ -81,4 +82,10 @@ def product_order(object_order, cart):
 
     r = Recommender()
     r.products_bought(recommendation_data)
-    cart.clear()    
+    cart.clear()  
+
+def parcels(request):
+    data = list(Parcel.objects.values())
+    return JsonResponse(data, safe=False)
+
+      

@@ -29,8 +29,8 @@ class ShopModelTest(TestCase):
         self.assertEqual(category.name, 'Books')
 
     def test_Product(self):
-        products = Product.objects.all()
-        self.assertEqual(len(products), 2)
+        products = Product.objects.count()
+        self.assertEqual(products, 2)
     
     def test_Address(self):
         address = Address.objects.first()
