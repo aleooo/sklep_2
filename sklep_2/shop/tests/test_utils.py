@@ -2,7 +2,7 @@ from django.http import HttpRequest
 from django.test import TestCase
 
 from shop.models import Address, Category, Product
-from shop.utils import filter_prices_products, pagination, data_post
+from shop.utils import filter_prices_products, data_post
 
 
 class ShopUtilsTest(TestCase):
@@ -25,52 +25,35 @@ class ShopUtilsTest(TestCase):
         address = Address.objects.create(street='Krotka', street_number='3', ZIP_code='08-116', town='Seroczyn', country='Poland')
         self.products = Product.objects.all()
     
-    def test_filter_prices_products(self):
-        request = HttpRequest()
-        objects = filter_prices_products(request, self.products)
-        self.assertEqual(objects[0].name, 'Peak')
-    
     def test_filter_prices_products_from_price_and_to_price(self):
-        request = HttpRequest()
-        request.GET = {'filter': 'manual', 'from': 60.00, 'to': 70.00}
-        objects = filter_prices_products(request, self.products)
+        
+        data = {'filter': 'manual', 'from': 60.00, 'to': 70.00}
+        objects = filter_prices_products(data, self.products)
         self.assertQuerysetEqual(objects[0].name, 'Django 3')
     
     def test_filter_prices_products_filter_20(self):
-        request = HttpRequest()
-        request.GET = {'filter': 20}
-        objects = filter_prices_products(request, self.products)
+        
+        data = {'filter': 20}
+        objects = filter_prices_products({'filter': 20}, self.products)
         self.assertEqual(list(objects), [])
     
     def test_filter_prices_products_filter_50(self):
-        request = HttpRequest()
-        request.GET = {'filter': 50}
-        objects = filter_prices_products(request, self.products)
+        
+        data = {'filter': 50}
+        objects = filter_prices_products(data, self.products)
         self.assertEqual(objects[0].name, 'Peak')
     
     def test_filter_prices_products_filter_75(self):
-        request = HttpRequest()
-        request.GET = {'filter': 75}
-        objects = filter_prices_products(request, self.products)
+        
+        data = {'filter': 75}
+        objects = filter_prices_products(data, self.products)
         self.assertEqual(objects[0].name, 'Django 3')
     
     def test_filter_prices_products_filter_150(self):
-        request = HttpRequest()
-        request.GET = {'filter': 150}
-        objects = filter_prices_products(request, self.products)
+        
+        data = {'filter': 150}
+        objects = filter_prices_products(data, self.products)
         self.assertEqual(list(objects), [])
-    
-    def test_pagination(self):
-        objects = pagination(1, self.products)
-        self.assertEqual(len(objects), 2)
-    
-    def test_pagination_over_the_page(self):
-        objects = pagination(3, self.products)
-        self.assertEqual(len(objects), 2)
-    
-    def test_pagination_over_the_page(self):
-        objects = pagination(0, self.products)
-        self.assertEqual(len(objects), 2)
 
     def test_data_post_with_csrftoken(self):
         request = HttpRequest()
@@ -86,8 +69,3 @@ class ShopUtilsTest(TestCase):
 
         self.assertEqual(data_post(request), {'key': 'value'})
 
-
-        
-
-
-        

@@ -7,18 +7,21 @@ var search_box = $('.search_box')
 var search_list = $('#list_search_box')
 var icon_cart = $('#cart_icon')
 var shopping_cart = $('#shopping_cart_bar')
-var url = location.href
 let a = setTimeout('',0)
+let url = location.href
 let count_time = 0
 let active_mode = 'main'
 
 
 // url to request for the search function view
-if (url.includes('pl')){
-    url_search = '/pl/search/'
-}
-else{
-    url_search = '/en/search/'
+function url_s(){
+    if (url.includes('pl')){
+        u = '/pl/search/'
+    }
+    else{
+        u = '/en/search/'
+    }
+    return u
 }
 
 // shows which mode is (ACCOUNT, ANALYSIS, MAIN), searches based on url
@@ -73,7 +76,7 @@ function sidebar() {
 function sendtext(text){
     $.ajax({
         type: "POST",
-        url: url_search,
+        url: url_s(),
         data: {
             'csrfmiddlewaretoken': getCookie("csrftoken"),
             'text': text,
@@ -84,8 +87,8 @@ function sendtext(text){
                 array_products += '<a href="' + list.data[i].url + '" class="list-group-item list-group-item-action " aria-current="true">' + list.data[i].name + '</a>'
             }
             search_list.html(array_products)
-            console.log(location);
-            url_search = location.pathname + 'list/search/' + text + '/';
+           
+            url_search = location.pathname.slice(0,4) + 'list/search/' + text + '/';
             $('#search_form_list').attr('action', url_search)
             
              

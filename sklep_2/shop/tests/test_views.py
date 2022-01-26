@@ -96,17 +96,17 @@ class ShopViewTest(TestCase):
     
     def test_filter_prices_products_1(self):
         request = HttpRequest()
-        request.GET = {'filter': 'manual', 'from': '60', 'to': '1'}
+        data = {'filter': 'manual', 'from': '60', 'to': '1'}
         products = Product.objects.all()
-        response = filter_prices_products(request, products)
+        response = filter_prices_products(data, products)
 
         self.assertEqual(len(response), 1)
     
     def test_filter_prices_products_2(self):
         request = HttpRequest()
-        request.GET = {'filter': 'manual', 'from': '10', 'to': '0'}
+        data = {'filter': 'manual', 'from': '10', 'to': '0'}
         products = Product.objects.all()
-        response = filter_prices_products(request, products)
+        response = filter_prices_products(data, products)
 
         self.assertEqual(len(response), 2)
 

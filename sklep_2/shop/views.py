@@ -1,21 +1,13 @@
-import json
-
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
-from django.core import serializers
 from django.http.response import JsonResponse
-from django.contrib import messages 
 from django.shortcuts import redirect, render
-from django.urls import reverse
-from django.urls.base import resolve
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import ListView
 
-from cart.cart import Cart
 from shop.forms import UserModelForm, PersonalForm, AddressForm
 from shop.models import Address, Category, Product, UserModel
 from shop.recommender import Recommender
-from shop.utils import filter_prices_products, pagination, data_post
+from shop.utils import filter_prices_products, data_post
  
 
 def main(request):
@@ -81,31 +73,6 @@ class List(ListView):
         if self.request.GET.get('filter'):
             queryset = filter_prices_products(self.request.GET, queryset)
         return queryset
-
-    
-def list(request, category=None, text=None):
-    # filter according to the given category
-    if category:
-        cat = Category.objects.get(slug=category)
-        products = Product.objects.filter(category=cat)
-
-    elif request.method == 'GET' and request.GET.get('search'):
-        text = request.GET.get('search')
-        products = Product.objects.filter(name__icontains=text)
-        
-    else:
-        products = Product.objects.all()
-    
-    if request.GET.get('filter'):
-        # filter out products with given price range in the request
-        products = filter_prices_products(request, products)
-    
-    # objects pagination
-    page = request.GET.get('page')
-    objects_pagination = pagination(page, products)
-        
-    return render(request, 'content/list.html', {'main_bar': True,
-                                                 'products': objects_pagination})
 
 
 @login_required

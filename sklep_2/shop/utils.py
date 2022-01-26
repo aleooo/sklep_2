@@ -44,18 +44,6 @@ def filter_prices_products(*args, **kwargs):
     return products
 
 
-def pagination(page, products):
-    paginator = Paginator(products, 5)
-
-    try:
-        objects = paginator.page(page)
-    except PageNotAnInteger:
-        objects = paginator.page(1)
-    except EmptyPage:
-        objects = paginator.page(paginator.num_pages)
-    return objects
-
-
 # data without csrfmiddlewaretoken
 def data_post(request):
     data = request.POST.copy()
