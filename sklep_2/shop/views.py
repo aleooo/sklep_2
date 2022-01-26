@@ -9,6 +9,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.urls.base import resolve
 from django.utils.translation import gettext_lazy as _
+from django.views.generic import ListView
 
 from cart.cart import Cart
 from shop.forms import UserModelForm, PersonalForm, AddressForm
@@ -50,14 +51,38 @@ def search(request):
                 data.append(product.data())
         return JsonResponse({'data': data})
 
-
-def detail(request, slug):
+# Function url has few parameters that don't use
+def detail(request, slug, *args, **kwargs):
     product = Product.objects.get(slug=slug)
     return render(request, 'content/detail.html', {'product': product,
                                                    'main_bar': True,
                                                    })
 
 
+class List(ListView):
+    model = Product
+    template_name = 'content/list.html'
+    paginate_by = 5
+    context_object_name = 'products'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['main_bar'] = True
+        return context
+    
+    def get_queryset(self):
+        if self.kwargs.get('category'):
+            category = Category.objects.get(slug=self.kwargs.get('category'))
+            queryset = Product.objects.filter(category=category)
+        elif self.kwargs.get('search'):
+            queryset = Product.objects.filter(name__icontains=self.kwargs.get('search'))
+        else:
+            queryset = Product.objects.all()
+        if self.request.GET.get('filter'):
+            queryset = filter_prices_products(self.request.GET, queryset)
+        return queryset
+
+    
 def list(request, category=None, text=None):
     # filter according to the given category
     if category:
@@ -80,7 +105,7 @@ def list(request, category=None, text=None):
     objects_pagination = pagination(page, products)
         
     return render(request, 'content/list.html', {'main_bar': True,
-                                                 'objects': objects_pagination})
+                                                 'products': objects_pagination})
 
 
 @login_required

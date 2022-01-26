@@ -18,8 +18,9 @@ urlpatterns = [
     path('account/', views.account, name='account'),
     path('account/<str:type>/', views.account, name='account_data'),
     path('detail/<str:slug>/<int:seconds>/<int:hours>/<int:id>/', views.detail, name='detail'),
-    path('list/category/<str:category>/', views.list, name='list_category'),
-    path('list/', views.list, name='list'),
+    path('list/category/<str:category>/', views.List.as_view(), name='list_category'),
+    path('list/search/<str:search>/', views.List.as_view(), name='list_search'),
+    path('list/', views.List.as_view(), name='list'),
     path('search/', views.search, name='search'),
     path('', views.main, name='main'),
 ]

@@ -84,7 +84,7 @@ def product_order(object_order, cart):
     r.products_bought(recommendation_data)
     cart.clear()  
 
-def parcels(request):
+def parcel(request):
     data = list(Parcel.objects.values())
     return JsonResponse(data, safe=False)
 

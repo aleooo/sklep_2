@@ -84,6 +84,9 @@ function sendtext(text){
                 array_products += '<a href="' + list.data[i].url + '" class="list-group-item list-group-item-action " aria-current="true">' + list.data[i].name + '</a>'
             }
             search_list.html(array_products)
+            console.log(location);
+            url_search = location.pathname + 'list/search/' + text + '/';
+            $('#search_form_list').attr('action', url_search)
             
              
             

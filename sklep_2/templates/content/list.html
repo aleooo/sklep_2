@@ -3,6 +3,7 @@
 {% load i18n %}
 {% load static %}
 {% load price_tags %}
+{% load urlencode %}
 
 {% block content %}
     <div class='basic margin_t' id='list'>
@@ -33,21 +34,19 @@
                 </li>
             </ul> 
      
-            <form action='/list/search/a/b/' method='get' id='list_form_price'>
-                <span class='display_f align_i_c' >
-                    <input type='hidden' name='filter' value='manual'>
+            <form action="{{ request.path }}" method="" id="list_form_price">
+                <span class="display_f align_i_c" >
+                    <input type="hidden" name="filter" value="manual">
                     <div class="form-floating mb-3 width_40">
-                        <input type="number" class=' text_a_c padding_tb_05 form-control input' placeholder='from' name='from' id='list_input_from' min="0">
+                        <input type="number" class="text_a_c padding_tb_05 form-control input" placeholder="from" name="from" id="list_input_from" min="0">
                         <label for="list_input_from">{% trans "from" %}</label>
                     </div>
-                    <p class='margin_lr_05 '>-</p>
+                    <p class="margin_lr_05">-</p>
                     <div class="form-floating mb-3 width_40">
-                        <input type="number" class=' text_a_c padding_tb_05 form-control input' placeholder='to' name='to' id='list_input_to' min="1">
+                        <input type="number" class="text_a_c padding_tb_05 form-control input" placeholder="to" name="to" id="list_input_to" min="1">
                         <label for="list_input_from">{% trans "to" %}</label>
                     </div>
-                    
-                    
-                    <button type='submit' style='display:none'></button>
+                    <button type="submit" style="display:none"></button>
                 </span>
             </form>
         </div>
@@ -57,9 +56,9 @@
                 <button class='padding_0 border_n margin_0 background_inherit' id='list_filter_button' onclick='list_filter_button()'><strong><p class='font_size_15 color_green' >Filters</p></strong></button>
             
                 <ul class="pagination">
-                    {% if objects.has_previous %}
+                    {% if page_obj.has_previous %}
                         <li class="page-item">
-                            <a class="page-link" id='list_laquo'  href="?page=1">
+                            <a class="page-link" id='list_laquo'  href="{{ request.path }}?page=1{{ request.GET|urlquery }}">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -70,18 +69,19 @@
                             </a>
                         </li>
                     {% endif %}
-                    {% for number_page in objects.paginator.page_range %}
-                        {% if number_page == objects.number %}
-                            <li class="page-item active"><a class="page-link" href="#">{{ number_page }}</a></li>
+                
+                    {% for page in paginator.page_range %}
+                        {% if page == page_obj.number %}
+                            <li class="page-item active"><a class="page-link" href="#">{{ page }}</a></li>
                         {% else %}
-                            {% if number_page > objects.number|add:'-2' and  number_page < objects.number|add:'2' %}
-                                <li class="page-item"><a class="page-link pagination_a" href="?page={{ number_page }}">{{ number_page }}</a></li>
+                            {% if page > page_obj.number|add:'-2' and  page < page_obj.number|add:'2' %}
+                                <li class="page-item"><a class="page-link pagination_a" href="{{ request.path }}?page={{ page }}{{ request.GET|urlquery }}">{{ page }}</a></li>
                             {% endif %}
                         {% endif %}
                     {% endfor %}
-                    {% if objects.has_next %}
+                    {% if page_obj.has_next %}
                         <li class="page-item">
-                            <a class="page-link" id="list_raquo" href="?page={{ objects.paginator.num_pages }}" name="{{ objects.paginator.num_pages }}">
+                            <a class="page-link" id="list_raquo" href="{{ request.path }}?page={{ paginator.num_pages }}{{ request.GET|urlquery }}" name="{{ paginator.num_pages }}">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
@@ -96,7 +96,7 @@
                 </ul>
             </nav>
         
-            {% for product in objects %}
+            {% for product in products %}
                 <a href="{{ product.get_absolute_url }}" class='list_object'>
                     <div class='padding display_f height_250p list_object' >
                         <div class='width_image_list'>

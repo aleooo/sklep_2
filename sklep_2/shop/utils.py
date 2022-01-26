@@ -20,7 +20,7 @@ def price_range(*args, **kwargs):
 
 
 def filter_prices_products(*args, **kwargs):
-    data = args[0].GET
+    data = args[0]
     filter = data.get('filter', 'manual')
 
     if filter == 'manual':
