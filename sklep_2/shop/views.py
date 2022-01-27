@@ -2,7 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView, FormView
+from django.views.generic.base import ContextMixin
 
 from shop.forms import UserModelForm, PersonalForm, AddressForm
 from shop.models import Address, Category, Product, UserModel
@@ -10,18 +11,30 @@ from shop.recommender import Recommender
 from shop.utils import filter_prices_products, data_post
  
 
-def main(request):
-    categories = Category.objects.all()
-    products = Product.objects.all()
-    r = Recommender()
+class MainBar(ContextMixin):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['main_bar'] = True
+        return context
+
+
+class Main(ListView, MainBar):
+    model = Product
+    template_name = 'content/shop/main.html'
+    context_object_name = 'products'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["categories"] = Category.objects.all()
+        return context
     
-    products = r.popular_products(products)
-
-    return render(request, 'content/main.html', {'main_bar': True,
-                                                 'categories': categories,
-                                                 'products': products})
- 
-
+    def get_queryset(self):
+        products = Product.objects.all()
+        r = Recommender()
+        queryset = r.popular_products(products)
+        return queryset
+    
+    
 def register(request):
     if request.method == 'POST':
         user_form = UserModelForm(request.POST)
@@ -32,6 +45,8 @@ def register(request):
         user_form = UserModelForm()
     return render(request, 'registration/register.html', {'user_form': user_form})
 
+class Register(FormView):
+    pass
 
 def search(request):
     if request.method == 'POST':
@@ -43,24 +58,18 @@ def search(request):
                 data.append(product.data())
         return JsonResponse({'data': data})
 
-# Function url has few parameters that don't use
-def detail(request, slug, *args, **kwargs):
-    product = Product.objects.get(slug=slug)
-    return render(request, 'content/detail.html', {'product': product,
-                                                   'main_bar': True,
-                                                   })
 
-
-class List(ListView):
+class Detail(DetailView, MainBar):
     model = Product
-    template_name = 'content/list.html'
+    template_name = 'content/shop/detail.html'
+    context_object_name = 'product'
+
+
+class List(ListView, MainBar):
+    model = Product
+    template_name = 'content/shop/list.html'
     paginate_by = 5
     context_object_name = 'products'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['main_bar'] = True
-        return context
     
     def get_queryset(self):
         if self.kwargs.get('category'):
@@ -103,7 +112,7 @@ def account(request, type=None):
         address_form = AddressForm(instance=user.address)    
     
 
-    return render(request, 'content/account.html', {'address_form': address_form,
+    return render(request, 'content/shop/account.html', {'address_form': address_form,
                                                     'main_bar': True,
                                                     'orders': orders,
                                                     'personal_form': personal_form,

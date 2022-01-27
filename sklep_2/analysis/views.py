@@ -4,4 +4,4 @@ from utils.analysis import ranking
 
 def main(request):
     r = ranking()
-    return render(request, 'content/analysis.html', {'ranking': r})
+    return render(request, 'content/analysis/analysis.html', {'ranking': r})
