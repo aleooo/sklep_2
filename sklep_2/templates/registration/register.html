@@ -12,13 +12,13 @@
     <form action="." method='post' class='needs-validation' novalidate>
         {% csrf_token %}
         <div class='form-floating margin_tb'>
-            {{ user_form.username }}
-            <label for="id_username">{{ user_form.username.label }}</label>
-            <div class='color_red font_numbers_light'>{{ user_form.username.errors }}</div>
+            {{ form.username }}
+            <label for="id_username">{{ form.username.label }}</label>
+            <div class='color_red font_numbers_light'>{{ form.username.errors }}</div>
         </div>
         <div class='form-floating margin_tb'>
-            {{ user_form.email }}
-            <label for="id_email">{{ user_form.email.label }}</label>
+            {{ form.email }}
+            <label for="id_email">{{ form.email.label }}</label>
             <div class="invalid-feedback">
                 <ul>
                     <li>{% trans "Please enter a valid email" %}</li>

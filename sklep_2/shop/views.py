@@ -1,8 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.http.response import JsonResponse
 from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import ListView, DetailView, FormView
+from django.views.generic import ListView, DetailView, CreateView
 from django.views.generic.base import ContextMixin
 
 from shop.forms import UserModelForm, PersonalForm, AddressForm
@@ -34,19 +35,12 @@ class Main(ListView, MainBar):
         queryset = r.popular_products(products)
         return queryset
     
-    
-def register(request):
-    if request.method == 'POST':
-        user_form = UserModelForm(request.POST)
-        if user_form.is_valid():
-            user_form.save()
-            return redirect('shop:login')
-    else:
-        user_form = UserModelForm()
-    return render(request, 'registration/register.html', {'user_form': user_form})
 
-class Register(FormView):
-    pass
+class Register(CreateView):
+    model = UserModel
+    form_class = UserModelForm
+    template_name = 'registration/register.html'
+    success_url = reverse_lazy('shop:login')
 
 def search(request):
     if request.method == 'POST':
