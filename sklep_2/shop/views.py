@@ -42,16 +42,6 @@ class Register(CreateView):
     template_name = 'registration/register.html'
     success_url = reverse_lazy('shop:login')
 
-def search(request):
-    if request.method == 'POST':
-        text = request.POST.get('text')
-        products = Product.objects.filter(name__icontains=text)[:8]
-        data = []
-        if len(products) > 0 and len(text) > 0:     
-            for product in products:
-                data.append(product.data())
-        return JsonResponse({'data': data})
-
 
 class Detail(DetailView, MainBar):
     model = Product
@@ -113,4 +103,12 @@ def account(request, type=None):
                                                     'user': user}) 
 
 
-
+def search(request):
+    if request.method == 'POST':
+        text = request.POST.get('text')
+        products = Product.objects.filter(name__icontains=text)[:8]
+        data = []
+        if len(products) > 0 and len(text) > 0:     
+            for product in products:
+                data.append(product.data())
+        return JsonResponse({'data': data})

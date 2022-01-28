@@ -3,12 +3,10 @@ from django.http.request import HttpRequest
 from django.test import TestCase
 from django.contrib.auth.models import User
 from django.test.client import Client
-from django.urls.base import resolve, reverse
+from django.urls.base import reverse
 
 from shop.models import Address, Category, Product, UserModel
-from shop.views import  register
 from shop.utils import filter_prices_products
-
 
 
 class ShopViewTest(TestCase):
@@ -32,8 +30,6 @@ class ShopViewTest(TestCase):
         self.user = UserModel.objects.create(username='aleo', first_name='alek', last_name='wiedenski', email='dwdawdw@gmail.com', password='aleoaleo', address=address, number='+48510865704')
         self.user_without_data = UserModel.objects.create(username='alek', password='aleoaleo')
         
-        
-    
     def test_Main(self):
         response = self.client.get(reverse('shop:main'))
         self.assertEqual(response.status_code, 200)
@@ -198,11 +194,3 @@ class ShopViewTest(TestCase):
         self.assertContains(response, 'trolo@gmail.com')
         self.assertContains(response, '+48523765109')
     
-    
-
-        
-
-
-
-        
-        
