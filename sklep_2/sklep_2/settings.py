@@ -4,8 +4,6 @@ from django.contrib.messages import constants as messages
 from django.utils.translation import gettext_lazy as _
 from pathlib import Path
 from decouple import config
-import django_redis
-
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -177,10 +175,11 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale/'),
 )
 
-CELERY_BROKER_URL = 'redis://localhost:6379'
+
 REDIS_HOST = config('ADDRESS_IP')
 REDIS_PORT = 6379
 REDIS_DB = 1
+CELERY_BROKER_URL = f'redis://{REDIS_HOST}:6379'
 
 CACHES = {
     "default": {

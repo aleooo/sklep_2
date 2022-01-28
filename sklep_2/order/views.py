@@ -2,11 +2,12 @@ from io import BytesIO
 from math import e
 
 from decimal import Decimal
+from webbrowser import get
 from django.http import JsonResponse
 from django.http.response import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
-from django.core.mail import EmailMessage
+from django.views.generic.base import View
 import weasyprint
 
 from .forms import OrderForm
@@ -84,8 +85,10 @@ def product_order(object_order, cart):
     r.products_bought(recommendation_data)
     cart.clear()  
 
-def parcel(request):
-    data = list(Parcel.objects.values())
-    return JsonResponse(data, safe=False)
 
+class ParcelView(View):
+    def get(self, request, *args, **kwargs):
+        data = list(Parcel.objects.values())
+        return JsonResponse(data, safe=False)
+    
       
