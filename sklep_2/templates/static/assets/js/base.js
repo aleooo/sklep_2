@@ -72,7 +72,16 @@ function sidebar() {
     }
 }
 
+// create url to view of objects list
+function urlSearch(text){
+    url_search = location.pathname.slice(0,4) + 'list/';
+    if(text != ""){
+        url_search += "search/" + text + '/';
+    }
+    return url_search
+}
 
+// send request for objects that they will contain text typing in search input
 function sendtext(text){
     $.ajax({
         type: "POST",
@@ -87,12 +96,9 @@ function sendtext(text){
                 array_products += '<a href="' + list.data[i].url + '" class="list-group-item list-group-item-action " aria-current="true">' + list.data[i].name + '</a>'
             }
             search_list.html(array_products)
-           
-            url_search = location.pathname.slice(0,4) + 'list/search/' + text + '/';
+            url_search = urlSearch(text)
+            
             $('#search_form_list').attr('action', url_search)
-            
-             
-            
         },
         error: function(){console.log('error');}
     });
